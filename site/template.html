@@ -1,0 +1,574 @@
+<meta charset="utf-8">
+<title>Laboratorio de Fusiones</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;700&family=Chivo:wght@400;600;800&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: una "terminal de PC de laboratorio" — barra de pestañas fija, tarjetas de fusión en rejilla, datos en mono */
+:root{
+  --bg:#e9eef5; --panel:#ffffff; --panel-2:#f3f6fb; --ink:#14213a; --ink-2:#4a5878; --line:#cfd8e6;
+  --accent:#e3a008; --accent-ink:#5c3d00; --brand:#2f5bd3; --good:#178a55; --warn:#c2410c; --bad:#c0262d;
+  --hp:#3aa76d; --atk:#e0662b; --def:#d9a521; --spa:#4f7be6; --spd:#5fb4c9; --spe:#d6519c;
+  --f-display:"Pixelify Sans", "Courier New", monospace;
+  --f-body:"Chivo", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono:"JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --t-NORMAL:#9a9a78; --t-FIRE:#e2673a; --t-WATER:#4b86e6; --t-ELECTRIC:#d9b416; --t-GRASS:#52a83a;
+  --t-ICE:#5cbcc1; --t-FIGHTING:#b6352c; --t-POISON:#9746a3; --t-GROUND:#c79a46; --t-FLYING:#8d86e2;
+  --t-PSYCHIC:#e54f7f; --t-BUG:#8ea21e; --t-ROCK:#ab9536; --t-GHOST:#6b5596; --t-DRAGON:#6a3cf0;
+  --t-DARK:#6b5446; --t-STEEL:#8f93ae; --t-FAIRY:#d985b5;
+  --shadow:0 1px 0 rgba(20,33,58,.06), 0 6px 18px -10px rgba(20,33,58,.25);
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#0e1424; --panel:#161f35; --panel-2:#1c2741; --ink:#e7ecf6; --ink-2:#9aa8c6; --line:#2a3757;
+  --accent:#f4b62a; --accent-ink:#2a1c00; --brand:#7aa0ff; --good:#3fca85; --warn:#fb8a4c; --bad:#ff6b70;
+  --shadow:0 1px 0 rgba(0,0,0,.3), 0 8px 22px -12px rgba(0,0,0,.6); color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#0e1424; --panel:#161f35; --panel-2:#1c2741; --ink:#e7ecf6; --ink-2:#9aa8c6; --line:#2a3757;
+  --accent:#f4b62a; --accent-ink:#2a1c00; --brand:#7aa0ff; --good:#3fca85; --warn:#fb8a4c; --bad:#ff6b70;
+  --shadow:0 1px 0 rgba(0,0,0,.3), 0 8px 22px -12px rgba(0,0,0,.6); color-scheme:dark }
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.5;margin:0}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--panel)}
+.wrap{max-width:1240px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{text-wrap:balance;margin:0}
+h1{font-family:var(--f-display);font-weight:700;font-size:clamp(28px,4.6vw,44px);line-height:1.05;letter-spacing:.01em}
+h2{font-family:var(--f-display);font-weight:700;font-size:24px;line-height:1.15}
+h3{font-size:15px;font-weight:800}
+.lead{color:var(--ink-2);max-width:68ch;margin:.5rem 0 0}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.muted{color:var(--ink-2)}
+.eyebrow{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2)}
+
+header.top{padding-block:28px 18px}
+.head-row{display:flex;gap:20px;align-items:flex-end;justify-content:space-between;flex-wrap:wrap}
+.boxtag{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-mono);font-size:12px;background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:4px 10px;margin-bottom:10px}
+.boxtag i{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 30%,transparent)}
+
+nav.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--panel);border-block:1px solid var(--line)}
+nav.tabs .wrap{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+nav.tabs a{font-family:var(--f-display);font-size:16px;color:var(--ink-2);text-decoration:none;padding:12px 14px;border-bottom:3px solid transparent;white-space:nowrap}
+nav.tabs a[aria-current="page"]{color:var(--ink);border-bottom-color:var(--accent)}
+nav.tabs a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+
+main{padding-block:22px 60px}
+section.view{display:grid;gap:22px}
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font:600 13px var(--f-body);border:1px solid var(--line);background:var(--panel);color:var(--ink);padding:6px 12px;border-radius:999px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+input[type=search],select{font:14px var(--f-body);background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:8px 12px;min-width:0}
+label.tog{display:inline-flex;gap:8px;align-items:center;font-size:13px;color:var(--ink-2);cursor:pointer}
+button.btn{font:700 13px var(--f-body);background:var(--accent);color:var(--accent-ink);border:0;border-radius:10px;padding:9px 14px;cursor:pointer}
+button.ghost{font:600 13px var(--f-body);background:transparent;color:var(--brand);border:1px solid var(--line);border-radius:10px;padding:8px 12px;cursor:pointer}
+
+.type{display:inline-block;font:700 11px var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:#fff;padding:2px 7px;border-radius:4px;text-shadow:0 1px 0 rgba(0,0,0,.25)}
+.badge{display:inline-block;font:600 11px var(--f-mono);padding:1px 6px;border-radius:4px;border:1px solid var(--line);color:var(--ink-2)}
+.badge.ha{border-color:color-mix(in srgb,var(--accent) 60%,var(--line));color:var(--ink);background:color-mix(in srgb,var(--accent) 16%,transparent)}
+.badge.role{border-color:transparent;background:var(--panel-2)}
+
+/* tarjetas de fusión */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,360px),1fr));gap:14px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px;display:grid;gap:10px;box-shadow:var(--shadow);cursor:pointer;min-width:0;text-align:left;color:inherit;font:inherit}
+.card:hover{border-color:color-mix(in srgb,var(--brand) 45%,var(--line))}
+.card-top{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center}
+.spr{width:96px;height:96px;image-rendering:pixelated;background-repeat:no-repeat;flex:none;border-radius:10px;background-color:var(--panel-2)}
+.spr.sm{width:48px;height:48px}
+.rank{font:700 12px var(--f-mono);color:var(--ink-2)}
+.fname{font-weight:800;font-size:16px;line-height:1.2;overflow-wrap:anywhere}
+.fname small{display:block;font:500 11px var(--f-mono);color:var(--ink-2);letter-spacing:.04em;margin-top:2px}
+.score{font:700 30px var(--f-display);line-height:1;text-align:right}
+.score span{display:block;font:500 10px var(--f-mono);color:var(--ink-2);letter-spacing:.1em;text-transform:uppercase;margin-top:4px}
+.ab{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:13px}
+.ab b{font-weight:800}
+.stats{display:grid;grid-template-columns:repeat(6,1fr);gap:6px}
+.st{display:grid;gap:3px}
+.st .k{font:600 10px var(--f-mono);color:var(--ink-2);letter-spacing:.06em}
+.st .v{font:600 13px var(--f-mono)}
+.st .v em{font-style:normal;color:var(--good);font-size:11px}
+.st .b{height:5px;border-radius:3px;background:var(--panel-2);overflow:hidden}
+.st .b i{display:block;height:100%}
+.weak{display:flex;flex-wrap:wrap;gap:4px;align-items:center;font-size:12px}
+.weak .lbl{font:600 10px var(--f-mono);color:var(--ink-2);letter-spacing:.06em;margin-right:2px}
+.notes{margin:0;padding-left:18px;font-size:13px;color:var(--ink-2);display:grid;gap:3px}
+
+/* destacadas */
+.feature{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));gap:12px}
+.fcard{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px;display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:center;cursor:pointer;text-align:left;color:inherit;font:inherit;min-width:0}
+.fcard .eyebrow{color:var(--accent-ink);background:var(--accent);padding:1px 6px;border-radius:4px;justify-self:start;letter-spacing:.08em}
+:root[data-theme="dark"] .fcard .eyebrow{color:var(--accent-ink)}
+
+/* explorador */
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(84px,1fr));gap:8px}
+.pbtn{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:6px 4px 8px;display:grid;justify-items:center;gap:2px;cursor:pointer;color:var(--ink);font:600 11px var(--f-body)}
+.pbtn .spr{width:64px;height:64px;background-color:transparent}
+.pbtn[aria-pressed="true"]{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:820px){.two{grid-template-columns:1fr}}
+.list{display:grid;gap:8px}
+.row{display:grid;grid-template-columns:48px 1fr auto;gap:10px;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:8px 10px;cursor:pointer;text-align:left;color:inherit;font:inherit;min-width:0}
+.row .nm{font-weight:800;font-size:14px;overflow-wrap:anywhere}
+.row .sub{font-size:12px;color:var(--ink-2);display:flex;flex-wrap:wrap;gap:4px;align-items:center}
+.row .sc{font:700 18px var(--f-display)}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;display:grid;gap:12px;min-width:0}
+
+/* tablas */
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--panel)}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:middle}
+th{font:600 11px var(--f-mono);letter-spacing:.06em;color:var(--ink-2);text-transform:uppercase;background:var(--panel-2);position:sticky;top:0}
+td.n{font-family:var(--f-mono);text-align:right;font-variant-numeric:tabular-nums}
+tr:last-child td{border-bottom:0}
+
+/* equipo */
+.team-sum{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,180px),1fr));gap:10px}
+.mtx{font-size:12px}
+.mtx td,.mtx th{padding:4px 6px;text-align:center}
+.mtx td.w{background:color-mix(in srgb,var(--bad) 22%,transparent)}
+.mtx td.w4{background:color-mix(in srgb,var(--bad) 45%,transparent);font-weight:700}
+.mtx td.r{background:color-mix(in srgb,var(--good) 18%,transparent)}
+.mtx td.i{background:color-mix(in srgb,var(--good) 38%,transparent);font-weight:700}
+
+dialog{border:1px solid var(--line);border-radius:16px;background:var(--panel);color:var(--ink);padding:0;width:min(720px,calc(100vw - 24px));max-height:calc(100dvh - 40px)}
+dialog::backdrop{background:rgba(8,12,24,.55)}
+.dlg{padding:18px;display:grid;gap:14px}
+.dlg-head{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.dlg-head .spr{width:144px;height:144px;background-size:auto}
+.close{margin-left:auto}
+.prose{max-width:72ch;display:grid;gap:10px}
+.prose p,.prose li{color:var(--ink-2)}
+.prose code{font-family:var(--f-mono);font-size:13px;background:var(--panel-2);padding:1px 5px;border-radius:4px;color:var(--ink)}
+.callout{border:1px solid color-mix(in srgb,var(--accent) 55%,var(--line));background:color-mix(in srgb,var(--accent) 10%,var(--panel));border-radius:12px;padding:12px 14px;font-size:14px}
+.more{justify-self:center}
+@media (prefers-reduced-motion:no-preference){.card,.row,.fcard{transition:border-color .15s, transform .15s}.card:hover,.fcard:hover{transform:translateY(-1px)}}
+@media (max-width:480px){.stats{grid-template-columns:repeat(3,1fr)}.spr{width:72px;height:72px}}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <div class="head-row">
+      <div>
+        <div class="boxtag"><i></i>Caja 2 · 27 Pokémon · <span id="nfus" class="mono"></span> fusiones</div>
+        <h1>Laboratorio de Fusiones</h1>
+        <p class="lead">Todas las fusiones posibles con tu caja de Pokémon Infinite Fusion. Stats, tipos y habilidades salen de los datos del propio juego. Pulsa cualquier fusión para ver el detalle completo.</p>
+      </div>
+    </div>
+  </div>
+</header>
+<nav class="tabs" aria-label="Secciones">
+  <div class="wrap">
+    <a href="#ranking">Mejores fusiones</a>
+    <a href="#explorador">Explorador 1 a 1</a>
+    <a href="#equipo">Mejor equipo</a>
+    <a href="#caja">Tu caja</a>
+    <a href="#metodo">Cómo se calcula</a>
+  </div>
+</nav>
+
+<main class="wrap">
+  <!-- RANKING -->
+  <section class="view" id="v-ranking">
+    <div class="callout" id="ha-callout"></div>
+    <div>
+      <h2>Destacadas</h2>
+      <p class="muted" style="margin:.25rem 0 12px">La mejor fusión de cada rol y de cada habilidad que rompe el juego.</p>
+      <div class="feature" id="featured"></div>
+    </div>
+    <div style="display:grid;gap:12px">
+      <h2>Ranking completo</h2>
+      <div class="bar">
+        <div class="chips" id="role-chips" role="group" aria-label="Ordenar por rol"></div>
+      </div>
+      <div class="bar">
+        <input type="search" id="q" placeholder="Buscar Pokémon, tipo o habilidad…" aria-label="Buscar">
+        <label class="tog"><input type="checkbox" id="onedir"> Solo la mejor dirección de cada pareja</label>
+        <label class="tog"><input type="checkbox" id="notruant" checked> Ocultar fusiones con Ausente</label>
+      </div>
+      <div class="muted mono" id="count" style="font-size:12px"></div>
+      <div class="grid" id="rank-grid"></div>
+      <button class="ghost more" id="more">Ver 30 más</button>
+    </div>
+  </section>
+
+  <!-- EXPLORADOR -->
+  <section class="view" id="v-explorador" hidden>
+    <div>
+      <h2>Explorador 1 a 1</h2>
+      <p class="muted" style="margin:.25rem 0 12px">Elige un Pokémon y verás con quién fusionarlo, tanto si pone la cabeza como si pone el cuerpo.</p>
+      <div class="pgrid" id="pgrid"></div>
+    </div>
+    <div class="panel" id="p-info"></div>
+    <div class="bar"><div class="chips" id="role-chips-2" role="group" aria-label="Ordenar por rol"></div></div>
+    <div class="two">
+      <div class="list"><h3 id="h-head"></h3><div class="list" id="as-head"></div></div>
+      <div class="list"><h3 id="h-body"></h3><div class="list" id="as-body"></div></div>
+    </div>
+  </section>
+
+  <!-- EQUIPO -->
+  <section class="view" id="v-equipo" hidden>
+    <div>
+      <h2>Mejor equipo de 6</h2>
+      <p class="muted" style="margin:.25rem 0 0">Cada Pokémon base solo se puede usar una vez (Chandelure dos veces, porque tienes dos). El buscador premia la puntuación de cada fusión, castiga que 3 o más compartan debilidad y premia mezclar roles.</p>
+    </div>
+    <div class="panel">
+      <h3>No usar en el equipo</h3>
+      <p class="muted" style="margin:0;font-size:13px">Marca los Pokémon que quieras dejar fuera (por ejemplo, si ya los tienes en otra fusión).</p>
+      <div class="chips" id="excl"></div>
+      <div class="bar"><button class="btn" id="build">Buscar equipos</button><span class="muted mono" id="team-status" style="font-size:12px"></span></div>
+    </div>
+    <div id="teams" style="display:grid;gap:22px"></div>
+  </section>
+
+  <!-- CAJA -->
+  <section class="view" id="v-caja" hidden>
+    <div>
+      <h2>Tu caja</h2>
+      <p class="muted" style="margin:.25rem 0 0">Stats base del juego, tipos y habilidades. Marca <b>Tiene oculta</b> solo si ese Pokémon tuyo lleva su habilidad oculta: todos los rankings se recalculan con ello.</p>
+    </div>
+    <div class="bar">
+      <button class="ghost" id="ha-all">Marcar todas</button>
+      <button class="ghost" id="ha-none">Desmarcar todas</button>
+    </div>
+    <div class="tbl-wrap"><table id="box-table"></table></div>
+  </section>
+
+  <!-- METODO -->
+  <section class="view" id="v-metodo" hidden>
+    <div class="prose" id="method"></div>
+  </section>
+</main>
+
+<dialog id="dlg"><div class="dlg" id="dlg-body"></div></dialog>
+
+<script id="data" type="application/json">/*__DATA__*/</script>
+<script>
+(() => {
+const D = JSON.parse(document.getElementById('data').textContent);
+const M = D.meta, F = D.fusions, SPR = D.sprites, TYPES = M.types, TES = M.types_es;
+const SP = M.species, AB = M.abilities;
+const ROLES = [["score","General"],["fisico","Atacante físico"],["especial","Atacante especial"],["muro","Muro / tanque"],["rapido","Rápido / sweeper"],["typ","Mejor tipo defensivo"]];
+const ROLE_ES = {fisico:"Físico",especial:"Especial",muro:"Muro",rapido:"Rápido"};
+const STAT_K = ["PS","ATQ","DEF","AtE","DfE","VEL"], STAT_C = ["--hp","--atk","--def","--spa","--spd","--spe"];
+const UNIQUE = [...new Set(M.box)];
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+// ---------- preferencias (solo en este navegador)
+const store = {
+  get(k, d){ try { const v = localStorage.getItem(k); return v == null ? d : JSON.parse(v); } catch(e){ return d; } },
+  set(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch(e){} }
+};
+let haOK = store.get("haOK", Object.fromEntries(UNIQUE.map(k => [k, true])));
+let excl = new Set(store.get("excl", []));
+
+document.getElementById('nfus').textContent = F.length;
+
+// ---------- helpers
+const nm = k => SP[k] ? SP[k].name : k;
+function sprite(key, cls=""){
+  const i = SPR.index[key]; if (i == null) return `<div class="spr ${cls}" aria-hidden="true"></div>`;
+  const s = SPR.size, c = SPR.cols, x = (i % c) * s, y = Math.floor(i / c) * s;
+  const scale = cls.includes("sm") ? 0.5 : cls.includes("big") ? 1.5 : 1;
+  const st = `background-image:url(sprites.webp);background-position:-${x*scale}px -${y*scale}px;background-size:${c*s*scale}px auto`;
+  return `<div class="spr ${cls}" style="${st}" role="img" aria-label="sprite"></div>`;
+}
+const typeChip = t => `<span class="type" style="background:var(--t-${t})">${TES[t]}</span>`;
+const abName = id => AB[id] ? AB[id].es : id;
+function allowed(f, e){
+  if (e.kind !== "oculta") return true;
+  return !!haOK[e.from === "cabeza" ? f.head : f.body];
+}
+function pick(f, role){
+  let best = null, bv = -1e9;
+  for (const e of f.abilities){
+    if (!allowed(f, e)) continue;
+    const v = val(e, role);
+    if (v > bv){ bv = v; best = e; }
+  }
+  return best;
+}
+function val(e, role){ return role === "score" ? e.score : role === "typ" ? e.typ : e.roles[role]; }
+function view(f, role){ const e = pick(f, role); return {f, e, v: val(e, role)}; }
+function multOf(e){ const o = {}; TYPES.forEach((t,i)=>o[t]=e.mult[i]); return o; }
+function weakHTML(e){
+  const m = multOf(e);
+  const x4 = TYPES.filter(t=>m[t]===4), x2 = TYPES.filter(t=>m[t]===2), im = TYPES.filter(t=>m[t]===0);
+  let h = `<div class="weak"><span class="lbl">DÉBIL</span>`;
+  h += x4.map(t=>typeChip(t).replace('</span>',' ×4</span>')).join("") + x2.map(typeChip).join("");
+  if (!x4.length && !x2.length) h += `<span class="muted">ninguna</span>`;
+  if (im.length) h += `<span class="lbl" style="margin-left:6px">INMUNE</span>` + im.map(typeChip).join("");
+  return h + `</div>`;
+}
+function statsHTML(f, e){
+  return `<div class="stats">${f.stats.map((v,i)=>{
+    const ev = e.est[i], diff = Math.round(ev - v);
+    return `<div class="st"><span class="k">${STAT_K[i]}</span><span class="v">${v}${diff>2?` <em>→${ev}</em>`:""}</span><span class="b"><i style="width:${Math.min(100,Math.max(v,ev)/1.6)}%;background:var(${STAT_C[i]})"></i></span></div>`;
+  }).join("")}</div>`;
+}
+function abHTML(f, e){
+  const src = e.from === "cabeza" ? nm(f.head) : nm(f.body);
+  return `<div class="ab"><b>${esc(abName(e.id))}</b>${e.kind==="oculta"?`<span class="badge ha">oculta</span>`:`<span class="badge">normal</span>`}<span class="muted" style="font-size:12px">de ${esc(src)}</span><span class="badge role">${ROLE_ES[e.role]}</span></div>`;
+}
+function card(vw, rank){
+  const {f, e, v} = vw;
+  return `<button class="card" data-k="${f.head}|${f.body}">
+    <div class="card-top">${sprite(f.head+"|"+f.body)}
+      <div><div class="rank">#${rank}</div><div class="fname">${esc(nm(f.head))} / ${esc(nm(f.body))}<small>CABEZA / CUERPO</small></div>
+      <div class="chips" style="margin-top:6px">${f.types.map(typeChip).join("")}</div></div>
+      <div class="score">${v.toFixed(0)}<span>puntos</span></div></div>
+    ${abHTML(f,e)}
+    ${statsHTML(f,e)}
+    ${weakHTML(e)}
+    ${e.notes.length?`<ul class="notes">${e.notes.slice(0,2).map(n=>`<li>${esc(n)}</li>`).join("")}</ul>`:""}
+  </button>`;
+}
+function row(vw){
+  const {f, e, v} = vw;
+  return `<button class="row" data-k="${f.head}|${f.body}">${sprite(f.head+"|"+f.body,"sm")}
+    <div style="min-width:0"><div class="nm">${esc(nm(f.head))} / ${esc(nm(f.body))}</div>
+    <div class="sub">${f.types.map(typeChip).join("")}<span>${esc(abName(e.id))}</span>${e.kind==="oculta"?'<span class="badge ha">oculta</span>':""}<span class="mono">${f.stats.reduce((a,b)=>a+b,0)} BST</span></div></div>
+    <div class="sc">${v.toFixed(0)}</div></button>`;
+}
+
+// ---------- detalle
+function openDetail(key){
+  const f = F.find(x => x.head+"|"+x.body === key); if (!f) return;
+  const opts = f.abilities.map(e => ({e, ok: allowed(f, e)}));
+  const e = pick(f, "score");
+  const m = multOf(e);
+  const H = SP[f.head], B = SP[f.body];
+  const baseRow = (s, lab) => `<tr><td>${lab}</td>${s.stats.map(x=>`<td class="n">${x}</td>`).join("")}<td class="n">${s.stats.reduce((a,b)=>a+b,0)}</td></tr>`;
+  const coreRow = f.core ? `<tr><td>Fusión (forma Núcleo)</td>${f.core.map(x=>`<td class="n">${x}</td>`).join("")}<td class="n">${f.core.reduce((a,b)=>a+b,0)}</td></tr>` : "";
+  const dmg = [[4,"×4"],[2,"×2"],[0.5,"×½"],[0.25,"×¼"],[0,"×0"]].map(([k,l]) => {
+    const ts = TYPES.filter(t=>m[t]===k); return ts.length ? `<div class="weak"><span class="lbl">${l}</span>${ts.map(typeChip).join("")}</div>` : "";
+  }).join("");
+  $("#dlg-body").innerHTML = `
+    <div class="dlg-head">${sprite(key,"big")}
+      <div style="min-width:0;flex:1"><div class="eyebrow">#${f.rank} general · ${SPR.kind[key]==="custom"?"sprite personalizado":"sprite autogenerado"}</div>
+      <h2 style="margin-top:4px">${esc(nm(f.head))} / ${esc(nm(f.body))}</h2>
+      <div class="muted" style="font-size:13px">Cabeza: ${esc(nm(f.head))} · Cuerpo: ${esc(nm(f.body))}</div>
+      <div class="chips" style="margin-top:8px">${f.types.map(typeChip).join("")}</div></div>
+      <button class="ghost close" id="dlg-x">Cerrar</button></div>
+    <div class="tbl-wrap"><table><tr><th></th>${STAT_K.map(k=>`<th>${k}</th>`).join("")}<th>Total</th></tr>
+      ${baseRow(H, esc(H.name)+" (cabeza)")}${baseRow(B, esc(B.name)+" (cuerpo)")}
+      <tr><td><b>Fusión</b></td>${f.stats.map(x=>`<td class="n"><b>${x}</b></td>`).join("")}<td class="n"><b>${f.bst}</b></td></tr>${coreRow}
+      <tr><td>Efectivo con ${esc(abName(e.id))}</td>${e.est.map(x=>`<td class="n">${x}</td>`).join("")}<td class="n">–</td></tr></table></div>
+    <div><h3>Habilidades posibles</h3>
+      <div class="tbl-wrap" style="margin-top:8px"><table><tr><th>Habilidad</th><th>Origen</th><th>Rol</th><th>Puntos</th></tr>
+      ${opts.map(({e,ok}) => `<tr style="${ok?"":"opacity:.45"}"><td><b>${esc(abName(e.id))}</b> ${e.kind==="oculta"?'<span class="badge ha">oculta</span>':""}<div class="muted" style="font-size:12px">${esc(AB[e.id]?AB[e.id].desc:"")}</div></td><td>${e.from==="cabeza"?esc(nm(f.head)):esc(nm(f.body))}</td><td>${ROLE_ES[e.role]}</td><td class="n">${e.score.toFixed(1)}${ok?"":"<div class='muted' style='font-size:11px'>no la tiene</div>"}</td></tr>`).join("")}
+      </table></div></div>
+    <div><h3>Daño recibido (con ${esc(abName(e.id))})</h3><div style="display:grid;gap:6px;margin-top:8px">${dmg}</div></div>
+    ${e.notes.length?`<div><h3>Claves</h3><ul class="notes" style="margin-top:6px">${e.notes.map(n=>`<li>${esc(n)}</li>`).join("")}</ul></div>`:""}
+    <p class="muted" style="font-size:12px;margin:0">Para fusionar: la habilidad sale de la que tenga AHORA cada Pokémon base. Si es la 1ª o 2ª habilidad y no la lleva, usa una Cápsula Habilidad antes de fusionar. Las ocultas tiene que traerlas ya.</p>`;
+  const d = $("#dlg"); d.showModal(); $("#dlg-x").onclick = () => d.close();
+}
+document.addEventListener("click", ev => {
+  const c = ev.target.closest("[data-k]"); if (c) openDetail(c.dataset.k);
+});
+$("#dlg").addEventListener("click", ev => { if (ev.target.id === "dlg") ev.target.close(); });
+
+// ---------- ranking
+let role = "score", shown = 30;
+function chipsFor(el, cur, onPick){
+  el.innerHTML = ROLES.map(([k,l]) => `<button class="chip" aria-pressed="${k===cur}" data-r="${k}">${l}</button>`).join("");
+  el.onclick = ev => { const b = ev.target.closest("[data-r]"); if (b) onPick(b.dataset.r); };
+}
+function rankedList(r){
+  let L = F.map(f => view(f, r));
+  if ($("#notruant").checked) L = L.filter(x => x.e.id !== "TRUANT");
+  L.sort((a,b) => b.v - a.v);
+  if ($("#onedir").checked){
+    const seen = new Set(); L = L.filter(x => { const k = [x.f.head,x.f.body].sort().join("|"); if (seen.has(k)) return false; seen.add(k); return true; });
+  }
+  return L;
+}
+function renderRanking(){
+  chipsFor($("#role-chips"), role, r => { role = r; shown = 30; renderRanking(); });
+  let L = rankedList(role);
+  const q = $("#q").value.trim().toLowerCase();
+  const full = L.map((x,i)=>({...x, rank:i+1}));
+  let R = full;
+  if (q) R = full.filter(({f,e}) => [nm(f.head),nm(f.body),abName(e.id),AB[e.id]?.en||"",...f.types.map(t=>TES[t])].join(" ").toLowerCase().includes(q));
+  $("#count").textContent = `${R.length} fusiones · ordenadas por ${ROLES.find(r=>r[0]===role)[1].toLowerCase()}`;
+  $("#rank-grid").innerHTML = R.slice(0, shown).map(x => card(x, x.rank)).join("");
+  $("#more").hidden = R.length <= shown;
+}
+$("#more").onclick = () => { shown += 30; renderRanking(); };
+["#q","#onedir","#notruant"].forEach(s => $(s).addEventListener("input", () => { shown = 30; renderRanking(); }));
+
+function renderFeatured(){
+  const picks = [];
+  const used = new Set();
+  const add = (label, x) => { if (!x) return; picks.push({label, x}); };
+  for (const [r, l] of ROLES.slice(0,5)){
+    add(r==="score"?"Nº 1 general":"Mejor "+l.toLowerCase(), rankedList(r)[0]);
+  }
+  const abil = [["STANCECHANGE","Cambio Táctico"],["SPEEDBOOST","Impulso"],["PROTEAN","Mutatipo"],["CONTRARY","Respondón"],
+    ["MAGICGUARD","Muro Mágico"],["REGENERATOR","Regeneración"],["DROUGHT","Sequía"],["SHADOWTAG","Sombra Trampa"],
+    ["INTIMIDATE","Intimidación"],["SHIELDSDOWN","Escudo Limitado"],["HUSTLE","Entusiasmo"],["SERENEGRACE","Dicha"]];
+  for (const [id, l] of abil){
+    let best = null;
+    for (const f of F){ for (const e of f.abilities){ if (e.id===id && allowed(f,e) && (!best || e.score > best.e.score)) best = {f, e, v:e.score}; } }
+    add("Mejor con " + l, best);
+  }
+  $("#featured").innerHTML = picks.map(({label,x}) => `<button class="fcard" data-k="${x.f.head}|${x.f.body}">${sprite(x.f.head+"|"+x.f.body,"sm")}
+    <div style="min-width:0;display:grid;gap:3px"><span class="eyebrow">${esc(label)}</span><b style="overflow-wrap:anywhere">${esc(nm(x.f.head))} / ${esc(nm(x.f.body))}</b>
+    <div class="sub chips" style="font-size:12px">${x.f.types.map(typeChip).join("")}<span class="muted">${esc(abName(x.e.id))} · ${x.v.toFixed(0)}</span></div></div></button>`).join("");
+}
+function renderCallout(){
+  const off = UNIQUE.filter(k => !haOK[k] && SP[k].hidden.length);
+  $("#ha-callout").innerHTML = off.length
+    ? `Calculado sin las habilidades ocultas de: <b>${off.map(nm).join(", ")}</b>. Cámbialo en <a href="#caja">Tu caja</a>.`
+    : `Ahora mismo se cuenta con que <b>todos</b> tus Pokémon pueden llevar su habilidad oculta (Impulso, Mutatipo, Sombra Trampa, Muro Mágico, Regeneración…). Si alguno no la tiene, desmárcalo en <a href="#caja">Tu caja</a> y todo se recalcula.`;
+}
+
+// ---------- explorador
+let sel = store.get("sel", "SLAKING"), role2 = "score";
+function renderExplorer(){
+  $("#pgrid").innerHTML = UNIQUE.map(k => `<button class="pbtn" aria-pressed="${k===sel}" data-p="${k}">${sprite(k)}<span>${esc(nm(k))}${M.count[k]>1?" ×2":""}</span></button>`).join("");
+  $("#pgrid").querySelectorAll(".spr").forEach(s => { const bp = s.style.backgroundPosition.split(" ").map(v=>parseFloat(v)*2/3); s.style.backgroundPosition = bp.map(v=>v+"px").join(" "); s.style.backgroundSize = (SPR.cols*SPR.size*2/3)+"px auto"; });
+  const s = SP[sel];
+  $("#p-info").innerHTML = `<div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap">${sprite(sel)}
+    <div style="min-width:0;flex:1;display:grid;gap:6px"><h2>${esc(s.name)}</h2><div class="chips">${[...new Set([s.type1,s.type2])].map(typeChip).join("")}</div>
+    <div class="ab">${s.abilities.map(a=>`<b>${esc(abName(a))}</b>`).join(" · ")}${s.hidden.filter(a=>!s.abilities.includes(a)).map(a=>` · <b>${esc(abName(a))}</b> <span class="badge ha">oculta</span>`).join("")}</div></div></div>
+    <div class="stats">${s.stats.map((v,i)=>`<div class="st"><span class="k">${STAT_K[i]}</span><span class="v">${v}</span><span class="b"><i style="width:${Math.min(100,v/1.6)}%;background:var(${STAT_C[i]})"></i></span></div>`).join("")}</div>
+    <p class="muted" style="margin:0;font-size:13px">Como <b>cabeza</b> aporta sobre todo PS, AtqEsp y DefEsp (2/3) y su tipo principal. Como <b>cuerpo</b> aporta Atq, Def y Vel (2/3) y su segundo tipo.</p>`;
+  chipsFor($("#role-chips-2"), role2, r => { role2 = r; renderExplorer(); });
+  const hide = $("#notruant").checked;
+  const mk = L => L.map(f=>view(f, role2)).filter(x=>!(hide && x.e.id==="TRUANT")).sort((a,b)=>b.v-a.v);
+  const H = mk(F.filter(f=>f.head===sel)), B = mk(F.filter(f=>f.body===sel));
+  $("#h-head").textContent = `${s.name} como CABEZA (${H.length})`;
+  $("#h-body").textContent = `${s.name} como CUERPO (${B.length})`;
+  $("#as-head").innerHTML = H.map(row).join("");
+  $("#as-body").innerHTML = B.map(row).join("");
+}
+$("#pgrid").addEventListener("click", ev => { const b = ev.target.closest("[data-p]"); if (b){ sel = b.dataset.p; store.set("sel", sel); renderExplorer(); } });
+
+// ---------- equipo
+function teamValue(picks){
+  let v = 0; const roles = new Set();
+  for (const p of picks){ v += p.e.score; roles.add(p.e.role); }
+  TYPES.forEach((t,i) => {
+    let w = 0, r = 0;
+    for (const p of picks){ const m = p.e.mult[i]; if (m >= 2) w += (m === 4 ? 1.5 : 1); if (m < 1) r++; }
+    if (w >= 3) v -= (w - 2) * 7;
+    if (w >= 2 && r === 0) v -= 4;
+  });
+  v += roles.size * 4;
+  return v;
+}
+function searchTeams(){
+  const cands = F.map(f => view(f, "score")).filter(x => x.e.id !== "TRUANT" && !excl.has(x.f.head) && !excl.has(x.f.body))
+    .sort((a,b)=>b.v-a.v).slice(0, 220);
+  const fits = (used, x) => { const u = {...used}; u[x.f.head]=(u[x.f.head]||0)+1; u[x.f.body]=(u[x.f.body]||0)+1;
+    return (u[x.f.head] <= M.count[x.f.head] && u[x.f.body] <= M.count[x.f.body]) ? u : null; };
+  let beam = [{picks:[], used:{}, v:0}];
+  for (let step = 0; step < 6; step++){
+    const next = new Map();
+    for (const st of beam){
+      for (const x of cands){
+        if (st.picks.includes(x)) continue;
+        const u = fits(st.used, x); if (!u) continue;
+        const picks = [...st.picks, x];
+        const key = picks.map(p=>p.f.head+"|"+p.f.body).sort().join(",");
+        if (next.has(key)) continue;
+        next.set(key, {picks, used:u, v: teamValue(picks)});
+      }
+    }
+    beam = [...next.values()].sort((a,b)=>b.v-a.v).slice(0, 70);
+    if (!beam.length) break;
+  }
+  // 3 equipos distintos (que no compartan más de 3 fusiones)
+  const out = [];
+  for (const t of beam){
+    if (t.picks.length < 6) continue;
+    const ks = new Set(t.picks.map(p=>p.f.head+"|"+p.f.body));
+    if (out.every(o => o.picks.filter(p=>ks.has(p.f.head+"|"+p.f.body)).length <= 3)) out.push(t);
+    if (out.length === 3) break;
+  }
+  return out;
+}
+function renderTeams(){
+  $("#excl").innerHTML = UNIQUE.map(k => `<button class="chip" aria-pressed="${excl.has(k)}" data-x="${k}">${esc(nm(k))}</button>`).join("");
+  $("#team-status").textContent = "Buscando…";
+  setTimeout(() => {
+    const T = searchTeams();
+    $("#team-status").textContent = T.length ? `${T.length} equipos encontrados` : "No hay suficientes Pokémon para 6 fusiones.";
+    $("#teams").innerHTML = T.map((t, n) => {
+      const mtx = TYPES.map((ty,i) => `<tr><th style="text-align:left">${typeChip(ty)}</th>${t.picks.map(p=>{const m=p.e.mult[i];const c=m===4?"w4":m===2?"w":m===0?"i":m<1?"r":"";const l=m===4?"×4":m===2?"×2":m===0.5?"½":m===0.25?"¼":m===0?"0":"";return `<td class="${c}">${l}</td>`}).join("")}</tr>`).join("");
+      return `<div style="display:grid;gap:12px"><h2>${n===0?"Equipo recomendado":"Alternativa "+n} <span class="muted mono" style="font-size:14px">· ${t.v.toFixed(0)} pts</span></h2>
+        <div class="grid">${t.picks.map(p => card(p, F.indexOf(p.f)+1)).join("")}</div>
+        <details><summary class="muted" style="cursor:pointer">Tabla de debilidades del equipo</summary>
+        <div class="tbl-wrap" style="margin-top:8px"><table class="mtx"><tr><th></th>${t.picks.map(p=>`<th>${esc(nm(p.f.head))}/${esc(nm(p.f.body))}</th>`).join("")}</tr>${mtx}</table></div></details></div>`;
+    }).join("");
+  }, 30);
+}
+$("#excl").addEventListener("click", ev => { const b = ev.target.closest("[data-x]"); if (!b) return; const k = b.dataset.x; excl.has(k)?excl.delete(k):excl.add(k); store.set("excl",[...excl]); b.setAttribute("aria-pressed", excl.has(k)); });
+$("#build").onclick = renderTeams;
+
+// ---------- caja
+function renderBox(){
+  const rows = UNIQUE.concat(["MINIOR_C"]).map(k => {
+    const s = SP[k]; const tot = s.stats.reduce((a,b)=>a+b,0);
+    const ha = s.hidden.filter(h=>!s.abilities.includes(h));
+    const tog = k==="MINIOR_C" ? '<span class="muted">forma Núcleo (en combate)</span>' : ha.length ? `<label class="tog"><input type="checkbox" data-ha="${k}" ${haOK[k]?"checked":""}> Tiene oculta</label>` : '<span class="muted">sin oculta distinta</span>';
+    return `<tr><td>${sprite(k,"sm")}</td><td><b>${esc(s.name)}</b>${M.count[k]>1?' <span class="badge">×2</span>':""}${k==="MINIOR_C"?' <span class="badge">Núcleo</span>':""}</td>
+      <td>${[...new Set([s.type1,s.type2])].map(typeChip).join(" ")}</td>${s.stats.map(v=>`<td class="n">${v}</td>`).join("")}<td class="n"><b>${tot}</b></td>
+      <td>${s.abilities.map(a=>esc(abName(a))).join(" / ")}</td><td>${ha.map(a=>esc(abName(a))).join(" / ")||"–"}</td><td>${tog}</td></tr>`;
+  }).join("");
+  $("#box-table").innerHTML = `<tr><th></th><th>Pokémon</th><th>Tipo</th>${STAT_K.map(k=>`<th>${k}</th>`).join("")}<th>Total</th><th>Habilidades</th><th>Oculta</th><th></th></tr>${rows}`;
+}
+$("#box-table").addEventListener("change", ev => { const k = ev.target.dataset.ha; if (!k) return; haOK[k] = ev.target.checked; store.set("haOK", haOK); refresh(); });
+$("#ha-all").onclick = () => { UNIQUE.forEach(k=>haOK[k]=true); store.set("haOK",haOK); renderBox(); refresh(); };
+$("#ha-none").onclick = () => { UNIQUE.forEach(k=>haOK[k]=false); store.set("haOK",haOK); renderBox(); refresh(); };
+
+// ---------- método
+$("#method").innerHTML = `
+  <h2>Cómo se calcula</h2>
+  <p>Todo sale del código y los datos del juego (repositorio <code>infinitefusion/infinitefusion-e18</code>), no de wikis.</p>
+  <h3>Stats</h3>
+  <p>La fórmula exacta del juego es <code>⌊2·dominante/3⌋ + ⌊otro/3⌋</code>. La <b>cabeza</b> domina PS, AtqEsp y DefEsp. El <b>cuerpo</b> domina Atq, Def y Vel.</p>
+  <h3>Tipos</h3>
+  <p>Tipo 1 = tipo principal de la cabeza. Si la cabeza es Normal/Volador (Pidgeot), aporta Volador. Tipo 2 = segundo tipo del cuerpo, o su único tipo. Si coincide con el tipo 1, se usa el primer tipo del cuerpo. Ojo: en este juego Magneton es <b>Acero/Eléctrico</b>, así que como cabeza aporta Acero.</p>
+  <h3>Habilidades</h3>
+  <p>Al fusionar eliges entre la habilidad que tenga <b>en ese momento</b> la cabeza y la que tenga el cuerpo. Para la 1ª o 2ª habilidad basta una Cápsula Habilidad antes de fusionar. Las ocultas tiene que traerlas ya el Pokémon base. Marca en <a href="#caja">Tu caja</a> cuáles tienes.</p>
+  <h3>Trucos propios de Infinite Fusion</h3>
+  <ul>
+    <li><b>Cambio Táctico</b> funciona en cualquier fusión con Aegislash. Al atacar intercambia Atq↔Def y AtqEsp↔DefEsp, y Escudo Real lo devuelve. Una fusión con Def y DefEsp enormes ataca con esos números.</li>
+    <li><b>Escudo Limitado</b>: la fusión con Minior pasa a la forma Núcleo con ≤50% PS. Se puntúa con la media de las dos formas.</li>
+    <li><b>Ausente</b> (Slaking) es malísimo, pero Slaking fusionado puede llevar la habilidad del otro Pokémon y quedarse con sus stats enormes.</li>
+  </ul>
+  <h3>La puntuación</h3>
+  <p>Cada fusión se puntúa con cada una de sus habilidades posibles y se queda con la mejor. La nota general (0–100 aprox.) combina:</p>
+  <ul>
+    <li><b>52%</b> su mejor rol (físico, especial, muro o rápido) con las stats efectivas. Cambio Táctico, Entusiasmo, Impulso y Escudo Limitado modifican esas stats.</li>
+    <li><b>20%</b> tipo defensivo: inmunidades y resistencias suman, debilidades restan y las ×4 restan mucho. Absorbe Fuego, Herbívoro y Pararrayos cuentan como inmunidad.</li>
+    <li><b>20%</b> valor de la habilidad <i>para esa fusión</i>. Por ejemplo, Respondón vale mucho si la fusión aprende Sofoco o Fuerza Bruta, y Mandíbula Fuerte solo si tiene mordiscos.</li>
+    <li><b>8%</b> cobertura ofensiva de sus dos tipos (STAB).</li>
+  </ul>
+  <p>Los rankings por rol usan el mismo cálculo dando más peso a ese rol. Es una guía: los movimientos, los objetos y la naturaleza cambian mucho el resultado.</p>
+  <h3>Datos a revisar</h3>
+  <ul>
+    <li>El 4º Pokémon de la fila 1 de tu captura lo he tomado como <b>Torkoal</b>, porque Camerupt no existe en Infinite Fusion. Si es otro, dímelo.</li>
+    <li>Minior se toma en forma Meteoro, que es la que se ve en tu caja.</li>
+    <li>Sprites: comunidad de artistas de Pokémon Infinite Fusion (créditos en <code>Data/Sprite Credits.csv</code> del juego). Los marcados como "autogenerado" son la mezcla automática del juego.</li>
+  </ul>`;
+
+// ---------- navegación
+const VIEWS = ["ranking","explorador","equipo","caja","metodo"];
+let teamsBuilt = false;
+function route(){
+  const h = (location.hash || "#ranking").slice(1);
+  const cur = VIEWS.includes(h) ? h : "ranking";
+  VIEWS.forEach(v => { $("#v-"+v).hidden = v !== cur; });
+  document.querySelectorAll("nav.tabs a").forEach(a => a.setAttribute("aria-current", a.getAttribute("href") === "#"+cur ? "page" : "false"));
+  if (cur === "equipo" && !teamsBuilt){ teamsBuilt = true; renderTeams(); }
+  if (cur === "explorador") renderExplorer();
+}
+function refresh(){ renderCallout(); renderFeatured(); renderRanking(); if (!$("#v-explorador").hidden) renderExplorer(); if (teamsBuilt && !$("#v-equipo").hidden) renderTeams(); else teamsBuilt = false; }
+window.addEventListener("hashchange", route);
+renderBox(); refresh(); route();
+})();
+</script>
