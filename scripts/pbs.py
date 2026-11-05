@@ -39,4 +39,7 @@ def read_abilities(path):
 
 CAT = {"Physical": 0, "Special": 1, "Status": 2}
 def read_moves(path):
-    return {r[1]: {"name": r[2], "type": r[5], "power": int(r[4]), "cat": CAT.get(r[6], 2)} for r in read_csvish(path)}
+    # id,INTERNAL,Nombre,función,potencia,tipo,categoría,precisión,PP,prob.efecto,objetivo,prioridad,flags,descripción
+    return {r[1]: {"name": r[2], "type": r[5], "power": int(r[4]), "cat": CAT.get(r[6], 2),
+                   "acc": int(r[7]), "pp": int(r[8]), "chance": int(r[9]), "prio": int(r[11]),
+                   "flags": r[12], "fn": r[3], "desc": r[13] if len(r) > 13 else ""} for r in read_csvish(path)}

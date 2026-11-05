@@ -130,6 +130,12 @@ tr:last-child td{border-bottom:0}
 .mtx td.r{background:color-mix(in srgb,var(--good) 18%,transparent)}
 .mtx td.i{background:color-mix(in srgb,var(--good) 38%,transparent);font-weight:700}
 
+.moves{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px}
+.mv{display:flex;align-items:baseline;gap:6px;font-size:12.5px;background:var(--panel-2);border-radius:6px;padding:3px 7px;border-left:4px solid var(--line);min-width:0}
+.mv b{font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mv small{font:500 10.5px var(--f-mono);color:var(--ink-2);margin-left:auto;white-space:nowrap}
+.setline{font-size:12px;color:var(--ink-2)}
+tr.off td{opacity:.45}
 .sev{display:inline-block;font:700 10px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;padding:2px 6px;border-radius:4px;margin-right:6px}
 .sev.g{background:color-mix(in srgb,var(--bad) 22%,transparent);color:var(--bad)}
 .sev.o{background:color-mix(in srgb,var(--warn) 20%,transparent);color:var(--warn)}
@@ -276,11 +282,12 @@ dialog::backdrop{background:rgba(8,12,24,.55)}
   <section class="view" id="v-caja" hidden>
     <div>
       <h2>Tu caja</h2>
-      <p class="muted" style="margin:.25rem 0 0">Stats base del juego, tipos y habilidades. Marca <b>Tiene oculta</b> solo si ese Pokémon tuyo lleva su habilidad oculta: todos los rankings se recalculan con ello.</p>
+      <p class="muted" style="margin:.25rem 0 0">Stats base del juego, tipos y habilidades. Desmarca <b>En la caja</b> si pierdes un Pokémon o no quieres que salga. Marca <b>Tiene oculta</b> solo si ese Pokémon tuyo lleva su habilidad oculta. Todos los rankings, el explorador y los equipos se recalculan solos.</p>
     </div>
     <div class="bar">
       <button class="ghost" id="ha-all">Marcar todas</button>
       <button class="ghost" id="ha-none">Desmarcar todas</button>
+      <button class="ghost" id="av-all">Volver a poner todos en la caja</button>
     </div>
     <div class="tbl-wrap"><table id="box-table"></table></div>
   </section>
@@ -313,9 +320,14 @@ const store = {
 };
 let haOK = {...Object.fromEntries(UNIQUE.map(k => [k, true])), ...store.get("haOK", {})};
 let excl = new Set(store.get("excl", []));
+let avail = {...Object.fromEntries(UNIQUE.map(k => [k, M.count[k]])), ...store.get("avail", {})};
+UNIQUE.forEach(k => { avail[k] = Math.max(0, Math.min(M.count[k], +avail[k] || 0)); });
+function okF(f){ const need = {}; need[f.head]=(need[f.head]||0)+1; need[f.body]=(need[f.body]||0)+1; return Object.keys(need).every(k => avail[k] >= need[k]); }
+const FA = () => F.filter(okF);
+const AVAIL_KEYS = () => UNIQUE.filter(k => avail[k] > 0);
 
 document.getElementById('nfus').textContent = F.length;
-document.getElementById('npk').textContent = M.box.length;
+
 
 // ---------- helpers
 const nm = k => SP[k] ? SP[k].name : k;
@@ -328,6 +340,14 @@ function sprite(key, cls=""){
 }
 const typeChip = t => `<span class="type" style="background:var(--t-${t})">${TES[t]}</span>`;
 const abName = id => AB[id] ? AB[id].es : id;
+const MV = M.moves;
+const CAT = ["Fís","Esp","Est"];
+const mvName = id => MV[id] ? MV[id].es : id;
+function setHTML(e){
+  if (!e.set || !e.set.length) return "";
+  return `<div class="moves">${e.set.map(id => { const m = MV[id]; return `<span class="mv" style="border-left-color:var(--t-${m.type})" title="${esc(m.name)}"><b>${esc(m.es)}</b><small>${CAT[m.cat]}${m.cat<2?" "+m.power:""}</small></span>`; }).join("")}</div>`;
+}
+const setShort = e => (e.set||[]).map(mvName).join(" · ");
 function allowed(f, e){
   if (e.kind !== "oculta") return true;
   return !!haOK[e.from === "cabeza" ? f.head : f.body];
@@ -371,6 +391,7 @@ function card(vw, rank){
       <div class="chips" style="margin-top:6px">${f.types.map(typeChip).join("")}</div></div>
       <div class="score">${v.toFixed(0)}<span>puntos</span></div></div>
     ${abHTML(f,e)}
+    ${setHTML(e)}
     ${statsHTML(f,e)}
     ${weakHTML(e)}
     ${e.notes.length?`<ul class="notes">${e.notes.slice(0,2).map(n=>`<li>${esc(n)}</li>`).join("")}</ul>`:""}
@@ -380,7 +401,7 @@ function row(vw){
   const {f, e, v} = vw;
   return `<button class="row" data-k="${f.head}|${f.body}">${sprite(f.head+"|"+f.body,"sm")}
     <div style="min-width:0"><div class="nm">${esc(nm(f.head))} / ${esc(nm(f.body))}</div>
-    <div class="sub">${f.types.map(typeChip).join("")}<span>${esc(abName(e.id))}</span>${e.kind==="oculta"?'<span class="badge ha">oculta</span>':""}<span class="mono">${f.stats.reduce((a,b)=>a+b,0)} BST</span></div><div class="sub" style="margin-top:3px"><span class="muted">Débil:</span> ${(()=>{const m=multOf(e);const w=TYPES.filter(t=>m[t]>=2).sort((a,b)=>m[b]-m[a]);return w.length?w.map(t=>TES[t]+(m[t]===4?" ×4":"")).join(", "):"ninguna"})()}</div></div>
+    <div class="sub">${f.types.map(typeChip).join("")}<span>${esc(abName(e.id))}</span>${e.kind==="oculta"?'<span class="badge ha">oculta</span>':""}<span class="mono">${f.stats.reduce((a,b)=>a+b,0)} BST</span></div><div class="sub setline" style="margin-top:3px">Set: ${esc(setShort(e))}</div><div class="sub" style="margin-top:3px"><span class="muted">Débil:</span> ${(()=>{const m=multOf(e);const w=TYPES.filter(t=>m[t]>=2).sort((a,b)=>m[b]-m[a]);return w.length?w.map(t=>TES[t]+(m[t]===4?" ×4":"")).join(", "):"ninguna"})()}</div></div>
     <div class="sc">${v.toFixed(0)}</div></button>`;
 }
 
@@ -442,9 +463,14 @@ function openDetail(key){
       <tr><td><b>Fusión</b></td>${f.stats.map(x=>`<td class="n"><b>${x}</b></td>`).join("")}<td class="n"><b>${f.bst}</b></td></tr>${coreRow}
       <tr><td>Efectivo con ${esc(abName(e.id))}</td>${e.est.map(x=>`<td class="n">${x}</td>`).join("")}<td class="n">–</td></tr></table></div>
     <div><h3>Habilidades posibles</h3>
-      <div class="tbl-wrap" style="margin-top:8px"><table><tr><th>Habilidad</th><th>Origen</th><th>Rol</th><th>Puntos</th></tr>
-      ${opts.map(({e,ok}) => `<tr style="${ok?"":"opacity:.45"}"><td><b>${esc(abName(e.id))}</b> ${e.kind==="oculta"?'<span class="badge ha">oculta</span>':""}<div class="muted" style="font-size:12px">${esc(AB[e.id]?AB[e.id].desc:"")}</div></td><td>${e.from==="cabeza"?esc(nm(f.head)):esc(nm(f.body))}</td><td>${ROLE_ES[e.role]}</td><td class="n">${e.score.toFixed(1)}${ok?"":"<div class='muted' style='font-size:11px'>no la tiene</div>"}</td></tr>`).join("")}
+      <div class="tbl-wrap" style="margin-top:8px"><table><tr><th>Habilidad</th><th>Origen</th><th>Rol</th><th>Set</th><th>Puntos</th></tr>
+      ${opts.map(({e,ok}) => `<tr style="${ok?"":"opacity:.45"}"><td><b>${esc(abName(e.id))}</b> ${e.kind==="oculta"?'<span class="badge ha">oculta</span>':""}<div class="muted" style="font-size:12px">${esc(AB[e.id]?AB[e.id].desc:"")}</div></td><td>${e.from==="cabeza"?esc(nm(f.head)):esc(nm(f.body))}</td><td>${ROLE_ES[e.role]}</td><td style="font-size:12px">${esc(setShort(e))}</td><td class="n">${e.score.toFixed(1)}${ok?"":"<div class='muted' style='font-size:11px'>no la tiene</div>"}</td></tr>`).join("")}
       </table></div></div>
+    <div><h3>Set recomendado con ${esc(abName(e.id))} <span class="muted mono" style="font-size:12px;font-weight:400">· nota del set ${e.setv.toFixed(0)}/100</span></h3>
+      <div class="tbl-wrap" style="margin-top:8px"><table><tr><th>Movimiento</th><th>Tipo</th><th>Cat.</th><th>Pot.</th><th>Prec.</th></tr>
+      ${e.set.map(id => { const m = MV[id]; return `<tr><td><b>${esc(m.es)}</b> <span class="muted" style="font-size:12px">(${esc(m.name)})</span><div class="muted" style="font-size:12px">${esc(m.desc)}</div></td><td>${typeChip(m.type)}</td><td>${["Físico","Especial","Estado"][m.cat]}</td><td class="n">${m.cat<2?m.power:"–"}</td><td class="n">${m.acc||"—"}</td></tr>`; }).join("")}
+      </table></div>
+      <p class="muted" style="font-size:12px;margin:6px 0 0">Elegido entre todo lo que aprende la fusión (nivel, MT/tutor y huevo de los dos Pokémon). El juego está en inglés, por eso va también el nombre en inglés. Si cambias de habilidad, el set cambia: mira la tabla de habilidades.</p></div>
     <div><h3>Debilidades y resistencias</h3>${weakText(f,e)}<div style="display:grid;gap:6px;margin-top:10px">${dmg}</div></div>
     ${e.notes.length?`<div><h3>Claves</h3><ul class="notes" style="margin-top:6px">${e.notes.map(n=>`<li>${esc(n)}</li>`).join("")}</ul></div>`:""}
     <p class="muted" style="font-size:12px;margin:0">Para fusionar: la habilidad sale de la que tenga AHORA cada Pokémon base. Si es la 1ª o 2ª habilidad y no la lleva, usa una Cápsula Habilidad antes de fusionar. Las ocultas tiene que traerlas ya.</p>`;
@@ -462,7 +488,7 @@ function chipsFor(el, cur, onPick){
   el.onclick = ev => { const b = ev.target.closest("[data-r]"); if (b) onPick(b.dataset.r); };
 }
 function rankedList(r){
-  let L = F.map(f => view(f, r));
+  let L = FA().map(f => view(f, r));
   if ($("#notruant").checked) L = L.filter(x => x.e.id !== "TRUANT");
   L.sort((a,b) => b.v - a.v);
   if ($("#onedir").checked){
@@ -496,7 +522,7 @@ function renderFeatured(){
     ["INTIMIDATE","Intimidación"],["SHIELDSDOWN","Escudo Limitado"],["HUSTLE","Entusiasmo"],["SERENEGRACE","Dicha"]];
   for (const [id, l] of abil){
     let best = null;
-    for (const f of F){ for (const e of f.abilities){ if (e.id===id && allowed(f,e) && (!best || e.score > best.e.score)) best = {f, e, v:e.score}; } }
+    for (const f of FA()){ for (const e of f.abilities){ if (e.id===id && allowed(f,e) && (!best || e.score > best.e.score)) best = {f, e, v:e.score}; } }
     add("Mejor con " + l, best);
   }
   $("#featured").innerHTML = picks.map(({label,x}) => `<button class="fcard" data-k="${x.f.head}|${x.f.body}">${sprite(x.f.head+"|"+x.f.body,"sm")}
@@ -513,7 +539,8 @@ function renderCallout(){
 // ---------- explorador
 let sel = store.get("sel", "SLAKING"), role2 = "score";
 function renderExplorer(){
-  $("#pgrid").innerHTML = UNIQUE.map(k => `<button class="pbtn" aria-pressed="${k===sel}" data-p="${k}">${sprite(k)}<span>${esc(nm(k))}${M.count[k]>1?" ×2":""}</span></button>`).join("");
+  if (!avail[sel]) sel = AVAIL_KEYS()[0];
+  $("#pgrid").innerHTML = AVAIL_KEYS().map(k => `<button class="pbtn" aria-pressed="${k===sel}" data-p="${k}">${sprite(k)}<span>${esc(nm(k))}${M.count[k]>1?" ×2":""}</span></button>`).join("");
   $("#pgrid").querySelectorAll(".spr").forEach(s => { const bp = s.style.backgroundPosition.split(" ").map(v=>parseFloat(v)*2/3); s.style.backgroundPosition = bp.map(v=>v+"px").join(" "); s.style.backgroundSize = (SPR.cols*SPR.size*2/3)+"px auto"; });
   const s = SP[sel];
   $("#p-info").innerHTML = `<div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap">${sprite(sel)}
@@ -524,7 +551,7 @@ function renderExplorer(){
   chipsFor($("#role-chips-2"), role2, r => { role2 = r; renderExplorer(); });
   const hide = $("#notruant").checked;
   const mk = L => L.map(f=>view(f, role2)).filter(x=>!(hide && x.e.id==="TRUANT")).sort((a,b)=>b.v-a.v);
-  const H = mk(F.filter(f=>f.head===sel)), B = mk(F.filter(f=>f.body===sel));
+  const H = mk(FA().filter(f=>f.head===sel)), B = mk(FA().filter(f=>f.body===sel));
   $("#h-head").textContent = `${s.name} como CABEZA (${H.length})`;
   $("#h-body").textContent = `${s.name} como CUERPO (${B.length})`;
   $("#as-head").innerHTML = H.map(row).join("");
@@ -546,10 +573,10 @@ function teamValue(picks){
   return v;
 }
 function searchTeams(){
-  const cands = F.map(f => view(f, "score")).filter(x => x.e.id !== "TRUANT" && !excl.has(x.f.head) && !excl.has(x.f.body))
+  const cands = FA().map(f => view(f, "score")).filter(x => x.e.id !== "TRUANT" && !excl.has(x.f.head) && !excl.has(x.f.body))
     .sort((a,b)=>b.v-a.v).slice(0, 220);
   const fits = (used, x) => { const u = {...used}; u[x.f.head]=(u[x.f.head]||0)+1; u[x.f.body]=(u[x.f.body]||0)+1;
-    return (u[x.f.head] <= M.count[x.f.head] && u[x.f.body] <= M.count[x.f.body]) ? u : null; };
+    return (u[x.f.head] <= avail[x.f.head] && u[x.f.body] <= avail[x.f.body]) ? u : null; };
   let beam = [{picks:[], used:{}, v:0}];
   for (let step = 0; step < 6; step++){
     const next = new Map();
@@ -577,7 +604,7 @@ function searchTeams(){
   return out;
 }
 function renderTeams(){
-  $("#excl").innerHTML = UNIQUE.map(k => `<button class="chip" aria-pressed="${excl.has(k)}" data-x="${k}">${esc(nm(k))}</button>`).join("");
+  $("#excl").innerHTML = AVAIL_KEYS().map(k => `<button class="chip" aria-pressed="${excl.has(k)}" data-x="${k}">${esc(nm(k))}</button>`).join("");
   $("#team-status").textContent = "Buscando…";
   setTimeout(() => {
     const T = searchTeams();
@@ -617,7 +644,7 @@ function usedCount(team){
 }
 function canUse(f, u){
   const need = {}; need[f.head]=(need[f.head]||0)+1; need[f.body]=(need[f.body]||0)+1;
-  return Object.keys(need).every(k => (u[k]||0) + need[k] <= M.count[k]);
+  return Object.keys(need).every(k => (u[k]||0) + need[k] <= avail[k]);
 }
 const SE = (atk, def) => M.chart[TYPES.indexOf(atk)][TYPES.indexOf(def)];
 function teamInfo(mem){
@@ -708,7 +735,7 @@ function fitOf(f, e, A, n){
 }
 function candidates(team){
   const mem = team.map(memberOf), A = teamInfo(mem), u = usedCount(team), out = [];
-  for (const f of F){
+  for (const f of FA()){
     if (!canUse(f, u)) continue;
     let best = null;
     for (const e of f.abilities){
@@ -725,10 +752,10 @@ function abOptions(f, cur){
 }
 function fillSelects(){
   const u = usedCount(myTeam);
-  const opt = (k, sel) => { const left = M.count[k] - (u[k]||0); return `<option value="${k}" ${left<=0?"disabled":""} ${k===sel?"selected":""}>${esc(nm(k))}${left<=0?" (usado)":M.count[k]>1?` (quedan ${left})`:""}</option>`; };
+  const opt = (k, sel) => { const left = avail[k] - (u[k]||0); return `<option value="${k}" ${left<=0?"disabled":""} ${k===sel?"selected":""}>${esc(nm(k))}${left<=0?" (usado)":avail[k]>1?` (quedan ${left})`:""}</option>`; };
   const h = $("#sel-h").value, b = $("#sel-b").value;
-  $("#sel-h").innerHTML = `<option value="">— elige —</option>` + UNIQUE.map(k=>opt(k,h)).join("");
-  $("#sel-b").innerHTML = `<option value="">— elige —</option>` + UNIQUE.map(k=>opt(k,b)).join("");
+  $("#sel-h").innerHTML = `<option value="">— elige —</option>` + AVAIL_KEYS().map(k=>opt(k,h)).join("");
+  $("#sel-b").innerHTML = `<option value="">— elige —</option>` + AVAIL_KEYS().map(k=>opt(k,b)).join("");
   previewAdd();
 }
 function previewAdd(){
@@ -745,6 +772,8 @@ function addToTeam(k){
   myTeam.push({k, ab:null}); saveTeam(); renderMyTeam(); return "Añadida a tu equipo.";
 }
 function renderMyTeam(){
+  const gone = myTeam.filter(m => !okF(FMAP[m.k]));
+  if (gone.length){ myTeam = myTeam.filter(m => okF(FMAP[m.k])); saveTeam(); }
   const mem = myTeam.map(memberOf), A = teamInfo(mem);
   fillSelects();
   const slots = mem.map(({f,e}, i) => `<div class="slot">
@@ -753,11 +782,12 @@ function renderMyTeam(){
         <div class="chips">${f.types.map(typeChip).join("")}</div>
         <div class="mono muted" style="font-size:12px">${STAT_K.map((k,j)=>`${k} ${f.stats[j]}`).join(" · ")}</div></div></div>
       <select data-ab="${i}" aria-label="Habilidad de ${esc(fname(f))}">${abOptions(f, e.id)}</select>
+      ${setHTML(e)}
       ${weakHTML(e)}
       <div class="acts"><button class="ghost" data-k="${f.head}|${f.body}">Ver detalle</button><button class="ghost" data-rm="${i}">Quitar</button></div>
     </div>`);
   for (let i = mem.length; i < 6; i++) slots.push(`<div class="slot empty">Hueco ${i+1} libre<br>Mira abajo quién encaja mejor</div>`);
-  $("#slots").innerHTML = slots.join("");
+  $("#slots").innerHTML = (gone.length ? `<div class="callout" style="grid-column:1/-1">He quitado de tu equipo ${gone.map(m=>esc(fname(FMAP[m.k]))).join(", ")}: usa un Pokémon que ya no está en tu caja.</div>` : "") + slots.join("");
   $("#gaps").innerHTML = gapList(mem, A);
   $("#rolesp").innerHTML = rolesHTML(mem, A);
   $("#my-mtx").innerHTML = mem.length ? `<table class="mtx"><tr><th></th>${mem.map(p=>`<th>${esc(fname(p.f))}</th>`).join("")}</tr>${mtxRows(mem)}</table>` : "";
@@ -775,6 +805,7 @@ function renderMyTeam(){
   $("#fill").innerHTML = C.slice(0, 15).map(c => `<div class="fill">${sprite(c.f.head+"|"+c.f.body,"sm")}
     <div style="min-width:0"><div class="nm" style="font-weight:800">${esc(fname(c.f))}</div>
       <div class="sub" style="font-size:12px;display:flex;flex-wrap:wrap;gap:4px;align-items:center">${c.f.types.map(typeChip).join("")}<span>${esc(abName(c.e.id))}</span>${c.e.kind==="oculta"?'<span class="badge ha">oculta</span>':""}<span class="badge role">${ROLE_ES[c.e.role]}</span><span class="mono muted">${c.f.stats.join("/")}</span></div>
+      <div class="setline" style="margin-top:4px">Set: ${esc(setShort(c.e))}</div>
       <div class="why">${c.plus.map(p=>`<span class="plus">+ ${esc(p)}</span>`).join("")}${c.minus.map(p=>`<span class="minus">− ${esc(p)}</span>`).join("")}</div></div>
     <div class="acts"><div class="sc" style="font:700 18px var(--f-display)">${c.s.toFixed(0)}</div><button class="btn" data-add="${c.f.head}|${c.f.body}" data-ab-id="${c.e.id}">Añadir</button><button class="ghost" data-k="${c.f.head}|${c.f.body}">Ver</button></div></div>`).join("") || `<p class="muted">No quedan Pokémon libres para otra fusión.</p>`;
 }
@@ -801,18 +832,28 @@ $("#autofill").onclick = () => {
 
 // ---------- caja
 function renderBox(){
+  document.getElementById('npk').textContent = UNIQUE.reduce((a,k)=>a+avail[k],0);
+  document.getElementById('nfus').textContent = FA().length;
   const rows = UNIQUE.concat(["MINIOR_C"]).map(k => {
     const s = SP[k]; const tot = s.stats.reduce((a,b)=>a+b,0);
     const ha = s.hidden.filter(h=>!s.abilities.includes(h));
+    const have = k==="MINIOR_C" ? "" : M.count[k] > 1
+      ? `<select data-av="${k}" aria-label="Cuántos ${esc(s.name)} tienes">${[0,1,2].map(n=>`<option value="${n}" ${avail[k]===n?"selected":""}>${n}</option>`).join("")}</select>`
+      : `<input type="checkbox" data-av="${k}" ${avail[k]?"checked":""} aria-label="${esc(s.name)} está en mi caja">`;
     const tog = k==="MINIOR_C" ? '<span class="muted">forma Núcleo (en combate)</span>' : ha.length ? `<label class="tog"><input type="checkbox" data-ha="${k}" ${haOK[k]?"checked":""}> Tiene oculta</label>` : '<span class="muted">sin oculta distinta</span>';
-    return `<tr><td>${sprite(k,"sm")}</td><td><b>${esc(s.name)}</b>${M.count[k]>1?' <span class="badge">×2</span>':""}${k==="MINIOR_C"?' <span class="badge">Núcleo</span>':""}</td>
+    const off = k==="MINIOR_C" ? !avail["MINIOR_M"] : !avail[k];
+    return `<tr class="${off?"off":""}"><td style="text-align:center">${have}</td><td>${sprite(k,"sm")}</td><td><b>${esc(s.name)}</b>${M.count[k]>1?' <span class="badge">×2</span>':""}${k==="MINIOR_C"?' <span class="badge">Núcleo</span>':""}</td>
       <td>${[...new Set([s.type1,s.type2])].map(typeChip).join(" ")}</td>${s.stats.map(v=>`<td class="n">${v}</td>`).join("")}<td class="n"><b>${tot}</b></td>
       <td>${s.abilities.map(a=>esc(abName(a))).join(" / ")}</td><td>${ha.map(a=>esc(abName(a))).join(" / ")||"–"}</td><td>${tog}</td></tr>`;
   }).join("");
-  $("#box-table").innerHTML = `<tr><th></th><th>Pokémon</th><th>Tipo</th>${STAT_K.map(k=>`<th>${k}</th>`).join("")}<th>Total</th><th>Habilidades</th><th>Oculta</th><th></th></tr>${rows}`;
+  $("#box-table").innerHTML = `<tr><th>En la caja</th><th></th><th>Pokémon</th><th>Tipo</th>${STAT_K.map(k=>`<th>${k}</th>`).join("")}<th>Total</th><th>Habilidades</th><th>Oculta</th><th></th></tr>${rows}`;
 }
-$("#box-table").addEventListener("change", ev => { const k = ev.target.dataset.ha; if (!k) return; haOK[k] = ev.target.checked; store.set("haOK", haOK); refresh(); });
+$("#box-table").addEventListener("change", ev => {
+  const a = ev.target.dataset.av;
+  if (a){ avail[a] = ev.target.type === "checkbox" ? (ev.target.checked ? 1 : 0) : +ev.target.value; store.set("avail", avail); renderBox(); refresh(); return; }
+  const k = ev.target.dataset.ha; if (!k) return; haOK[k] = ev.target.checked; store.set("haOK", haOK); refresh(); });
 $("#ha-all").onclick = () => { UNIQUE.forEach(k=>haOK[k]=true); store.set("haOK",haOK); renderBox(); refresh(); };
+$("#av-all").onclick = () => { UNIQUE.forEach(k=>avail[k]=M.count[k]); store.set("avail",avail); renderBox(); refresh(); };
 $("#ha-none").onclick = () => { UNIQUE.forEach(k=>haOK[k]=false); store.set("haOK",haOK); renderBox(); refresh(); };
 
 // ---------- método
@@ -832,12 +873,21 @@ $("#method").innerHTML = `
     <li><b>Ausente</b> (Slaking) es malísimo, pero Slaking fusionado puede llevar la habilidad del otro Pokémon y quedarse con sus stats enormes.</li>
   </ul>
   <h3>La puntuación</h3>
-  <p>Cada fusión se puntúa con cada una de sus habilidades posibles y se queda con la mejor. La nota general (0–100 aprox.) combina:</p>
+  <p>Cada fusión se puntúa con cada una de sus habilidades posibles, con su set recomendado, y se queda con la mejor. La nota general (0–100 aprox.) combina:</p>
   <ul>
-    <li><b>60%</b> stats: su mejor rol (físico, especial, muro o rápido). Cambio Táctico, Entusiasmo, Impulso y Escudo Limitado las retocan solo un poco.</li>
-    <li><b>28%</b> combinación de tipos: inmunidades y resistencias suman, debilidades restan y las ×4 restan mucho. Absorbe Fuego, Herbívoro, Pararrayos y Levitación cuentan como inmunidad.</li>
-    <li><b>6%</b> valor de la habilidad <i>para esa fusión</i>. Por ejemplo, Respondón vale mucho si la fusión aprende Sofoco o Fuerza Bruta, y Mandíbula Fuerte solo si tiene mordiscos.</li>
-    <li><b>6%</b> cobertura ofensiva de sus dos tipos (STAB).</li>
+    <li><b>48%</b> stats: su mejor rol (físico, especial, muro o rápido). Cambio Táctico, Entusiasmo, Impulso y Escudo Limitado las retocan solo un poco.</li>
+    <li><b>20%</b> el set recomendado (ver abajo).</li>
+    <li><b>24%</b> combinación de tipos: inmunidades y resistencias suman, debilidades restan y las ×4 restan mucho. Absorbe Fuego, Herbívoro, Pararrayos y Levitación cuentan como inmunidad.</li>
+    <li><b>4%</b> valor de la habilidad <i>para esa fusión</i>. Por ejemplo, Respondón vale mucho si la fusión aprende Sofoco o Fuerza Bruta, y Mandíbula Fuerte solo si tiene mordiscos.</li>
+    <li><b>4%</b> cobertura ofensiva de sus dos tipos (STAB).</li>
+  </ul>
+  <h3>El set recomendado</h3>
+  <p>La fusión aprende todo lo que aprenden la cabeza y el cuerpo (por nivel, MT/tutor y huevo). Para cada habilidad pruebo todas las combinaciones de 2 a 4 ataques y 0 a 2 movimientos de estado, y me quedo con la de más valor:</p>
+  <ul>
+    <li><b>Ataques:</b> para cada uno de los 18 tipos de rival cuenta el ataque que más daño le hace (potencia × precisión × STAB × eficacia × Ataque o AtqEsp de la fusión). Por eso premia la cobertura.</li>
+    <li><b>Habilidad:</b> Respondón convierte Fuerza Bruta, Sofoco o Cometa Draco en mejoras; Adaptable sube el STAB a ×2; Mutatipo da STAB a todo; Puño Férreo, Mandíbula Fuerte, Entusiasmo, Agallas (con Imagen y Llamasfera), Sequía (Rayo Solar sin carga) e Indefenso (precisión 100%) también cuentan.</li>
+    <li><b>Estado:</b> Danza Espada, Maquinación, Paz Mental o Rompecoraza valen según el daño que multiplican; Recuperación, Respiro o Relajo valen más cuanto más aguanta la fusión; Escudo Real con Cambio Táctico y Protección con Impulso son casi obligatorios; Fuego Fatuo, Tóxico y Trampa Rocas suman en los muros.</li>
+    <li>Fuera quedan los movimientos de carga o recarga (Hiperrayo, Vuelo…), los que debilitan al usuario (Explosión) y los de un golpe (Fisura).</li>
   </ul>
   <p>Los rankings por rol usan el mismo cálculo dando más peso a ese rol. Es una guía: los movimientos, los objetos y la naturaleza cambian mucho el resultado.</p>
   <h3>Datos a revisar</h3>

@@ -3156,2383 +3156,5162 @@
    "name": "Aerial Ace",
    "type": "FLYING",
    "power": 60,
-   "cat": 0
+   "cat": 0,
+   "acc": 0,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "0A5",
+   "desc": "The user confounds the foe with speed, then slashes. The attack lands without fail."
   },
   "AGILITY": {
    "name": "Agility",
    "type": "PSYCHIC",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 30,
+   "chance": 0,
+   "prio": 0,
+   "flags": "d",
+   "fn": "030",
+   "desc": "The user relaxes and lightens its body to move faster. It sharply boosts the Speed stat."
   },
   "AIRCUTTER": {
    "name": "Air Cutter",
    "type": "FLYING",
    "power": 60,
-   "cat": 1
+   "cat": 1,
+   "acc": 95,
+   "pp": 25,
+   "chance": 0,
+   "prio": 0,
+   "flags": "befh",
+   "fn": "000",
+   "desc": "The user launches razor-like wind to slash the opposing team. Critical hits land more easily."
   },
   "ASSURANCE": {
    "name": "Assurance",
    "type": "DARK",
    "power": 60,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "082",
+   "desc": "If the target has already taken some damage in the same turn, this attack's power is doubled."
   },
   "ATTRACT": {
    "name": "Attract",
    "type": "NORMAL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 100,
+   "pp": 15,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bce",
+   "fn": "016",
+   "desc": "If it is the opposite gender of the user, the target becomes infatuated and less likely to attack."
   },
   "CONFIDE": {
    "name": "Confide",
    "type": "NORMAL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "cek",
+   "fn": "13C",
+   "desc": "The user tells the target a secret. The target loses focus and its Sp. Atk stat is lowered."
   },
   "DEFOG": {
    "name": "Defog",
    "type": "FLYING",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 15,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bce",
+   "fn": "049",
+   "desc": "A strong wind blows away the foe's obstacles such as Light Screen. It also lowers their evasion."
   },
   "DOUBLETEAM": {
    "name": "Double Team",
    "type": "NORMAL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 15,
+   "chance": 0,
+   "prio": 0,
+   "flags": "d",
+   "fn": "022",
+   "desc": "By moving rapidly, the user makes illusory copies of itself to raise its evasiveness."
   },
   "DRILLPECK": {
    "name": "Drill Peck",
    "type": "FLYING",
    "power": 80,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "000",
+   "desc": "A corkscrewing attack with the sharp beak acting as a drill."
   },
   "DRILLRUN": {
    "name": "Drill Run",
    "type": "GROUND",
    "power": 80,
-   "cat": 0
+   "cat": 0,
+   "acc": 95,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abefh",
+   "fn": "000",
+   "desc": "The user crashes into its target while rotating its body like a drill. Critical hits land more easily."
   },
   "ECHOEDVOICE": {
    "name": "Echoed Voice",
    "type": "NORMAL",
    "power": 40,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 15,
+   "chance": 0,
+   "prio": 0,
+   "flags": "befk",
+   "fn": "092",
+   "desc": "The user attacks the foe with an echoing voice. If this move is used every turn, it does greater damage."
   },
   "FACADE": {
    "name": "Facade",
    "type": "NORMAL",
    "power": 70,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "07E",
+   "desc": "An attack move that doubles its power if the user is poisoned, burned, or has paralysis."
   },
   "FALSESWIPE": {
    "name": "False Swipe",
    "type": "NORMAL",
    "power": 40,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 40,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "0E9",
+   "desc": "A restrained attack that prevents the target from fainting. The target is left with at least 1 HP."
   },
   "FLY": {
    "name": "Fly",
    "type": "FLYING",
    "power": 90,
-   "cat": 0
+   "cat": 0,
+   "acc": 95,
+   "pp": 15,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "0C9",
+   "desc": "The user soars, then strikes on the second turn. It can also be used for flying to any familiar town."
   },
   "FOCUSENERGY": {
    "name": "Focus Energy",
    "type": "NORMAL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 30,
+   "chance": 0,
+   "prio": 0,
+   "flags": "d",
+   "fn": "023",
+   "desc": "The user takes a deep breath and focuses so that critical hits land more easily."
   },
   "FRUSTRATION": {
    "name": "Frustration",
    "type": "NORMAL",
    "power": 1,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "08A",
+   "desc": "A full-power attack that grows more powerful the less the user likes its Trainer."
   },
   "FURYATTACK": {
    "name": "Fury Attack",
    "type": "NORMAL",
    "power": 15,
-   "cat": 0
+   "cat": 0,
+   "acc": 85,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "0C0",
+   "desc": "The target is jabbed repeatedly with a horn or beak two to five times in a row."
   },
   "GIGAIMPACT": {
    "name": "Giga Impact",
    "type": "NORMAL",
    "power": 150,
-   "cat": 0
+   "cat": 0,
+   "acc": 90,
+   "pp": 5,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "0C2",
+   "desc": "The user charges at the target using every bit of its power. The user must rest on the next turn."
   },
   "GROWL": {
    "name": "Growl",
    "type": "NORMAL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 100,
+   "pp": 40,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bcek",
+   "fn": "042",
+   "desc": "The user growls in an endearing way, making the foe less wary. The foe's Attack stat is lowered."
   },
   "HEATWAVE": {
    "name": "Heat Wave",
    "type": "FIRE",
    "power": 95,
-   "cat": 1
+   "cat": 1,
+   "acc": 90,
+   "pp": 10,
+   "chance": 10,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "00A",
+   "desc": "The user attacks by exhaling hot breath on the opposing team. It may also leave targets with a burn."
   },
   "HIDDENPOWER": {
    "name": "Hidden Power",
    "type": "NORMAL",
    "power": 60,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 15,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "090",
+   "desc": "A unique attack that varies in type and intensity depending on the Pokémon using it."
   },
   "HYPERBEAM": {
    "name": "Hyper Beam",
    "type": "NORMAL",
    "power": 150,
-   "cat": 1
+   "cat": 1,
+   "acc": 90,
+   "pp": 5,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "0C2",
+   "desc": "The foe is attacked with a powerful beam. The user must rest on the next turn to regain its energy."
   },
   "LASERFOCUS": {
    "name": "Laser Focus",
    "type": "NORMAL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 30,
+   "chance": 0,
+   "prio": 0,
+   "flags": "d",
+   "fn": "15E",
+   "desc": "The user focuses intensely. The attack on the next turn always results in a critical hit."
   },
   "LEER": {
    "name": "Leer",
    "type": "NORMAL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 100,
+   "pp": 30,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bce",
+   "fn": "043",
+   "desc": "The user gains an intimidating leer with sharp eyes. The target's Defense stat is reduced."
   },
   "MIRRORMOVE": {
    "name": "Mirror Move",
    "type": "FLYING",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "",
+   "fn": "0AE",
+   "desc": "The user counters the target by mimicking the target's last move."
   },
   "MUDSLAP": {
    "name": "Mud-Slap",
    "type": "GROUND",
    "power": 20,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 10,
+   "chance": 100,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "047",
+   "desc": "The user hurls mud in the target's face to inflict damage and lower its accuracy."
   },
   "OMINOUSWIND": {
    "name": "Ominous Wind",
    "type": "GHOST",
    "power": 60,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 5,
+   "chance": 10,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "02D",
+   "desc": "The user blasts the target with a gust of repulsive wind. It may also raise all the user's stats at once."
   },
   "PECK": {
    "name": "Peck",
    "type": "FLYING",
    "power": 35,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 35,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "000",
+   "desc": "The target is jabbed with a sharply pointed beak or horn."
   },
   "PLUCK": {
    "name": "Pluck",
    "type": "FLYING",
    "power": 60,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "0F4",
+   "desc": "The user pecks the target. If the target is holding a Berry, the user eats it and gains its effect."
   },
   "PROTECT": {
    "name": "Protect",
    "type": "NORMAL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 10,
+   "chance": 0,
+   "prio": 4,
+   "flags": "",
+   "fn": "0AA",
+   "desc": "It enables the user to evade all attacks. Its chance of failing rises if it is used in succession."
   },
   "PURSUIT": {
    "name": "Pursuit",
    "type": "DARK",
    "power": 40,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "088",
+   "desc": "An attack move that inflicts double damage if used on a target that is switching out of battle."
   },
   "RAINDANCE": {
    "name": "Rain Dance",
    "type": "WATER",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 5,
+   "chance": 0,
+   "prio": 0,
+   "flags": "",
+   "fn": "100",
+   "desc": "The user summons a heavy rain that falls for five turns, powering up Water-type moves."
   },
   "REST": {
    "name": "Rest",
    "type": "PSYCHIC",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "d",
+   "fn": "0D9",
+   "desc": "The user goes to sleep for two turns. It fully restores the user's HP and heals any status problem."
   },
   "RETURN": {
    "name": "Return",
    "type": "NORMAL",
    "power": 1,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "089",
+   "desc": "A full-power attack that grows more powerful the more the user likes its Trainer."
   },
   "ROOST": {
    "name": "Roost",
    "type": "FLYING",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "d",
+   "fn": "0D6",
+   "desc": "The user lands and rests its body. It restores the user's HP by up to half of its max HP."
   },
   "ROUND": {
    "name": "Round",
    "type": "NORMAL",
    "power": 60,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 15,
+   "chance": 0,
+   "prio": 0,
+   "flags": "befk",
+   "fn": "083",
+   "desc": "The user attacks with a song. Others can join in the Round and make the attack do greater damage."
   },
   "SECRETPOWER": {
    "name": "Secret Power",
    "type": "NORMAL",
    "power": 70,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 20,
+   "chance": 30,
+   "prio": 0,
+   "flags": "be",
+   "fn": "0A4",
+   "desc": "The user attacks with a secret power. Its added effects vary depending on the user's environment."
   },
   "SKYATTACK": {
    "name": "Sky Attack",
    "type": "FLYING",
    "power": 140,
-   "cat": 0
+   "cat": 0,
+   "acc": 90,
+   "pp": 5,
+   "chance": 30,
+   "prio": 0,
+   "flags": "beh",
+   "fn": "0C7",
+   "desc": "A second-turn attack move where critical hits land more easily. It may also make the target flinch."
   },
   "SLEEPTALK": {
    "name": "Sleep Talk",
    "type": "NORMAL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "",
+   "fn": "0B4",
+   "desc": "While it is asleep, the user randomly uses one of the moves it knows."
   },
   "SNORE": {
    "name": "Snore",
    "type": "NORMAL",
    "power": 50,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 15,
+   "chance": 30,
+   "prio": 0,
+   "flags": "bek",
+   "fn": "011",
+   "desc": "An attack that can be used only if the user is asleep. The harsh noise may also make the target flinch."
   },
   "STEELWING": {
    "name": "Steel Wing",
    "type": "STEEL",
    "power": 70,
-   "cat": 0
+   "cat": 0,
+   "acc": 90,
+   "pp": 25,
+   "chance": 10,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "01D",
+   "desc": "The target is hit with wings of steel. It may also raise the user's Defense stat."
   },
   "SUBSTITUTE": {
    "name": "Substitute",
    "type": "NORMAL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "d",
+   "fn": "10C",
+   "desc": "The user makes a copy of itself using some of its HP. The copy serves as the user's decoy."
   },
   "SUNNYDAY": {
    "name": "Sunny Day",
    "type": "FIRE",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 5,
+   "chance": 0,
+   "prio": 0,
+   "flags": "",
+   "fn": "0FF",
+   "desc": "The user intensifies the sun for five turns, powering up Fire-type moves."
   },
   "SWAGGER": {
    "name": "Swagger",
    "type": "NORMAL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 85,
+   "pp": 15,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bce",
+   "fn": "041",
+   "desc": "The user enrages and confuses the target. However, it also sharply raises the target's Attack stat."
   },
   "SWIFT": {
    "name": "Swift",
    "type": "NORMAL",
    "power": 60,
-   "cat": 1
+   "cat": 1,
+   "acc": 0,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "0A5",
+   "desc": "Star-shaped rays are shot at the opposing team. This attack never misses."
   },
   "TAILWIND": {
    "name": "Tailwind",
    "type": "FLYING",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 15,
+   "chance": 0,
+   "prio": 0,
+   "flags": "d",
+   "fn": "05B",
+   "desc": "The user whips up a turbulent whirlwind that ups the Speed of all party Pokémon for four turns."
   },
   "THIEF": {
    "name": "Thief",
    "type": "DARK",
    "power": 60,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 25,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "0F1",
+   "desc": "The user attacks and steals the foe's held item simultaneously. It can't steal if the user holds an item."
   },
   "THROATCHOP": {
    "name": "Throat Chop",
    "type": "DARK",
    "power": 80,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 15,
+   "chance": 100,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "16C",
+   "desc": "The user attacks the target's throat. The target cannot use sound-based moves for two turns."
   },
   "TOXIC": {
    "name": "Toxic",
    "type": "POISON",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 90,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bce",
+   "fn": "006",
+   "desc": "A move that leaves the target badly poisoned. Its poison damage worsens every turn."
   },
   "TWISTER": {
    "name": "Twister",
    "type": "DRAGON",
    "power": 40,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 20,
+   "chance": 20,
+   "prio": 0,
+   "flags": "be",
+   "fn": "078",
+   "desc": "The user whips up a vicious tornado to tear at the opposing team. It may also make targets flinch."
   },
   "UPROAR": {
    "name": "Uproar",
    "type": "NORMAL",
    "power": 90,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "befk",
+   "fn": "0D1",
+   "desc": "The user attacks in an uproar for three turns. Over that time, no one can fall asleep."
   },
   "UTURN": {
    "name": "U-turn",
    "type": "BUG",
    "power": 70,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "0EE",
+   "desc": "After making its attack, the user rushes back to switch places with a party Pokémon in waiting."
   },
   "WORKUP": {
    "name": "Work Up",
    "type": "NORMAL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 30,
+   "chance": 0,
+   "prio": 0,
+   "flags": "d",
+   "fn": "027",
+   "desc": "The user is roused, and its Attack and Sp. Atk stats increase."
   },
   "AQUATAIL": {
    "name": "Aqua Tail",
    "type": "WATER",
    "power": 90,
-   "cat": 0
+   "cat": 0,
+   "acc": 90,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "000",
+   "desc": "The user attacks by swinging its tail as if it were a vicious wave in a raging storm."
   },
   "BATONPASS": {
    "name": "Baton Pass",
    "type": "NORMAL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 40,
+   "chance": 0,
+   "prio": 0,
+   "flags": "",
+   "fn": "0ED",
+   "desc": "The user switches places with a party Pokémon in waiting, passing along any stat changes."
   },
   "BUGBITE": {
    "name": "Bug Bite",
    "type": "BUG",
    "power": 60,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "0F4",
+   "desc": "The user bites the target. If the target is holding a Berry, the user eats it and gains its effect."
   },
   "BULLDOZE": {
    "name": "Bulldoze",
    "type": "GROUND",
    "power": 60,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 20,
+   "chance": 100,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "044",
+   "desc": "The user strikes everything around it by stomping on the ground. It reduces hit Pokémon's Speed."
   },
   "CUT": {
    "name": "Cut",
    "type": "NORMAL",
    "power": 50,
-   "cat": 0
+   "cat": 0,
+   "acc": 95,
+   "pp": 30,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "000",
+   "desc": "The target is cut with a scythe or a claw. It can also be used to cut down thin trees."
   },
   "DEFENSECURL": {
    "name": "Defense Curl",
    "type": "NORMAL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 40,
+   "chance": 0,
+   "prio": 0,
+   "flags": "d",
+   "fn": "01E",
+   "desc": "The user curls up to conceal weak spots and raise its Defense stat."
   },
   "DOUBLEEDGE": {
    "name": "Double-Edge",
    "type": "NORMAL",
    "power": 120,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 15,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "0FB",
+   "desc": "A reckless, life-risking tackle. It also damages the user by a fairly large amount, however."
   },
   "EARTHQUAKE": {
    "name": "Earthquake",
    "type": "GROUND",
    "power": 100,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "076",
+   "desc": "The user sets off an earthquake that strikes every Pokémon around it."
   },
   "ENDEAVOR": {
    "name": "Endeavor",
    "type": "NORMAL",
    "power": 1,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 5,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "06E",
+   "desc": "An attack move that cuts down the target's HP to equal the user's HP."
   },
   "GYROBALL": {
    "name": "Gyro Ball",
    "type": "STEEL",
    "power": 1,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 5,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abefn",
+   "fn": "08D",
+   "desc": "The user tackles the target with a high-speed spin. The slower the user, the greater the damage."
   },
   "INFESTATION": {
    "name": "Infestation",
    "type": "BUG",
    "power": 20,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "0CF",
+   "desc": "The target is infested and unable to flee for four to five turns."
   },
   "IRONDEFENSE": {
    "name": "Iron Defense",
    "type": "STEEL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 15,
+   "chance": 0,
+   "prio": 0,
+   "flags": "d",
+   "fn": "02F",
+   "desc": "The user hardens its body's surface like iron, sharply raising its Defense stat."
   },
   "IRONTAIL": {
    "name": "Iron Tail",
    "type": "STEEL",
    "power": 100,
-   "cat": 0
+   "cat": 0,
+   "acc": 75,
+   "pp": 15,
+   "chance": 30,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "043",
+   "desc": "The target is slammed with a steel-hard tail. It may also lower the target's Defense stat."
   },
   "MEGAHORN": {
    "name": "Megahorn",
    "type": "BUG",
    "power": 120,
-   "cat": 0
+   "cat": 0,
+   "acc": 85,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "000",
+   "desc": "Using its tough and impressive horn, the user rams into the target with no letup."
   },
   "PAYBACK": {
    "name": "Payback",
    "type": "DARK",
    "power": 50,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "084",
+   "desc": "If the user moves after the target, this attack's power will be doubled."
   },
   "POISONJAB": {
    "name": "Poison Jab",
    "type": "POISON",
    "power": 80,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 20,
+   "chance": 30,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "005",
+   "desc": "The target is stabbed with a tentacle or arm seeped with poison. It may also poison the target."
   },
   "POISONSTING": {
    "name": "Poison Sting",
    "type": "POISON",
    "power": 15,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 35,
+   "chance": 30,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "005",
+   "desc": "The user stabs the target with a poisonous stinger. This may also poison the target."
   },
   "POISONTAIL": {
    "name": "Poison Tail",
    "type": "POISON",
    "power": 50,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 25,
+   "chance": 10,
+   "prio": 0,
+   "flags": "abefh",
+   "fn": "005",
+   "desc": "The user hits the target with its tail. It may also poison the target. Critical hits land more easily."
   },
   "ROCKCLIMB": {
    "name": "Rock Climb",
    "type": "NORMAL",
    "power": 90,
-   "cat": 0
+   "cat": 0,
+   "acc": 85,
+   "pp": 20,
+   "chance": 20,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "013",
+   "desc": "The user attacks the target by smashing into it with incredible force. It may also confuse the target."
   },
   "ROCKSLIDE": {
    "name": "Rock Slide",
    "type": "ROCK",
    "power": 75,
-   "cat": 0
+   "cat": 0,
+   "acc": 90,
+   "pp": 10,
+   "chance": 30,
+   "prio": 0,
+   "flags": "be",
+   "fn": "00F",
+   "desc": "Large boulders are hurled at the foes to inflict damage. It may also make the targets flinch."
   },
   "ROCKSMASH": {
    "name": "Rock Smash",
    "type": "FIGHTING",
    "power": 40,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 15,
+   "chance": 50,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "043",
+   "desc": "The user attacks with a punch that can shatter a rock. It may also lower the foe's Defense stat."
   },
   "ROCKTOMB": {
    "name": "Rock Tomb",
    "type": "ROCK",
    "power": 60,
-   "cat": 0
+   "cat": 0,
+   "acc": 95,
+   "pp": 15,
+   "chance": 100,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "044",
+   "desc": "Boulders are hurled at the target. It also lowers the target's Speed by preventing its movement."
   },
   "ROLLOUT": {
    "name": "Rollout",
    "type": "ROCK",
    "power": 30,
-   "cat": 0
+   "cat": 0,
+   "acc": 90,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "0D3",
+   "desc": "The user continually rolls into the target over five turns. It becomes stronger each time it hits."
   },
   "SCREECH": {
    "name": "Screech",
    "type": "NORMAL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 85,
+   "pp": 40,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bcek",
+   "fn": "04C",
+   "desc": "An earsplitting screech harshly reduces the target's Defense stat."
   },
   "SIGNALBEAM": {
    "name": "Signal Beam",
    "type": "BUG",
    "power": 75,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 15,
+   "chance": 10,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "013",
+   "desc": "The user attacks with a sinister beam of light. It may also confuse the target."
   },
   "SLUDGEBOMB": {
    "name": "Sludge Bomb",
    "type": "POISON",
    "power": 90,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 10,
+   "chance": 30,
+   "prio": 0,
+   "flags": "befn",
+   "fn": "005",
+   "desc": "Unsanitary sludge is hurled at the target. It may also poison the target."
   },
   "SMARTSTRIKE": {
    "name": "Smart Strike",
    "type": "STEEL",
    "power": 70,
-   "cat": 0
+   "cat": 0,
+   "acc": 0,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "0A5",
+   "desc": "The user stabs the target with a sharp horn. This attack never misses."
   },
   "SNATCH": {
    "name": "Snatch",
    "type": "DARK",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 10,
+   "chance": 0,
+   "prio": 4,
+   "flags": "",
+   "fn": "0B2",
+   "desc": "The user steals the effects of any healing or stat-changing move the foe attempts to use."
   },
   "SOLARBEAM": {
    "name": "Solar Beam",
    "type": "GRASS",
    "power": 120,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "0C4",
+   "desc": "A two-turn attack. The user gathers light, then blasts a bundled beam on the second turn."
   },
   "STEAMROLLER": {
    "name": "Steamroller",
    "type": "BUG",
    "power": 65,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 20,
+   "chance": 30,
+   "prio": 0,
+   "flags": "abe",
+   "fn": "010",
+   "desc": "The user crushes its foes by rolling over them. This attack may make the target flinch."
   },
   "STOMPINGTANTRUM": {
    "name": "Stomping Tantrum",
    "type": "GROUND",
    "power": 75,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "166",
+   "desc": "The user attacks driven by frustration. Power increases if the user's previous move failed."
   },
   "STRENGTH": {
    "name": "Strength",
    "type": "NORMAL",
    "power": 80,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 15,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "000",
+   "desc": "The target is slugged with a punch thrown at maximum power. It can also be used to move heavy boulders."
   },
   "STRUGGLEBUG": {
    "name": "Struggle Bug",
    "type": "BUG",
    "power": 50,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 20,
+   "chance": 100,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "045",
+   "desc": "While resisting, the user attacks the opposing Pokémon. The targets' Sp. Atk stat is reduced."
   },
   "SUPERPOWER": {
    "name": "Superpower",
    "type": "FIGHTING",
    "power": 120,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 5,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "03B",
+   "desc": "The user attacks the target with great power. However, it also lowers the user's Attack and Defense."
   },
   "SWORDSDANCE": {
    "name": "Swords Dance",
    "type": "NORMAL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "do",
+   "fn": "02E",
+   "desc": "A frenetic dance to uplift the fighting spirit. It sharply raises the user's Attack stat."
   },
   "VENOMDRENCH": {
    "name": "Venom Drench",
    "type": "POISON",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 100,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bc",
+   "fn": "140",
+   "desc": "Foes are drenched in an odd liquid that lowers the Attack, Sp. Atk, and Speed of poisoned Pokémon."
   },
   "VENOSHOCK": {
    "name": "Venoshock",
    "type": "POISON",
    "power": 65,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "07B",
+   "desc": "The user drenches the foe in a special poisonous liquid. Its power doubles if the target is poisoned."
   },
   "XSCISSOR": {
    "name": "X-Scissor",
    "type": "BUG",
    "power": 80,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 15,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "000",
+   "desc": "The user slashes at the foe by crossing its scythes or claws as if they were a pair of scissors."
   },
   "AIRSLASH": {
    "name": "Air Slash",
    "type": "FLYING",
    "power": 75,
-   "cat": 1
+   "cat": 1,
+   "acc": 95,
+   "pp": 15,
+   "chance": 30,
+   "prio": 0,
+   "flags": "be",
+   "fn": "00F",
+   "desc": "The user attacks with a blade of air that slices even the sky. It may also make the target flinch."
   },
   "AUTOTOMIZE": {
    "name": "Autotomize",
    "type": "STEEL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 15,
+   "chance": 0,
+   "prio": 0,
+   "flags": "d",
+   "fn": "031",
+   "desc": "The user sheds part of its body to make itself lighter and sharply raise its Speed stat."
   },
   "BRAVEBIRD": {
    "name": "Brave Bird",
    "type": "FLYING",
    "power": 120,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 15,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "0FB",
+   "desc": "The user tucks in its wings and charges from a low altitude. The user also takes serious damage."
   },
   "CURSE": {
    "name": "Curse",
    "type": "GHOST",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "",
+   "fn": "10D",
+   "desc": "A move that works differently for the Ghost type than for all the other types."
   },
   "DARKPULSE": {
    "name": "Dark Pulse",
    "type": "DARK",
    "power": 80,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 15,
+   "chance": 20,
+   "prio": 0,
+   "flags": "bem",
+   "fn": "00F",
+   "desc": "The user releases a horrible aura imbued with dark thoughts. It may also make the target flinch."
   },
   "ENDURE": {
    "name": "Endure",
    "type": "NORMAL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 10,
+   "chance": 0,
+   "prio": 4,
+   "flags": "",
+   "fn": "0E8",
+   "desc": "The user endures any attack with at least 1 HP. Its chance of failing rises if it is used in succession."
   },
   "FEINT": {
    "name": "Feint",
    "type": "NORMAL",
    "power": 30,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 10,
+   "chance": 0,
+   "prio": 2,
+   "flags": "ef",
+   "fn": "0AD",
+   "desc": "An attack that hits a target using Protect or Detect. It also lifts the effects of those moves."
   },
   "FLASH": {
    "name": "Flash",
    "type": "NORMAL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 100,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bce",
+   "fn": "047",
+   "desc": "The user flashes a light that cuts the target's accuracy. It can also be used to illuminate caves."
   },
   "FLASHCANNON": {
    "name": "Flash Cannon",
    "type": "STEEL",
    "power": 80,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 10,
+   "chance": 10,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "046",
+   "desc": "The user gathers all its light energy and releases it at once. It may also lower the target's Sp. Def stat."
   },
   "FURYCUTTER": {
    "name": "Fury Cutter",
    "type": "BUG",
    "power": 40,
-   "cat": 0
+   "cat": 0,
+   "acc": 95,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "091",
+   "desc": "The target is slashed with scythes or claws. Its power increases if it hits in succession."
   },
   "GUARDSWAP": {
    "name": "Guard Swap",
    "type": "PSYCHIC",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "be",
+   "fn": "053",
+   "desc": "The user employs its psychic power to switch changes to its Defense and Sp. Def with the target."
   },
   "ICYWIND": {
    "name": "Icy Wind",
    "type": "ICE",
    "power": 55,
-   "cat": 1
+   "cat": 1,
+   "acc": 95,
+   "pp": 15,
+   "chance": 100,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "044",
+   "desc": "The user attacks with a gust of chilled air. It also lowers the targets' Speed stat."
   },
   "IRONHEAD": {
    "name": "Iron Head",
    "type": "STEEL",
    "power": 80,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 15,
+   "chance": 30,
+   "prio": 0,
+   "flags": "abe",
+   "fn": "00F",
+   "desc": "The foe slams the target with its steel-hard head. It may also make the target flinch."
   },
   "METALCLAW": {
    "name": "Metal Claw",
    "type": "STEEL",
    "power": 50,
-   "cat": 0
+   "cat": 0,
+   "acc": 95,
+   "pp": 35,
+   "chance": 10,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "01C",
+   "desc": "The target is raked with steel claws. It may also raise the user's Attack stat."
   },
   "METALSOUND": {
    "name": "Metal Sound",
    "type": "STEEL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 85,
+   "pp": 40,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bcek",
+   "fn": "04F",
+   "desc": "A horrible sound like scraping metal harshly reduces the target's Sp. Def stat."
   },
   "NIGHTSLASH": {
    "name": "Night Slash",
    "type": "DARK",
    "power": 70,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 15,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abefh",
+   "fn": "000",
+   "desc": "The user slashes the target the instant an opportunity arises. Critical hits land more easily."
   },
   "ROAR": {
    "name": "Roar",
    "type": "NORMAL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 20,
+   "chance": 0,
+   "prio": -6,
+   "flags": "cek",
+   "fn": "0EB",
+   "desc": "The target is scared off and replaced by another Pokémon in its party. In the wild, the battle ends."
   },
   "SANDATTACK": {
    "name": "Sand Attack",
    "type": "GROUND",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 100,
+   "pp": 15,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bce",
+   "fn": "047",
+   "desc": "Sand is hurled in the target's face, reducing its accuracy."
   },
   "SANDSTORM": {
    "name": "Sandstorm",
    "type": "ROCK",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "",
+   "fn": "101",
+   "desc": "Summons a five-turn sandstorm to hurt all combatants except the Rock, Ground, and Steel types."
   },
   "SKYDROP": {
    "name": "Sky Drop",
    "type": "FLYING",
    "power": 60,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "0CE",
+   "desc": "The user takes the foe into the sky, then drops it on the next turn. The foe cannot attack while airborne."
   },
   "SLASH": {
    "name": "Slash",
    "type": "NORMAL",
    "power": 70,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abefh",
+   "fn": "000",
+   "desc": "The target is attacked with a slash of claws or blades. Critical hits land more easily."
   },
   "SPIKES": {
    "name": "Spikes",
    "type": "GROUND",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "c",
+   "fn": "103",
+   "desc": "The user lays a trap of spikes at the foe's feet. The trap hurts foes that switch into battle."
   },
   "STEALTHROCK": {
    "name": "Stealth Rock",
    "type": "ROCK",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "c",
+   "fn": "105",
+   "desc": "The user lays a trap of levitating stones around the foe. The trap hurts foes that switch into battle."
   },
   "TAUNT": {
    "name": "Taunt",
    "type": "DARK",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 100,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bce",
+   "fn": "0BA",
+   "desc": "The target is taunted into a rage that allows it to use only attack moves for three turns."
   },
   "TORMENT": {
    "name": "Torment",
    "type": "DARK",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 100,
+   "pp": 15,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bce",
+   "fn": "0B7",
+   "desc": "The user torments and enrages the foe, making it incapable of using the same move twice in a row."
   },
   "TOXICSPIKES": {
    "name": "Toxic Spikes",
    "type": "POISON",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "c",
+   "fn": "104",
+   "desc": "The user lays a trap of poison spikes at the foe's feet. They poison foes that switch into battle."
   },
   "WHIRLWIND": {
    "name": "Whirlwind",
    "type": "NORMAL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 20,
+   "chance": 0,
+   "prio": -6,
+   "flags": "ce",
+   "fn": "0EB",
+   "desc": "The foe is blown away, to be replaced by another Pokémon in its party. In the wild, the battle ends."
   },
   "AFTERYOU": {
    "name": "After You",
    "type": "NORMAL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 15,
+   "chance": 0,
+   "prio": 0,
+   "flags": "",
+   "fn": "11D",
+   "desc": "The user helps the target and makes it use its move right after the user."
   },
   "AMNESIA": {
    "name": "Amnesia",
    "type": "PSYCHIC",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "d",
+   "fn": "033",
+   "desc": "The user temporarily empties its mind to forget its concerns. It sharply raises the user's Sp. Def stat."
   },
   "EARTHPOWER": {
    "name": "Earth Power",
    "type": "GROUND",
    "power": 90,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 10,
+   "chance": 10,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "046",
+   "desc": "The user makes the ground under the foe erupt with power. It may also lower the target's Sp. Def."
   },
   "EMBER": {
    "name": "Ember",
    "type": "FIRE",
    "power": 40,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 25,
+   "chance": 10,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "00A",
+   "desc": "The target is attacked with small flames. It may also leave the target with a burn."
   },
   "ERUPTION": {
    "name": "Eruption",
    "type": "FIRE",
    "power": 150,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 5,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "08B",
+   "desc": "The user attacks in an explosive fury. The lower the user's HP, the less powerful this attack becomes."
   },
   "EXPLOSION": {
    "name": "Explosion",
    "type": "NORMAL",
    "power": 250,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 5,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "0E0",
+   "desc": "The user explodes to inflict damage on those around it. The user faints upon using this move."
   },
   "FIREBLAST": {
    "name": "Fire Blast",
    "type": "FIRE",
    "power": 110,
-   "cat": 1
+   "cat": 1,
+   "acc": 85,
+   "pp": 5,
+   "chance": 10,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "00A",
+   "desc": "The foe is attacked with an intense blast of all-consuming fire. It may also leave the target with a burn."
   },
   "FISSURE": {
    "name": "Fissure",
    "type": "GROUND",
    "power": 1,
-   "cat": 0
+   "cat": 0,
+   "acc": 30,
+   "pp": 5,
+   "chance": 0,
+   "prio": 0,
+   "flags": "be",
+   "fn": "070",
+   "desc": "The user opens up a fissure in the ground and drops the foe in. The target instantly faints if it hits."
   },
   "FLAMEBURST": {
    "name": "Flame Burst",
    "type": "FIRE",
    "power": 70,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 15,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "074",
+   "desc": "The user attacks the foe with a bursting flame. It also damages Pokémon next to the target."
   },
   "FLAMECHARGE": {
    "name": "Flame Charge",
    "type": "FIRE",
    "power": 50,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 20,
+   "chance": 100,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "01F",
+   "desc": "The user cloaks itself in flame and attacks. Building up more power, it raises the user's Speed stat."
   },
   "FLAMETHROWER": {
    "name": "Flamethrower",
    "type": "FIRE",
    "power": 90,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 15,
+   "chance": 10,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "00A",
+   "desc": "The target is scorched with an intense blast of fire. It may also leave the target with a burn."
   },
   "LAVAPLUME": {
    "name": "Lava Plume",
    "type": "FIRE",
    "power": 80,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 15,
+   "chance": 30,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "00A",
+   "desc": "An inferno of scarlet flames torches everything around the user. It may leave targets with a burn."
   },
   "MAGNITUDE": {
    "name": "Magnitude",
    "type": "GROUND",
    "power": 1,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 30,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "095",
+   "desc": "The user looses a ground-shaking quake affecting everyone around the user. Its power varies."
   },
   "NATUREPOWER": {
    "name": "Nature Power",
    "type": "NORMAL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "",
+   "fn": "0B3",
+   "desc": "An attack that makes use of nature's power. Its effects vary depending on the user's environment."
   },
   "OVERHEAT": {
    "name": "Overheat",
    "type": "FIRE",
    "power": 130,
-   "cat": 1
+   "cat": 1,
+   "acc": 90,
+   "pp": 5,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "03F",
+   "desc": "The user attacks the target at full power. The attack's recoil sharply reduces the user's Sp. Atk stat."
   },
   "ROCKPOLISH": {
    "name": "Rock Polish",
    "type": "ROCK",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "d",
+   "fn": "030",
+   "desc": "The user polishes its body to reduce drag. It can sharply raise the Speed stat."
   },
   "STONEEDGE": {
    "name": "Stone Edge",
    "type": "ROCK",
    "power": 100,
-   "cat": 0
+   "cat": 0,
+   "acc": 80,
+   "pp": 5,
+   "chance": 0,
+   "prio": 0,
+   "flags": "befh",
+   "fn": "000",
+   "desc": "The user stabs the foe with sharpened stones from below. It has a high critical-hit ratio."
   },
   "TACKLE": {
    "name": "Tackle",
    "type": "NORMAL",
    "power": 40,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 35,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "000",
+   "desc": "A physical attack in which the user charges and slams into the target with its whole body."
   },
   "TAKEDOWN": {
    "name": "Take Down",
    "type": "NORMAL",
    "power": 90,
-   "cat": 0
+   "cat": 0,
+   "acc": 85,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "0FA",
+   "desc": "A reckless, full-body charge attack for slamming into the foe. It also damages the user a little."
   },
   "WILLOWISP": {
    "name": "Will-O-Wisp",
    "type": "FIRE",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 85,
+   "pp": 15,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bce",
+   "fn": "00A",
+   "desc": "The user shoots a sinister, bluish-white flame at the target to inflict a burn."
   },
   "YAWN": {
    "name": "Yawn",
    "type": "NORMAL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bce",
+   "fn": "004",
+   "desc": "The user lets loose a huge yawn that lulls the target into falling asleep on the next turn."
   },
   "ALLYSWITCH": {
    "name": "Ally Switch",
    "type": "PSYCHIC",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 15,
+   "chance": 0,
+   "prio": 2,
+   "flags": "",
+   "fn": "120",
+   "desc": "The user teleports using a strange power and switches its place with one of its allies."
   },
   "CALMMIND": {
    "name": "Calm Mind",
    "type": "PSYCHIC",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "d",
+   "fn": "02C",
+   "desc": "The user quietly focuses its mind and calms its spirit to raise its Sp. Atk and Sp. Def stats."
   },
   "CONFUSERAY": {
    "name": "Confuse Ray",
    "type": "GHOST",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 100,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bce",
+   "fn": "013",
+   "desc": "The target is exposed to a sinister ray that triggers confusion."
   },
   "DREAMEATER": {
    "name": "Dream Eater",
    "type": "PSYCHIC",
    "power": 100,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 15,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "0DE",
+   "desc": "The user eats the dreams of a sleeping foe. It absorbs half the damage caused to heal the user's HP."
   },
   "EMBARGO": {
    "name": "Embargo",
    "type": "DARK",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 100,
+   "pp": 15,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bce",
+   "fn": "0F8",
+   "desc": "It prevents the target from using its held item. Its Trainer is also prevented from using items on it."
   },
   "ENERGYBALL": {
    "name": "Energy Ball",
    "type": "GRASS",
    "power": 90,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 10,
+   "chance": 10,
+   "prio": 0,
+   "flags": "befn",
+   "fn": "046",
+   "desc": "The user draws power from nature and fires it at the target. It may also lower the target's Sp. Def."
   },
   "HEX": {
    "name": "Hex",
    "type": "GHOST",
    "power": 65,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "07F",
+   "desc": "This relentless attack does massive damage to a target affected by status problems."
   },
   "INCINERATE": {
    "name": "Incinerate",
    "type": "FIRE",
    "power": 60,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 15,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "0F5",
+   "desc": "The user attacks the foe with fire. The target's held Berry becomes burnt up and unusable."
   },
   "PAINSPLIT": {
    "name": "Pain Split",
    "type": "NORMAL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "be",
+   "fn": "05A",
+   "desc": "The user adds its HP to the target's HP, then equally shares the combined HP with the target."
   },
   "PSYCHIC": {
    "name": "Psychic",
    "type": "PSYCHIC",
    "power": 90,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 10,
+   "chance": 10,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "046",
+   "desc": "The target is hit by a strong telekinetic force. It may also reduce the target's Sp. Def stat."
   },
   "PSYCHUP": {
    "name": "Psych Up",
    "type": "NORMAL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "",
+   "fn": "055",
+   "desc": "The user hypnotizes itself into copying any stat change made by the target."
   },
   "SAFEGUARD": {
    "name": "Safeguard",
    "type": "NORMAL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 25,
+   "chance": 0,
+   "prio": 0,
+   "flags": "d",
+   "fn": "01A",
+   "desc": "The user creates a protective field that prevents status problems for five turns."
   },
   "SHADOWBALL": {
    "name": "Shadow Ball",
    "type": "GHOST",
    "power": 80,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 15,
+   "chance": 20,
+   "prio": 0,
+   "flags": "befn",
+   "fn": "046",
+   "desc": "The user hurls a shadowy blob at the target. It may also lower the target's Sp. Def stat."
   },
   "SHOCKWAVE": {
    "name": "Shock Wave",
    "type": "ELECTRIC",
    "power": 60,
-   "cat": 1
+   "cat": 1,
+   "acc": 0,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "0A5",
+   "desc": "The user strikes the target with a quick jolt of electricity. This attack cannot be evaded."
   },
   "SMOG": {
    "name": "Smog",
    "type": "POISON",
    "power": 30,
-   "cat": 1
+   "cat": 1,
+   "acc": 70,
+   "pp": 20,
+   "chance": 40,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "005",
+   "desc": "The target is attacked with a discharge of filthy gases. It may also poison the target."
   },
   "SPITE": {
    "name": "Spite",
    "type": "GHOST",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 100,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bce",
+   "fn": "10E",
+   "desc": "The user unleashes its grudge on the move last used by the target by cutting 4 PP from it."
   },
   "TELEKINESIS": {
    "name": "Telekinesis",
    "type": "PSYCHIC",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 15,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bce",
+   "fn": "11A",
+   "desc": "The user makes the target float with its psychic power. The target is easier to hit for three turns."
   },
   "TELEPORT": {
    "name": "Teleport",
    "type": "PSYCHIC",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "",
+   "fn": "0EA",
+   "desc": "Use it to flee from any wild Pokémon. It can also warp to the last Pokémon Center visited."
   },
   "TRICK": {
    "name": "Trick",
    "type": "PSYCHIC",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 100,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "be",
+   "fn": "0F2",
+   "desc": "The user catches the target off guard and swaps its held item with its own."
   },
   "TRICKROOM": {
    "name": "Trick Room",
    "type": "PSYCHIC",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 5,
+   "chance": 0,
+   "prio": -7,
+   "flags": "e",
+   "fn": "11F",
+   "desc": "The user creates a bizarre area in which slower Pokémon get to move first for five turns."
   },
   "ANCIENTPOWER": {
    "name": "Ancient Power",
    "type": "ROCK",
    "power": 60,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 5,
+   "chance": 10,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "02D",
+   "desc": "The user attacks with a prehistoric power. It may also raise all the user's stats at once."
   },
   "ASTONISH": {
    "name": "Astonish",
    "type": "GHOST",
    "power": 30,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 15,
+   "chance": 30,
+   "prio": 0,
+   "flags": "abe",
+   "fn": "00F",
+   "desc": "The user attacks the target while shouting in a startling fashion. It may also make the target flinch."
   },
   "BIND": {
    "name": "Bind",
    "type": "NORMAL",
    "power": 15,
-   "cat": 0
+   "cat": 0,
+   "acc": 85,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "0CF",
+   "desc": "Things such as long bodies or tentacles are used to bind and squeeze the foe for four to five turns."
   },
   "BLIZZARD": {
    "name": "Blizzard",
    "type": "ICE",
    "power": 110,
-   "cat": 1
+   "cat": 1,
+   "acc": 70,
+   "pp": 5,
+   "chance": 10,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "00D",
+   "desc": "A howling blizzard is summoned to strike the opposing team. It may also freeze them solid."
   },
   "BRICKBREAK": {
    "name": "Brick Break",
    "type": "FIGHTING",
    "power": 75,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 15,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "10A",
+   "desc": "The user attacks with a swift chop. It can also break any barrier such as Light Screen and Reflect."
   },
   "CAMOUFLAGE": {
    "name": "Camouflage",
    "type": "NORMAL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "d",
+   "fn": "060",
+   "desc": "The user's type is changed depending on its environment, such as at water's edge, in grass, or in a cave."
   },
   "CHARGEBEAM": {
    "name": "Charge Beam",
    "type": "ELECTRIC",
    "power": 50,
-   "cat": 1
+   "cat": 1,
+   "acc": 90,
+   "pp": 10,
+   "chance": 70,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "020",
+   "desc": "The user fires a concentrated bundle of electricity. It may also raise the user's Sp. Atk stat."
   },
   "DIG": {
    "name": "Dig",
    "type": "GROUND",
    "power": 80,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "0CA",
+   "desc": "The user burrows, then attacks on the second turn. It can also be used to exit dungeons."
   },
   "DISABLE": {
    "name": "Disable",
    "type": "NORMAL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 100,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bce",
+   "fn": "0B9",
+   "desc": "For four turns, this move prevents the target from using the move it last used."
   },
   "DIZZYPUNCH": {
    "name": "Dizzy Punch",
    "type": "NORMAL",
    "power": 70,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 10,
+   "chance": 20,
+   "prio": 0,
+   "flags": "abefj",
+   "fn": "013",
+   "desc": "The target is hit with rhythmically launched punches that may also leave it confused."
   },
   "DRAINPUNCH": {
    "name": "Drain Punch",
    "type": "FIGHTING",
    "power": 75,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abefj",
+   "fn": "0DD",
+   "desc": "An energy-draining punch. The user's HP is restored by half the damage taken by the target."
   },
   "FAKEOUT": {
    "name": "Fake Out",
    "type": "NORMAL",
    "power": 40,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 10,
+   "chance": 100,
+   "prio": 3,
+   "flags": "abe",
+   "fn": "012",
+   "desc": "An attack that hits first and makes the target flinch. It only works the first turn the user is in battle."
   },
   "FEINTATTACK": {
    "name": "Feint Attack",
    "type": "DARK",
    "power": 60,
-   "cat": 0
+   "cat": 0,
+   "acc": 0,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "0A5",
+   "desc": "The user draws up to the foe disarmingly, then throws a sucker punch. It hits without fail."
   },
   "FIREPUNCH": {
    "name": "Fire Punch",
    "type": "FIRE",
    "power": 75,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 15,
+   "chance": 10,
+   "prio": 0,
+   "flags": "abefj",
+   "fn": "00A",
+   "desc": "The target is punched with a fiery fist. It may leave the target with a burn."
   },
   "FLING": {
    "name": "Fling",
    "type": "DARK",
    "power": 1,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "0F7",
+   "desc": "The user flings its held item at the target to attack. Its power and effects depend on the item."
   },
   "FOCUSPUNCH": {
    "name": "Focus Punch",
    "type": "FIGHTING",
    "power": 150,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 20,
+   "chance": 0,
+   "prio": -3,
+   "flags": "abfj",
+   "fn": "115",
+   "desc": "The user focuses its mind before launching a punch. It will fail if the user is hit before it is used."
   },
   "FOULPLAY": {
    "name": "Foul Play",
    "type": "DARK",
    "power": 95,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 15,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "121",
+   "desc": "The user turns the foe's power against it. It does more damage the higher the target's Attack stat."
   },
   "FURYSWIPES": {
    "name": "Fury Swipes",
    "type": "NORMAL",
    "power": 18,
-   "cat": 0
+   "cat": 0,
+   "acc": 80,
+   "pp": 15,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "0C0",
+   "desc": "The target is raked with sharp claws or scythes for two to five times in quick succession."
   },
   "GRASSKNOT": {
    "name": "Grass Knot",
    "type": "GRASS",
    "power": 1,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "09A",
+   "desc": "The user snares the target with grass and trips it. The heavier the target, the greater the damage."
   },
   "HONECLAWS": {
    "name": "Hone Claws",
    "type": "DARK",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 15,
+   "chance": 0,
+   "prio": 0,
+   "flags": "d",
+   "fn": "029",
+   "desc": "The user sharpens its claws to boost its Attack stat and accuracy."
   },
   "ICEBEAM": {
    "name": "Ice Beam",
    "type": "ICE",
    "power": 90,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 10,
+   "chance": 10,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "00C",
+   "desc": "The target is struck with an icy-cold beam of energy. It may also freeze the target solid."
   },
   "ICEPUNCH": {
    "name": "Ice Punch",
    "type": "ICE",
    "power": 75,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 15,
+   "chance": 10,
+   "prio": 0,
+   "flags": "abefj",
+   "fn": "00C",
+   "desc": "The target is punched with an icy fist. It may also leave the target frozen."
   },
   "KNOCKOFF": {
    "name": "Knock Off",
    "type": "DARK",
    "power": 65,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "0F0",
+   "desc": "The user slaps down the target's held item, preventing that item from being used in the battle."
   },
   "LASTRESORT": {
    "name": "Last Resort",
    "type": "NORMAL",
    "power": 140,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 5,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "125",
+   "desc": "This move can be used only after the user has used all the other moves it knows in the battle."
   },
   "LICK": {
    "name": "Lick",
    "type": "GHOST",
    "power": 30,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 30,
+   "chance": 30,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "007",
+   "desc": "The target is licked with a long tongue, causing damage. It may also leave the target with paralysis."
   },
   "LOWKICK": {
    "name": "Low Kick",
    "type": "FIGHTING",
    "power": 1,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "09A",
+   "desc": "A powerful low kick that makes the foe fall over. It inflicts greater damage on heavier foes."
   },
   "MAGICCOAT": {
    "name": "Magic Coat",
    "type": "PSYCHIC",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 15,
+   "chance": 0,
+   "prio": 4,
+   "flags": "",
+   "fn": "0B1",
+   "desc": "A barrier reflects back to the target moves like Leech Seed and moves that damage status."
   },
   "METRONOME": {
    "name": "Metronome",
    "type": "NORMAL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "",
+   "fn": "0B6",
+   "desc": "The user waggles a finger and stimulates its brain into randomly using nearly any move."
   },
   "NASTYPLOT": {
    "name": "Nasty Plot",
    "type": "DARK",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "d",
+   "fn": "032",
+   "desc": "The user stimulates its brain by thinking bad thoughts. It sharply raises the user's Sp. Atk."
   },
   "POWERUPPUNCH": {
    "name": "Power-Up Punch",
    "type": "FIGHTING",
    "power": 40,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 20,
+   "chance": 100,
+   "prio": 0,
+   "flags": "abefj",
+   "fn": "01C",
+   "desc": "Striking opponents repeatedly makes the user's fists harder, raising the user's Attack stat."
   },
   "PSYBEAM": {
    "name": "Psybeam",
    "type": "PSYCHIC",
    "power": 65,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 20,
+   "chance": 10,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "013",
+   "desc": "The target is attacked with a peculiar ray. It may also cause confusion."
   },
   "RECOVER": {
    "name": "Recover",
    "type": "NORMAL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "d",
+   "fn": "0D5",
+   "desc": "Restoring its own cells, the user restores its own HP by half of its max HP."
   },
   "RECYCLE": {
    "name": "Recycle",
    "type": "NORMAL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "d",
+   "fn": "0F6",
+   "desc": "The user recycles a held item that has been used in battle so it can be used again."
   },
   "RETALIATE": {
    "name": "Retaliate",
    "type": "NORMAL",
    "power": 70,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 5,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "085",
+   "desc": "Gets revenge for a fainted ally. If an ally fainted in the last turn, this attack's damage increases."
   },
   "ROLEPLAY": {
    "name": "Role Play",
    "type": "PSYCHIC",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "",
+   "fn": "065",
+   "desc": "The user mimics the target completely, copying the target's natural Ability."
   },
   "SCRATCH": {
    "name": "Scratch",
    "type": "NORMAL",
    "power": 40,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 35,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "000",
+   "desc": "Hard, pointed, and sharp claws rake the target to inflict damage."
   },
   "SHADOWCLAW": {
    "name": "Shadow Claw",
    "type": "GHOST",
    "power": 70,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 15,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abefh",
+   "fn": "000",
+   "desc": "The user slashes with a sharp claw made from shadows. Critical hits land more easily."
   },
   "SHADOWSNEAK": {
    "name": "Shadow Sneak",
    "type": "GHOST",
    "power": 40,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 30,
+   "chance": 0,
+   "prio": 1,
+   "flags": "abef",
+   "fn": "000",
+   "desc": "The user extends its shadow and attacks the target from behind. This move always goes first."
   },
   "SKILLSWAP": {
    "name": "Skill Swap",
    "type": "PSYCHIC",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "be",
+   "fn": "067",
+   "desc": "The user employs its psychic power to exchange Abilities with the target."
   },
   "SUCKERPUNCH": {
    "name": "Sucker Punch",
    "type": "DARK",
    "power": 70,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 5,
+   "chance": 0,
+   "prio": 1,
+   "flags": "abef",
+   "fn": "116",
+   "desc": "This move enables the user to attack first. It fails if the target is not readying an attack, however."
   },
   "SYNCHRONOISE": {
    "name": "Synchronoise",
    "type": "PSYCHIC",
    "power": 120,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "123",
+   "desc": "Using an odd shock wave, the user damages any Pokémon of the same type as the user."
   },
   "TAILWHIP": {
    "name": "Tail Whip",
    "type": "NORMAL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 100,
+   "pp": 30,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bce",
+   "fn": "043",
+   "desc": "The user wags its tail cutely, making opposing Pokémon less wary and lowering their Defense stat."
   },
   "THUNDER": {
    "name": "Thunder",
    "type": "ELECTRIC",
    "power": 110,
-   "cat": 1
+   "cat": 1,
+   "acc": 70,
+   "pp": 10,
+   "chance": 30,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "008",
+   "desc": "A wicked thunderbolt is dropped on the foe to inflict damage. It may also leave the target paralyzed."
   },
   "THUNDERBOLT": {
    "name": "Thunderbolt",
    "type": "ELECTRIC",
    "power": 90,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 15,
+   "chance": 10,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "007",
+   "desc": "A strong electric blast is loosed at the target. It may also leave the target with paralysis."
   },
   "THUNDERPUNCH": {
    "name": "Thunder Punch",
    "type": "ELECTRIC",
    "power": 75,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 15,
+   "chance": 10,
+   "prio": 0,
+   "flags": "abefj",
+   "fn": "007",
+   "desc": "The target is punched with an electrified fist. It may also leave the target with paralysis."
   },
   "THUNDERWAVE": {
    "name": "Thunder Wave",
    "type": "ELECTRIC",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 90,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bce",
+   "fn": "007",
+   "desc": "A weak electric charge is launched at the target. It causes paralysis if it hits."
   },
   "WATERPULSE": {
    "name": "Water Pulse",
    "type": "WATER",
    "power": 60,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 20,
+   "chance": 20,
+   "prio": 0,
+   "flags": "befm",
+   "fn": "013",
+   "desc": "The user attacks the target with a pulsing blast of water. It may also confuse the target."
   },
   "WONDERROOM": {
    "name": "Wonder Room",
    "type": "PSYCHIC",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 10,
+   "chance": 0,
+   "prio": -7,
+   "flags": "e",
+   "fn": "124",
+   "desc": "The user creates a bizarre area in which Pokémon's Defense and Sp. Def stats are swapped for 5 turns."
   },
   "ABSORB": {
    "name": "Absorb",
    "type": "GRASS",
    "power": 20,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 25,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "0DD",
+   "desc": "A nutrient-draining attack. The user's HP is restored by half the damage taken by the target."
   },
   "BIDE": {
    "name": "Bide",
    "type": "NORMAL",
    "power": 1,
-   "cat": 0
+   "cat": 0,
+   "acc": 0,
+   "pp": 10,
+   "chance": 0,
+   "prio": 1,
+   "flags": "abf",
+   "fn": "0D4",
+   "desc": "The user endures attacks for two turns, then strikes back to cause double the damage taken."
   },
   "BODYSLAM": {
    "name": "Body Slam",
    "type": "NORMAL",
    "power": 85,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 15,
+   "chance": 30,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "007",
+   "desc": "The user drops onto the target with its full body weight. It may leave the target with paralysis."
   },
   "BRUTALSWING": {
    "name": "Brutal Swing",
    "type": "DARK",
    "power": 60,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "000",
+   "desc": "The user swings its body around violently to inflict damage on everything in its vicinity."
   },
   "BUBBLE": {
    "name": "Bubble",
    "type": "WATER",
    "power": 40,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 30,
+   "chance": 10,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "044",
+   "desc": "A spray of countless bubbles is jetted at the opposing team. It may also lower the targets' Speed stats."
   },
   "DRACOMETEOR": {
    "name": "Draco Meteor",
    "type": "DRAGON",
    "power": 130,
-   "cat": 1
+   "cat": 1,
+   "acc": 90,
+   "pp": 5,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "03F",
+   "desc": "Comets are summoned down from the sky. The attack's recoil harshly reduces the user's Sp. Atk stat."
   },
   "DRAGONBREATH": {
    "name": "Dragon Breath",
    "type": "DRAGON",
    "power": 60,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 20,
+   "chance": 30,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "007",
+   "desc": "The user exhales a mighty gust that inflicts damage. It may also leave the target with paralysis."
   },
   "DRAGONPULSE": {
    "name": "Dragon Pulse",
    "type": "DRAGON",
    "power": 85,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "befm",
+   "fn": "000",
+   "desc": "The target is attacked with a shock wave generated by the user's gaping mouth."
   },
   "DRAGONTAIL": {
    "name": "Dragon Tail",
    "type": "DRAGON",
    "power": 60,
-   "cat": 0
+   "cat": 0,
+   "acc": 90,
+   "pp": 10,
+   "chance": 0,
+   "prio": -6,
+   "flags": "abef",
+   "fn": "0EC",
+   "desc": "The user knocks away the target and drags out another Pokémon in its party. In the wild, the battle ends."
   },
   "FLAIL": {
    "name": "Flail",
    "type": "NORMAL",
    "power": 1,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 15,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "098",
+   "desc": "The user flails about aimlessly to attack. It becomes more powerful the less HP the user has."
   },
   "FOCUSBLAST": {
    "name": "Focus Blast",
    "type": "FIGHTING",
    "power": 120,
-   "cat": 1
+   "cat": 1,
+   "acc": 70,
+   "pp": 5,
+   "chance": 10,
+   "prio": 0,
+   "flags": "befn",
+   "fn": "046",
+   "desc": "The user heightens its mental focus and unleashes its power. It may also lower the target's Sp. Def."
   },
   "HAIL": {
    "name": "Hail",
    "type": "ICE",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "",
+   "fn": "102",
+   "desc": "The user summons a hail storm lasting five turns. It damages all Pokémon except the Ice type."
   },
   "MUDDYWATER": {
    "name": "Muddy Water",
    "type": "WATER",
    "power": 90,
-   "cat": 1
+   "cat": 1,
+   "acc": 85,
+   "pp": 10,
+   "chance": 30,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "047",
+   "desc": "The user attacks by shooting muddy water at the opposing team. It may also lower the target's accuracy."
   },
   "OUTRAGE": {
    "name": "Outrage",
    "type": "DRAGON",
    "power": 120,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "0D2",
+   "desc": "The user rampages and attacks for two to three turns. It then becomes confused, however."
   },
   "POWERWHIP": {
    "name": "Power Whip",
    "type": "GRASS",
    "power": 120,
-   "cat": 0
+   "cat": 0,
+   "acc": 85,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "000",
+   "desc": "The user violently whirls its vines or tentacles to harshly lash the target."
   },
   "SLUDGEWAVE": {
    "name": "Sludge Wave",
    "type": "POISON",
    "power": 95,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 10,
+   "chance": 10,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "005",
+   "desc": "It swamps the area around the user with a giant sludge wave. It may also poison those hit."
   },
   "FORESIGHT": {
    "name": "Foresight",
    "type": "NORMAL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 40,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bce",
+   "fn": "0A7",
+   "desc": "Enables the user to hit a Ghost type with any kind of move. It also enables the user to hit an evasive foe."
   },
   "FUTURESIGHT": {
    "name": "Future Sight",
    "type": "PSYCHIC",
    "power": 120,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "",
+   "fn": "111",
+   "desc": "Two turns after this move is used, a hunk of psychic energy attacks the target."
   },
   "GRAVITY": {
    "name": "Gravity",
    "type": "PSYCHIC",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 5,
+   "chance": 0,
+   "prio": 0,
+   "flags": "",
+   "fn": "118",
+   "desc": "Gravity is intensified for five turns, making moves involving flying unusable and negating Levitation."
   },
   "MEANLOOK": {
    "name": "Mean Look",
    "type": "NORMAL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 5,
+   "chance": 0,
+   "prio": 0,
+   "flags": "ce",
+   "fn": "0EF",
+   "desc": "The user pins the target with a dark, arresting look. The target becomes unable to flee."
   },
   "NIGHTSHADE": {
    "name": "Night Shade",
    "type": "GHOST",
    "power": 1,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 15,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "06D",
+   "desc": "The user makes the foe see a frightening mirage. It inflicts damage matching the user's level."
   },
   "SHADOWPUNCH": {
    "name": "Shadow Punch",
    "type": "GHOST",
    "power": 60,
-   "cat": 0
+   "cat": 0,
+   "acc": 0,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abefj",
+   "fn": "0A5",
+   "desc": "The user throws a punch from the shadows. The punch lands without fail."
   },
   "BLOCK": {
    "name": "Block",
    "type": "NORMAL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 5,
+   "chance": 0,
+   "prio": 0,
+   "flags": "ce",
+   "fn": "0EF",
+   "desc": "The user blocks the target's way with arms spread wide to prevent escape."
   },
   "DYNAMICPUNCH": {
    "name": "Dynamic Punch",
    "type": "FIGHTING",
    "power": 100,
-   "cat": 0
+   "cat": 0,
+   "acc": 50,
+   "pp": 5,
+   "chance": 100,
+   "prio": 0,
+   "flags": "abefj",
+   "fn": "013",
+   "desc": "The user punches the target with full, concentrated power. It confuses the target if it hits."
   },
   "HAMMERARM": {
    "name": "Hammer Arm",
    "type": "FIGHTING",
    "power": 100,
-   "cat": 0
+   "cat": 0,
+   "acc": 90,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abefj",
+   "fn": "03E",
+   "desc": "The user swings and hits with its strong and heavy fist. It lowers the user's Speed, however."
   },
   "HEAVYSLAM": {
    "name": "Heavy Slam",
    "type": "STEEL",
    "power": 1,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "09B",
+   "desc": "The user slams into the foe with its heavy body. The heavier the user, the greater the damage."
   },
   "HIGHHORSEPOWER": {
    "name": "High Horsepower",
    "type": "GROUND",
    "power": 95,
-   "cat": 0
+   "cat": 0,
+   "acc": 95,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "000",
+   "desc": "The user fiercely attacks the target using its entire body."
   },
   "LOWSWEEP": {
    "name": "Low Sweep",
    "type": "FIGHTING",
    "power": 65,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 20,
+   "chance": 100,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "044",
+   "desc": "The user attacks the target's legs swiftly, reducing the target's Speed stat."
   },
   "MEGAPUNCH": {
    "name": "Mega Punch",
    "type": "NORMAL",
    "power": 80,
-   "cat": 0
+   "cat": 0,
+   "acc": 85,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abefj",
+   "fn": "000",
+   "desc": "The target is slugged by a punch thrown with muscle-packed power."
   },
   "PHANTOMFORCE": {
    "name": "Phantom Force",
    "type": "GHOST",
    "power": 90,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "aef",
+   "fn": "14D",
+   "desc": "The user vanishes somewhere, then strikes on the next turn. Hits through protections."
   },
   "POUND": {
    "name": "Pound",
    "type": "NORMAL",
    "power": 40,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 35,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "000",
+   "desc": "The target is physically pounded with a long tail or a foreleg, etc."
   },
   "ZENHEADBUTT": {
    "name": "Zen Headbutt",
    "type": "PSYCHIC",
    "power": 80,
-   "cat": 0
+   "cat": 0,
+   "acc": 90,
+   "pp": 15,
+   "chance": 20,
+   "prio": 0,
+   "flags": "abe",
+   "fn": "00F",
+   "desc": "The user focuses its willpower to its head and attacks the foe. It may also make the target flinch."
   },
   "BANEFULBUNKER": {
    "name": "Baneful Bunker",
    "type": "POISON",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 10,
+   "chance": 0,
+   "prio": 4,
+   "flags": "",
+   "fn": "168",
+   "desc": "Protects the user from attacks. Also poisons any attacker that makes contact with the user."
   },
   "BITE": {
    "name": "Bite",
    "type": "DARK",
    "power": 60,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 25,
+   "chance": 30,
+   "prio": 0,
+   "flags": "abei",
+   "fn": "00F",
+   "desc": "The target is bitten with viciously sharp fangs. It may make the target flinch."
   },
   "COVET": {
    "name": "Covet",
    "type": "NORMAL",
    "power": 60,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 25,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "0F1",
+   "desc": "The user endearingly approaches the target, then steals the target's held item."
   },
   "FROSTBREATH": {
    "name": "Frost Breath",
    "type": "ICE",
    "power": 60,
-   "cat": 1
+   "cat": 1,
+   "acc": 90,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "0A0",
+   "desc": "The user blows a cold breath on the target. This attack always results in a critical hit."
   },
   "GASTROACID": {
    "name": "Gastro Acid",
    "type": "POISON",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 100,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bce",
+   "fn": "068",
+   "desc": "The user hurls up its stomach acids on the foe. The fluid negates the effect of the target's Ability."
   },
   "GUNKSHOT": {
    "name": "Gunk Shot",
    "type": "POISON",
    "power": 120,
-   "cat": 0
+   "cat": 0,
+   "acc": 80,
+   "pp": 5,
+   "chance": 30,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "005",
+   "desc": "The user shoots filthy garbage at the target to attack. It may also poison the target."
   },
   "LIGHTSCREEN": {
    "name": "Light Screen",
    "type": "PSYCHIC",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 30,
+   "chance": 0,
+   "prio": 0,
+   "flags": "d",
+   "fn": "0A3",
+   "desc": "A wondrous wall of light is put up to suppress damage from special attacks for five turns."
   },
   "LIQUIDATION": {
    "name": "Liquidation",
    "type": "WATER",
    "power": 85,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 10,
+   "chance": 20,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "043",
+   "desc": "The user slams into the target using a full-force blast of water. May lower the target's Defense."
   },
   "PINMISSILE": {
    "name": "Pin Missile",
    "type": "BUG",
    "power": 25,
-   "cat": 0
+   "cat": 0,
+   "acc": 95,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "0C0",
+   "desc": "Sharp spikes are shot at the target in rapid succession. They hit two to five times in a row."
   },
   "SCALD": {
    "name": "Scald",
    "type": "WATER",
    "power": 80,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 15,
+   "chance": 30,
+   "prio": 0,
+   "flags": "befg",
+   "fn": "00A",
+   "desc": "The user shoots boiling hot water at its target. It may also leave the target with a burn."
   },
   "SMACKDOWN": {
    "name": "Smack Down",
    "type": "ROCK",
    "power": 50,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 15,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "11C",
+   "desc": "The user throws a stone or projectile to attack. A flying Pokémon will fall to the ground when hit."
   },
   "SPIKECANNON": {
    "name": "Spike Cannon",
    "type": "NORMAL",
    "power": 20,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 15,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "0C0",
+   "desc": "Sharp spikes are shot at the target in rapid succession. They hit two to five times in a row."
   },
   "SURF": {
    "name": "Surf",
    "type": "WATER",
    "power": 90,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 15,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "075",
+   "desc": "It swamps the area around the user with a giant wave. It can also be used for crossing water."
   },
   "WIDEGUARD": {
    "name": "Wide Guard",
    "type": "ROCK",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 10,
+   "chance": 0,
+   "prio": 3,
+   "flags": "d",
+   "fn": "0AC",
+   "desc": "The user and its allies are protected from wide-ranging attacks for a turn. May fail if used in succession."
   },
   "CONFUSION": {
    "name": "Confusion",
    "type": "PSYCHIC",
    "power": 50,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 25,
+   "chance": 10,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "013",
+   "desc": "The target is hit by a weak telekinetic force. It may also leave the target confused."
   },
   "DAZZLINGGLEAM": {
    "name": "Dazzling Gleam",
    "type": "FAIRY",
    "power": 80,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "000",
+   "desc": "The user damages opposing Pokémon by emitting a powerful flash."
   },
   "KINESIS": {
    "name": "Kinesis",
    "type": "PSYCHIC",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 80,
+   "pp": 15,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bce",
+   "fn": "047",
+   "desc": "The user distracts the target by bending a spoon. It lowers the target's accuracy."
   },
   "MAGICROOM": {
    "name": "Magic Room",
    "type": "PSYCHIC",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "e",
+   "fn": "0F9",
+   "desc": "The user creates a bizarre area in which Pokémon's held items lose their effects for five turns."
   },
   "MEGAKICK": {
    "name": "Mega Kick",
    "type": "NORMAL",
    "power": 120,
-   "cat": 0
+   "cat": 0,
+   "acc": 75,
+   "pp": 5,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "000",
+   "desc": "The target is attacked by a kick launched with muscle-packed power."
   },
   "MIRACLEEYE": {
    "name": "Miracle Eye",
    "type": "PSYCHIC",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 40,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bce",
+   "fn": "0A8",
+   "desc": "Enables the user to hit a Dark type with any type of move. It also enables the user to hit an evasive foe."
   },
   "MORNINGSUN": {
    "name": "Morning Sun",
    "type": "NORMAL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 5,
+   "chance": 0,
+   "prio": 0,
+   "flags": "d",
+   "fn": "0D8",
+   "desc": "The user restores its own HP. The amount of HP regained varies with the weather."
   },
   "PSYCHOCUT": {
    "name": "Psycho Cut",
    "type": "PSYCHIC",
    "power": 70,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "befh",
+   "fn": "000",
+   "desc": "The user tears at the target with blades formed by psychic power. Critical hits land more easily."
   },
   "PSYSHOCK": {
    "name": "Psyshock",
    "type": "PSYCHIC",
    "power": 80,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "122",
+   "desc": "The user materializes an odd psychic wave to attack the target. This attack does physical damage."
   },
   "REFLECT": {
    "name": "Reflect",
    "type": "PSYCHIC",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "d",
+   "fn": "0A2",
+   "desc": "A wondrous wall of light is put up to suppress damage from physical attacks for five turns."
   },
   "ACROBATICS": {
    "name": "Acrobatics",
    "type": "FLYING",
    "power": 55,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 15,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "086",
+   "desc": "The user nimbly strikes the foe. This attack does more damage if the user is not holding an item."
   },
   "COSMICPOWER": {
    "name": "Cosmic Power",
    "type": "PSYCHIC",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "d",
+   "fn": "02A",
+   "desc": "The user absorbs a mystical power from space to raise its Defense and Sp. Def stats."
   },
   "MAGNETRISE": {
    "name": "Magnet Rise",
    "type": "ELECTRIC",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "d",
+   "fn": "119",
+   "desc": "The user levitates using electrically generated magnetism for five turns."
   },
   "POWERGEM": {
    "name": "Power Gem",
    "type": "ROCK",
    "power": 80,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "000",
+   "desc": "The user attacks with a ray of light that sparkles as if it were made of gemstones."
   },
   "SELFDESTRUCT": {
    "name": "Self-Destruct",
    "type": "NORMAL",
    "power": 200,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 5,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "0E0",
+   "desc": "The user blows up to inflict damage on all Pokémon in battle. The user faints upon using this move."
   },
   "SHELLSMASH": {
    "name": "Shell Smash",
    "type": "NORMAL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 15,
+   "chance": 0,
+   "prio": 0,
+   "flags": "d",
+   "fn": "035",
+   "desc": "The user breaks its shell, lowering its defenses but sharply raising attacking and Speed stats."
   },
   "ACIDSPRAY": {
    "name": "Acid Spray",
    "type": "POISON",
    "power": 40,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 20,
+   "chance": 100,
+   "prio": 0,
+   "flags": "befn",
+   "fn": "04F",
+   "desc": "The user spits fluid that works to melt the target. This harshly reduces the target's Sp. Def stat."
   },
   "BELCH": {
    "name": "Belch",
    "type": "POISON",
    "power": 120,
-   "cat": 1
+   "cat": 1,
+   "acc": 90,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bf",
+   "fn": "158",
+   "desc": "The user lets out a damaging belch at the target. The user must eat a held Berry to use this move."
   },
   "CLEARSMOG": {
    "name": "Clear Smog",
    "type": "POISON",
    "power": 50,
-   "cat": 1
+   "cat": 1,
+   "acc": 0,
+   "pp": 15,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "050",
+   "desc": "The user attacks by throwing a clump of special mud. All status changes are returned to normal."
   },
   "DOUBLESLAP": {
    "name": "Double Slap",
    "type": "NORMAL",
    "power": 15,
-   "cat": 0
+   "cat": 0,
+   "acc": 85,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "0C0",
+   "desc": "The target is slapped repeatedly, back and forth, two to five times in a row."
   },
   "GIGADRAIN": {
    "name": "Giga Drain",
    "type": "GRASS",
    "power": 75,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "0DD",
+   "desc": "A nutrient-draining attack. The user's HP is restored by half the damage taken by the target."
   },
   "POISONGAS": {
    "name": "Poison Gas",
    "type": "POISON",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 90,
+   "pp": 40,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bce",
+   "fn": "005",
+   "desc": "A cloud of poison gas is sprayed in the face of opposing Pokémon. It may poison those hit."
   },
   "SEEDBOMB": {
    "name": "Seed Bomb",
    "type": "GRASS",
    "power": 80,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 15,
+   "chance": 0,
+   "prio": 0,
+   "flags": "befn",
+   "fn": "000",
+   "desc": "The user slams a barrage of hard-shelled seeds down on the target from above."
   },
   "SLUDGE": {
    "name": "Sludge",
    "type": "POISON",
    "power": 65,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 20,
+   "chance": 30,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "005",
+   "desc": "Unsanitary sludge is hurled at the target. It may also poison the target."
   },
   "STOCKPILE": {
    "name": "Stockpile",
    "type": "NORMAL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "d",
+   "fn": "112",
+   "desc": "The user charges up power and raises both its Defense and Sp. Def. The move can be used three times."
   },
   "SWALLOW": {
    "name": "Swallow",
    "type": "NORMAL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "d",
+   "fn": "114",
+   "desc": "The power stored using the move Stockpile is absorbed by the user to heal its HP."
   },
   "AQUAJET": {
    "name": "Aqua Jet",
    "type": "WATER",
    "power": 40,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 20,
+   "chance": 0,
+   "prio": 1,
+   "flags": "abef",
+   "fn": "000",
+   "desc": "The user lunges at the target at a speed that makes it almost invisible. It is sure to strike first."
   },
   "BOUNCE": {
    "name": "Bounce",
    "type": "FLYING",
    "power": 85,
-   "cat": 0
+   "cat": 0,
+   "acc": 85,
+   "pp": 5,
+   "chance": 30,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "0CC",
+   "desc": "The user bounces up high, then drops on the foe on the second turn. It may also paralyze the foe."
   },
   "BRINE": {
    "name": "Brine",
    "type": "WATER",
    "power": 65,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "080",
+   "desc": "If the target's HP is down to about half, this attack will hit with double the power."
   },
   "BUBBLEBEAM": {
    "name": "Bubble Beam",
    "type": "WATER",
    "power": 65,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 20,
+   "chance": 10,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "044",
+   "desc": "A spray of bubbles is forcefully ejected at the target. It may also lower its Speed stat."
   },
   "DESTINYBOND": {
    "name": "Destiny Bond",
    "type": "GHOST",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 5,
+   "chance": 0,
+   "prio": 0,
+   "flags": "",
+   "fn": "0E7",
+   "desc": "When this move is used, if the user faints, the foe that landed the knockout hit also faints."
   },
   "DIVE": {
    "name": "Dive",
    "type": "WATER",
    "power": 80,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "0CB",
+   "desc": "Diving on the first turn, the user rises and hits on the next turn. It can be used to dive in the ocean."
   },
   "FELLSTINGER": {
    "name": "Fell Stinger",
    "type": "BUG",
    "power": 50,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 25,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "150",
+   "desc": "When the user knocks out a target with this move, the user's Attack stat rises drastically."
   },
   "HARDEN": {
    "name": "Harden",
    "type": "NORMAL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 30,
+   "chance": 0,
+   "prio": 0,
+   "flags": "d",
+   "fn": "01D",
+   "desc": "The user stiffens all the muscles in its body to raise its Defense stat."
   },
   "HAZE": {
    "name": "Haze",
    "type": "ICE",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 30,
+   "chance": 0,
+   "prio": 0,
+   "flags": "",
+   "fn": "051",
+   "desc": "The user creates a haze that eliminates every stat change among all the Pokémon engaged in battle."
   },
   "HYDROPUMP": {
    "name": "Hydro Pump",
    "type": "WATER",
    "power": 110,
-   "cat": 1
+   "cat": 1,
+   "acc": 80,
+   "pp": 5,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "000",
+   "desc": "The target is blasted by a huge volume of water launched under great pressure."
   },
   "MINIMIZE": {
    "name": "Minimize",
    "type": "NORMAL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "d",
+   "fn": "034",
+   "desc": "The user compresses its body to make itself look smaller, which sharply raises its evasiveness."
   },
   "REVENGE": {
    "name": "Revenge",
    "type": "FIGHTING",
    "power": 60,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 10,
+   "chance": 0,
+   "prio": -4,
+   "flags": "abef",
+   "fn": "081",
+   "desc": "An attack move that inflicts double the damage if the user has been hurt by the foe in the same turn."
   },
   "SPITUP": {
    "name": "Spit Up",
    "type": "NORMAL",
    "power": 1,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bf",
+   "fn": "113",
+   "desc": "The power stored using the move Stockpile is released all at once in an attack."
   },
   "SUPERSONIC": {
    "name": "Supersonic",
    "type": "NORMAL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 55,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bcek",
+   "fn": "013",
+   "desc": "The user generates odd sound waves from its body. It may confuse the target."
   },
   "WATERFALL": {
    "name": "Waterfall",
    "type": "WATER",
    "power": 80,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 15,
+   "chance": 20,
+   "prio": 0,
+   "flags": "abe",
+   "fn": "00F",
+   "desc": "The user charges at the target and may make it flinch. It can also be used to climb a waterfall."
   },
   "WATERGUN": {
    "name": "Water Gun",
    "type": "WATER",
    "power": 40,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 25,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "000",
+   "desc": "The target is blasted with a forceful shot of water."
   },
   "CHARM": {
    "name": "Charm",
    "type": "FAIRY",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 100,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bce",
+   "fn": "04B",
+   "desc": "The user charmingly gazes at the foe, making it less wary. The target's Attack is harshly lowered."
   },
   "CRUNCH": {
    "name": "Crunch",
    "type": "DARK",
    "power": 80,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 15,
+   "chance": 20,
+   "prio": 0,
+   "flags": "abefi",
+   "fn": "043",
+   "desc": "The user crunches up the target with sharp fangs. It may also lower the target's Defense stat."
   },
   "DRAGONCLAW": {
    "name": "Dragon Claw",
    "type": "DRAGON",
    "power": 80,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 15,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "000",
+   "desc": "The user slashes the target with huge, sharp claws."
   },
   "HEADSMASH": {
    "name": "Head Smash",
    "type": "ROCK",
    "power": 150,
-   "cat": 0
+   "cat": 0,
+   "acc": 80,
+   "pp": 5,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "0FC",
+   "desc": "The user attacks the foe with a hazardous, full-power headbutt. The user also takes terrible damage."
   },
   "HORNDRILL": {
    "name": "Horn Drill",
    "type": "NORMAL",
    "power": 1,
-   "cat": 0
+   "cat": 0,
+   "acc": 30,
+   "pp": 5,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abe",
+   "fn": "070",
+   "desc": "The user stabs the foe with a horn that rotates like a drill. If it hits, the target faints instantly."
   },
   "HYPERVOICE": {
    "name": "Hyper Voice",
    "type": "NORMAL",
    "power": 90,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "befk",
+   "fn": "000",
+   "desc": "The user lets loose a horribly echoing shout with the power to inflict damage."
   },
   "STOMP": {
    "name": "Stomp",
    "type": "NORMAL",
    "power": 65,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 20,
+   "chance": 30,
+   "prio": 0,
+   "flags": "abe",
+   "fn": "010",
+   "desc": "The target is stomped with a big foot. It may also make the target flinch."
   },
   "THRASH": {
    "name": "Thrash",
    "type": "NORMAL",
    "power": 120,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "0D2",
+   "desc": "The user rampages and attacks for two to three turns. It then becomes confused, however."
   },
   "DUALCHOP": {
    "name": "Dual Chop",
    "type": "DRAGON",
    "power": 40,
-   "cat": 0
+   "cat": 0,
+   "acc": 90,
+   "pp": 15,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "0BD",
+   "desc": "The user attacks its target by hitting it with brutal strikes. The target is hit twice in a row."
   },
   "GROWTH": {
    "name": "Growth",
    "type": "NORMAL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "d",
+   "fn": "028",
+   "desc": "The user's body grows all at once, raising the Atk and Sp. Atk stats."
   },
   "INGRAIN": {
    "name": "Ingrain",
    "type": "GRASS",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "d",
+   "fn": "0DB",
+   "desc": "The user lays roots that restore its HP on every turn. Because it is rooted, it can't switch out."
   },
   "LEAFAGE": {
    "name": "Leafage",
    "type": "GRASS",
    "power": 40,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 40,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "000",
+   "desc": "The user attacks by pelting the target with leaves."
   },
   "LEAFBLADE": {
    "name": "Leaf Blade",
    "type": "GRASS",
    "power": 90,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 15,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abefh",
+   "fn": "000",
+   "desc": "The user handles a sharp leaf like a sword and attacks by slashing. It has a high critical-hit ratio."
   },
   "LEECHLIFE": {
    "name": "Leech Life",
    "type": "BUG",
    "power": 80,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "0DD",
+   "desc": "The user drains the target's blood. The user's HP is restored by half the damage taken by the target."
   },
   "PETALBLIZZARD": {
    "name": "Petal Blizzard",
    "type": "GRASS",
    "power": 90,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 15,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "000",
+   "desc": "The user stirs up a violent petal blizzard and attacks everything around it."
   },
   "RAZORLEAF": {
    "name": "Razor Leaf",
    "type": "GRASS",
    "power": 55,
-   "cat": 0
+   "cat": 0,
+   "acc": 95,
+   "pp": 25,
+   "chance": 0,
+   "prio": 0,
+   "flags": "befh",
+   "fn": "000",
+   "desc": "Sharp-edged leaves are launched to slash at the opposing team. Critical hits land more easily."
   },
   "SOLARBLADE": {
    "name": "Solar Blade",
    "type": "GRASS",
    "power": 125,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "0C4",
+   "desc": "The user gathers light energy into a blade, attacking the target on the next turn."
   },
   "SWEETSCENT": {
    "name": "Sweet Scent",
    "type": "NORMAL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 100,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bce",
+   "fn": "048",
+   "desc": "A sweet scent that lowers the foe's evasiveness. It also lures wild Pokémon if used in grass, etc."
   },
   "SYNTHESIS": {
    "name": "Synthesis",
    "type": "GRASS",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 5,
+   "chance": 0,
+   "prio": 0,
+   "flags": "d",
+   "fn": "0D8",
+   "desc": "The user restores its own HP. The amount of HP regained varies with the weather."
   },
   "WORRYSEED": {
    "name": "Worry Seed",
    "type": "GRASS",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 100,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bce",
+   "fn": "064",
+   "desc": "A seed that causes worry is planted on the foe. It prevents sleep by making its Ability Insomnia."
   },
   "ROCKTHROW": {
    "name": "Rock Throw",
    "type": "ROCK",
    "power": 50,
-   "cat": 0
+   "cat": 0,
+   "acc": 90,
+   "pp": 15,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "000",
+   "desc": "The user picks up and throws a small rock at the target to attack."
   },
   "AROMATHERAPY": {
    "name": "Aromatherapy",
    "type": "GRASS",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 5,
+   "chance": 0,
+   "prio": 0,
+   "flags": "d",
+   "fn": "019",
+   "desc": "The user releases a soothing scent that heals all status problems affecting the user's party."
   },
   "FRENZYPLANT": {
    "name": "Frenzy Plant",
    "type": "GRASS",
    "power": 150,
-   "cat": 1
+   "cat": 1,
+   "acc": 90,
+   "pp": 5,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "0C2",
+   "desc": "The user slams the target with an enormous tree. The user can't move on the next turn."
   },
   "GRASSPLEDGE": {
    "name": "Grass Pledge",
    "type": "GRASS",
    "power": 50,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "106",
+   "desc": "A column of grass hits the foes. When used with its water equivalent, it creates a vast swamp."
   },
   "MAGICALLEAF": {
    "name": "Magical Leaf",
    "type": "GRASS",
    "power": 60,
-   "cat": 1
+   "cat": 1,
+   "acc": 0,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "0A5",
+   "desc": "The user scatters curious leaves that chase the target. This attack will not miss."
   },
   "NATURALGIFT": {
    "name": "Natural Gift",
    "type": "NORMAL",
    "power": 1,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 15,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "096",
+   "desc": "The user draws power to attack by using its held Berry. The Berry determines its type and power."
   },
   "PETALDANCE": {
    "name": "Petal Dance",
    "type": "GRASS",
    "power": 120,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abefo",
+   "fn": "0D2",
+   "desc": "The user attacks by scattering petals for two to three turns. The user then becomes confused."
   },
   "POISONPOWDER": {
    "name": "Poison Powder",
    "type": "POISON",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 75,
+   "pp": 35,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bcel",
+   "fn": "005",
+   "desc": "The user scatters a cloud of poisonous dust on the target. It may poison the target."
   },
   "ELECTROWEB": {
    "name": "Electroweb",
    "type": "ELECTRIC",
    "power": 55,
-   "cat": 1
+   "cat": 1,
+   "acc": 95,
+   "pp": 15,
+   "chance": 100,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "044",
+   "desc": "The user captures and attacks foes by using an electric net, which lowers their Speed stat."
   },
   "HELPINGHAND": {
    "name": "Helping Hand",
    "type": "NORMAL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 20,
+   "chance": 0,
+   "prio": 5,
+   "flags": "",
+   "fn": "09C",
+   "desc": "The user assists an ally by boosting the power of its attack."
   },
   "QUICKATTACK": {
    "name": "Quick Attack",
    "type": "NORMAL",
    "power": 40,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 30,
+   "chance": 0,
+   "prio": 1,
+   "flags": "abef",
+   "fn": "000",
+   "desc": "The user lunges at the target at a speed that makes it almost invisible. It is sure to strike first."
   },
   "THUNDERSHOCK": {
    "name": "Thunder Shock",
    "type": "ELECTRIC",
    "power": 40,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 30,
+   "chance": 10,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "007",
+   "desc": "A jolt of electricity is hurled at the foe to inflict damage. It may also leave the target with paralysis."
   },
   "VOLTSWITCH": {
    "name": "Volt Switch",
    "type": "ELECTRIC",
    "power": 70,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "0EE",
+   "desc": "After making its attack, the user rushes back to switch places with a party Pokémon in waiting."
   },
   "WILDCHARGE": {
    "name": "Wild Charge",
    "type": "ELECTRIC",
    "power": 90,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 15,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "0FA",
+   "desc": "The user shrouds itself in electricity and smashes into its foe. It also damages the user a little."
   },
   "BESTOW": {
    "name": "Bestow",
    "type": "NORMAL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 15,
+   "chance": 0,
+   "prio": 0,
+   "flags": "e",
+   "fn": "0F3",
+   "desc": "The user passes its held item to the target when the target isn't holding an item."
   },
   "DRAININGKISS": {
    "name": "Draining Kiss",
    "type": "FAIRY",
    "power": 50,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "14F",
+   "desc": "The user steals the target's HP with a kiss. The user's HP is restored by over half of the damage dealt."
   },
   "ENCORE": {
    "name": "Encore",
    "type": "NORMAL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 100,
+   "pp": 5,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bce",
+   "fn": "0BC",
+   "desc": "The user compels the target to keep using only the move it last used for three turns."
   },
   "FAIRYWIND": {
    "name": "Fairy Wind",
    "type": "FAIRY",
    "power": 40,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 30,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "000",
+   "desc": "The user stirs up a fairy wind and strikes the target with it."
   },
   "FOLLOWME": {
    "name": "Follow Me",
    "type": "NORMAL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 20,
+   "chance": 0,
+   "prio": 2,
+   "flags": "",
+   "fn": "117",
+   "desc": "The user draws attention to itself, making all targets take aim only at the user."
   },
   "HEALBELL": {
    "name": "Heal Bell",
    "type": "NORMAL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 5,
+   "chance": 0,
+   "prio": 0,
+   "flags": "dk",
+   "fn": "019",
+   "desc": "The user makes a soothing bell chime to heal the status problems of all the party Pokémon."
   },
   "MOONBLAST": {
    "name": "Moonblast",
    "type": "FAIRY",
    "power": 95,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 15,
+   "chance": 30,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "045",
+   "desc": "The user attacks by borrowing the power of the moon. This may also lower the target's Sp. Atk stat."
   },
   "SOFTBOILED": {
    "name": "Soft-Boiled",
    "type": "NORMAL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "d",
+   "fn": "0D5",
+   "desc": "The user restores its own HP by up to half of its maximum HP. May also be used in the field to heal HP."
   },
   "SWEETKISS": {
    "name": "Sweet Kiss",
    "type": "FAIRY",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 75,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bce",
+   "fn": "013",
+   "desc": "The user kisses the target with a sweet, angelic cuteness that causes confusion."
   },
   "WISH": {
    "name": "Wish",
    "type": "NORMAL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "d",
+   "fn": "0D7",
+   "desc": "One turn after this move is used, the target's HP is restored by half the user's maximum HP."
   },
   "BOOMBURST": {
    "name": "Boomburst",
    "type": "NORMAL",
    "power": 140,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "befk",
+   "fn": "000",
+   "desc": "The user attacks everything around it with the destructive power of a terrible, explosive sound."
   },
   "GUST": {
    "name": "Gust",
    "type": "FLYING",
    "power": 40,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 35,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "077",
+   "desc": "A gust of wind is whipped up by wings and launched at the target to inflict damage."
   },
   "HURRICANE": {
    "name": "Hurricane",
    "type": "FLYING",
    "power": 110,
-   "cat": 1
+   "cat": 1,
+   "acc": 70,
+   "pp": 10,
+   "chance": 30,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "015",
+   "desc": "The user wraps its foe in a fierce wind that flies up into the sky. It may also confuse the foe."
   },
   "MOONLIGHT": {
    "name": "Moonlight",
    "type": "FAIRY",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 5,
+   "chance": 0,
+   "prio": 0,
+   "flags": "d",
+   "fn": "0D8",
+   "desc": "The user restores its own HP. The amount of HP regained varies with the weather."
   },
   "RAZORWIND": {
    "name": "Razor Wind",
    "type": "NORMAL",
    "power": 80,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "befh",
+   "fn": "0C3",
+   "desc": "A two-turn attack. Blades of wind hit the foe on the second turn. Critical hits land more easily."
   },
   "SUPERFANG": {
    "name": "Super Fang",
    "type": "NORMAL",
    "power": 1,
-   "cat": 0
+   "cat": 0,
+   "acc": 90,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "06C",
+   "desc": "The user chomps hard on the target with its sharp front fangs. It cuts the target's HP to half."
   },
   "WINGATTACK": {
    "name": "Wing Attack",
    "type": "FLYING",
    "power": 60,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 35,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "000",
+   "desc": "The target is struck with large, imposing wings spread wide to inflict damage."
   },
   "DISCHARGE": {
    "name": "Discharge",
    "type": "ELECTRIC",
    "power": 80,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 15,
+   "chance": 30,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "007",
+   "desc": "A flare of electricity is loosed to strike the area around the user. It may also cause paralysis."
   },
   "ELECTRICTERRAIN": {
    "name": "Electric Terrain",
    "type": "ELECTRIC",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "",
+   "fn": "154",
+   "desc": "The user electrifies the ground for five turns. Pokémon on the ground no longer fall asleep."
   },
   "ELECTROBALL": {
    "name": "Electro Ball",
    "type": "ELECTRIC",
    "power": 1,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "befn",
+   "fn": "099",
+   "desc": "The user hurls an electric orb at the foe. It does more damage the faster the user is."
   },
   "LOCKON": {
    "name": "Lock-On",
    "type": "NORMAL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 5,
+   "chance": 0,
+   "prio": 0,
+   "flags": "be",
+   "fn": "0A6",
+   "desc": "The user takes sure aim at the target. It ensures the next attack does not fail to hit the target."
   },
   "MAGNETBOMB": {
    "name": "Magnet Bomb",
    "type": "STEEL",
    "power": 60,
-   "cat": 0
+   "cat": 0,
+   "acc": 0,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "befn",
+   "fn": "0A5",
+   "desc": "The user launches steel bombs that stick to the target. This attack will not miss."
   },
   "MIRRORSHOT": {
    "name": "Mirror Shot",
    "type": "STEEL",
    "power": 65,
-   "cat": 1
+   "cat": 1,
+   "acc": 85,
+   "pp": 10,
+   "chance": 30,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "047",
+   "desc": "The user looses a flash of energy from its polished body. It may also lower the target's accuracy."
   },
   "SONICBOOM": {
    "name": "Sonic Boom",
    "type": "NORMAL",
    "power": 1,
-   "cat": 1
+   "cat": 1,
+   "acc": 90,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "06A",
+   "desc": "The target is hit with a destructive shock wave that always inflicts 20 HP damage."
   },
   "SPARK": {
    "name": "Spark",
    "type": "ELECTRIC",
    "power": 65,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 20,
+   "chance": 30,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "007",
+   "desc": "The user throws an electrically charged tackle at the target. It may also leave the target with paralysis."
   },
   "TRIATTACK": {
    "name": "Tri Attack",
    "type": "NORMAL",
    "power": 80,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 10,
+   "chance": 20,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "017",
+   "desc": "The user strikes with a simultaneous three-beam attack. May also paralyze, burn, or freeze the target."
   },
   "ZAPCANNON": {
    "name": "Zap Cannon",
    "type": "ELECTRIC",
    "power": 120,
-   "cat": 1
+   "cat": 1,
+   "acc": 50,
+   "pp": 5,
+   "chance": 100,
+   "prio": 0,
+   "flags": "befn",
+   "fn": "007",
+   "desc": "The user fires an electric blast like a cannon to inflict damage and cause paralysis."
   },
   "CONVERSION": {
    "name": "Conversion",
    "type": "NORMAL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 30,
+   "chance": 0,
+   "prio": 0,
+   "flags": "d",
+   "fn": "05E",
+   "desc": "The user changes its type to become the same type as one of its moves."
   },
   "CONVERSION2": {
    "name": "Conversion 2",
    "type": "NORMAL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 30,
+   "chance": 0,
+   "prio": 0,
+   "flags": "",
+   "fn": "05F",
+   "desc": "The user changes its type to make itself resistant to the type of the attack the opponent used last."
   },
   "SHARPEN": {
    "name": "Sharpen",
    "type": "NORMAL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 30,
+   "chance": 0,
+   "prio": 0,
+   "flags": "d",
+   "fn": "01C",
+   "desc": "The user reduces its polygon count to make itself more jagged, raising the Attack stat."
   },
   "KINGSSHIELD": {
    "name": "King's Shield",
    "type": "STEEL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 10,
+   "chance": 0,
+   "prio": 4,
+   "flags": "",
+   "fn": "14B",
+   "desc": "Protects itself from damage. It also harshly lowers the Attack of attackers that make contact."
   },
   "POWERTRICK": {
    "name": "Power Trick",
    "type": "PSYCHIC",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "d",
+   "fn": "057",
+   "desc": "The user employs its psychic power to switch its Attack with its Defense stat."
   },
   "SACREDSWORD": {
    "name": "Sacred Sword",
    "type": "FIGHTING",
    "power": 90,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 15,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "0A9",
+   "desc": "The user attacks by slicing with its long horns. The target's stat changes don't affect the damage."
   },
   "BULKUP": {
    "name": "Bulk Up",
    "type": "FIGHTING",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "d",
+   "fn": "024",
+   "desc": "The user tenses its muscles to bulk up its body, boosting both its Attack and Defense stats."
   },
   "CHIPAWAY": {
    "name": "Chip Away",
    "type": "NORMAL",
    "power": 70,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "0A9",
+   "desc": "Seeking an opening, the user strikes continually. The foe's stat changes don't affect the damage."
   },
   "COUNTER": {
    "name": "Counter",
    "type": "FIGHTING",
    "power": 1,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 20,
+   "chance": 0,
+   "prio": -5,
+   "flags": "abf",
+   "fn": "071",
+   "desc": "A retaliation move that counters any physical attack, inflicting double the damage taken."
   },
   "PLAYROUGH": {
    "name": "Play Rough",
    "type": "FAIRY",
    "power": 90,
-   "cat": 0
+   "cat": 0,
+   "acc": 90,
+   "pp": 10,
+   "chance": 10,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "042",
+   "desc": "The user plays rough with the target and attacks it. This may also lower the target's Attack stat."
   },
   "PUNISHMENT": {
    "name": "Punishment",
    "type": "DARK",
    "power": 1,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 5,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "08F",
+   "desc": "This attack's power increases the more the target has powered up with stat changes."
   },
   "QUASH": {
    "name": "Quash",
    "type": "DARK",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 100,
+   "pp": 15,
+   "chance": 0,
+   "prio": 0,
+   "flags": "be",
+   "fn": "11E",
+   "desc": "The user suppresses the target and makes its move go last."
   },
   "SLACKOFF": {
    "name": "Slack Off",
    "type": "NORMAL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "d",
+   "fn": "0D5",
+   "desc": "The user slacks off, restoring its own HP by up to half of its maximum HP."
   },
   "CAPTIVATE": {
    "name": "Captivate",
    "type": "NORMAL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 100,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bce",
+   "fn": "04E",
+   "desc": "If it is the opposite gender of the user, the target is charmed into harshly lowering its Sp. Atk stat."
   },
   "FEATHERDANCE": {
    "name": "Feather Dance",
    "type": "FLYING",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 100,
+   "pp": 15,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bceo",
+   "fn": "04B",
+   "desc": "The user covers the target's body with a mass of down that harshly lowers its Attack stat."
   },
   "REVELATIONDANCE": {
    "name": "Revelation Dance",
    "type": "NORMAL",
    "power": 90,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 15,
+   "chance": 0,
+   "prio": 0,
+   "flags": "befo",
+   "fn": "169",
+   "desc": "The user attacks the target by dancing very hard. The user's type determines the type of this move."
   },
   "TEETERDANCE": {
    "name": "Teeter Dance",
    "type": "NORMAL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 100,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "beo",
+   "fn": "013",
+   "desc": "The user performs a wobbly dance that confuses the Pokémon around it."
   },
   "FORESTSCURSE": {
    "name": "Forest's Curse",
    "type": "GRASS",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 100,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bce",
+   "fn": "143",
+   "desc": "The user puts a forest curse on the target. The target is now Grass type as well."
   },
   "HORNLEECH": {
    "name": "Horn Leech",
    "type": "GRASS",
    "power": 75,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "0DD",
+   "desc": "The user drains the foe's energy with its horns. The user's HP is restored by half the damage inflicted."
   },
   "LEECHSEED": {
    "name": "Leech Seed",
    "type": "GRASS",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 90,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bce",
+   "fn": "0DC",
+   "desc": "A seed is planted on the target. It steals some HP from the target every turn."
   },
   "WOODHAMMER": {
    "name": "Wood Hammer",
    "type": "GRASS",
    "power": 120,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 15,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "0FB",
+   "desc": "The user slams its rugged body into the target to attack. The user also sustains serious damage."
   },
   "CRAFTYSHIELD": {
    "name": "Crafty Shield",
    "type": "FAIRY",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 10,
+   "chance": 0,
+   "prio": 3,
+   "flags": "",
+   "fn": "14A",
+   "desc": "The user protects itself and its allies from status moves with a mysterious power."
   },
   "EXTRASENSORY": {
    "name": "Extrasensory",
    "type": "PSYCHIC",
    "power": 80,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 20,
+   "chance": 10,
+   "prio": 0,
+   "flags": "be",
+   "fn": "00F",
+   "desc": "The user attacks with an odd, unseeable power. It may also make the target flinch."
   },
   "HEALINGWISH": {
    "name": "Healing Wish",
    "type": "PSYCHIC",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "d",
+   "fn": "0E3",
+   "desc": "The user faints. In return, the Pokémon taking its place will have its HP restored and status cured."
   },
   "HEALPULSE": {
    "name": "Heal Pulse",
    "type": "PSYCHIC",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bcm",
+   "fn": "0DF",
+   "desc": "The user emits a healing pulse which restores the target's HP by up to half of its max HP."
   },
   "HYPNOSIS": {
    "name": "Hypnosis",
    "type": "PSYCHIC",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 60,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bce",
+   "fn": "003",
+   "desc": "The user employs hypnotic suggestion to make the target fall into a deep sleep."
   },
   "PERISHSONG": {
    "name": "Perish Song",
    "type": "NORMAL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 5,
+   "chance": 0,
+   "prio": 0,
+   "flags": "k",
+   "fn": "0E5",
+   "desc": "Any Pokémon that hears this song faints in three turns, unless it switches out of battle."
   },
   "PSYWAVE": {
    "name": "Psywave",
    "type": "PSYCHIC",
    "power": 1,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 15,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "06F",
+   "desc": "The target is attacked with an odd psychic wave. The attack varies in intensity."
   },
   "STOREDPOWER": {
    "name": "Stored Power",
    "type": "PSYCHIC",
    "power": 20,
-   "cat": 1
+   "cat": 1,
+   "acc": 100,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "08E",
+   "desc": "The user attacks with stored power. The more the user's stats are raised, the greater the damage."
   },
   "WRAP": {
    "name": "Wrap",
    "type": "NORMAL",
    "power": 15,
-   "cat": 0
+   "cat": 0,
+   "acc": 90,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "0CF",
+   "desc": "A long body or vines are used to wrap and squeeze the target for four to five turns."
   },
   "CRABHAMMER": {
    "name": "Crabhammer",
    "type": "WATER",
    "power": 100,
-   "cat": 0
+   "cat": 0,
+   "acc": 90,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abefh",
+   "fn": "000",
+   "desc": "The target is hammered with a large pincer. Critical hits land more easily."
   },
   "DOUBLEHIT": {
    "name": "Double Hit",
    "type": "NORMAL",
    "power": 35,
-   "cat": 0
+   "cat": 0,
+   "acc": 90,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "0BD",
+   "desc": "The user slams the target with a long tail, vines, or tentacle. The target is hit twice in a row."
   },
   "GUILLOTINE": {
    "name": "Guillotine",
    "type": "NORMAL",
    "power": 1,
-   "cat": 0
+   "cat": 0,
+   "acc": 30,
+   "pp": 5,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abe",
+   "fn": "070",
+   "desc": "A vicious, tearing attack with big pincers. The target will faint instantly if this attack hits."
   },
   "RAZORSHELL": {
    "name": "Razor Shell",
    "type": "WATER",
    "power": 75,
-   "cat": 0
+   "cat": 0,
+   "acc": 95,
+   "pp": 10,
+   "chance": 50,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "043",
+   "desc": "The user cuts the foe with sharp shells. It may also lower the target's Defense stat."
   },
   "SNARL": {
    "name": "Snarl",
    "type": "DARK",
    "power": 55,
-   "cat": 1
+   "cat": 1,
+   "acc": 95,
+   "pp": 15,
+   "chance": 100,
+   "prio": 0,
+   "flags": "befk",
+   "fn": "045",
+   "desc": "The user yells as if it is ranting about something, making the target's Sp. Atk stat decrease."
   },
   "VICEGRIP": {
    "name": "Vice Grip",
    "type": "NORMAL",
    "power": 55,
-   "cat": 0
+   "cat": 0,
+   "acc": 100,
+   "pp": 30,
+   "chance": 0,
+   "prio": 0,
+   "flags": "abef",
+   "fn": "000",
+   "desc": "The target is gripped and squeezed from both sides to inflict damage."
   },
   "FAKETEARS": {
    "name": "Fake Tears",
    "type": "DARK",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 100,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bce",
+   "fn": "04F",
+   "desc": "The user feigns crying to fluster the target, harshly lowering its Sp. Def stat."
   },
   "PLAYNICE": {
    "name": "Play Nice",
    "type": "NORMAL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 0,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "ce",
+   "fn": "139",
+   "desc": "The user and target become friends. The target loses its will to fight, lowering its Attack stat."
   },
   "SCARYFACE": {
    "name": "Scary Face",
    "type": "NORMAL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 100,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bce",
+   "fn": "04D",
+   "desc": "The user frightens the target with a scary face to harshly reduce its Speed stat."
   },
   "FIRESPIN": {
    "name": "Fire Spin",
    "type": "FIRE",
    "power": 35,
-   "cat": 1
+   "cat": 1,
+   "acc": 85,
+   "pp": 15,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "0CF",
+   "desc": "The target becomes trapped within a fierce vortex of fire that rages for four to five turns."
   },
   "SMOKESCREEN": {
    "name": "Smokescreen",
    "type": "NORMAL",
    "power": 0,
-   "cat": 2
+   "cat": 2,
+   "acc": 100,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bce",
+   "fn": "047",
+   "desc": "The user releases an obscuring cloud of smoke or ink. It reduces the target's accuracy."
   }
  }
 }

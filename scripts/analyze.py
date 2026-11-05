@@ -14,6 +14,7 @@ Uso: python3 -I analyze.py   (lee ../data/pokemon.json, escribe ../data/fusions.
 import json, math, os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from typechart import TYPES, eff
+import sets as SETS
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 DATA = json.load(open(os.path.join(HERE, "../data/pokemon.json")))
@@ -77,7 +78,8 @@ SETUP_PHYS = ["SWORDSDANCE","DRAGONDANCE","SHELLSMASH","BULKUP","CURSE","HONECLA
 SETUP_SPEC = ["NASTYPLOT","CALMMIND","QUIVERDANCE","SHELLSMASH","TAILGLOW","GEOMANCY","GROWTH","WORKUP"]
 
 def mname(m):
-    return DATA["moves"].get(m, {}).get("name", m)
+    from moves_es import MOVES_ES
+    return MOVES_ES.get(m, DATA["moves"].get(m, {}).get("name", m))
 
 def has(moves, lst):
     return [m for m in lst if m in moves]
@@ -182,6 +184,11 @@ def ability_value(a, ctx):
         return 50 if (has(mv, RECOIL) and phys) else 10
     return 15
 
+def normp(vals, lo_q=1, hi_q=99.5):
+    """0-100 usando percentiles, para que un par de valores extremos no aplasten al resto."""
+    v = sorted(vals); lo = v[int(len(v) * lo_q / 100)]; hi = v[min(len(v) - 1, int(len(v) * hi_q / 100))]
+    return lambda x: max(0.0, min(100.0, 100 * (x - lo) / (hi - lo))) if hi > lo else 50
+
 def norm(vals):
     lo, hi = min(vals), max(vals)
     return lambda x: 100 * (x - lo) / (hi - lo) if hi > lo else 50
@@ -191,6 +198,7 @@ T_ES = {"NORMAL":"Normal","FIRE":"Fuego","WATER":"Agua","ELECTRIC":"Eléctrico",
         "FIGHTING":"Lucha","POISON":"Veneno","GROUND":"Tierra","FLYING":"Volador","PSYCHIC":"Psíquico","BUG":"Bicho",
         "ROCK":"Roca","GHOST":"Fantasma","DRAGON":"Dragón","DARK":"Siniestro","STEEL":"Acero","FAIRY":"Hada"}
 from abilities_es import AB_ES
+from moves_es import MOVES_ES
 
 def notes_for(f, ab, ctx):
     mv, st, raw = ctx["moves"], ctx["stats"], f["stats"]
@@ -255,7 +263,8 @@ def ab_entry(x, i):
     return {"id": i["ab"]["id"], "from": i["ab"]["from"], "kind": i["ab"]["kind"],
             "score": i["score"], "role": i["role"], "roles": i["roles"], "est": i["est"],
             "mult": [prof[t] for t in TYPES], "typ": i["typ"],
-            "cov": i["cov"], "notes": notes_for(f, i["ab"]["id"], i["ctx"])}
+            "cov": i["cov"], "set": i["set"]["moves"], "setv": i["setv"],
+            "notes": notes_for(f, i["ab"]["id"], i["ctx"]) + SETS.set_notes(i["set"]["moves"], i["ab"]["id"], DATA["moves"])}
 
 # ---------------------------------------------------------------- bucle principal
 def build():
@@ -295,26 +304,35 @@ def build():
     nt = norm([p["typ"] for x in rows for p in x["per"]])
     nc = norm([p["cov"] for x in rows for p in x["per"]])
 
+    # 2ª pasada: rol de cada habilidad y set recomendado
+    for x in rows:
+        for p in x["per"]:
+            p["rsn"] = {r: nr[r](v) for r, v in p["rs"].items()}
+            p["role"] = max(p["rsn"], key=p["rsn"].get)
+            p["set"] = SETS.best_set(x, p["ab"]["id"], p["est"], p["role"], DATA["moves"], sorted(x["moves"]))
+            if p["ab"]["id"] == "TRUANT":
+                p["set"]["value"] *= 0.5
+    nset = normp([p["set"]["value"] for x in rows for p in x["per"]])
+
     out = []
     for x in rows:
         best = None
         abil_list = []
         for p in x["per"]:
-            rsn = {r: nr[r](v) for r, v in p["rs"].items()}
-            role = max(rsn, key=rsn.get)
+            rsn, role = p["rsn"], p["role"]
             ctx = {"moves": x["moves"], "role": role, "stats": p["est"], "types": x["types"], "prof": p["prof"]}
             av = ability_value(p["ab"]["id"], ctx)
-            score = 0.60 * rsn[role] + 0.28 * nt(p["typ"]) + 0.06 * max(-40, av) + 0.06 * nc(p["cov"])
+            sv = nset(p["set"]["value"])
+            score = 0.48 * rsn[role] + 0.24 * nt(p["typ"]) + 0.20 * sv + 0.04 * max(-40, av) + 0.04 * nc(p["cov"])
             # puntuación por rol (para los rankings por rol)
-            role_total = {r: 0.66 * rsn[r] + 0.24 * nt(p["typ"]) + 0.05 * max(-40, av) + 0.05 * nc(p["cov"]) for r in rsn}
+            role_total = {r: 0.55 * rsn[r] + 0.20 * nt(p["typ"]) + 0.20 * sv + 0.05 * max(-40, av) for r in rsn}
             item = {"ab": p["ab"], "score": round(score, 2), "role": role, "roles": {k: round(v, 1) for k, v in role_total.items()},
                     "est": [round(s) for s in p["est"]], "abv": av, "typ": p["typ"], "cov": p["cov"],
-                    "prof": p["prof"], "ctx": ctx}
+                    "prof": p["prof"], "ctx": ctx, "set": p["set"], "setv": round(sv, 1)}
             abil_list.append(item)
             if best is None or score > best["score"]:
                 best = item
         abil_list.sort(key=lambda i: -i["score"])
-        prof = best["prof"]
         f = {"head": x["head"], "body": x["body"], "stats": x["stats"], "bst": sum(x["stats"]),
              "core": x["core"], "types": x["types"],
              "best": best["ab"]["id"], "score": best["score"], "role": best["role"],
@@ -334,9 +352,11 @@ if __name__ == "__main__":
         "species": {k: {kk: v[kk] for kk in ("id", "name", "dex", "type1", "type2", "stats", "abilities", "hidden")}
                     for k, v in SP.items()},
         "abilities": {k: {"en": v["name"], "es": AB_ES.get(k, v["name"]), "desc": v["desc"]} for k, v in DATA["abilities"].items()},
+        "moves": {m: {**{k: DATA["moves"][m][k] for k in ("name", "type", "cat", "power", "acc", "desc")}, "es": MOVES_ES.get(m, DATA["moves"][m]["name"])}
+                  for m in sorted({m for f in fus for a in f["abilities"] for m in a["set"]})},
         "types_es": T_ES, "types": TYPES, "chart": [[eff(x, [y]) for y in TYPES] for x in TYPES],
     }
     json.dump({"meta": meta, "fusions": fus}, open(os.path.join(HERE, "../data/fusions.json"), "w"), ensure_ascii=False)
     print(len(fus), "fusiones")
     for f in fus[:40]:
-        print(f'{f["rank"]:3} {f["score"]:6.1f} {f["head"]:>10}/{f["body"]:<10} {"/".join(f["types"]):16} {f["best"]:13} {f["role"]:8} {f["stats"]} {f["bst"]}')
+        print(f'{f["rank"]:3} {f["score"]:6.1f} {f["head"]:>10}/{f["body"]:<10} {"/".join(f["types"]):16} {f["best"]:13} {f["role"]:8} {f["stats"]} set={f["abilities"][0]["setv"]} {f["abilities"][0]["set"]}')

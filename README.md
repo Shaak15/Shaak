@@ -8,7 +8,10 @@ Abre **`site/index.html`** en el navegador (con `sprites.webp` en la misma carpe
 - **Mejores fusiones**: destacadas por rol y por habilidad, más el ranking completo de todas las fusiones, con filtros por rol.
 - **Explorador 1 a 1**: eliges un Pokémon y ves sus mejores fusiones como cabeza y como cuerpo.
 - **Mejor equipo**: busca equipos de 6 sin repetir Pokémon base.
-- **Tu caja**: stats y habilidades de cada Pokémon. Marca quién tiene la habilidad oculta y todo se recalcula.
+- **Mi equipo**: eliges tus fusiones y te dice los huecos de tipos y roles y quién los rellena mejor.
+- **Tu caja**: stats y habilidades de cada Pokémon. Quita Pokémon de la caja o marca quién tiene la habilidad oculta y todo se recalcula.
+
+Cada fusión trae un **set recomendado** de 4 movimientos (`scripts/sets.py`) que cuenta un 20% en la puntuación.
 - **Cómo se calcula**: fórmulas y criterios.
 
 ## Datos
