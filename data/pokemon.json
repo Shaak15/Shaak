@@ -1,13 +1,13 @@
 {
  "box": [
-  "PIDGEOT",
+  "FEAROW",
   "SCOLIPEDE",
   "SKARMORY",
-  "TORKOAL",
+  "CAMERUPT",
   "CHANDELURE",
   "KECLEON",
   "GOODRA",
-  "DUSKNOIR",
+  "DUSCLOPS",
   "GOLURK",
   "TOXAPEX",
   "ALAKAZAM",
@@ -27,62 +27,68 @@
   "PORYGON",
   "CHANDELURE",
   "AEGISLASH",
-  "SLAKING"
+  "SLAKING",
+  "ORICORIO_4"
  ],
  "species": {
-  "PIDGEOT": {
-   "id": "PIDGEOT",
-   "dex": 18,
-   "name": "Pidgeot",
+  "FEAROW": {
+   "id": "FEAROW",
+   "dex": 22,
+   "name": "Fearow",
    "type1": "NORMAL",
    "type2": "FLYING",
    "stats": [
-    83,
-    80,
-    75,
-    70,
-    70,
-    91
+    65,
+    90,
+    65,
+    61,
+    61,
+    100
    ],
    "abilities": [
-    "TANGLEDFEET",
     "KEENEYE"
    ],
    "hidden": [
-    "BIGPECKS"
+    "SNIPER"
    ],
    "moves": [
     "AERIALACE",
     "AGILITY",
     "AIRCUTTER",
-    "AIRSLASH",
+    "ASSURANCE",
     "ATTRACT",
     "CONFIDE",
     "DEFOG",
     "DOUBLETEAM",
+    "DRILLPECK",
+    "DRILLRUN",
+    "ECHOEDVOICE",
     "FACADE",
-    "FEATHERDANCE",
+    "FALSESWIPE",
     "FLY",
+    "FOCUSENERGY",
     "FRUSTRATION",
+    "FURYATTACK",
     "GIGAIMPACT",
-    "GUST",
+    "GROWL",
     "HEATWAVE",
     "HIDDENPOWER",
-    "HURRICANE",
     "HYPERBEAM",
     "LASERFOCUS",
+    "LEER",
     "MIRRORMOVE",
     "MUDSLAP",
     "OMINOUSWIND",
+    "PECK",
     "PLUCK",
     "PROTECT",
-    "QUICKATTACK",
+    "PURSUIT",
     "RAINDANCE",
     "REST",
     "RETURN",
     "ROOST",
     "ROUND",
-    "SANDATTACK",
+    "SECRETPOWER",
     "SKYATTACK",
     "SLEEPTALK",
     "SNORE",
@@ -91,15 +97,13 @@
     "SUNNYDAY",
     "SWAGGER",
     "SWIFT",
-    "TACKLE",
     "TAILWIND",
     "THIEF",
+    "THROATCHOP",
     "TOXIC",
     "TWISTER",
     "UPROAR",
     "UTURN",
-    "WHIRLWIND",
-    "WINGATTACK",
     "WORKUP"
    ]
   },
@@ -163,6 +167,7 @@
     "ROLLOUT",
     "ROUND",
     "SCREECH",
+    "SECRETPOWER",
     "SIGNALBEAM",
     "SLEEPTALK",
     "SLUDGEBOMB",
@@ -258,6 +263,7 @@
     "ROUND",
     "SANDATTACK",
     "SANDSTORM",
+    "SECRETPOWER",
     "SKYATTACK",
     "SKYDROP",
     "SLASH",
@@ -282,78 +288,72 @@
     "XSCISSOR"
    ]
   },
-  "TORKOAL": {
-   "id": "TORKOAL",
-   "dex": 488,
-   "name": "Torkoal",
+  "CAMERUPT": {
+   "id": "CAMERUPT",
+   "dex": 538,
+   "name": "Camerupt",
    "type1": "FIRE",
-   "type2": "FIRE",
+   "type2": "GROUND",
    "stats": [
     70,
-    85,
-    140,
-    85,
+    100,
     70,
-    20
+    105,
+    75,
+    40
    ],
    "abilities": [
-    "WHITESMOKE",
-    "DROUGHT"
+    "MAGMAARMOR",
+    "SOLIDROCK"
    ],
    "hidden": [
-    "SHELLARMOR"
+    "ANGERPOINT"
    ],
    "moves": [
     "AFTERYOU",
     "AMNESIA",
     "ATTRACT",
-    "BODYSLAM",
     "BULLDOZE",
-    "CLEARSMOG",
     "CONFIDE",
     "CURSE",
     "DOUBLETEAM",
     "EARTHPOWER",
     "EARTHQUAKE",
+    "ECHOEDVOICE",
     "EMBER",
-    "ENDURE",
     "ERUPTION",
     "EXPLOSION",
     "FACADE",
     "FIREBLAST",
-    "FIRESPIN",
     "FISSURE",
-    "FLAIL",
     "FLAMEBURST",
     "FLAMECHARGE",
     "FLAMETHROWER",
-    "FLAMEWHEEL",
+    "FLASHCANNON",
+    "FOCUSENERGY",
     "FRUSTRATION",
     "GIGAIMPACT",
-    "GYROBALL",
+    "GROWL",
     "HEATWAVE",
     "HIDDENPOWER",
     "HYPERBEAM",
-    "INFERNO",
-    "IRONDEFENSE",
-    "IRONTAIL",
+    "IRONHEAD",
     "LAVAPLUME",
+    "MAGNITUDE",
     "NATUREPOWER",
     "OVERHEAT",
     "PROTECT",
-    "RAPIDSPIN",
     "REST",
     "RETURN",
+    "ROAR",
+    "ROCKPOLISH",
     "ROCKSLIDE",
     "ROCKSMASH",
     "ROCKTOMB",
     "ROUND",
-    "SHELLSMASH",
-    "SKULLBASH",
+    "SANDSTORM",
+    "SECRETPOWER",
     "SLEEPTALK",
-    "SLUDGEBOMB",
-    "SMOG",
-    "SMOKESCREEN",
     "SNORE",
     "SOLARBEAM",
     "STEALTHROCK",
@@ -362,11 +362,11 @@
     "STRENGTH",
     "SUBSTITUTE",
     "SUNNYDAY",
-    "SUPERPOWER",
     "SWAGGER",
+    "TACKLE",
+    "TAKEDOWN",
     "TOXIC",
     "WILLOWISP",
-    "WITHDRAW",
     "YAWN"
    ]
   },
@@ -389,7 +389,7 @@
     "FLAMEBODY"
    ],
    "hidden": [
-    "SHADOWTAG"
+    "INFILTRATOR"
    ],
    "moves": [
     "ALLYSWITCH",
@@ -426,6 +426,7 @@
     "RETURN",
     "ROUND",
     "SAFEGUARD",
+    "SECRETPOWER",
     "SHADOWBALL",
     "SHOCKWAVE",
     "SLEEPTALK",
@@ -512,6 +513,7 @@
     "LICK",
     "LOWKICK",
     "MAGICCOAT",
+    "METRONOME",
     "MUDSLAP",
     "NASTYPLOT",
     "POWERUPPUNCH",
@@ -532,6 +534,7 @@
     "ROUND",
     "SCRATCH",
     "SCREECH",
+    "SECRETPOWER",
     "SHADOWBALL",
     "SHADOWCLAW",
     "SHADOWSNEAK",
@@ -629,6 +632,7 @@
     "ROCKSLIDE",
     "ROCKSMASH",
     "ROUND",
+    "SECRETPOWER",
     "SHOCKWAVE",
     "SLEEPTALK",
     "SLUDGEBOMB",
@@ -648,19 +652,19 @@
     "WATERPULSE"
    ]
   },
-  "DUSKNOIR": {
-   "id": "DUSKNOIR",
-   "dex": 313,
-   "name": "Dusknoir",
+  "DUSCLOPS": {
+   "id": "DUSCLOPS",
+   "dex": 312,
+   "name": "Dusclops",
    "type1": "GHOST",
    "type2": "GHOST",
    "stats": [
-    45,
-    100,
-    135,
-    65,
-    135,
-    45
+    40,
+    70,
+    130,
+    60,
+    130,
+    25
    ],
    "abilities": [
     "PRESSURE"
@@ -691,7 +695,6 @@
     "FIREPUNCH",
     "FLASH",
     "FLING",
-    "FOCUSBLAST",
     "FOCUSPUNCH",
     "FORESIGHT",
     "FRUSTRATION",
@@ -705,9 +708,9 @@
     "ICEPUNCH",
     "ICYWIND",
     "INFESTATION",
-    "LASERFOCUS",
     "LEER",
     "MEANLOOK",
+    "METRONOME",
     "MUDSLAP",
     "NIGHTSHADE",
     "OMINOUSWIND",
@@ -725,6 +728,7 @@
     "ROCKSMASH",
     "ROCKTOMB",
     "ROUND",
+    "SECRETPOWER",
     "SHADOWBALL",
     "SHADOWPUNCH",
     "SHADOWSNEAK",
@@ -831,6 +835,7 @@
     "ROLLOUT",
     "ROUND",
     "SAFEGUARD",
+    "SECRETPOWER",
     "SHADOWBALL",
     "SHADOWPUNCH",
     "SHOCKWAVE",
@@ -914,6 +919,7 @@
     "ROUND",
     "SAFEGUARD",
     "SCALD",
+    "SECRETPOWER",
     "SLEEPTALK",
     "SLUDGEBOMB",
     "SLUDGEWAVE",
@@ -944,7 +950,7 @@
     50,
     45,
     135,
-    85,
+    95,
     120
    ],
    "abilities": [
@@ -991,6 +997,7 @@
     "MAGICCOAT",
     "MAGICROOM",
     "MEGAKICK",
+    "METRONOME",
     "MIRACLEEYE",
     "MORNINGSUN",
     "PROTECT",
@@ -1008,6 +1015,7 @@
     "ROLEPLAY",
     "ROUND",
     "SAFEGUARD",
+    "SECRETPOWER",
     "SHADOWBALL",
     "SHOCKWAVE",
     "SIGNALBEAM",
@@ -1093,6 +1101,7 @@
     "ROUND",
     "SAFEGUARD",
     "SANDSTORM",
+    "SECRETPOWER",
     "SELFDESTRUCT",
     "SHELLSMASH",
     "SLEEPTALK",
@@ -1167,6 +1176,7 @@
     "RETURN",
     "ROCKPOLISH",
     "ROUND",
+    "SECRETPOWER",
     "SEEDBOMB",
     "SLEEPTALK",
     "SLUDGE",
@@ -1198,7 +1208,7 @@
    "stats": [
     65,
     95,
-    75,
+    85,
     55,
     55,
     85
@@ -1254,6 +1264,7 @@
     "ROLLOUT",
     "ROUND",
     "SCALD",
+    "SECRETPOWER",
     "SHADOWBALL",
     "SHOCKWAVE",
     "SIGNALBEAM",
@@ -1345,6 +1356,7 @@
     "ROCKTOMB",
     "ROUND",
     "SANDSTORM",
+    "SECRETPOWER",
     "SLEEPTALK",
     "SNORE",
     "STEALTHROCK",
@@ -1422,6 +1434,7 @@
     "RETURN",
     "ROUND",
     "SAFEGUARD",
+    "SECRETPOWER",
     "SEEDBOMB",
     "SIGNALBEAM",
     "SLASH",
@@ -1448,10 +1461,10 @@
    "type1": "FIRE",
    "type2": "ROCK",
    "stats": [
-    50,
+    60,
     50,
     120,
-    80,
+    90,
     80,
     30
    ],
@@ -1511,6 +1524,7 @@
     "ROLLOUT",
     "ROUND",
     "SANDSTORM",
+    "SECRETPOWER",
     "SHELLSMASH",
     "SLEEPTALK",
     "SMACKDOWN",
@@ -1595,6 +1609,7 @@
     "ROCKSMASH",
     "ROUND",
     "SAFEGUARD",
+    "SECRETPOWER",
     "SEEDBOMB",
     "SLEEPTALK",
     "SNORE",
@@ -1625,7 +1640,7 @@
     55,
     90,
     80,
-    100
+    110
    ],
    "abilities": [
     "STATIC"
@@ -1670,6 +1685,7 @@
     "ROCKSMASH",
     "ROLLOUT",
     "ROUND",
+    "SECRETPOWER",
     "SHOCKWAVE",
     "SIGNALBEAM",
     "SLEEPTALK",
@@ -1776,6 +1792,7 @@
     "ROOST",
     "ROUND",
     "SAFEGUARD",
+    "SECRETPOWER",
     "SHADOWBALL",
     "SHOCKWAVE",
     "SIGNALBEAM",
@@ -1870,6 +1887,7 @@
     "ROOST",
     "ROUND",
     "SCREECH",
+    "SECRETPOWER",
     "SHADOWBALL",
     "SHADOWCLAW",
     "SKYATTACK",
@@ -1955,6 +1973,7 @@
     "ROLLOUT",
     "ROUND",
     "SCREECH",
+    "SECRETPOWER",
     "SHOCKWAVE",
     "SIGNALBEAM",
     "SLEEPTALK",
@@ -2038,6 +2057,7 @@
     "LICK",
     "LOWKICK",
     "MEGAKICK",
+    "METRONOME",
     "MOONBLAST",
     "MUDSLAP",
     "OUTRAGE",
@@ -2059,6 +2079,7 @@
     "ROCKTOMB",
     "ROUND",
     "SCARYFACE",
+    "SECRETPOWER",
     "SHADOWBALL",
     "SHOCKWAVE",
     "SLEEPTALK",
@@ -2157,6 +2178,7 @@
     "ROUND",
     "SAFEGUARD",
     "SANDSTORM",
+    "SECRETPOWER",
     "SEEDBOMB",
     "SLEEPTALK",
     "SNORE",
@@ -2241,6 +2263,7 @@
     "REST",
     "RETURN",
     "ROUND",
+    "SECRETPOWER",
     "SHADOWBALL",
     "SHARPEN",
     "SHOCKWAVE",
@@ -2326,6 +2349,7 @@
     "ROCKSMASH",
     "ROUND",
     "SACREDSWORD",
+    "SECRETPOWER",
     "SHADOWBALL",
     "SHADOWCLAW",
     "SHADOWSNEAK",
@@ -2402,6 +2426,7 @@
     "INCINERATE",
     "LOWKICK",
     "LOWSWEEP",
+    "METRONOME",
     "MUDSLAP",
     "PLAYROUGH",
     "POWERUPPUNCH",
@@ -2419,6 +2444,7 @@
     "ROCKTOMB",
     "ROUND",
     "SCRATCH",
+    "SECRETPOWER",
     "SHADOWBALL",
     "SHADOWCLAW",
     "SHOCKWAVE",
@@ -2441,6 +2467,79 @@
     "WATERPULSE",
     "WORKUP",
     "YAWN"
+   ]
+  },
+  "ORICORIO_4": {
+   "id": "ORICORIO_4",
+   "dex": 433,
+   "name": "Oricorio (Fantasma)",
+   "type1": "GHOST",
+   "type2": "FLYING",
+   "stats": [
+    75,
+    70,
+    70,
+    98,
+    70,
+    93
+   ],
+   "abilities": [
+    "DANCER"
+   ],
+   "hidden": [],
+   "moves": [
+    "ACROBATICS",
+    "AERIALACE",
+    "AGILITY",
+    "AIRCUTTER",
+    "AIRSLASH",
+    "ATTRACT",
+    "BATONPASS",
+    "CALMMIND",
+    "CAPTIVATE",
+    "CONFIDE",
+    "COVET",
+    "DEFOG",
+    "DOUBLESLAP",
+    "DOUBLETEAM",
+    "EMBARGO",
+    "FACADE",
+    "FEATHERDANCE",
+    "FLY",
+    "FRUSTRATION",
+    "GROWL",
+    "HELPINGHAND",
+    "HIDDENPOWER",
+    "HURRICANE",
+    "ICYWIND",
+    "MIRRORMOVE",
+    "PECK",
+    "PLUCK",
+    "POUND",
+    "PROTECT",
+    "QUASH",
+    "REST",
+    "RETURN",
+    "REVELATIONDANCE",
+    "ROLEPLAY",
+    "ROOST",
+    "ROUND",
+    "SAFEGUARD",
+    "SANDSTORM",
+    "SECRETPOWER",
+    "SKYATTACK",
+    "SLEEPTALK",
+    "SNORE",
+    "STEELWING",
+    "SUBSTITUTE",
+    "SWAGGER",
+    "SWORDSDANCE",
+    "TAILWIND",
+    "TAUNT",
+    "TEETERDANCE",
+    "TOXIC",
+    "UTURN",
+    "WORKUP"
    ]
   },
   "MINIOR_C": {
@@ -2504,6 +2603,7 @@
     "ROUND",
     "SAFEGUARD",
     "SANDSTORM",
+    "SECRETPOWER",
     "SELFDESTRUCT",
     "SHELLSMASH",
     "SLEEPTALK",
@@ -2524,17 +2624,13 @@
   }
  },
  "abilities": {
-  "TANGLEDFEET": {
-   "name": "Tangled Feet",
-   "desc": "Raises evasion if the Pokémon is confused."
-  },
   "KEENEYE": {
    "name": "Keen Eye",
    "desc": "Prevents other Pokémon from lowering accuracy."
   },
-  "BIGPECKS": {
-   "name": "Big Pecks",
-   "desc": "Protects from Defense-lowering attacks."
+  "SNIPER": {
+   "name": "Sniper",
+   "desc": "Powers up moves if they become critical hits."
   },
   "POISONPOINT": {
    "name": "Poison Point",
@@ -2556,17 +2652,17 @@
    "name": "Weak Armor",
    "desc": "Physical attacks lower Defense and raise Speed."
   },
-  "WHITESMOKE": {
-   "name": "White Smoke",
-   "desc": "Prevents other Pokémon from lowering its stats."
+  "MAGMAARMOR": {
+   "name": "Magma Armor",
+   "desc": "Prevents the Pokémon from becoming frozen."
   },
-  "DROUGHT": {
-   "name": "Drought",
-   "desc": "Turns the sunlight harsh if it is in battle."
+  "SOLIDROCK": {
+   "name": "Solid Rock",
+   "desc": "Reduces damage from super-effective attacks."
   },
-  "SHELLARMOR": {
-   "name": "Shell Armor",
-   "desc": "The Pokémon is protected against critical hits."
+  "ANGERPOINT": {
+   "name": "Anger Point",
+   "desc": "Maxes Attack after taking a critical hit."
   },
   "FLASHFIRE": {
    "name": "Flash Fire",
@@ -2576,9 +2672,9 @@
    "name": "Flame Body",
    "desc": "Contact with the Pokémon may burn the attacker."
   },
-  "SHADOWTAG": {
-   "name": "Shadow Tag",
-   "desc": "Prevents the foe from escaping."
+  "INFILTRATOR": {
+   "name": "Infiltrator",
+   "desc": "Passes through the foe's barrier and strikes."
   },
   "COLORCHANGE": {
    "name": "Color Change",
@@ -2680,10 +2776,6 @@
    "name": "Contrary",
    "desc": "Makes stat changes have an opposite effect."
   },
-  "MAGMAARMOR": {
-   "name": "Magma Armor",
-   "desc": "Prevents the Pokémon from becoming frozen."
-  },
   "OVERGROW": {
    "name": "Overgrow",
    "desc": "Powers up Grass-type moves in a pinch."
@@ -2708,10 +2800,6 @@
    "name": "Super Luck",
    "desc": "Heightens the critical-hit ratios of moves."
   },
-  "INFILTRATOR": {
-   "name": "Infiltrator",
-   "desc": "Passes through the foe's barrier and strikes."
-  },
   "TELEPATHY": {
    "name": "Telepathy",
    "desc": "Anticipates an ally's attack and dodges it."
@@ -2732,6 +2820,10 @@
    "name": "Rattled",
    "desc": "Some move types scare it and boost its Speed."
   },
+  "SHELLARMOR": {
+   "name": "Shell Armor",
+   "desc": "The Pokémon is protected against critical hits."
+  },
   "TRACE": {
    "name": "Trace",
    "desc": "The Pokémon copies a foe's Ability."
@@ -2747,6 +2839,10 @@
   "TRUANT": {
    "name": "Truant",
    "desc": "Pokémon can't attack on consecutive turns."
+  },
+  "DANCER": {
+   "name": "Dancer",
+   "desc": "Repeats another Pokémon's dance move immediately."
   }
  },
  "moves": {
@@ -2768,11 +2864,11 @@
    "power": 60,
    "cat": 1
   },
-  "AIRSLASH": {
-   "name": "Air Slash",
-   "type": "FLYING",
-   "power": 75,
-   "cat": 1
+  "ASSURANCE": {
+   "name": "Assurance",
+   "type": "DARK",
+   "power": 60,
+   "cat": 0
   },
   "ATTRACT": {
    "name": "Attract",
@@ -2798,17 +2894,35 @@
    "power": 0,
    "cat": 2
   },
+  "DRILLPECK": {
+   "name": "Drill Peck",
+   "type": "FLYING",
+   "power": 80,
+   "cat": 0
+  },
+  "DRILLRUN": {
+   "name": "Drill Run",
+   "type": "GROUND",
+   "power": 80,
+   "cat": 0
+  },
+  "ECHOEDVOICE": {
+   "name": "Echoed Voice",
+   "type": "NORMAL",
+   "power": 40,
+   "cat": 1
+  },
   "FACADE": {
    "name": "Facade",
    "type": "NORMAL",
    "power": 70,
    "cat": 0
   },
-  "FEATHERDANCE": {
-   "name": "Feather Dance",
-   "type": "FLYING",
-   "power": 0,
-   "cat": 2
+  "FALSESWIPE": {
+   "name": "False Swipe",
+   "type": "NORMAL",
+   "power": 40,
+   "cat": 0
   },
   "FLY": {
    "name": "Fly",
@@ -2816,10 +2930,22 @@
    "power": 90,
    "cat": 0
   },
+  "FOCUSENERGY": {
+   "name": "Focus Energy",
+   "type": "NORMAL",
+   "power": 0,
+   "cat": 2
+  },
   "FRUSTRATION": {
    "name": "Frustration",
    "type": "NORMAL",
    "power": 1,
+   "cat": 0
+  },
+  "FURYATTACK": {
+   "name": "Fury Attack",
+   "type": "NORMAL",
+   "power": 15,
    "cat": 0
   },
   "GIGAIMPACT": {
@@ -2828,11 +2954,11 @@
    "power": 150,
    "cat": 0
   },
-  "GUST": {
-   "name": "Gust",
-   "type": "FLYING",
-   "power": 40,
-   "cat": 1
+  "GROWL": {
+   "name": "Growl",
+   "type": "NORMAL",
+   "power": 0,
+   "cat": 2
   },
   "HEATWAVE": {
    "name": "Heat Wave",
@@ -2846,12 +2972,6 @@
    "power": 60,
    "cat": 1
   },
-  "HURRICANE": {
-   "name": "Hurricane",
-   "type": "FLYING",
-   "power": 110,
-   "cat": 1
-  },
   "HYPERBEAM": {
    "name": "Hyper Beam",
    "type": "NORMAL",
@@ -2860,6 +2980,12 @@
   },
   "LASERFOCUS": {
    "name": "Laser Focus",
+   "type": "NORMAL",
+   "power": 0,
+   "cat": 2
+  },
+  "LEER": {
+   "name": "Leer",
    "type": "NORMAL",
    "power": 0,
    "cat": 2
@@ -2882,6 +3008,12 @@
    "power": 60,
    "cat": 1
   },
+  "PECK": {
+   "name": "Peck",
+   "type": "FLYING",
+   "power": 35,
+   "cat": 0
+  },
   "PLUCK": {
    "name": "Pluck",
    "type": "FLYING",
@@ -2894,9 +3026,9 @@
    "power": 0,
    "cat": 2
   },
-  "QUICKATTACK": {
-   "name": "Quick Attack",
-   "type": "NORMAL",
+  "PURSUIT": {
+   "name": "Pursuit",
+   "type": "DARK",
    "power": 40,
    "cat": 0
   },
@@ -2930,11 +3062,11 @@
    "power": 60,
    "cat": 1
   },
-  "SANDATTACK": {
-   "name": "Sand Attack",
-   "type": "GROUND",
-   "power": 0,
-   "cat": 2
+  "SECRETPOWER": {
+   "name": "Secret Power",
+   "type": "NORMAL",
+   "power": 70,
+   "cat": 0
   },
   "SKYATTACK": {
    "name": "Sky Attack",
@@ -2984,12 +3116,6 @@
    "power": 60,
    "cat": 1
   },
-  "TACKLE": {
-   "name": "Tackle",
-   "type": "NORMAL",
-   "power": 40,
-   "cat": 0
-  },
   "TAILWIND": {
    "name": "Tailwind",
    "type": "FLYING",
@@ -3000,6 +3126,12 @@
    "name": "Thief",
    "type": "DARK",
    "power": 60,
+   "cat": 0
+  },
+  "THROATCHOP": {
+   "name": "Throat Chop",
+   "type": "DARK",
+   "power": 80,
    "cat": 0
   },
   "TOXIC": {
@@ -3024,18 +3156,6 @@
    "name": "U-turn",
    "type": "BUG",
    "power": 70,
-   "cat": 0
-  },
-  "WHIRLWIND": {
-   "name": "Whirlwind",
-   "type": "NORMAL",
-   "power": 0,
-   "cat": 2
-  },
-  "WINGATTACK": {
-   "name": "Wing Attack",
-   "type": "FLYING",
-   "power": 60,
    "cat": 0
   },
   "WORKUP": {
@@ -3152,12 +3272,6 @@
    "power": 50,
    "cat": 0
   },
-  "PURSUIT": {
-   "name": "Pursuit",
-   "type": "DARK",
-   "power": 40,
-   "cat": 0
-  },
   "ROCKCLIMB": {
    "name": "Rock Climb",
    "type": "NORMAL",
@@ -3260,12 +3374,6 @@
    "power": 0,
    "cat": 2
   },
-  "THROATCHOP": {
-   "name": "Throat Chop",
-   "type": "DARK",
-   "power": 80,
-   "cat": 0
-  },
   "VENOMDRENCH": {
    "name": "Venom Drench",
    "type": "POISON",
@@ -3284,11 +3392,11 @@
    "power": 80,
    "cat": 0
   },
-  "ASSURANCE": {
-   "name": "Assurance",
-   "type": "DARK",
-   "power": 60,
-   "cat": 0
+  "AIRSLASH": {
+   "name": "Air Slash",
+   "type": "FLYING",
+   "power": 75,
+   "cat": 1
   },
   "AUTOTOMIZE": {
    "name": "Autotomize",
@@ -3314,12 +3422,6 @@
    "power": 80,
    "cat": 1
   },
-  "DRILLPECK": {
-   "name": "Drill Peck",
-   "type": "FLYING",
-   "power": 80,
-   "cat": 0
-  },
   "ENDURE": {
    "name": "Endure",
    "type": "NORMAL",
@@ -3343,12 +3445,6 @@
    "type": "STEEL",
    "power": 80,
    "cat": 1
-  },
-  "FURYATTACK": {
-   "name": "Fury Attack",
-   "type": "NORMAL",
-   "power": 15,
-   "cat": 0
   },
   "FURYCUTTER": {
    "name": "Fury Cutter",
@@ -3374,12 +3470,6 @@
    "power": 80,
    "cat": 0
   },
-  "LEER": {
-   "name": "Leer",
-   "type": "NORMAL",
-   "power": 0,
-   "cat": 2
-  },
   "METALCLAW": {
    "name": "Metal Claw",
    "type": "STEEL",
@@ -3398,15 +3488,15 @@
    "power": 70,
    "cat": 0
   },
-  "PECK": {
-   "name": "Peck",
-   "type": "FLYING",
-   "power": 35,
-   "cat": 0
-  },
   "ROAR": {
    "name": "Roar",
    "type": "NORMAL",
+   "power": 0,
+   "cat": 2
+  },
+  "SANDATTACK": {
+   "name": "Sand Attack",
+   "type": "GROUND",
    "power": 0,
    "cat": 2
   },
@@ -3458,6 +3548,12 @@
    "power": 0,
    "cat": 2
   },
+  "WHIRLWIND": {
+   "name": "Whirlwind",
+   "type": "NORMAL",
+   "power": 0,
+   "cat": 2
+  },
   "AFTERYOU": {
    "name": "After You",
    "type": "NORMAL",
@@ -3469,18 +3565,6 @@
    "type": "PSYCHIC",
    "power": 0,
    "cat": 2
-  },
-  "BODYSLAM": {
-   "name": "Body Slam",
-   "type": "NORMAL",
-   "power": 85,
-   "cat": 0
-  },
-  "CLEARSMOG": {
-   "name": "Clear Smog",
-   "type": "POISON",
-   "power": 50,
-   "cat": 1
   },
   "EARTHPOWER": {
    "name": "Earth Power",
@@ -3512,21 +3596,9 @@
    "power": 110,
    "cat": 1
   },
-  "FIRESPIN": {
-   "name": "Fire Spin",
-   "type": "FIRE",
-   "power": 35,
-   "cat": 1
-  },
   "FISSURE": {
    "name": "Fissure",
    "type": "GROUND",
-   "power": 1,
-   "cat": 0
-  },
-  "FLAIL": {
-   "name": "Flail",
-   "type": "NORMAL",
    "power": 1,
    "cat": 0
   },
@@ -3548,23 +3620,17 @@
    "power": 90,
    "cat": 1
   },
-  "FLAMEWHEEL": {
-   "name": "Flame Wheel",
-   "type": "FIRE",
-   "power": 60,
-   "cat": 0
-  },
-  "INFERNO": {
-   "name": "Inferno",
-   "type": "FIRE",
-   "power": 100,
-   "cat": 1
-  },
   "LAVAPLUME": {
    "name": "Lava Plume",
    "type": "FIRE",
    "power": 80,
    "cat": 1
+  },
+  "MAGNITUDE": {
+   "name": "Magnitude",
+   "type": "GROUND",
+   "power": 1,
+   "cat": 0
   },
   "NATUREPOWER": {
    "name": "Nature Power",
@@ -3578,33 +3644,9 @@
    "power": 130,
    "cat": 1
   },
-  "RAPIDSPIN": {
-   "name": "Rapid Spin",
-   "type": "NORMAL",
-   "power": 20,
-   "cat": 0
-  },
-  "SHELLSMASH": {
-   "name": "Shell Smash",
-   "type": "NORMAL",
-   "power": 0,
-   "cat": 2
-  },
-  "SKULLBASH": {
-   "name": "Skull Bash",
-   "type": "NORMAL",
-   "power": 130,
-   "cat": 0
-  },
-  "SMOG": {
-   "name": "Smog",
-   "type": "POISON",
-   "power": 30,
-   "cat": 1
-  },
-  "SMOKESCREEN": {
-   "name": "Smokescreen",
-   "type": "NORMAL",
+  "ROCKPOLISH": {
+   "name": "Rock Polish",
+   "type": "ROCK",
    "power": 0,
    "cat": 2
   },
@@ -3614,15 +3656,21 @@
    "power": 100,
    "cat": 0
   },
+  "TACKLE": {
+   "name": "Tackle",
+   "type": "NORMAL",
+   "power": 40,
+   "cat": 0
+  },
+  "TAKEDOWN": {
+   "name": "Take Down",
+   "type": "NORMAL",
+   "power": 90,
+   "cat": 0
+  },
   "WILLOWISP": {
    "name": "Will-O-Wisp",
    "type": "FIRE",
-   "power": 0,
-   "cat": 2
-  },
-  "WITHDRAW": {
-   "name": "Withdraw",
-   "type": "WATER",
    "power": 0,
    "cat": 2
   },
@@ -3714,6 +3762,12 @@
    "name": "Shock Wave",
    "type": "ELECTRIC",
    "power": 60,
+   "cat": 1
+  },
+  "SMOG": {
+   "name": "Smog",
+   "type": "POISON",
+   "power": 30,
    "cat": 1
   },
   "SPITE": {
@@ -3908,6 +3962,12 @@
    "power": 0,
    "cat": 2
   },
+  "METRONOME": {
+   "name": "Metronome",
+   "type": "NORMAL",
+   "power": 0,
+   "cat": 2
+  },
   "NASTYPLOT": {
    "name": "Nasty Plot",
    "type": "DARK",
@@ -4040,6 +4100,12 @@
    "power": 1,
    "cat": 0
   },
+  "BODYSLAM": {
+   "name": "Body Slam",
+   "type": "NORMAL",
+   "power": 85,
+   "cat": 0
+  },
   "BRUTALSWING": {
    "name": "Brutal Swing",
    "type": "DARK",
@@ -4074,6 +4140,12 @@
    "name": "Dragon Tail",
    "type": "DRAGON",
    "power": 60,
+   "cat": 0
+  },
+  "FLAIL": {
+   "name": "Flail",
+   "type": "NORMAL",
+   "power": 1,
    "cat": 0
   },
   "FOCUSBLAST": {
@@ -4184,12 +4256,6 @@
    "power": 65,
    "cat": 0
   },
-  "MAGNITUDE": {
-   "name": "Magnitude",
-   "type": "GROUND",
-   "power": 1,
-   "cat": 0
-  },
   "MEGAPUNCH": {
    "name": "Mega Punch",
    "type": "NORMAL",
@@ -4207,12 +4273,6 @@
    "type": "NORMAL",
    "power": 40,
    "cat": 0
-  },
-  "ROCKPOLISH": {
-   "name": "Rock Polish",
-   "type": "ROCK",
-   "power": 0,
-   "cat": 2
   },
   "ZENHEADBUTT": {
    "name": "Zen Headbutt",
@@ -4394,11 +4454,11 @@
    "power": 200,
    "cat": 0
   },
-  "TAKEDOWN": {
-   "name": "Take Down",
+  "SHELLSMASH": {
+   "name": "Shell Smash",
    "type": "NORMAL",
-   "power": 90,
-   "cat": 0
+   "power": 0,
+   "cat": 2
   },
   "ACIDSPRAY": {
    "name": "Acid Spray",
@@ -4410,6 +4470,12 @@
    "name": "Belch",
    "type": "POISON",
    "power": 120,
+   "cat": 1
+  },
+  "CLEARSMOG": {
+   "name": "Clear Smog",
+   "type": "POISON",
+   "power": 50,
    "cat": 1
   },
   "DOUBLESLAP": {
@@ -4604,12 +4670,6 @@
    "power": 40,
    "cat": 0
   },
-  "FALSESWIPE": {
-   "name": "False Swipe",
-   "type": "NORMAL",
-   "power": 40,
-   "cat": 0
-  },
   "GROWTH": {
    "name": "Growth",
    "type": "NORMAL",
@@ -4688,12 +4748,6 @@
    "power": 0,
    "cat": 2
   },
-  "ECHOEDVOICE": {
-   "name": "Echoed Voice",
-   "type": "NORMAL",
-   "power": 40,
-   "cat": 1
-  },
   "FRENZYPLANT": {
    "name": "Frenzy Plant",
    "type": "GRASS",
@@ -4705,12 +4759,6 @@
    "type": "GRASS",
    "power": 50,
    "cat": 1
-  },
-  "GROWL": {
-   "name": "Growl",
-   "type": "NORMAL",
-   "power": 0,
-   "cat": 2
   },
   "MAGICALLEAF": {
    "name": "Magical Leaf",
@@ -4747,6 +4795,12 @@
    "type": "NORMAL",
    "power": 0,
    "cat": 2
+  },
+  "QUICKATTACK": {
+   "name": "Quick Attack",
+   "type": "NORMAL",
+   "power": 40,
+   "cat": 0
   },
   "THUNDERSHOCK": {
    "name": "Thunder Shock",
@@ -4802,12 +4856,6 @@
    "power": 0,
    "cat": 2
   },
-  "METRONOME": {
-   "name": "Metronome",
-   "type": "NORMAL",
-   "power": 0,
-   "cat": 2
-  },
   "MOONBLAST": {
    "name": "Moonblast",
    "type": "FAIRY",
@@ -4838,6 +4886,18 @@
    "power": 140,
    "cat": 1
   },
+  "GUST": {
+   "name": "Gust",
+   "type": "FLYING",
+   "power": 40,
+   "cat": 1
+  },
+  "HURRICANE": {
+   "name": "Hurricane",
+   "type": "FLYING",
+   "power": 110,
+   "cat": 1
+  },
   "MOONLIGHT": {
    "name": "Moonlight",
    "type": "FAIRY",
@@ -4854,6 +4914,12 @@
    "name": "Super Fang",
    "type": "NORMAL",
    "power": 1,
+   "cat": 0
+  },
+  "WINGATTACK": {
+   "name": "Wing Attack",
+   "type": "FLYING",
+   "power": 60,
    "cat": 0
   },
   "DISCHARGE": {
@@ -4988,6 +5054,12 @@
    "power": 40,
    "cat": 1
   },
+  "WITHDRAW": {
+   "name": "Withdraw",
+   "type": "WATER",
+   "power": 0,
+   "cat": 2
+  },
   "WOODHAMMER": {
    "name": "Wood Hammer",
    "type": "GRASS",
@@ -5056,6 +5128,30 @@
   },
   "SLACKOFF": {
    "name": "Slack Off",
+   "type": "NORMAL",
+   "power": 0,
+   "cat": 2
+  },
+  "CAPTIVATE": {
+   "name": "Captivate",
+   "type": "NORMAL",
+   "power": 0,
+   "cat": 2
+  },
+  "FEATHERDANCE": {
+   "name": "Feather Dance",
+   "type": "FLYING",
+   "power": 0,
+   "cat": 2
+  },
+  "REVELATIONDANCE": {
+   "name": "Revelation Dance",
+   "type": "NORMAL",
+   "power": 90,
+   "cat": 1
+  },
+  "TEETERDANCE": {
+   "name": "Teeter Dance",
    "type": "NORMAL",
    "power": 0,
    "cat": 2

@@ -1,5 +1,7 @@
 """Construye un atlas con el sprite de cada fusión (custom si existe, si no el autogenerado)
-y el sprite base de cada Pokémon. Uso: python3 -I sprites.py <ruta infinitefusion-e18>"""
+y el sprite base de cada Pokémon.
+Uso: python3 -I sprites.py <ruta infinitefusion-e18 (main)> <carpeta con los autogen de develop-6.6>
+Los sprites custom salen de la rama main (Pokémon hasta el nº 501); los autogenerados, de develop-6.6."""
 import json, os, sys
 from PIL import Image
 ROOT = sys.argv[1]
@@ -8,7 +10,8 @@ D = json.load(open(os.path.join(HERE, "../data/fusions.json")))
 SP = D["meta"]["species"]
 S = 96
 CUSTOM = os.path.join(ROOT, "Graphics/CustomBattlers/spritesheets/spritesheets_custom")
-AUTO = os.path.join(ROOT, "Graphics/Battlers/spritesheets_autogen")
+AUTO = sys.argv[2]
+OLDMAX = 501
 BASE = os.path.join(ROOT, "Graphics/CustomBattlers/spritesheets/spritesheets_base")
 cache = {}
 def sheet(p):
@@ -24,11 +27,12 @@ def cell(img, idx, cols):
 
 keys, tiles, kinds = [], [], {}
 for k, s in SP.items():
-    t = cell(sheet(f"{BASE}/{s['dex']}.png"), 0, 10)
+    d = s['dex']
+    t = cell(sheet(f"{BASE}/{d}.png"), 0, 10) if d <= OLDMAX else cell(sheet(f"{AUTO}/{d}.png"), d, 10)
     keys.append(k); tiles.append(t)
 for f in D["fusions"]:
     h, b = SP[f["head"]]["dex"], SP[f["body"]]["dex"]
-    t = cell(sheet(f"{CUSTOM}/{h}/{h}.png"), b, 20); kind = "custom"
+    t = cell(sheet(f"{CUSTOM}/{h}/{h}.png"), b, 20) if (h <= OLDMAX and b <= OLDMAX) else None; kind = "custom"
     if t is None:
         t = cell(sheet(f"{AUTO}/{h}.png"), b, 10); kind = "auto"
     if t is None: kind = "none"

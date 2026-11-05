@@ -169,7 +169,7 @@ dialog::backdrop{background:rgba(8,12,24,.55)}
   <div class="wrap">
     <div class="head-row">
       <div>
-        <div class="boxtag"><i></i>Caja 2 · 27 Pokémon · <span id="nfus" class="mono"></span> fusiones</div>
+        <div class="boxtag"><i></i>Caja 2 · <span id="npk" class="mono"></span> Pokémon · <span id="nfus" class="mono"></span> fusiones</div>
         <h1>Laboratorio de Fusiones</h1>
         <p class="lead">Todas las fusiones posibles con tu caja de Pokémon Infinite Fusion. Stats, tipos y habilidades salen de los datos del propio juego. Pulsa cualquier fusión para ver el detalle completo.</p>
       </div>
@@ -311,10 +311,11 @@ const store = {
   get(k, d){ try { const v = localStorage.getItem(k); return v == null ? d : JSON.parse(v); } catch(e){ return d; } },
   set(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch(e){} }
 };
-let haOK = store.get("haOK", Object.fromEntries(UNIQUE.map(k => [k, true])));
+let haOK = {...Object.fromEntries(UNIQUE.map(k => [k, true])), ...store.get("haOK", {})};
 let excl = new Set(store.get("excl", []));
 
 document.getElementById('nfus').textContent = F.length;
+document.getElementById('npk').textContent = M.box.length;
 
 // ---------- helpers
 const nm = k => SP[k] ? SP[k].name : k;
@@ -506,7 +507,7 @@ function renderCallout(){
   const off = UNIQUE.filter(k => !haOK[k] && SP[k].hidden.length);
   $("#ha-callout").innerHTML = off.length
     ? `Calculado sin las habilidades ocultas de: <b>${off.map(nm).join(", ")}</b>. Cámbialo en <a href="#caja">Tu caja</a>.`
-    : `Ahora mismo se cuenta con que <b>todos</b> tus Pokémon pueden llevar su habilidad oculta (Impulso, Mutatipo, Sombra Trampa, Muro Mágico, Regeneración…). Si alguno no la tiene, desmárcalo en <a href="#caja">Tu caja</a> y todo se recalcula.`;
+    : `Ahora mismo se cuenta con que <b>todos</b> tus Pokémon pueden llevar su habilidad oculta (Impulso, Mutatipo, Muro Mágico, Regeneración, Respondón…). Si alguno no la tiene, desmárcalo en <a href="#caja">Tu caja</a> y todo se recalcula.`;
 }
 
 // ---------- explorador
@@ -817,11 +818,11 @@ $("#ha-none").onclick = () => { UNIQUE.forEach(k=>haOK[k]=false); store.set("haO
 // ---------- método
 $("#method").innerHTML = `
   <h2>Cómo se calcula</h2>
-  <p>Todo sale del código y los datos del juego (repositorio <code>infinitefusion/infinitefusion-e18</code>), no de wikis.</p>
+  <p>Todo sale del código y los datos del juego (repositorio <code>infinitefusion/infinitefusion-e18</code>, versión de desarrollo 6.6, que ya incluye a Camerupt), no de wikis.</p>
   <h3>Stats</h3>
   <p>La fórmula exacta del juego es <code>⌊2·dominante/3⌋ + ⌊otro/3⌋</code>. La <b>cabeza</b> domina PS, AtqEsp y DefEsp. El <b>cuerpo</b> domina Atq, Def y Vel.</p>
   <h3>Tipos</h3>
-  <p>Tipo 1 = tipo principal de la cabeza. Si la cabeza es Normal/Volador (Pidgeot), aporta Volador. Tipo 2 = segundo tipo del cuerpo, o su único tipo. Si coincide con el tipo 1, se usa el primer tipo del cuerpo. Ojo: en este juego Magneton es <b>Acero/Eléctrico</b>, así que como cabeza aporta Acero.</p>
+  <p>Tipo 1 = tipo principal de la cabeza. Si la cabeza es Normal/Volador (Fearow), aporta Volador. Tipo 2 = segundo tipo del cuerpo, o su único tipo. Si coincide con el tipo 1, se usa el primer tipo del cuerpo. Ojo: en este juego Magneton es <b>Acero/Eléctrico</b>, así que como cabeza aporta Acero.</p>
   <h3>Habilidades</h3>
   <p>Al fusionar eliges entre la habilidad que tenga <b>en ese momento</b> la cabeza y la que tenga el cuerpo. Para la 1ª o 2ª habilidad basta una Cápsula Habilidad antes de fusionar. Las ocultas tiene que traerlas ya el Pokémon base. Marca en <a href="#caja">Tu caja</a> cuáles tienes.</p>
   <h3>Trucos propios de Infinite Fusion</h3>
@@ -841,9 +842,9 @@ $("#method").innerHTML = `
   <p>Los rankings por rol usan el mismo cálculo dando más peso a ese rol. Es una guía: los movimientos, los objetos y la naturaleza cambian mucho el resultado.</p>
   <h3>Datos a revisar</h3>
   <ul>
-    <li>El 4º Pokémon de la fila 1 de tu captura lo he tomado como <b>Torkoal</b>, porque Camerupt no existe en Infinite Fusion. Si es otro, dímelo.</li>
+    <li>Caja corregida: Fearow (no Pidgeot), Camerupt (no Torkoal), Dusclops (no Dusknoir) y Oricorio estilo Fantasma (Fantasma/Volador).</li>
     <li>Minior se toma en forma Meteoro, que es la que se ve en tu caja.</li>
-    <li>Sprites: comunidad de artistas de Pokémon Infinite Fusion (créditos en <code>Data/Sprite Credits.csv</code> del juego). Los marcados como "autogenerado" son la mezcla automática del juego.</li>
+    <li>Sprites: comunidad de artistas de Pokémon Infinite Fusion (créditos en <code>Data/Sprite Credits.csv</code> del juego). Los marcados como "autogenerado" son la mezcla automática del juego. Las fusiones con Camerupt solo tienen sprite autogenerado aquí.</li>
   </ul>`;
 
 // ---------- navegación

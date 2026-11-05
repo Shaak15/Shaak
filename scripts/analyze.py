@@ -146,6 +146,7 @@ def ability_value(a, ctx):
         "MAGNETPULL": 15, "LEAFGUARD": 8, "OVERGROW": 20, "SWARM": 20, "SWIFTSWIM": 8,
         "STENCH": 22, "AFTERMATH": 15, "FRISK": 10, "HYDRATION": 5, "TELEPATHY": 3,
         "TANGLEDFEET": 3, "RATTLED": 8, "COLORCHANGE": 8, "KLUTZ": 0, "TRUANT": -100,
+        "SNIPER": 25, "DANCER": 25, "SOLIDROCK": 40, "ANGERPOINT": 15,
     }.get(a)
     if v is not None:
         if a == "REGENERATOR" and role == "muro": v += 12

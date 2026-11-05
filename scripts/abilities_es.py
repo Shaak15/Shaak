@@ -14,4 +14,5 @@ AB_ES = {
  "STURDY":"Robustez","SUPERLUCK":"Afortunado","SWARM":"Enjambre","SWIFTSWIM":"Nado Rápido",
  "SYNCHRONIZE":"Sincronía","TANGLEDFEET":"Tumbos","TELEPATHY":"Telepatía","TRACE":"Rastro","TRUANT":"Ausente",
  "WEAKARMOR":"Armadura Frágil","WHITESMOKE":"Humo Blanco",
+ "SNIPER":"Francotirador","DANCER":"Pareja de Baile","SOLIDROCK":"Roca Sólida","ANGERPOINT":"Irascible",
 }
