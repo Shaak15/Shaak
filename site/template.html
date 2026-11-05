@@ -385,7 +385,7 @@ function row(vw){
 }
 
 // ---------- texto de debilidades
-const IMM_AB = {FLASHFIRE:"FIRE", SAPSIPPER:"GRASS", LIGHTNINGROD:"ELECTRIC"};
+const IMM_AB = {FLASHFIRE:"FIRE", SAPSIPPER:"GRASS", LIGHTNINGROD:"ELECTRIC", LEVITATE:"GROUND"};
 const tEff = (atk, def) => M.chart[TYPES.indexOf(atk)][TYPES.indexOf(def)];
 function why(t, f, kind){
   // qué tipo(s) de la fusión explican el multiplicador
@@ -600,7 +600,7 @@ const fname = f => `${nm(f.head)} / ${nm(f.body)}`;
 function mtxRows(picks){
   return TYPES.map((ty,i) => `<tr><th style="text-align:left">${typeChip(ty)}</th>${picks.map(p=>{const m=p.e.mult[i];const c=m===4?"w4":m===2?"w":m===0?"i":m<1?"r":"";const l=m===4?"×4":m===2?"×2":m===0.5?"½":m===0.25?"¼":m===0?"0":"";return `<td class="${c}">${l}</td>`}).join("")}</tr>`).join("");
 }
-const DEF_TEAM = [["GOODRA","TOXAPEX"],["SLAKING","AEGISLASH"],["CHANDELURE","ALAKAZAM"],["GRANBULL","TORTERRA"],["MAGNETON","NOIVERN"]].map(([h,b])=>({k:h+"|"+b, ab:null}));
+const DEF_TEAM = [["GOODRA","TOXAPEX"],["SLAKING","AEGISLASH"],["CHANDELURE","ALAKAZAM"],["MAGNETON","NOIVERN"]].map(([h,b])=>({k:h+"|"+b, ab:null}));
 let myTeam = store.get("myTeam", DEF_TEAM).filter(m => FMAP[m.k]);
 let fillRole = "all";
 const saveTeam = () => store.set("myTeam", myTeam);
@@ -673,7 +673,7 @@ function rolesHTML(mem, A){
     <div><div class="eyebrow" style="margin-bottom:4px">Orden de velocidad</div>${speeds.map(x=>`<div class="mono" style="font-size:13px;display:flex;justify-content:space-between;gap:8px"><span style="font-family:var(--f-body)">${esc(fname(x.f))}</span><b>${x.s}</b></div>`).join("")}</div>`;
 }
 function fitOf(f, e, A, n){
-  let s = e.score * 0.55; const plus = [], minus = [];
+  let s = e.score * 0.8; const plus = [], minus = [];
   const resHole = [], resSoft = [], newW = [];
   TYPES.forEach((t,i) => {
     const m = e.mult[i], w = A.w[i], r = A.r[i];
@@ -692,7 +692,7 @@ function fitOf(f, e, A, n){
   if (resHole.length) plus.push(`Tapa huecos graves: resiste ${resHole.map(t=>TES[t]).join(", ")}`);
   if (resSoft.length) plus.push(`Resiste ${resSoft.map(t=>TES[t]).join(", ")}, que casi nadie del equipo aguanta`);
   const covers = A.offGap.filter(t => e.id === "PROTEAN" || f.types.some(a => SE(a,t) >= 2));
-  s += covers.length * 2.5;
+  s += Math.min(covers.length, 4) * (e.id === "PROTEAN" ? 1.2 : 2.5);
   if (covers.length) plus.push(`Pega súper eficaz a ${covers.map(t=>TES[t]).join(", ")}, que tu equipo no cubre`);
   if (n){
     if (A.roles[e.role] === 0){ s += 7; plus.push(`Aporta un rol que no tienes: ${ROLE_ES[e.role].toLowerCase()}`); }
@@ -835,14 +835,15 @@ $("#method").innerHTML = `
   <p>Cada fusión se puntúa con cada una de sus habilidades posibles y se queda con la mejor. La nota general (0–100 aprox.) combina:</p>
   <ul>
     <li><b>60%</b> stats: su mejor rol (físico, especial, muro o rápido). Cambio Táctico, Entusiasmo, Impulso y Escudo Limitado las retocan solo un poco.</li>
-    <li><b>28%</b> combinación de tipos: inmunidades y resistencias suman, debilidades restan y las ×4 restan mucho. Absorbe Fuego, Herbívoro y Pararrayos cuentan como inmunidad.</li>
+    <li><b>28%</b> combinación de tipos: inmunidades y resistencias suman, debilidades restan y las ×4 restan mucho. Absorbe Fuego, Herbívoro, Pararrayos y Levitación cuentan como inmunidad.</li>
     <li><b>6%</b> valor de la habilidad <i>para esa fusión</i>. Por ejemplo, Respondón vale mucho si la fusión aprende Sofoco o Fuerza Bruta, y Mandíbula Fuerte solo si tiene mordiscos.</li>
     <li><b>6%</b> cobertura ofensiva de sus dos tipos (STAB).</li>
   </ul>
   <p>Los rankings por rol usan el mismo cálculo dando más peso a ese rol. Es una guía: los movimientos, los objetos y la naturaleza cambian mucho el resultado.</p>
   <h3>Datos a revisar</h3>
   <ul>
-    <li>Caja corregida: Fearow (no Pidgeot), Camerupt (no Torkoal), Dusclops (no Dusknoir) y Oricorio estilo Fantasma (Fantasma/Volador).</li>
+    <li>Caja actual: Fearow, Camerupt, Dusclops y Oricorio estilo Fantasma; sin Granbull ni Torterra; con Trevenant, Chimecho, Crawdaunt y Ursaring, y Magmortar.</li>
+    <li>Corphish se cuenta ya como <b>Crawdaunt</b> (evoluciona a nivel 30). Magby se cuenta como <b>Magmortar</b>: en este juego Magby pasa a Magmar a nivel 21, y Magmar a Magmortar a nivel 50 o con el Magmarizador.</li>
     <li>Minior se toma en forma Meteoro, que es la que se ve en tu caja.</li>
     <li>Sprites: comunidad de artistas de Pokémon Infinite Fusion (créditos en <code>Data/Sprite Credits.csv</code> del juego). Los marcados como "autogenerado" son la mezcla automática del juego. Las fusiones con Camerupt solo tienen sprite autogenerado aquí.</li>
   </ul>`;

@@ -5,13 +5,15 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import pbs
 
 SRC = sys.argv[1]
-BOX = [  # orden de la captura "Caja 2" + Oricorio (Chandelure aparece 2 veces)
+BOX = [  # caja actual (Chandelure aparece 2 veces)
  "FEAROW","SCOLIPEDE","SKARMORY","CAMERUPT","CHANDELURE","KECLEON",
  "GOODRA","DUSCLOPS","GOLURK","TOXAPEX",
  "ALAKAZAM","MINIOR_M","GARBODOR","QWILFISH","TYRANTRUM","LURANTIS",
  "MAGCARGO","MEGANIUM","RAICHU","TOGETIC","NOIVERN","MAGNETON",
- "GRANBULL","TORTERRA","PORYGON","CHANDELURE","AEGISLASH","SLAKING",
+ "PORYGON","CHANDELURE","AEGISLASH","SLAKING",
  "ORICORIO_4",
+ # nuevos: Corphish -> Crawdaunt (nivel 30), Magby -> Magmar (21) -> Magmortar (nivel 50 o Magmarizador)
+ "TREVENANT","CHIMECHO","CRAWDAUNT","URSARING","MAGMORTAR",
 ]
 EXTRA = ["MINIOR_C"]  # forma Núcleo (Escudo Limitado)
 

@@ -84,7 +84,7 @@ def has(moves, lst):
 
 # ---------------------------------------------------------------- puntuación
 TYPE_PTS = {0: 3.0, 0.25: 2.0, 0.5: 1.0, 1: 0.0, 2: -2.0, 4: -5.0}
-IMMUNITY_AB = {"FLASHFIRE": "FIRE", "SAPSIPPER": "GRASS", "LIGHTNINGROD": "ELECTRIC"}
+IMMUNITY_AB = {"FLASHFIRE": "FIRE", "SAPSIPPER": "GRASS", "LIGHTNINGROD": "ELECTRIC", "LEVITATE": "GROUND"}
 
 def defense_profile(types, ability):
     prof = {}
@@ -147,6 +147,8 @@ def ability_value(a, ctx):
         "STENCH": 22, "AFTERMATH": 15, "FRISK": 10, "HYDRATION": 5, "TELEPATHY": 3,
         "TANGLEDFEET": 3, "RATTLED": 8, "COLORCHANGE": 8, "KLUTZ": 0, "TRUANT": -100,
         "SNIPER": 25, "DANCER": 25, "SOLIDROCK": 40, "ANGERPOINT": 15,
+        "LEVITATE": 55, "ADAPTABILITY": 70, "GUTS": 45, "NATURALCURE": 35, "HARVEST": 18,
+        "HYPERCUTTER": 10, "UNNERVE": 10, "VITALSPIRIT": 12,
     }.get(a)
     if v is not None:
         if a == "REGENERATOR" and role == "muro": v += 12
@@ -229,6 +231,12 @@ def notes_for(f, ab, ctx):
         n.append(f"Indefenso: todo acierta ({', '.join(mname(x) for x in has(mv, NOGUARD)[:4])}).")
     if ab == "SHADOWTAG":
         n.append("Sombra Trampa: el rival no puede huir ni cambiar.")
+    if ab == "ADAPTABILITY":
+        n.append("Adaptable: los ataques de su tipo pegan x2 en vez de x1.5.")
+    if ab == "LEVITATE":
+        n.append("Levitación: inmune a los ataques de tipo Tierra.")
+    if ab == "GUTS":
+        n.append("Agallas: Atq x1.5 si tiene un estado; con Llamasfera (Flame Orb) siempre activo.")
     if ab == "INTIMIDATE":
         n.append("Intimidación: -1 Atq al rival al entrar.")
     if "SHELLSMASH" in mv and ab not in ("CONTRARY",):
