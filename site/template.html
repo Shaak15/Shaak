@@ -130,6 +130,26 @@ tr:last-child td{border-bottom:0}
 .mtx td.r{background:color-mix(in srgb,var(--good) 18%,transparent)}
 .mtx td.i{background:color-mix(in srgb,var(--good) 38%,transparent);font-weight:700}
 
+.sev{display:inline-block;font:700 10px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;padding:2px 6px;border-radius:4px;margin-right:6px}
+.sev.g{background:color-mix(in srgb,var(--bad) 22%,transparent);color:var(--bad)}
+.sev.o{background:color-mix(in srgb,var(--warn) 20%,transparent);color:var(--warn)}
+.sev.l{background:var(--panel-2);color:var(--ink-2)}
+.sev.ok{background:color-mix(in srgb,var(--good) 18%,transparent);color:var(--good)}
+.gaplist{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:14px}
+.gaplist li{display:flex;gap:6px;align-items:baseline;flex-wrap:wrap}
+.slot{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px;display:grid;gap:8px;min-width:0}
+.slot.empty{border-style:dashed;place-items:center;color:var(--ink-2);min-height:120px;font-size:14px;text-align:center}
+.slot-top{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:center}
+.slot select{width:100%}
+.slot .acts{display:flex;gap:6px;flex-wrap:wrap}
+.fill{display:grid;grid-template-columns:48px 1fr auto;gap:10px;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px;min-width:0}
+.fill .why{font-size:12.5px;color:var(--ink-2);display:grid;gap:2px;margin-top:4px}
+.fill .why .plus{color:var(--good)}
+.fill .why .minus{color:var(--warn)}
+.fill .acts{display:grid;gap:6px;justify-items:end}
+.addbox{display:flex;flex-wrap:wrap;gap:10px;align-items:end}
+.addbox label{display:grid;gap:4px;font:600 11px var(--f-mono);letter-spacing:.06em;color:var(--ink-2);text-transform:uppercase}
+#add-prev{font-size:13px;min-width:0}
 dialog{border:1px solid var(--line);border-radius:16px;background:var(--panel);color:var(--ink);padding:0;width:min(720px,calc(100vw - 24px));max-height:calc(100dvh - 40px)}
 dialog::backdrop{background:rgba(8,12,24,.55)}
 .dlg{padding:18px;display:grid;gap:14px}
@@ -160,7 +180,8 @@ dialog::backdrop{background:rgba(8,12,24,.55)}
   <div class="wrap">
     <a href="#ranking">Mejores fusiones</a>
     <a href="#explorador">Explorador 1 a 1</a>
-    <a href="#equipo">Mejor equipo</a>
+    <a href="#miequipo">Mi equipo</a>
+    <a href="#equipo">Equipos desde cero</a>
     <a href="#caja">Tu caja</a>
     <a href="#metodo">Cómo se calcula</a>
   </div>
@@ -206,10 +227,40 @@ dialog::backdrop{background:rgba(8,12,24,.55)}
     </div>
   </section>
 
+  <!-- MI EQUIPO -->
+  <section class="view" id="v-miequipo" hidden>
+    <div>
+      <h2>Mi equipo</h2>
+      <p class="muted" style="margin:.25rem 0 0">Elige las fusiones que quieres usar. Te digo qué huecos de tipos y roles quedan y quién los rellena mejor con los Pokémon que te sobran.</p>
+    </div>
+    <div class="panel">
+      <h3>Añadir fusión</h3>
+      <div class="addbox">
+        <label for="sel-h">Cabeza<select id="sel-h"></select></label>
+        <label for="sel-b">Cuerpo<select id="sel-b"></select></label>
+        <button class="btn" id="add-fus">Añadir al equipo</button>
+        <div id="add-prev" class="muted"></div>
+      </div>
+      <p class="muted" style="margin:0;font-size:12px">También puedes añadir desde el detalle de cualquier fusión. Los Pokémon ya usados aparecen desactivados.</p>
+    </div>
+    <div class="grid" id="slots"></div>
+    <div class="two">
+      <div class="panel"><h3>Huecos de tipos</h3><div id="gaps"></div></div>
+      <div class="panel"><h3>Roles y velocidad</h3><div id="rolesp"></div></div>
+    </div>
+    <div style="display:grid;gap:12px">
+      <div class="bar" style="justify-content:space-between"><h2>Quién rellena mejor los huecos</h2><button class="ghost" id="autofill">Completar equipo automáticamente</button></div>
+      <p class="muted" style="margin:0;font-size:13px" id="fill-note"></p>
+      <div class="chips" id="fill-roles" role="group" aria-label="Filtrar por rol"></div>
+      <div class="list" id="fill"></div>
+    </div>
+    <details><summary class="muted" style="cursor:pointer">Tabla de debilidades de tu equipo</summary><div class="tbl-wrap" style="margin-top:8px" id="my-mtx"></div></details>
+  </section>
+
   <!-- EQUIPO -->
   <section class="view" id="v-equipo" hidden>
     <div>
-      <h2>Mejor equipo de 6</h2>
+      <h2>Equipos desde cero</h2>
       <p class="muted" style="margin:.25rem 0 0">Cada Pokémon base solo se puede usar una vez (Chandelure dos veces, porque tienes dos). El buscador premia la puntuación de cada fusión, castiga que 3 o más compartan debilidad y premia mezclar roles.</p>
     </div>
     <div class="panel">
@@ -384,7 +435,7 @@ function openDetail(key){
       <h2 style="margin-top:4px">${esc(nm(f.head))} / ${esc(nm(f.body))}</h2>
       <div class="muted" style="font-size:13px">Cabeza: ${esc(nm(f.head))} · Cuerpo: ${esc(nm(f.body))}</div>
       <div class="chips" style="margin-top:8px">${f.types.map(typeChip).join("")}</div></div>
-      <button class="ghost close" id="dlg-x">Cerrar</button></div>
+      <div style="display:grid;gap:6px;margin-left:auto"><button class="ghost" id="dlg-x">Cerrar</button><button class="btn" data-add="${key}">Añadir a mi equipo</button><span class="muted" id="dlg-msg" style="font-size:12px"></span></div></div>
     <div class="tbl-wrap"><table><tr><th></th>${STAT_K.map(k=>`<th>${k}</th>`).join("")}<th>Total</th></tr>
       ${baseRow(H, esc(H.name)+" (cabeza)")}${baseRow(B, esc(B.name)+" (cuerpo)")}
       <tr><td><b>Fusión</b></td>${f.stats.map(x=>`<td class="n"><b>${x}</b></td>`).join("")}<td class="n"><b>${f.bst}</b></td></tr>${coreRow}
@@ -531,7 +582,7 @@ function renderTeams(){
     const T = searchTeams();
     $("#team-status").textContent = T.length ? `${T.length} equipos encontrados` : "No hay suficientes Pokémon para 6 fusiones.";
     $("#teams").innerHTML = T.map((t, n) => {
-      const mtx = TYPES.map((ty,i) => `<tr><th style="text-align:left">${typeChip(ty)}</th>${t.picks.map(p=>{const m=p.e.mult[i];const c=m===4?"w4":m===2?"w":m===0?"i":m<1?"r":"";const l=m===4?"×4":m===2?"×2":m===0.5?"½":m===0.25?"¼":m===0?"0":"";return `<td class="${c}">${l}</td>`}).join("")}</tr>`).join("");
+      const mtx = mtxRows(t.picks);
       return `<div style="display:grid;gap:12px"><h2>${n===0?"Equipo recomendado":"Alternativa "+n} <span class="muted mono" style="font-size:14px">· ${t.v.toFixed(0)} pts</span></h2>
         <div class="grid">${t.picks.map(p => card(p, F.indexOf(p.f)+1)).join("")}</div>
         <details><summary class="muted" style="cursor:pointer">Tabla de debilidades del equipo</summary>
@@ -541,6 +592,211 @@ function renderTeams(){
 }
 $("#excl").addEventListener("click", ev => { const b = ev.target.closest("[data-x]"); if (!b) return; const k = b.dataset.x; excl.has(k)?excl.delete(k):excl.add(k); store.set("excl",[...excl]); b.setAttribute("aria-pressed", excl.has(k)); });
 $("#build").onclick = renderTeams;
+
+// ---------- mi equipo
+const FMAP = Object.fromEntries(F.map(f => [f.head+"|"+f.body, f]));
+const fname = f => `${nm(f.head)} / ${nm(f.body)}`;
+function mtxRows(picks){
+  return TYPES.map((ty,i) => `<tr><th style="text-align:left">${typeChip(ty)}</th>${picks.map(p=>{const m=p.e.mult[i];const c=m===4?"w4":m===2?"w":m===0?"i":m<1?"r":"";const l=m===4?"×4":m===2?"×2":m===0.5?"½":m===0.25?"¼":m===0?"0":"";return `<td class="${c}">${l}</td>`}).join("")}</tr>`).join("");
+}
+const DEF_TEAM = [["GOODRA","TOXAPEX"],["SLAKING","AEGISLASH"],["CHANDELURE","ALAKAZAM"],["GRANBULL","TORTERRA"],["MAGNETON","NOIVERN"]].map(([h,b])=>({k:h+"|"+b, ab:null}));
+let myTeam = store.get("myTeam", DEF_TEAM).filter(m => FMAP[m.k]);
+let fillRole = "all";
+const saveTeam = () => store.set("myTeam", myTeam);
+function memberOf(m){
+  const f = FMAP[m.k];
+  let e = m.ab && f.abilities.find(a => a.id === m.ab && allowed(f, a));
+  if (!e) e = pick(f, "score");
+  return {f, e};
+}
+function usedCount(team){
+  const u = {};
+  for (const m of team){ const f = FMAP[m.k]; u[f.head]=(u[f.head]||0)+1; u[f.body]=(u[f.body]||0)+1; }
+  return u;
+}
+function canUse(f, u){
+  const need = {}; need[f.head]=(need[f.head]||0)+1; need[f.body]=(need[f.body]||0)+1;
+  return Object.keys(need).every(k => (u[k]||0) + need[k] <= M.count[k]);
+}
+const SE = (atk, def) => M.chart[TYPES.indexOf(atk)][TYPES.indexOf(def)];
+function teamInfo(mem){
+  const A = {w:[], w4:[], r:[], im:[], roles:{fisico:0,especial:0,muro:0,rapido:0}, phys:0, spec:0, fast:0, slow:0, stab:new Set(), protean:false};
+  TYPES.forEach((t,i) => {
+    let w=0,w4=0,r=0,im=0;
+    for (const {e} of mem){ const m=e.mult[i]; if (m>=2) w++; if (m===4) w4++; if (m<1) r++; if (m===0) im++; }
+    A.w[i]=w; A.w4[i]=w4; A.r[i]=r; A.im[i]=im;
+  });
+  for (const {f,e} of mem){
+    A.roles[e.role]++;
+    if (e.est[1] >= 100) A.phys++;
+    if (e.est[3] >= 100) A.spec++;
+    if (e.est[5] >= 95) A.fast++;
+    if (e.est[5] < 60) A.slow++;
+    f.types.forEach(t => A.stab.add(t));
+    if (e.id === "PROTEAN") A.protean = true;
+  }
+  A.offGap = A.protean ? [] : TYPES.filter(t => ![...A.stab].some(a => SE(a,t) >= 2));
+  return A;
+}
+function gapList(mem, A){
+  if (!mem.length) return `<p class="muted" style="margin:0">Añade alguna fusión para ver los huecos.</p>`;
+  const items = [];
+  TYPES.forEach((t,i) => {
+    const who = mem.filter(({e}) => e.mult[i] >= 2).map(({f,e}) => `${fname(f)}${e.mult[i]===4?" ×4":""}`);
+    if ((A.w[i] >= 2 && A.r[i] === 0) || A.w[i] >= 3)
+      items.push([0, `<span class="sev g">Grave</span>${typeChip(t)} ${A.w[i]} débiles y ${A.r[i]===0?"nadie lo resiste":"solo "+A.r[i]+" lo resiste"} (${who.join(", ")}).`]);
+    else if (A.w[i] >= 2)
+      items.push([1, `<span class="sev o">Ojo</span>${typeChip(t)} ${A.w[i]} débiles (${who.join(", ")}); ${A.r[i]===1?"solo 1 lo resiste":"lo resisten "+A.r[i]}.`]);
+    else if (A.w4[i] && A.r[i] <= 1)
+      items.push([1, `<span class="sev o">Ojo</span>${typeChip(t)} ${who.join(", ").replace(" ×4","")} recibe ×4${A.r[i]?"; solo 1 lo resiste":" y nadie lo resiste"}.`]);
+    else if (A.w[i] === 1 && A.r[i] === 0)
+      items.push([2, `<span class="sev l">Leve</span>${typeChip(t)} nadie lo resiste (débil: ${who.join(", ")}).`]);
+  });
+  items.sort((a,b)=>a[0]-b[0]);
+  const off = A.offGap.length ? `<li><span class="sev l">Ataque</span>Tus tipos no pegan súper eficaz a ${A.offGap.map(typeChip).join(" ")}</li>` : `<li><span class="sev ok">Ataque</span>Tus tipos pegan súper eficaz a todos los tipos.</li>`;
+  return `<ul class="gaplist">${items.length ? items.map(x=>`<li>${x[1]}</li>`).join("") : `<li><span class="sev ok">Bien</span>Ningún tipo tiene a 2 o más de tu equipo débiles sin que alguien lo resista.</li>`}${off}</ul>`;
+}
+function rolesHTML(mem, A){
+  if (!mem.length) return `<p class="muted" style="margin:0">Sin fusiones todavía.</p>`;
+  const tips = [];
+  if (A.phys === 0) tips.push("No tienes ningún atacante físico fuerte (Atq ≥ 100).");
+  if (A.spec === 0) tips.push("No tienes ningún atacante especial fuerte (AtqEsp ≥ 100).");
+  if (A.phys && A.spec && Math.abs(A.phys - A.spec) >= 3) tips.push(`Equipo descompensado: ${A.phys} físicos y ${A.spec} especiales.`);
+  if (A.fast < 2) tips.push(`Te falta velocidad: ${A.fast} con 95 o más de Vel.`);
+  if (A.slow >= 3) tips.push(`${A.slow} fusiones van por debajo de 60 de Vel.`);
+  if (A.roles.muro === 0) tips.push("No tienes ningún muro que aguante golpes.");
+  if (A.roles.muro >= 3) tips.push("Demasiados muros: te faltará daño.");
+  const speeds = mem.map(({f,e})=>({f, s:e.est[5]})).sort((a,b)=>b.s-a.s);
+  return `<div class="chips">${Object.entries(A.roles).map(([r,n])=>`<span class="badge role">${ROLE_ES[r]}: <b>${n}</b></span>`).join("")}<span class="badge role">Atq ≥100: <b>${A.phys}</b></span><span class="badge role">AtqEsp ≥100: <b>${A.spec}</b></span></div>
+    <ul class="gaplist">${tips.length?tips.map(t=>`<li><span class="sev o">Falta</span>${t}</li>`).join(""):`<li><span class="sev ok">Bien</span>Roles y velocidad equilibrados.</li>`}</ul>
+    <div><div class="eyebrow" style="margin-bottom:4px">Orden de velocidad</div>${speeds.map(x=>`<div class="mono" style="font-size:13px;display:flex;justify-content:space-between;gap:8px"><span style="font-family:var(--f-body)">${esc(fname(x.f))}</span><b>${x.s}</b></div>`).join("")}</div>`;
+}
+function fitOf(f, e, A, n){
+  let s = e.score * 0.55; const plus = [], minus = [];
+  const resHole = [], resSoft = [], newW = [];
+  TYPES.forEach((t,i) => {
+    const m = e.mult[i], w = A.w[i], r = A.r[i];
+    if (m < 1){
+      if ((w >= 2 && r === 0) || w >= 3){ s += m === 0 ? 13 : 10; resHole.push(t); }
+      else if (w >= 1 && r === 0){ s += m === 0 ? 6 : 4; resSoft.push(t); }
+      else if (w >= 2 && r === 1){ s += 3; resSoft.push(t); }
+    }
+    if (m >= 2){
+      let pen = w >= 2 ? 9 : (w >= 1 && r === 0) ? 5 : w >= 1 ? 2.5 : 1;
+      if (m === 4) pen *= 1.6;
+      s -= pen;
+      if (w >= 1) newW.push(t + (m === 4 ? "×4" : ""));
+    }
+  });
+  if (resHole.length) plus.push(`Tapa huecos graves: resiste ${resHole.map(t=>TES[t]).join(", ")}`);
+  if (resSoft.length) plus.push(`Resiste ${resSoft.map(t=>TES[t]).join(", ")}, que casi nadie del equipo aguanta`);
+  const covers = A.offGap.filter(t => e.id === "PROTEAN" || f.types.some(a => SE(a,t) >= 2));
+  s += covers.length * 2.5;
+  if (covers.length) plus.push(`Pega súper eficaz a ${covers.map(t=>TES[t]).join(", ")}, que tu equipo no cubre`);
+  if (n){
+    if (A.roles[e.role] === 0){ s += 7; plus.push(`Aporta un rol que no tienes: ${ROLE_ES[e.role].toLowerCase()}`); }
+    else if (A.roles[e.role] >= 3){ s -= 5; minus.push(`Ya tienes ${A.roles[e.role]} de rol ${ROLE_ES[e.role].toLowerCase()}`); }
+    if (e.est[1] >= 100 && A.phys === 0){ s += 6; plus.push("Sería tu atacante físico"); }
+    if (e.est[3] >= 100 && A.spec === 0){ s += 6; plus.push("Sería tu atacante especial"); }
+    if (e.est[1] >= 100 && A.spec - A.phys >= 2){ s += 3; plus.push("Equilibra el equipo hacia el lado físico"); }
+    if (e.est[3] >= 100 && A.phys - A.spec >= 2){ s += 3; plus.push("Equilibra el equipo hacia el lado especial"); }
+    if (e.est[5] >= 95 && A.fast < 2){ s += 5; plus.push(`Aporta velocidad (${e.est[5]})`); }
+  }
+  if (newW.length) minus.push(`Repite debilidad a ${newW.map(t=>{const [b,x]=t.split("×");return TES[b]+(x?" ×4":"")}).join(", ")}`);
+  return {s, plus, minus};
+}
+function candidates(team){
+  const mem = team.map(memberOf), A = teamInfo(mem), u = usedCount(team), out = [];
+  for (const f of F){
+    if (!canUse(f, u)) continue;
+    let best = null;
+    for (const e of f.abilities){
+      if (!allowed(f, e) || e.id === "TRUANT") continue;
+      const r = fitOf(f, e, A, mem.length);
+      if (!best || r.s > best.s) best = {...r, f, e};
+    }
+    if (best) out.push(best);
+  }
+  return out.sort((a,b)=>b.s-a.s);
+}
+function abOptions(f, cur){
+  return f.abilities.filter(a => allowed(f, a)).map(a => `<option value="${a.id}" ${a.id===cur?"selected":""}>${esc(abName(a.id))}${a.kind==="oculta"?" (oculta)":""} · ${a.score.toFixed(0)}</option>`).join("");
+}
+function fillSelects(){
+  const u = usedCount(myTeam);
+  const opt = (k, sel) => { const left = M.count[k] - (u[k]||0); return `<option value="${k}" ${left<=0?"disabled":""} ${k===sel?"selected":""}>${esc(nm(k))}${left<=0?" (usado)":M.count[k]>1?` (quedan ${left})`:""}</option>`; };
+  const h = $("#sel-h").value, b = $("#sel-b").value;
+  $("#sel-h").innerHTML = `<option value="">— elige —</option>` + UNIQUE.map(k=>opt(k,h)).join("");
+  $("#sel-b").innerHTML = `<option value="">— elige —</option>` + UNIQUE.map(k=>opt(k,b)).join("");
+  previewAdd();
+}
+function previewAdd(){
+  const h = $("#sel-h").value, b = $("#sel-b").value, f = FMAP[h+"|"+b];
+  if (!h || !b){ $("#add-prev").innerHTML = ""; return; }
+  if (!f){ $("#add-prev").textContent = "Esa combinación no es posible."; return; }
+  const ok = canUse(f, usedCount(myTeam)), e = pick(f, "score");
+  $("#add-prev").innerHTML = `${f.types.map(typeChip).join(" ")} <b>${f.bst}</b> BST · ${esc(abName(e.id))} · ${e.score.toFixed(0)} pts${ok?"":` · <span style="color:var(--bad)">ya usas uno de estos Pokémon</span>`}`;
+}
+function addToTeam(k){
+  const f = FMAP[k]; if (!f) return "No existe esa fusión.";
+  if (myTeam.length >= 6) return "Tu equipo ya tiene 6. Quita uno antes.";
+  if (!canUse(f, usedCount(myTeam))) return "Ya estás usando uno de esos Pokémon base.";
+  myTeam.push({k, ab:null}); saveTeam(); renderMyTeam(); return "Añadida a tu equipo.";
+}
+function renderMyTeam(){
+  const mem = myTeam.map(memberOf), A = teamInfo(mem);
+  fillSelects();
+  const slots = mem.map(({f,e}, i) => `<div class="slot">
+      <div class="slot-top">${sprite(f.head+"|"+f.body)}<div style="min-width:0;display:grid;gap:4px">
+        <div class="fname">${esc(fname(f))}<small>CABEZA / CUERPO · ${ROLE_ES[e.role].toUpperCase()}</small></div>
+        <div class="chips">${f.types.map(typeChip).join("")}</div>
+        <div class="mono muted" style="font-size:12px">${STAT_K.map((k,j)=>`${k} ${f.stats[j]}`).join(" · ")}</div></div></div>
+      <select data-ab="${i}" aria-label="Habilidad de ${esc(fname(f))}">${abOptions(f, e.id)}</select>
+      ${weakHTML(e)}
+      <div class="acts"><button class="ghost" data-k="${f.head}|${f.body}">Ver detalle</button><button class="ghost" data-rm="${i}">Quitar</button></div>
+    </div>`);
+  for (let i = mem.length; i < 6; i++) slots.push(`<div class="slot empty">Hueco ${i+1} libre<br>Mira abajo quién encaja mejor</div>`);
+  $("#slots").innerHTML = slots.join("");
+  $("#gaps").innerHTML = gapList(mem, A);
+  $("#rolesp").innerHTML = rolesHTML(mem, A);
+  $("#my-mtx").innerHTML = mem.length ? `<table class="mtx"><tr><th></th>${mem.map(p=>`<th>${esc(fname(p.f))}</th>`).join("")}</tr>${mtxRows(mem)}</table>` : "";
+  // candidatos
+  chipsFor($("#fill-roles"), fillRole, r => { fillRole = r; renderMyTeam(); });
+  $("#fill-roles").innerHTML = [["all","Todos"],["fisico","Físico"],["especial","Especial"],["muro","Muro"],["rapido","Rápido"]].map(([k,l])=>`<button class="chip" aria-pressed="${k===fillRole}" data-r="${k}">${l}</button>`).join("");
+  $("#autofill").disabled = myTeam.length >= 6;
+  if (myTeam.length >= 6){
+    $("#fill-note").textContent = "Tu equipo está completo. Quita una fusión para ver quién la sustituiría mejor.";
+    $("#fill").innerHTML = ""; return;
+  }
+  let C = candidates(myTeam);
+  if (fillRole !== "all") C = C.filter(c => c.e.role === fillRole);
+  $("#fill-note").textContent = `${C.length} fusiones posibles con los Pokémon que te quedan libres. Ordenadas por lo bien que encajan: tapar huecos de tipos, cubrir tipos que no golpeas y aportar el rol o la velocidad que falta.`;
+  $("#fill").innerHTML = C.slice(0, 15).map(c => `<div class="fill">${sprite(c.f.head+"|"+c.f.body,"sm")}
+    <div style="min-width:0"><div class="nm" style="font-weight:800">${esc(fname(c.f))}</div>
+      <div class="sub" style="font-size:12px;display:flex;flex-wrap:wrap;gap:4px;align-items:center">${c.f.types.map(typeChip).join("")}<span>${esc(abName(c.e.id))}</span>${c.e.kind==="oculta"?'<span class="badge ha">oculta</span>':""}<span class="badge role">${ROLE_ES[c.e.role]}</span><span class="mono muted">${c.f.stats.join("/")}</span></div>
+      <div class="why">${c.plus.map(p=>`<span class="plus">+ ${esc(p)}</span>`).join("")}${c.minus.map(p=>`<span class="minus">− ${esc(p)}</span>`).join("")}</div></div>
+    <div class="acts"><div class="sc" style="font:700 18px var(--f-display)">${c.s.toFixed(0)}</div><button class="btn" data-add="${c.f.head}|${c.f.body}" data-ab-id="${c.e.id}">Añadir</button><button class="ghost" data-k="${c.f.head}|${c.f.body}">Ver</button></div></div>`).join("") || `<p class="muted">No quedan Pokémon libres para otra fusión.</p>`;
+}
+document.addEventListener("click", ev => {
+  const a = ev.target.closest("[data-add]");
+  if (a){
+    ev.stopPropagation();
+    const msg = addToTeam(a.dataset.add);
+    if (a.dataset.abId && msg.startsWith("Añadida")){ myTeam[myTeam.length-1].ab = a.dataset.abId; saveTeam(); renderMyTeam(); }
+    const m = document.getElementById("dlg-msg"); if (m && $("#dlg").open) m.textContent = msg;
+    return;
+  }
+  const r = ev.target.closest("[data-rm]");
+  if (r){ myTeam.splice(+r.dataset.rm, 1); saveTeam(); renderMyTeam(); }
+}, true);
+$("#slots").addEventListener("change", ev => { const i = ev.target.dataset.ab; if (i == null) return; myTeam[+i].ab = ev.target.value; saveTeam(); renderMyTeam(); });
+$("#sel-h").addEventListener("change", previewAdd);
+$("#sel-b").addEventListener("change", previewAdd);
+$("#add-fus").onclick = () => { const h = $("#sel-h").value, b = $("#sel-b").value; if (!h || !b){ $("#add-prev").textContent = "Elige cabeza y cuerpo."; return; } const msg = addToTeam(h+"|"+b); $("#add-prev").textContent = msg; if (msg.startsWith("Añadida")){ $("#sel-h").value = ""; $("#sel-b").value = ""; } };
+$("#autofill").onclick = () => {
+  while (myTeam.length < 6){ const c = candidates(myTeam)[0]; if (!c) break; myTeam.push({k: c.f.head+"|"+c.f.body, ab: c.e.id}); }
+  saveTeam(); renderMyTeam();
+};
 
 // ---------- caja
 function renderBox(){
@@ -591,7 +847,7 @@ $("#method").innerHTML = `
   </ul>`;
 
 // ---------- navegación
-const VIEWS = ["ranking","explorador","equipo","caja","metodo"];
+const VIEWS = ["ranking","explorador","miequipo","equipo","caja","metodo"];
 let teamsBuilt = false;
 function route(){
   const h = (location.hash || "#ranking").slice(1);
@@ -600,8 +856,9 @@ function route(){
   document.querySelectorAll("nav.tabs a").forEach(a => a.setAttribute("aria-current", a.getAttribute("href") === "#"+cur ? "page" : "false"));
   if (cur === "equipo" && !teamsBuilt){ teamsBuilt = true; renderTeams(); }
   if (cur === "explorador") renderExplorer();
+  if (cur === "miequipo") renderMyTeam();
 }
-function refresh(){ renderCallout(); renderFeatured(); renderRanking(); if (!$("#v-explorador").hidden) renderExplorer(); if (teamsBuilt && !$("#v-equipo").hidden) renderTeams(); else teamsBuilt = false; }
+function refresh(){ if (!$("#v-miequipo").hidden) renderMyTeam(); renderCallout(); renderFeatured(); renderRanking(); if (!$("#v-explorador").hidden) renderExplorer(); if (teamsBuilt && !$("#v-equipo").hidden) renderTeams(); else teamsBuilt = false; }
 window.addEventListener("hashchange", route);
 renderBox(); refresh(); route();
 })();
