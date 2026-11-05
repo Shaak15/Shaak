@@ -328,8 +328,42 @@ function row(vw){
   const {f, e, v} = vw;
   return `<button class="row" data-k="${f.head}|${f.body}">${sprite(f.head+"|"+f.body,"sm")}
     <div style="min-width:0"><div class="nm">${esc(nm(f.head))} / ${esc(nm(f.body))}</div>
-    <div class="sub">${f.types.map(typeChip).join("")}<span>${esc(abName(e.id))}</span>${e.kind==="oculta"?'<span class="badge ha">oculta</span>':""}<span class="mono">${f.stats.reduce((a,b)=>a+b,0)} BST</span></div></div>
+    <div class="sub">${f.types.map(typeChip).join("")}<span>${esc(abName(e.id))}</span>${e.kind==="oculta"?'<span class="badge ha">oculta</span>':""}<span class="mono">${f.stats.reduce((a,b)=>a+b,0)} BST</span></div><div class="sub" style="margin-top:3px"><span class="muted">Débil:</span> ${(()=>{const m=multOf(e);const w=TYPES.filter(t=>m[t]>=2).sort((a,b)=>m[b]-m[a]);return w.length?w.map(t=>TES[t]+(m[t]===4?" ×4":"")).join(", "):"ninguna"})()}</div></div>
     <div class="sc">${v.toFixed(0)}</div></button>`;
+}
+
+// ---------- texto de debilidades
+const IMM_AB = {FLASHFIRE:"FIRE", SAPSIPPER:"GRASS", LIGHTNINGROD:"ELECTRIC"};
+const tEff = (atk, def) => M.chart[TYPES.indexOf(atk)][TYPES.indexOf(def)];
+function why(t, f, kind){
+  // qué tipo(s) de la fusión explican el multiplicador
+  const parts = f.types.map(d => ({d, m: tEff(t, d)}));
+  const lst = parts.filter(p => kind === "w" ? p.m > 1 : kind === "r" ? (p.m > 0 && p.m < 1) : p.m === 0).map(p => TES[p.d]);
+  return lst.length ? lst.join(" y ") : "";
+}
+function weakText(f, e){
+  const m = multOf(e), name = `${nm(f.head)}/${nm(f.body)}`;
+  const x4 = TYPES.filter(t=>m[t]===4), x2 = TYPES.filter(t=>m[t]===2);
+  const r4 = TYPES.filter(t=>m[t]===0.25), r2 = TYPES.filter(t=>m[t]===0.5), im = TYPES.filter(t=>m[t]===0);
+  const types = f.types.map(t=>TES[t]).join("/");
+  const P = [];
+  if (!x4.length && !x2.length) P.push(`<b>${esc(name)}</b> (${types}) no tiene ninguna debilidad.`);
+  else {
+    const items = [...x4.map(t=>`<b>${TES[t]} ×4</b> (le afecta a ${why(t,f,"w")})`), ...x2.map(t=>`${TES[t]} ×2 (por ${why(t,f,"w")})`)];
+    P.push(`<b>${esc(name)}</b> (${types}) es débil a <b>${x2.length + x4.length}</b> tipo${x2.length+x4.length>1?"s":""}: ${items.join(", ")}.`);
+  }
+  if (x4.length) P.push(`⚠ Un ataque de ${x4.map(t=>TES[t]).join(" o ")} le quita el cuádruple: aunque tenga buenas defensas, sácalo del combate frente a esos tipos.`);
+  const imAb = im.filter(t => IMM_AB[e.id] === t), imTy = im.filter(t => IMM_AB[e.id] !== t);
+  if (imTy.length) P.push(`Inmune a ${imTy.map(t=>`<b>${TES[t]}</b> (por ${why(t,f,"i")})`).join(", ")}.`);
+  if (imAb.length) P.push(`Inmune a <b>${TES[imAb[0]]}</b> gracias a ${esc(abName(e.id))}; sin esa habilidad ${TES[imAb[0]]} le haría ×${(f.types.reduce((a,d)=>a*tEff(imAb[0],d),1))}.`);
+  if (r4.length || r2.length) P.push(`Resiste ${r4.length + r2.length} tipo${r4.length+r2.length>1?"s":""}: ${[...r4.map(t=>`<b>${TES[t]} ×¼</b>`), ...r2.map(t=>TES[t])].join(", ")}.`);
+  else P.push("No resiste ningún tipo.");
+  const nW = x2.length + x4.length, nG = r4.length + r2.length + im.length;
+  P.push(nW >= 5 ? "Tipo defensivo frágil: muchas debilidades, mejor úsalo de atacante y que entre tras un K.O." :
+         nG >= nW + 5 ? "Tipo defensivo excelente: entra cómodo a recibir golpes de muchos tipos." :
+         nG >= nW ? "Tipo defensivo correcto: resiste más de lo que le hace daño." :
+         "Tipo defensivo flojo: recibe más daño súper eficaz del que resiste.");
+  return `<div style="display:grid;gap:6px;margin-top:6px;font-size:14px">${P.map(x=>`<p style="margin:0">${x}</p>`).join("")}</div>`;
 }
 
 // ---------- detalle
@@ -359,7 +393,7 @@ function openDetail(key){
       <div class="tbl-wrap" style="margin-top:8px"><table><tr><th>Habilidad</th><th>Origen</th><th>Rol</th><th>Puntos</th></tr>
       ${opts.map(({e,ok}) => `<tr style="${ok?"":"opacity:.45"}"><td><b>${esc(abName(e.id))}</b> ${e.kind==="oculta"?'<span class="badge ha">oculta</span>':""}<div class="muted" style="font-size:12px">${esc(AB[e.id]?AB[e.id].desc:"")}</div></td><td>${e.from==="cabeza"?esc(nm(f.head)):esc(nm(f.body))}</td><td>${ROLE_ES[e.role]}</td><td class="n">${e.score.toFixed(1)}${ok?"":"<div class='muted' style='font-size:11px'>no la tiene</div>"}</td></tr>`).join("")}
       </table></div></div>
-    <div><h3>Daño recibido (con ${esc(abName(e.id))})</h3><div style="display:grid;gap:6px;margin-top:8px">${dmg}</div></div>
+    <div><h3>Debilidades y resistencias</h3>${weakText(f,e)}<div style="display:grid;gap:6px;margin-top:10px">${dmg}</div></div>
     ${e.notes.length?`<div><h3>Claves</h3><ul class="notes" style="margin-top:6px">${e.notes.map(n=>`<li>${esc(n)}</li>`).join("")}</ul></div>`:""}
     <p class="muted" style="font-size:12px;margin:0">Para fusionar: la habilidad sale de la que tenga AHORA cada Pokémon base. Si es la 1ª o 2ª habilidad y no la lleva, usa una Cápsula Habilidad antes de fusionar. Las ocultas tiene que traerlas ya.</p>`;
   const d = $("#dlg"); d.showModal(); $("#dlg-x").onclick = () => d.close();
@@ -543,10 +577,10 @@ $("#method").innerHTML = `
   <h3>La puntuación</h3>
   <p>Cada fusión se puntúa con cada una de sus habilidades posibles y se queda con la mejor. La nota general (0–100 aprox.) combina:</p>
   <ul>
-    <li><b>52%</b> su mejor rol (físico, especial, muro o rápido) con las stats efectivas. Cambio Táctico, Entusiasmo, Impulso y Escudo Limitado modifican esas stats.</li>
-    <li><b>20%</b> tipo defensivo: inmunidades y resistencias suman, debilidades restan y las ×4 restan mucho. Absorbe Fuego, Herbívoro y Pararrayos cuentan como inmunidad.</li>
-    <li><b>20%</b> valor de la habilidad <i>para esa fusión</i>. Por ejemplo, Respondón vale mucho si la fusión aprende Sofoco o Fuerza Bruta, y Mandíbula Fuerte solo si tiene mordiscos.</li>
-    <li><b>8%</b> cobertura ofensiva de sus dos tipos (STAB).</li>
+    <li><b>60%</b> stats: su mejor rol (físico, especial, muro o rápido). Cambio Táctico, Entusiasmo, Impulso y Escudo Limitado las retocan solo un poco.</li>
+    <li><b>28%</b> combinación de tipos: inmunidades y resistencias suman, debilidades restan y las ×4 restan mucho. Absorbe Fuego, Herbívoro y Pararrayos cuentan como inmunidad.</li>
+    <li><b>6%</b> valor de la habilidad <i>para esa fusión</i>. Por ejemplo, Respondón vale mucho si la fusión aprende Sofoco o Fuerza Bruta, y Mandíbula Fuerte solo si tiene mordiscos.</li>
+    <li><b>6%</b> cobertura ofensiva de sus dos tipos (STAB).</li>
   </ul>
   <p>Los rankings por rol usan el mismo cálculo dando más peso a ese rol. Es una guía: los movimientos, los objetos y la naturaleza cambian mucho el resultado.</p>
   <h3>Datos a revisar</h3>

@@ -83,7 +83,7 @@ def has(moves, lst):
     return [m for m in lst if m in moves]
 
 # ---------------------------------------------------------------- puntuación
-TYPE_PTS = {0: 3.0, 0.25: 2.0, 0.5: 1.0, 1: 0.0, 2: -2.0, 4: -4.5}
+TYPE_PTS = {0: 3.0, 0.25: 2.0, 0.5: 1.0, 1: 0.0, 2: -2.0, 4: -5.0}
 IMMUNITY_AB = {"FLASHFIRE": "FIRE", "SAPSIPPER": "GRASS", "LIGHTNINGROD": "ELECTRIC"}
 
 def defense_profile(types, ability):
@@ -120,16 +120,16 @@ def effective_stats(st, ability, core_st=None):
     hp, at, de, sa, sd, sp = st
     if ability == "STANCECHANGE":
         # Ataca en forma Espada (Atq=Def, AtqEsp=DefEsp); Escudo Real devuelve las defensas.
-        at2, sa2 = max(at, de), max(sa, sd)
+        at2, sa2 = (at + max(at, de)) / 2, (sa + max(sa, sd)) / 2
         de2 = 0.65 * de + 0.35 * min(at, de) if de > at else de
         sd2 = 0.65 * sd + 0.35 * min(sa, sd) if sd > sa else sd
         return [hp, at2, de2, sa2, sd2, sp]
     if ability == "HUSTLE":
-        return [hp, at * 1.3, de, sa, sd, sp]   # x1.5 Atq con 80% precisión ~ x1.3 neto
+        return [hp, at * 1.15, de, sa, sd, sp]   # x1.5 Atq con 80% precisión ~ x1.3 neto
     if ability == "SHIELDSDOWN" and core_st:
         return [(a + b) / 2 for a, b in zip(st, core_st)]
     if ability == "SPEEDBOOST":
-        return [hp, at, de, sa, sd, sp * 1.25]
+        return [hp, at, de, sa, sd, sp * 1.1]
     return list(st)
 
 def ability_value(a, ctx):
@@ -295,9 +295,9 @@ def build():
             role = max(rsn, key=rsn.get)
             ctx = {"moves": x["moves"], "role": role, "stats": p["est"], "types": x["types"], "prof": p["prof"]}
             av = ability_value(p["ab"]["id"], ctx)
-            score = 0.52 * rsn[role] + 0.2 * nt(p["typ"]) + 0.2 * max(-40, av) + 0.08 * nc(p["cov"])
+            score = 0.60 * rsn[role] + 0.28 * nt(p["typ"]) + 0.06 * max(-40, av) + 0.06 * nc(p["cov"])
             # puntuación por rol (para los rankings por rol)
-            role_total = {r: 0.62 * rsn[r] + 0.16 * nt(p["typ"]) + 0.16 * max(-40, av) + 0.06 * nc(p["cov"]) for r in rsn}
+            role_total = {r: 0.66 * rsn[r] + 0.24 * nt(p["typ"]) + 0.05 * max(-40, av) + 0.05 * nc(p["cov"]) for r in rsn}
             item = {"ab": p["ab"], "score": round(score, 2), "role": role, "roles": {k: round(v, 1) for k, v in role_total.items()},
                     "est": [round(s) for s in p["est"]], "abv": av, "typ": p["typ"], "cov": p["cov"],
                     "prof": p["prof"], "ctx": ctx}
@@ -325,7 +325,7 @@ if __name__ == "__main__":
         "species": {k: {kk: v[kk] for kk in ("id", "name", "dex", "type1", "type2", "stats", "abilities", "hidden")}
                     for k, v in SP.items()},
         "abilities": {k: {"en": v["name"], "es": AB_ES.get(k, v["name"]), "desc": v["desc"]} for k, v in DATA["abilities"].items()},
-        "types_es": T_ES, "types": TYPES,
+        "types_es": T_ES, "types": TYPES, "chart": [[eff(x, [y]) for y in TYPES] for x in TYPES],
     }
     json.dump({"meta": meta, "fusions": fus}, open(os.path.join(HERE, "../data/fusions.json"), "w"), ensure_ascii=False)
     print(len(fus), "fusiones")
