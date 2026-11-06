@@ -11,7 +11,7 @@ Abre **`site/index.html`** en el navegador (con `sprites.webp` en la misma carpe
 - **Mi equipo**: eliges tus fusiones y te dice los huecos de tipos y roles y quién los rellena mejor.
 - **Tu caja**: stats y habilidades de cada Pokémon. Quita Pokémon de la caja o marca quién tiene la habilidad oculta y todo se recalcula.
 
-Cada fusión trae un **set recomendado** de 4 movimientos (`scripts/sets.py`) que cuenta un 20% en la puntuación.
+Cada fusión trae tres sets (ofensivo, tanque y support, `scripts/sets.py`) guiados por los sets de Pokémon Showdown; el de su rol principal cuenta un 20% en la puntuación. Cada fusión puede tener varios roles: físico, especial, rápido, tanque y support.
 - **Cómo se calcula**: fórmulas y criterios.
 
 ## Datos
@@ -22,6 +22,10 @@ Todo se saca de los archivos del propio juego ([infinitefusion/infinitefusion-e1
 B=https://raw.githubusercontent.com/infinitefusion/infinitefusion-e18/develop-6.6/PBS
 mkdir -p pbs66 && for f in pokemon abilities moves; do curl -sSLo pbs66/$f.txt $B/$f.txt; done
 python3 -I scripts/extract.py pbs66        # -> data/pokemon.json (stats, tipos, habilidades, movimientos)
+# Sets reales de Pokémon Showdown (combates aleatorios gen 4-9) para guiar los sets
+S=https://raw.githubusercontent.com/smogon/pokemon-showdown/master/data/random-battles
+mkdir -p sd && for g in 4 5 6 7 8 9; do curl -sSLo sd/gen${g}_sets.json $S/gen$g/sets.json; done
+python3 -I scripts/showdown.py sd           # -> data/showdown.json
 python3 -I scripts/analyze.py              # -> data/fusions.json (todas las fusiones puntuadas)
 # Sprites: custom de la rama main + autogenerados de develop-6.6 (Graphics/Battlers/spritesheets_autogen)
 python3 -I scripts/sprites.py ../infinitefusion-e18 ../autogen66   # -> site/sprites.webp + data/sprites.json

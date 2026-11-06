@@ -306,8 +306,10 @@ dialog::backdrop{background:rgba(8,12,24,.55)}
 const D = JSON.parse(document.getElementById('data').textContent);
 const M = D.meta, F = D.fusions, SPR = D.sprites, TYPES = M.types, TES = M.types_es;
 const SP = M.species, AB = M.abilities;
-const ROLES = [["score","General"],["fisico","Atacante físico"],["especial","Atacante especial"],["muro","Muro / tanque"],["rapido","Rápido / sweeper"],["typ","Mejor tipo defensivo"]];
-const ROLE_ES = {fisico:"Físico",especial:"Especial",muro:"Muro",rapido:"Rápido"};
+const ROLES = [["score","General"],["fisico","Atacante físico"],["especial","Atacante especial"],["rapido","Rápido / sweeper"],["tanque","Tanque"],["support","Support"],["typ","Mejor tipo defensivo"]];
+const ROLE_ES = {fisico:"Físico",especial:"Especial",rapido:"Rápido",tanque:"Tanque",support:"Support"};
+const ARCH_ES = {ataque:"Set ofensivo", tanque:"Set tanque", support:"Set support"};
+const tagsTxt = e => (e.tags||[e.role]).map(r=>ROLE_ES[r]).join(" · ");
 const STAT_K = ["PS","ATQ","DEF","AtE","DfE","VEL"], STAT_C = ["--hp","--atk","--def","--spa","--spd","--spe"];
 const UNIQUE = [...new Set(M.box)];
 const $ = s => document.querySelector(s);
@@ -345,7 +347,7 @@ const CAT = ["Fís","Esp","Est"];
 const mvName = id => MV[id] ? MV[id].es : id;
 function setHTML(e){
   if (!e.set || !e.set.length) return "";
-  return `<div class="moves">${e.set.map(id => { const m = MV[id]; return `<span class="mv" style="border-left-color:var(--t-${m.type})" title="${esc(m.name)}"><b>${esc(m.es)}</b><small>${CAT[m.cat]}${m.cat<2?" "+m.power:""}</small></span>`; }).join("")}</div>`;
+  return `<div class="eyebrow" style="margin-bottom:-4px">${ARCH_ES[e.arch]||"Set"}</div><div class="moves">${e.set.map(id => { const m = MV[id]; return `<span class="mv" style="border-left-color:var(--t-${m.type})" title="${esc(m.name)}"><b>${esc(m.es)}</b><small>${CAT[m.cat]}${m.cat<2?" "+m.power:""}</small></span>`; }).join("")}</div>`;
 }
 const setShort = e => (e.set||[]).map(mvName).join(" · ");
 function allowed(f, e){
@@ -381,7 +383,7 @@ function statsHTML(f, e){
 }
 function abHTML(f, e){
   const src = e.from === "cabeza" ? nm(f.head) : nm(f.body);
-  return `<div class="ab"><b>${esc(abName(e.id))}</b>${e.kind==="oculta"?`<span class="badge ha">oculta</span>`:`<span class="badge">normal</span>`}<span class="muted" style="font-size:12px">de ${esc(src)}</span><span class="badge role">${ROLE_ES[e.role]}</span></div>`;
+  return `<div class="ab"><b>${esc(abName(e.id))}</b>${e.kind==="oculta"?`<span class="badge ha">oculta</span>`:`<span class="badge">normal</span>`}<span class="muted" style="font-size:12px">de ${esc(src)}</span><span class="badge role">${tagsTxt(e)}</span></div>`;
 }
 function card(vw, rank){
   const {f, e, v} = vw;
@@ -461,16 +463,20 @@ function openDetail(key){
     <div class="tbl-wrap"><table><tr><th></th>${STAT_K.map(k=>`<th>${k}</th>`).join("")}<th>Total</th></tr>
       ${baseRow(H, esc(H.name)+" (cabeza)")}${baseRow(B, esc(B.name)+" (cuerpo)")}
       <tr><td><b>Fusión</b></td>${f.stats.map(x=>`<td class="n"><b>${x}</b></td>`).join("")}<td class="n"><b>${f.bst}</b></td></tr>${coreRow}
-      <tr><td>Efectivo con ${esc(abName(e.id))}</td>${e.est.map(x=>`<td class="n">${x}</td>`).join("")}<td class="n">–</td></tr></table></div>
+      ${e.id==="STANCECHANGE" ? `<tr><td>Forma Espada (al atacar)</td>${[f.stats[0],f.stats[2],f.stats[1],f.stats[4],f.stats[3],f.stats[5]].map(x=>`<td class="n">${x}</td>`).join("")}<td class="n">${f.bst}</td></tr>`
+        : `<tr><td>Efectivo con ${esc(abName(e.id))}</td>${e.est.map(x=>`<td class="n">${x}</td>`).join("")}<td class="n">–</td></tr>`}</table></div>
+    ${e.id==="STANCECHANGE" ? `<p class="muted" style="font-size:13px;margin:0">Cambio Táctico en Infinite Fusion: al usar un ataque se intercambian Atq↔Def y AtqEsp↔DefEsp (pasa a forma Espada). Ataca con ${f.stats[2]} / ${f.stats[4]} y, hasta que use Escudo Real, defiende con ${f.stats[1]} / ${f.stats[3]}.${f.stats[2] < f.stats[1] || f.stats[4] < f.stats[3] ? " ⚠ Aquí alguna defensa es menor que su ataque, así que en esa parte el cambio le perjudica." : ""}</p>` : ""}
     <div><h3>Habilidades posibles</h3>
       <div class="tbl-wrap" style="margin-top:8px"><table><tr><th>Habilidad</th><th>Origen</th><th>Rol</th><th>Set</th><th>Puntos</th></tr>
-      ${opts.map(({e,ok}) => `<tr style="${ok?"":"opacity:.45"}"><td><b>${esc(abName(e.id))}</b> ${e.kind==="oculta"?'<span class="badge ha">oculta</span>':""}<div class="muted" style="font-size:12px">${esc(AB[e.id]?AB[e.id].desc:"")}</div></td><td>${e.from==="cabeza"?esc(nm(f.head)):esc(nm(f.body))}</td><td>${ROLE_ES[e.role]}</td><td style="font-size:12px">${esc(setShort(e))}</td><td class="n">${e.score.toFixed(1)}${ok?"":"<div class='muted' style='font-size:11px'>no la tiene</div>"}</td></tr>`).join("")}
+      ${opts.map(({e,ok}) => `<tr style="${ok?"":"opacity:.45"}"><td><b>${esc(abName(e.id))}</b> ${e.kind==="oculta"?'<span class="badge ha">oculta</span>':""}<div class="muted" style="font-size:12px">${esc(AB[e.id]?AB[e.id].desc:"")}</div></td><td>${e.from==="cabeza"?esc(nm(f.head)):esc(nm(f.body))}</td><td>${tagsTxt(e)}</td><td style="font-size:12px">${esc(setShort(e))}</td><td class="n">${e.score.toFixed(1)}${ok?"":"<div class='muted' style='font-size:11px'>no la tiene</div>"}</td></tr>`).join("")}
       </table></div></div>
-    <div><h3>Set recomendado con ${esc(abName(e.id))} <span class="muted mono" style="font-size:12px;font-weight:400">· nota del set ${e.setv.toFixed(0)}/100</span></h3>
-      <div class="tbl-wrap" style="margin-top:8px"><table><tr><th>Movimiento</th><th>Tipo</th><th>Cat.</th><th>Pot.</th><th>Prec.</th></tr>
-      ${e.set.map(id => { const m = MV[id]; return `<tr><td><b>${esc(m.es)}</b> <span class="muted" style="font-size:12px">(${esc(m.name)})</span><div class="muted" style="font-size:12px">${esc(m.desc)}</div></td><td>${typeChip(m.type)}</td><td>${["Físico","Especial","Estado"][m.cat]}</td><td class="n">${m.cat<2?m.power:"–"}</td><td class="n">${m.acc||"—"}</td></tr>`; }).join("")}
-      </table></div>
-      <p class="muted" style="font-size:12px;margin:6px 0 0">Elegido entre todo lo que aprende la fusión (nivel, MT/tutor y huevo de los dos Pokémon). El juego está en inglés, por eso va también el nombre en inglés. Si cambias de habilidad, el set cambia: mira la tabla de habilidades.</p></div>
+    <div style="display:grid;gap:10px"><h3>Sets con ${esc(abName(e.id))} <span class="muted" style="font-size:13px;font-weight:400">· roles: ${tagsTxt(e)}</span></h3>
+      ${["ataque","tanque","support"].filter(a => e.sets && e.sets[a]).sort((a,b)=> (b===e.arch) - (a===e.arch)).map(a => `<div>
+        <div class="eyebrow">${ARCH_ES[a]}${a===e.arch?" · recomendado":""} · nota ${e.sets[a].setv.toFixed(0)}/100</div>
+        <div class="tbl-wrap" style="margin-top:6px"><table><tr><th>Movimiento</th><th>Tipo</th><th>Cat.</th><th>Pot.</th><th>Prec.</th></tr>
+        ${e.sets[a].moves.map(id => { const m = MV[id]; return `<tr><td><b>${esc(m.es)}</b> <span class="muted" style="font-size:12px">(${esc(m.name)})</span>${a===e.arch?`<div class="muted" style="font-size:12px">${esc(m.desc)}</div>`:""}</td><td>${typeChip(m.type)}</td><td>${["Físico","Especial","Estado"][m.cat]}</td><td class="n">${m.cat<2?m.power:"–"}</td><td class="n">${m.acc||"—"}</td></tr>`; }).join("")}
+        </table></div></div>`).join("")}
+      <p class="muted" style="font-size:12px;margin:0">Sets guiados por los sets reales de Pokémon Showdown: los movimientos que casi nadie usa en competitivo pesan menos y los que usan de verdad la cabeza o el cuerpo pesan más. Todo sale de lo que aprende la fusión (nivel, MT/tutor y huevo). El juego está en inglés, por eso va también el nombre en inglés.</p></div>
     <div><h3>Debilidades y resistencias</h3>${weakText(f,e)}<div style="display:grid;gap:6px;margin-top:10px">${dmg}</div></div>
     ${e.notes.length?`<div><h3>Claves</h3><ul class="notes" style="margin-top:6px">${e.notes.map(n=>`<li>${esc(n)}</li>`).join("")}</ul></div>`:""}
     <p class="muted" style="font-size:12px;margin:0">Para fusionar: la habilidad sale de la que tenga AHORA cada Pokémon base. Si es la 1ª o 2ª habilidad y no la lleva, usa una Cápsula Habilidad antes de fusionar. Las ocultas tiene que traerlas ya.</p>`;
@@ -514,7 +520,7 @@ function renderFeatured(){
   const picks = [];
   const used = new Set();
   const add = (label, x) => { if (!x) return; picks.push({label, x}); };
-  for (const [r, l] of ROLES.slice(0,5)){
+  for (const [r, l] of ROLES.slice(0,6)){
     add(r==="score"?"Nº 1 general":"Mejor "+l.toLowerCase(), rankedList(r)[0]);
   }
   const abil = [["STANCECHANGE","Cambio Táctico"],["SPEEDBOOST","Impulso"],["PROTEAN","Mutatipo"],["CONTRARY","Respondón"],
@@ -648,14 +654,14 @@ function canUse(f, u){
 }
 const SE = (atk, def) => M.chart[TYPES.indexOf(atk)][TYPES.indexOf(def)];
 function teamInfo(mem){
-  const A = {w:[], w4:[], r:[], im:[], roles:{fisico:0,especial:0,muro:0,rapido:0}, phys:0, spec:0, fast:0, slow:0, stab:new Set(), protean:false};
+  const A = {w:[], w4:[], r:[], im:[], roles:{fisico:0,especial:0,rapido:0,tanque:0,support:0}, phys:0, spec:0, fast:0, slow:0, stab:new Set(), protean:false};
   TYPES.forEach((t,i) => {
     let w=0,w4=0,r=0,im=0;
     for (const {e} of mem){ const m=e.mult[i]; if (m>=2) w++; if (m===4) w4++; if (m<1) r++; if (m===0) im++; }
     A.w[i]=w; A.w4[i]=w4; A.r[i]=r; A.im[i]=im;
   });
   for (const {f,e} of mem){
-    A.roles[e.role]++;
+    (e.tags||[e.role]).forEach(r => A.roles[r]++);
     if (e.est[1] >= 100) A.phys++;
     if (e.est[3] >= 100) A.spec++;
     if (e.est[5] >= 95) A.fast++;
@@ -692,8 +698,9 @@ function rolesHTML(mem, A){
   if (A.phys && A.spec && Math.abs(A.phys - A.spec) >= 3) tips.push(`Equipo descompensado: ${A.phys} físicos y ${A.spec} especiales.`);
   if (A.fast < 2) tips.push(`Te falta velocidad: ${A.fast} con 95 o más de Vel.`);
   if (A.slow >= 3) tips.push(`${A.slow} fusiones van por debajo de 60 de Vel.`);
-  if (A.roles.muro === 0) tips.push("No tienes ningún muro que aguante golpes.");
-  if (A.roles.muro >= 3) tips.push("Demasiados muros: te faltará daño.");
+  if (A.roles.tanque === 0) tips.push("No tienes ningún tanque que aguante golpes.");
+  if (A.roles.tanque >= 4) tips.push("Demasiados tanques: te faltará daño.");
+  if (A.roles.support === 0) tips.push("No tienes support: nadie pone trampas, quema/envenena o pivota.");
   const speeds = mem.map(({f,e})=>({f, s:e.est[5]})).sort((a,b)=>b.s-a.s);
   return `<div class="chips">${Object.entries(A.roles).map(([r,n])=>`<span class="badge role">${ROLE_ES[r]}: <b>${n}</b></span>`).join("")}<span class="badge role">Atq ≥100: <b>${A.phys}</b></span><span class="badge role">AtqEsp ≥100: <b>${A.spec}</b></span></div>
     <ul class="gaplist">${tips.length?tips.map(t=>`<li><span class="sev o">Falta</span>${t}</li>`).join(""):`<li><span class="sev ok">Bien</span>Roles y velocidad equilibrados.</li>`}</ul>
@@ -722,8 +729,9 @@ function fitOf(f, e, A, n){
   s += Math.min(covers.length, 4) * (e.id === "PROTEAN" ? 1.2 : 2.5);
   if (covers.length) plus.push(`Pega súper eficaz a ${covers.map(t=>TES[t]).join(", ")}, que tu equipo no cubre`);
   if (n){
-    if (A.roles[e.role] === 0){ s += 7; plus.push(`Aporta un rol que no tienes: ${ROLE_ES[e.role].toLowerCase()}`); }
-    else if (A.roles[e.role] >= 3){ s -= 5; minus.push(`Ya tienes ${A.roles[e.role]} de rol ${ROLE_ES[e.role].toLowerCase()}`); }
+    const newR = (e.tags||[e.role]).filter(r => A.roles[r] === 0);
+    if (newR.length){ s += 7 + 3 * (newR.length - 1); plus.push(`Aporta ${newR.length>1?"roles":"un rol"} que no tienes: ${newR.map(r=>ROLE_ES[r].toLowerCase()).join(" y ")}`); }
+    else if (A.roles[e.role] >= 3){ s -= 5; minus.push(`Ya tienes ${A.roles[e.role]} con rol ${ROLE_ES[e.role].toLowerCase()}`); }
     if (e.est[1] >= 100 && A.phys === 0){ s += 6; plus.push("Sería tu atacante físico"); }
     if (e.est[3] >= 100 && A.spec === 0){ s += 6; plus.push("Sería tu atacante especial"); }
     if (e.est[1] >= 100 && A.spec - A.phys >= 2){ s += 3; plus.push("Equilibra el equipo hacia el lado físico"); }
@@ -778,7 +786,7 @@ function renderMyTeam(){
   fillSelects();
   const slots = mem.map(({f,e}, i) => `<div class="slot">
       <div class="slot-top">${sprite(f.head+"|"+f.body)}<div style="min-width:0;display:grid;gap:4px">
-        <div class="fname">${esc(fname(f))}<small>CABEZA / CUERPO · ${ROLE_ES[e.role].toUpperCase()}</small></div>
+        <div class="fname">${esc(fname(f))}<small>CABEZA / CUERPO · ${tagsTxt(e).toUpperCase()}</small></div>
         <div class="chips">${f.types.map(typeChip).join("")}</div>
         <div class="mono muted" style="font-size:12px">${STAT_K.map((k,j)=>`${k} ${f.stats[j]}`).join(" · ")}</div></div></div>
       <select data-ab="${i}" aria-label="Habilidad de ${esc(fname(f))}">${abOptions(f, e.id)}</select>
@@ -793,18 +801,18 @@ function renderMyTeam(){
   $("#my-mtx").innerHTML = mem.length ? `<table class="mtx"><tr><th></th>${mem.map(p=>`<th>${esc(fname(p.f))}</th>`).join("")}</tr>${mtxRows(mem)}</table>` : "";
   // candidatos
   chipsFor($("#fill-roles"), fillRole, r => { fillRole = r; renderMyTeam(); });
-  $("#fill-roles").innerHTML = [["all","Todos"],["fisico","Físico"],["especial","Especial"],["muro","Muro"],["rapido","Rápido"]].map(([k,l])=>`<button class="chip" aria-pressed="${k===fillRole}" data-r="${k}">${l}</button>`).join("");
+  $("#fill-roles").innerHTML = [["all","Todos"],["fisico","Físico"],["especial","Especial"],["rapido","Rápido"],["tanque","Tanque"],["support","Support"]].map(([k,l])=>`<button class="chip" aria-pressed="${k===fillRole}" data-r="${k}">${l}</button>`).join("");
   $("#autofill").disabled = myTeam.length >= 6;
   if (myTeam.length >= 6){
     $("#fill-note").textContent = "Tu equipo está completo. Quita una fusión para ver quién la sustituiría mejor.";
     $("#fill").innerHTML = ""; return;
   }
   let C = candidates(myTeam);
-  if (fillRole !== "all") C = C.filter(c => c.e.role === fillRole);
+  if (fillRole !== "all") C = C.filter(c => (c.e.tags||[c.e.role]).includes(fillRole));
   $("#fill-note").textContent = `${C.length} fusiones posibles con los Pokémon que te quedan libres. Ordenadas por lo bien que encajan: tapar huecos de tipos, cubrir tipos que no golpeas y aportar el rol o la velocidad que falta.`;
   $("#fill").innerHTML = C.slice(0, 15).map(c => `<div class="fill">${sprite(c.f.head+"|"+c.f.body,"sm")}
     <div style="min-width:0"><div class="nm" style="font-weight:800">${esc(fname(c.f))}</div>
-      <div class="sub" style="font-size:12px;display:flex;flex-wrap:wrap;gap:4px;align-items:center">${c.f.types.map(typeChip).join("")}<span>${esc(abName(c.e.id))}</span>${c.e.kind==="oculta"?'<span class="badge ha">oculta</span>':""}<span class="badge role">${ROLE_ES[c.e.role]}</span><span class="mono muted">${c.f.stats.join("/")}</span></div>
+      <div class="sub" style="font-size:12px;display:flex;flex-wrap:wrap;gap:4px;align-items:center">${c.f.types.map(typeChip).join("")}<span>${esc(abName(c.e.id))}</span>${c.e.kind==="oculta"?'<span class="badge ha">oculta</span>':""}<span class="badge role">${tagsTxt(c.e)}</span><span class="mono muted">${c.f.stats.join("/")}</span></div>
       <div class="setline" style="margin-top:4px">Set: ${esc(setShort(c.e))}</div>
       <div class="why">${c.plus.map(p=>`<span class="plus">+ ${esc(p)}</span>`).join("")}${c.minus.map(p=>`<span class="minus">− ${esc(p)}</span>`).join("")}</div></div>
     <div class="acts"><div class="sc" style="font:700 18px var(--f-display)">${c.s.toFixed(0)}</div><button class="btn" data-add="${c.f.head}|${c.f.body}" data-ab-id="${c.e.id}">Añadir</button><button class="ghost" data-k="${c.f.head}|${c.f.body}">Ver</button></div></div>`).join("") || `<p class="muted">No quedan Pokémon libres para otra fusión.</p>`;
@@ -875,18 +883,36 @@ $("#method").innerHTML = `
   <h3>La puntuación</h3>
   <p>Cada fusión se puntúa con cada una de sus habilidades posibles, con su set recomendado, y se queda con la mejor. La nota general (0–100 aprox.) combina:</p>
   <ul>
-    <li><b>48%</b> stats: su mejor rol (físico, especial, muro o rápido). Cambio Táctico, Entusiasmo, Impulso y Escudo Limitado las retocan solo un poco.</li>
+    <li><b>48%</b> su rol principal (85%) y el segundo mejor (15%): un Pokémon que vale para dos cosas puntúa más.</li>
     <li><b>20%</b> el set recomendado (ver abajo).</li>
     <li><b>24%</b> combinación de tipos: inmunidades y resistencias suman, debilidades restan y las ×4 restan mucho. Absorbe Fuego, Herbívoro, Pararrayos y Levitación cuentan como inmunidad.</li>
     <li><b>4%</b> valor de la habilidad <i>para esa fusión</i>. Por ejemplo, Respondón vale mucho si la fusión aprende Sofoco o Fuerza Bruta, y Mandíbula Fuerte solo si tiene mordiscos.</li>
     <li><b>4%</b> cobertura ofensiva de sus dos tipos (STAB).</li>
   </ul>
+  <h3>Roles</h3>
+  <p>Un Pokémon puede tener varios roles. Cada rol se compara con todas las fusiones posibles y se marca cuando está en el 28% mejor:</p>
+  <ul>
+    <li><b>Físico / Especial:</b> Ataque o AtqEsp (con lo que aporten Cambio Táctico, Entusiasmo, etc.), algo de Velocidad y aguante.</li>
+    <li><b>Rápido:</b> Velocidad, más su mejor stat de ataque.</li>
+    <li><b>Tanque:</b> PS × Defensa y PS × DefEsp.</li>
+    <li><b>Support:</b> cuántas herramientas de apoyo aprende (Trampa Rocas, Púas, Fuego Fatuo, Tóxico, Onda Trueno, Ida y Vuelta, Voltiocambio, Desarme, Despejar, Rugido, pantallas, Cascabel Cura, recuperación…) y cuánto aguanta para usarlas.</li>
+  </ul>
+  <p>El rol principal es el que mejor le sale contando stats y set.</p>
+  <h3>Cambio Táctico en Infinite Fusion</h3>
+  <p>Cuando una fusión con Cambio Táctico usa un ataque, se <b>intercambian</b> Atq↔Def y AtqEsp↔DefEsp, como el truco Truco Fuerza. Ataca con su Defensa y su DefEsp, y queda defendiendo con su Ataque y su AtqEsp hasta que use Escudo Real. Por eso es brutal en fusiones con mucha Def y DefEsp y malo si su Ataque es mayor que su Defensa. Para el aguante cuento mitad forma Escudo y mitad forma Espada.</p>
   <h3>El set recomendado</h3>
-  <p>La fusión aprende todo lo que aprenden la cabeza y el cuerpo (por nivel, MT/tutor y huevo). Para cada habilidad pruebo todas las combinaciones de 2 a 4 ataques y 0 a 2 movimientos de estado, y me quedo con la de más valor:</p>
+  <p>La fusión aprende todo lo que aprenden la cabeza y el cuerpo (por nivel, MT/tutor y huevo). Para cada habilidad genero tres sets, como los roles de los sets de Pokémon Showdown (Fast Attacker, Bulky Attacker, Bulky Support…):</p>
+  <ul>
+    <li><b>Set ofensivo:</b> 3–4 ataques más setup (Danza Espada, Maquinación…) o protección.</li>
+    <li><b>Set tanque:</b> recuperación obligatoria, 2–3 ataques y estado o setup.</li>
+    <li><b>Set support:</b> 2–3 movimientos de apoyo (trampas, estados, pivotar, Desarme, fase…) y 1–2 ataques.</li>
+  </ul>
+  <p>Se recomienda el set de su rol principal y es el que cuenta en la nota. Para elegir los movimientos:</p>
   <ul>
     <li><b>Ataques:</b> para cada uno de los 18 tipos de rival cuenta el ataque que más daño le hace (potencia × precisión × STAB × eficacia × Ataque o AtqEsp de la fusión). Por eso premia la cobertura.</li>
     <li><b>Habilidad:</b> Respondón convierte Fuerza Bruta, Sofoco o Cometa Draco en mejoras; Adaptable sube el STAB a ×2; Mutatipo da STAB a todo; Puño Férreo, Mandíbula Fuerte, Entusiasmo, Agallas (con Imagen y Llamasfera), Sequía (Rayo Solar sin carga) e Indefenso (precisión 100%) también cuentan.</li>
     <li><b>Estado:</b> Danza Espada, Maquinación, Paz Mental o Rompecoraza valen según el daño que multiplican; Recuperación, Respiro o Relajo valen más cuanto más aguanta la fusión; Escudo Real con Cambio Táctico y Protección con Impulso son casi obligatorios; Fuego Fatuo, Tóxico y Trampa Rocas suman en los muros.</li>
+    <li><b>Competitivo real:</b> uso los sets de combates aleatorios de Pokémon Showdown (generaciones 4 a 9) para saber qué movimientos son normales. Los que casi nadie usa pesan menos y los que usan la cabeza o el cuerpo pesan algo más.</li>
     <li>Fuera quedan los movimientos de carga o recarga (Hiperrayo, Vuelo…), los que debilitan al usuario (Explosión) y los de un golpe (Fisura).</li>
   </ul>
   <p>Los rankings por rol usan el mismo cálculo dando más peso a ese rol. Es una guía: los movimientos, los objetos y la naturaleza cambian mucho el resultado.</p>

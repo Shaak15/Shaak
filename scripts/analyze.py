@@ -107,25 +107,28 @@ def offense_coverage(types, ability):
 def bulk(hp, d):
     return math.sqrt(hp * d)
 
+ROLES = ("fisico", "especial", "rapido", "tanque", "support")
+ARCH = {"fisico": "ataque", "especial": "ataque", "rapido": "ataque", "tanque": "tanque", "support": "support"}
+
 def role_scores(st):
+    """Valor bruto de cada rol según las stats (support se añade aparte, con sus movimientos)."""
     hp, at, de, sa, sd, sp = st
     bp, bs = bulk(hp, de), bulk(hp, sd)
     return {
-        "fisico":   at * 1.0 + sp * 0.55 + 0.35 * (bp + bs),
-        "especial": sa * 1.0 + sp * 0.55 + 0.35 * (bp + bs),
-        "muro":     (bp + bs) * 0.85 + 0.3 * max(at, sa),
-        "rapido":   sp * 1.0 + max(at, sa) * 0.8 + 0.15 * (bp + bs),
+        "fisico":   at * 1.0 + sp * 0.3 + 0.15 * (bp + bs),
+        "especial": sa * 1.0 + sp * 0.3 + 0.15 * (bp + bs),
+        "rapido":   sp * 1.0 + max(at, sa) * 0.35,
+        "tanque":   (bp + bs) * 1.0 + 0.1 * max(at, sa),
     }
 
 def effective_stats(st, ability, core_st=None):
     """Stats 'reales' teniendo en cuenta la habilidad."""
     hp, at, de, sa, sd, sp = st
     if ability == "STANCECHANGE":
-        # Ataca en forma Espada (Atq=Def, AtqEsp=DefEsp); Escudo Real devuelve las defensas.
-        at2, sa2 = (at + max(at, de)) / 2, (sa + max(sa, sd)) / 2
-        de2 = 0.65 * de + 0.35 * min(at, de) if de > at else de
-        sd2 = 0.65 * sd + 0.35 * min(sa, sd) if sd > sa else sd
-        return [hp, at2, de2, sa2, sd2, sp]
+        # En IF, al atacar se INTERCAMBIAN Atq<->Def y AtqEsp<->DefEsp (siempre, aunque salga peor):
+        # ataca con su Def/DefEsp y, hasta usar Escudo Real, defiende con su Atq/AtqEsp.
+        # Defensas: mitad forma Escudo, mitad forma Espada (tras atacar queda expuesto hasta usar Escudo Real).
+        return [hp, de, 0.5 * de + 0.5 * at, sd, 0.5 * sd + 0.5 * sa, sp]
     if ability == "HUSTLE":
         return [hp, at * 1.15, de, sa, sd, sp]   # x1.5 Atq con 80% precisión ~ x1.3 neto
     if ability == "SHIELDSDOWN" and core_st:
@@ -153,15 +156,16 @@ def ability_value(a, ctx):
         "HYPERCUTTER": 10, "UNNERVE": 10, "VITALSPIRIT": 12,
     }.get(a)
     if v is not None:
-        if a == "REGENERATOR" and role == "muro": v += 12
-        if a == "INTIMIDATE" and role == "muro": v += 6
+        if a == "REGENERATOR" and role in ("tanque", "support"): v += 12
+        if a == "INTIMIDATE" and role in ("tanque", "support"): v += 6
         if a == "STURDY" and st[0] + st[2] + st[4] < 230: v += 10
         if a == "MAGICGUARD" and role in ("especial", "rapido"): v += 5
-        if a == "SHADOWTAG" and role == "muro": v -= 6
+        if a == "SHADOWTAG" and role == "tanque": v -= 6
         return v
     if a == "STANCECHANGE":
-        gain = max(0, st[2] - st[1]) + max(0, st[4] - st[3])
-        return min(95, 40 + gain * 0.5)
+        raw = ctx["raw"]   # ganancia real: ataca con Def/DefEsp en vez de Atq/AtqEsp
+        gain = max(raw[2] - raw[1], raw[4] - raw[3])
+        return max(0, min(75, 35 + gain * 0.4))
     if a == "CONTRARY":
         return 88 if has(mv, CONTRARY_MOVES) else 25
     if a == "DROUGHT":
@@ -263,7 +267,8 @@ def ab_entry(x, i):
     return {"id": i["ab"]["id"], "from": i["ab"]["from"], "kind": i["ab"]["kind"],
             "score": i["score"], "role": i["role"], "roles": i["roles"], "est": i["est"],
             "mult": [prof[t] for t in TYPES], "typ": i["typ"],
-            "cov": i["cov"], "set": i["set"]["moves"], "setv": i["setv"],
+            "cov": i["cov"], "set": i["set"]["moves"], "setv": i["setv"], "arch": i["arch"], "sets": i["sets"],
+            "tags": i["tags"], "rpct": i["rpct"],
             "notes": notes_for(f, i["ab"]["id"], i["ctx"]) + SETS.set_notes(i["set"]["moves"], i["ab"]["id"], DATA["moves"])}
 
 # ---------------------------------------------------------------- bucle principal
@@ -298,37 +303,52 @@ def build():
         rows.append({"head": h, "body": b, "stats": st, "core": core, "types": types,
                      "moves": moves, "per": per})
 
-    # normalizar por rol / tipos / cobertura sobre todo el conjunto
-    allrs = {r: [p["rs"][r] for x in rows for p in x["per"]] for r in ("fisico", "especial", "muro", "rapido")}
-    nr = {r: norm(v) for r, v in allrs.items()}
+    # 2ª pasada: sets por arquetipo y capacidad de support de cada habilidad
+    for x in rows:
+        pool = sorted(x["moves"])
+        for p in x["per"]:
+            a = p["ab"]["id"]
+            p["sets"] = SETS.generate(x, a, p["est"], DATA["moves"], pool)
+            p["rs"]["support"] = SETS.support_power(x, p["est"], x["moves"], a)
+            if a == "TRUANT":
+                p["rs"] = {k: v * 0.5 for k, v in p["rs"].items()}
+                for st_ in p["sets"].values(): st_["value"] *= 0.5
+
+    nr = {r: normp([p["rs"][r] for x in rows for p in x["per"]], 2, 99) for r in ROLES}
     nt = norm([p["typ"] for x in rows for p in x["per"]])
     nc = norm([p["cov"] for x in rows for p in x["per"]])
+    nset = {k: normp([p["sets"][k]["value"] for x in rows for p in x["per"] if k in p["sets"]], 2, 99.5)
+            for k in ("ataque", "tanque", "support")}
 
-    # 2ª pasada: rol de cada habilidad y set recomendado
-    for x in rows:
-        for p in x["per"]:
-            p["rsn"] = {r: nr[r](v) for r, v in p["rs"].items()}
-            p["role"] = max(p["rsn"], key=p["rsn"].get)
-            p["set"] = SETS.best_set(x, p["ab"]["id"], p["est"], p["role"], DATA["moves"], sorted(x["moves"]))
-            if p["ab"]["id"] == "TRUANT":
-                p["set"]["value"] *= 0.5
-    nset = normp([p["set"]["value"] for x in rows for p in x["per"]])
+    def set_pct(p, arch):
+        if arch in p["sets"]: return nset[arch](p["sets"][arch]["value"])
+        if arch == "tanque" and "ataque" in p["sets"]: return 0.8 * nset["ataque"](p["sets"]["ataque"]["value"])
+        return 0.0
 
     out = []
     for x in rows:
         best = None
         abil_list = []
         for p in x["per"]:
-            rsn, role = p["rsn"], p["role"]
-            ctx = {"moves": x["moves"], "role": role, "stats": p["est"], "types": x["types"], "prof": p["prof"]}
+            rsn = {r: nr[r](p["rs"][r]) for r in ROLES}
+            order = sorted(ROLES, key=lambda r: -rsn[r])
+            ctx = {"moves": x["moves"], "role": order[0], "stats": p["est"], "types": x["types"], "prof": p["prof"], "raw": x["stats"]}
             av = ability_value(p["ab"]["id"], ctx)
-            sv = nset(p["set"]["value"])
-            score = 0.48 * rsn[role] + 0.24 * nt(p["typ"]) + 0.20 * sv + 0.04 * max(-40, av) + 0.04 * nc(p["cov"])
-            # puntuación por rol (para los rankings por rol)
-            role_total = {r: 0.55 * rsn[r] + 0.20 * nt(p["typ"]) + 0.20 * sv + 0.05 * max(-40, av) for r in rsn}
-            item = {"ab": p["ab"], "score": round(score, 2), "role": role, "roles": {k: round(v, 1) for k, v in role_total.items()},
+            role_total = {r: 0.55 * rsn[r] + 0.20 * nt(p["typ"]) + 0.20 * set_pct(p, ARCH[r]) + 0.05 * max(-40, av) for r in ROLES}
+            # rol principal: el que mejor le sale contando stats Y set; etiquetas: todos los roles en los que destaca
+            role = max(ROLES, key=lambda r: role_total[r])
+            second = max((r for r in ROLES if r != role), key=lambda r: rsn[r])
+            tags = [role] + [r for r in order if r != role and rsn[r] >= 72][:2]
+            statpart = 0.85 * rsn[role] + 0.15 * rsn[second]
+            arch = ARCH[role] if (ARCH[role] in p["sets"]) else "ataque"
+            sv = set_pct(p, arch)
+            score = 0.48 * statpart + 0.24 * nt(p["typ"]) + 0.20 * sv + 0.04 * max(-40, av) + 0.04 * nc(p["cov"])
+            main_set = p["sets"].get(arch, {"moves": []})
+            item = {"ab": p["ab"], "score": round(score, 2), "role": role, "tags": tags,
+                    "roles": {k: round(v, 1) for k, v in role_total.items()}, "rpct": {k: round(v) for k, v in rsn.items()},
                     "est": [round(s) for s in p["est"]], "abv": av, "typ": p["typ"], "cov": p["cov"],
-                    "prof": p["prof"], "ctx": ctx, "set": p["set"], "setv": round(sv, 1)}
+                    "prof": p["prof"], "ctx": ctx, "set": main_set, "arch": arch, "setv": round(sv, 1),
+                    "sets": {k: {"moves": v["moves"], "setv": round(set_pct(p, k), 1)} for k, v in p["sets"].items()}}
             abil_list.append(item)
             if best is None or score > best["score"]:
                 best = item
@@ -353,7 +373,7 @@ if __name__ == "__main__":
                     for k, v in SP.items()},
         "abilities": {k: {"en": v["name"], "es": AB_ES.get(k, v["name"]), "desc": v["desc"]} for k, v in DATA["abilities"].items()},
         "moves": {m: {**{k: DATA["moves"][m][k] for k in ("name", "type", "cat", "power", "acc", "desc")}, "es": MOVES_ES.get(m, DATA["moves"][m]["name"])}
-                  for m in sorted({m for f in fus for a in f["abilities"] for m in a["set"]})},
+                  for m in sorted({m for f in fus for a in f["abilities"] for st in a["sets"].values() for m in st["moves"]})},
         "types_es": T_ES, "types": TYPES, "chart": [[eff(x, [y]) for y in TYPES] for x in TYPES],
     }
     json.dump({"meta": meta, "fusions": fus}, open(os.path.join(HERE, "../data/fusions.json"), "w"), ensure_ascii=False)
