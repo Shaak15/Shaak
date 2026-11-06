@@ -14,6 +14,6 @@ AB_ES = {
  "STURDY":"Robustez","SUPERLUCK":"Afortunado","SWARM":"Enjambre","SWIFTSWIM":"Nado Rápido",
  "SYNCHRONIZE":"Sincronía","TANGLEDFEET":"Tumbos","TELEPATHY":"Telepatía","TRACE":"Rastro","TRUANT":"Ausente",
  "WEAKARMOR":"Armadura Frágil","WHITESMOKE":"Humo Blanco",
- "SNIPER":"Francotirador","NATURALCURE":"Cura Natural","HARVEST":"Recogida","LEVITATE":"Levitación",
+ "SNIPER":"Francotirador","BLAZE":"Mar Llamas","MAGICIAN":"Prestidigitador","NATURALCURE":"Cura Natural","HARVEST":"Recogida","LEVITATE":"Levitación",
  "HYPERCUTTER":"Corte Fuerte","ADAPTABILITY":"Adaptable","GUTS":"Agallas","UNNERVE":"Nerviosismo","VITALSPIRIT":"Espíritu Vital","DANCER":"Pareja de Baile","SOLIDROCK":"Roca Sólida","ANGERPOINT":"Irascible",
 }

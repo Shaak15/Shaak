@@ -14,6 +14,7 @@ BOX = [  # caja actual (Chandelure aparece 2 veces)
  "ORICORIO_4",
  # nuevos: Corphish -> Crawdaunt (nivel 30), Magby -> Magmar (21) -> Magmortar (nivel 50 o Magmarizador)
  "TREVENANT","CHIMECHO","CRAWDAUNT","URSARING","MAGMORTAR",
+ "DELPHOX",
 ]
 EXTRA = ["MINIOR_C"]  # forma Núcleo (Escudo Limitado)
 

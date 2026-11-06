@@ -31,7 +31,8 @@
   "CHIMECHO",
   "CRAWDAUNT",
   "URSARING",
-  "MAGMORTAR"
+  "MAGMORTAR",
+  "DELPHOX"
  ],
  "species": {
   "FEAROW": {
@@ -2820,6 +2821,106 @@
     "WILLOWISP"
    ]
   },
+  "DELPHOX": {
+   "id": "DELPHOX",
+   "dex": 484,
+   "name": "Delphox",
+   "type1": "FIRE",
+   "type2": "PSYCHIC",
+   "stats": [
+    75,
+    69,
+    72,
+    114,
+    100,
+    104
+   ],
+   "abilities": [
+    "BLAZE"
+   ],
+   "hidden": [
+    "MAGICIAN"
+   ],
+   "moves": [
+    "ALLYSWITCH",
+    "ATTRACT",
+    "BLASTBURN",
+    "CALMMIND",
+    "CONFIDE",
+    "COVET",
+    "CUT",
+    "DAZZLINGGLEAM",
+    "DOUBLETEAM",
+    "DREAMEATER",
+    "ECHOEDVOICE",
+    "EMBARGO",
+    "EMBER",
+    "FACADE",
+    "FIREBLAST",
+    "FIREPLEDGE",
+    "FIREPUNCH",
+    "FIRESPIN",
+    "FLAMECHARGE",
+    "FLAMETHROWER",
+    "FOULPLAY",
+    "FRUSTRATION",
+    "FUTURESIGHT",
+    "GIGAIMPACT",
+    "GRASSKNOT",
+    "HEATWAVE",
+    "HIDDENPOWER",
+    "HOWL",
+    "HYPERBEAM",
+    "IRONTAIL",
+    "LASERFOCUS",
+    "LIGHTSCREEN",
+    "LOWKICK",
+    "LUCKYCHANT",
+    "MAGICCOAT",
+    "MAGICROOM",
+    "METRONOME",
+    "MYSTICALFIRE",
+    "OVERHEAT",
+    "POWERUPPUNCH",
+    "PROTECT",
+    "PSYBEAM",
+    "PSYCHIC",
+    "PSYCHUP",
+    "PSYSHOCK",
+    "RAINDANCE",
+    "RECYCLE",
+    "REST",
+    "RETURN",
+    "ROLEPLAY",
+    "ROUND",
+    "SAFEGUARD",
+    "SCRATCH",
+    "SECRETPOWER",
+    "SHADOWBALL",
+    "SHOCKWAVE",
+    "SIGNALBEAM",
+    "SKILLSWAP",
+    "SLEEPTALK",
+    "SNATCH",
+    "SNORE",
+    "SOLARBEAM",
+    "SUBSTITUTE",
+    "SUNNYDAY",
+    "SWAGGER",
+    "SWITCHEROO",
+    "TAILWHIP",
+    "TELEKINESIS",
+    "THIEF",
+    "THUNDERPUNCH",
+    "TOXIC",
+    "TRICK",
+    "TRICKROOM",
+    "WILLOWISP",
+    "WONDERROOM",
+    "WORKUP",
+    "ZENHEADBUTT"
+   ]
+  },
   "MINIOR_C": {
    "id": "MINIOR_C",
    "dex": 499,
@@ -3149,6 +3250,14 @@
   "VITALSPIRIT": {
    "name": "Vital Spirit",
    "desc": "Prevents the Pokémon from falling asleep."
+  },
+  "BLAZE": {
+   "name": "Blaze",
+   "desc": "Powers up Fire-type moves in a pinch."
+  },
+  "MAGICIAN": {
+   "name": "Magician",
+   "desc": "Steals the held item of a Pokémon it hits."
   }
  },
  "moves": {
@@ -8312,6 +8421,84 @@
    "flags": "bce",
    "fn": "047",
    "desc": "The user releases an obscuring cloud of smoke or ink. It reduces the target's accuracy."
+  },
+  "BLASTBURN": {
+   "name": "Blast Burn",
+   "type": "FIRE",
+   "power": 150,
+   "cat": 1,
+   "acc": 90,
+   "pp": 5,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "0C2",
+   "desc": "The target is razed by a fiery explosion. The user must rest on the next turn, however."
+  },
+  "FIREPLEDGE": {
+   "name": "Fire Pledge",
+   "type": "FIRE",
+   "power": 50,
+   "cat": 1,
+   "acc": 100,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "107",
+   "desc": "A column of fire hits opposing Pokémon. When used with its Grass equivalent, it makes a sea of fire."
+  },
+  "HOWL": {
+   "name": "Howl",
+   "type": "NORMAL",
+   "power": 0,
+   "cat": 2,
+   "acc": 0,
+   "pp": 40,
+   "chance": 0,
+   "prio": 0,
+   "flags": "d",
+   "fn": "01C",
+   "desc": "The user howls loudly to raise its spirit, boosting its Attack stat."
+  },
+  "LUCKYCHANT": {
+   "name": "Lucky Chant",
+   "type": "NORMAL",
+   "power": 0,
+   "cat": 2,
+   "acc": 0,
+   "pp": 30,
+   "chance": 0,
+   "prio": 0,
+   "flags": "d",
+   "fn": "0A1",
+   "desc": "The user chants an incantation toward the sky, preventing the foe from landing critical hits."
+  },
+  "MYSTICALFIRE": {
+   "name": "Mystical Fire",
+   "type": "FIRE",
+   "power": 75,
+   "cat": 1,
+   "acc": 100,
+   "pp": 10,
+   "chance": 100,
+   "prio": 0,
+   "flags": "bef",
+   "fn": "045",
+   "desc": "The user attacks by breathing a special, hot fire. This also lowers the target's Sp. Atk stat."
+  },
+  "SWITCHEROO": {
+   "name": "Switcheroo",
+   "type": "DARK",
+   "power": 0,
+   "cat": 2,
+   "acc": 100,
+   "pp": 10,
+   "chance": 0,
+   "prio": 0,
+   "flags": "be",
+   "fn": "0F2",
+   "desc": "The user trades held items with the target faster than the eye can follow."
   }
  }
 }

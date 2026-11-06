@@ -153,7 +153,7 @@ def ability_value(a, ctx):
         "TANGLEDFEET": 3, "RATTLED": 8, "COLORCHANGE": 8, "KLUTZ": 0, "TRUANT": -100,
         "SNIPER": 25, "DANCER": 25, "SOLIDROCK": 40, "ANGERPOINT": 15,
         "LEVITATE": 55, "ADAPTABILITY": 70, "GUTS": 45, "NATURALCURE": 35, "HARVEST": 18,
-        "HYPERCUTTER": 10, "UNNERVE": 10, "VITALSPIRIT": 12,
+        "HYPERCUTTER": 10, "UNNERVE": 10, "VITALSPIRIT": 12, "BLAZE": 20, "MAGICIAN": 12,
     }.get(a)
     if v is not None:
         if a == "REGENERATOR" and role in ("tanque", "support"): v += 12
