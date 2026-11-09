@@ -86,7 +86,8 @@ def has(moves, lst):
 
 # ---------------------------------------------------------------- puntuación
 TYPE_PTS = {0: 3.0, 0.25: 2.0, 0.5: 1.0, 1: 0.0, 2: -2.0, 4: -5.0}
-IMMUNITY_AB = {"FLASHFIRE": "FIRE", "SAPSIPPER": "GRASS", "LIGHTNINGROD": "ELECTRIC", "LEVITATE": "GROUND"}
+IMMUNITY_AB = {"FLASHFIRE": "FIRE", "SAPSIPPER": "GRASS", "LIGHTNINGROD": "ELECTRIC", "LEVITATE": "GROUND",
+               "WATERABSORB": "WATER", "VOLTABSORB": "ELECTRIC"}
 
 def defense_profile(types, ability):
     prof = {}
@@ -154,6 +155,9 @@ def ability_value(a, ctx):
         "SNIPER": 25, "DANCER": 25, "SOLIDROCK": 40, "ANGERPOINT": 15,
         "LEVITATE": 55, "ADAPTABILITY": 70, "GUTS": 45, "NATURALCURE": 35, "HARVEST": 18,
         "HYPERCUTTER": 10, "UNNERVE": 10, "VITALSPIRIT": 12, "BLAZE": 20, "MAGICIAN": 12,
+        "IRONBARBS": 35, "EMERGENCYEXIT": 5, "WATERABSORB": 50, "VOLTABSORB": 50, "MAGICBOUNCE": 65,
+        "PIXILATE": 60, "CHLOROPHYLL": 25, "SNOWCLOAK": 10, "ICEBODY": 10, "STEADFAST": 10, "ANTICIPATION": 10,
+        "RUNAWAY": 0, "CUTECHARM": 12, "WIMPOUT": 0,
     }.get(a)
     if v is not None:
         if a == "REGENERATOR" and role in ("tanque", "support"): v += 12

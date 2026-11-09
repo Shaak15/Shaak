@@ -14,6 +14,9 @@ AB_ES = {
  "STURDY":"Robustez","SUPERLUCK":"Afortunado","SWARM":"Enjambre","SWIFTSWIM":"Nado Rápido",
  "SYNCHRONIZE":"Sincronía","TANGLEDFEET":"Tumbos","TELEPATHY":"Telepatía","TRACE":"Rastro","TRUANT":"Ausente",
  "WEAKARMOR":"Armadura Frágil","WHITESMOKE":"Humo Blanco",
- "SNIPER":"Francotirador","BLAZE":"Mar Llamas","MAGICIAN":"Prestidigitador","NATURALCURE":"Cura Natural","HARVEST":"Recogida","LEVITATE":"Levitación",
+ "SNIPER":"Francotirador","IRONBARBS":"Punta Acero","EMERGENCYEXIT":"Retirada","WATERABSORB":"Absorbe Agua",
+ "VOLTABSORB":"Absorbe Electricidad","MAGICBOUNCE":"Espejo Mágico","PIXILATE":"Piel Feérica","CHLOROPHYLL":"Clorofila",
+ "SNOWCLOAK":"Manto Níveo","ICEBODY":"Gélido","STEADFAST":"Impasible","ANTICIPATION":"Anticipación","RUNAWAY":"Fuga",
+ "CUTECHARM":"Gran Encanto","WIMPOUT":"Huida","BLAZE":"Mar Llamas","MAGICIAN":"Prestidigitador","NATURALCURE":"Cura Natural","HARVEST":"Recogida","LEVITATE":"Levitación",
  "HYPERCUTTER":"Corte Fuerte","ADAPTABILITY":"Adaptable","GUTS":"Agallas","UNNERVE":"Nerviosismo","VITALSPIRIT":"Espíritu Vital","DANCER":"Pareja de Baile","SOLIDROCK":"Roca Sólida","ANGERPOINT":"Irascible",
 }
