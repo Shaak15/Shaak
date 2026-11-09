@@ -158,6 +158,7 @@ def ability_value(a, ctx):
         "IRONBARBS": 35, "EMERGENCYEXIT": 5, "WATERABSORB": 50, "VOLTABSORB": 50, "MAGICBOUNCE": 65,
         "PIXILATE": 60, "CHLOROPHYLL": 25, "SNOWCLOAK": 10, "ICEBODY": 10, "STEADFAST": 10, "ANTICIPATION": 10,
         "RUNAWAY": 0, "CUTECHARM": 12, "WIMPOUT": 0,
+        "PRISMARMOR": 45, "ROUGHSKIN": 25, "CLEARBODY": 22,
     }.get(a)
     if v is not None:
         if a == "REGENERATOR" and role in ("tanque", "support"): v += 12
