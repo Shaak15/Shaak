@@ -30,3 +30,12 @@ MOVES_ES = {
  "KNOCKOFF":"Desarme","BODYSLAM":"Golpe Cuerpo","WATERFALL":"Cascada","HYDROPUMP":"Hidrobomba","SHADOWSNEAK":"Sombra Vil",
  "SUCKERPUNCH":"Golpe Bajo","LAVAPLUME":"Humareda","FIREFANG":"Colmillo Ígneo","DRAGONTAIL":"Cola Dragón",
 }
+MOVES_ES.update({
+ "ANCIENTPOWER":"Poder Pasado","BRICKBREAK":"Demolición","GRASSKNOT":"Hierba Lazo","HEALBELL":"Cascabel Cura",
+ "LEECHLIFE":"Chupavidas","LIGHTSCREEN":"Pantalla de Luz","PHOTONGEYSER":"Géiser Fotónico","ROCKSLIDE":"Avalancha",
+ "SIGNALBEAM":"Rayo Señal","PRISMATICLASER":"Láser Prisma","REFLECT":"Reflejo","ROAR":"Rugido","WHIRLWIND":"Remolino",
+ "DEFOG":"Despejar","RAPIDSPIN":"Giro Rápido","ENCORE":"Otra Vez","HAZE":"Niebla","TRICK":"Truco","AROMATHERAPY":"Aromaterapia",
+ "WISH":"Deseo","TELEPORT":"Teletransporte","FIRSTIMPRESSION":"Escaramuza","FLAREBLITZ":"Envite Ígneo","DYNAMICPUNCH":"Puño Dinámico",
+ "GLARE":"Deslumbrar","YAWN":"Bostezo","NUZZLE":"Moflete Estático","CLEARSMOG":"Niebla Clara","BLIZZARD":"Ventisca",
+ "DISCHARGE":"Chispazo","PSYSHOCK":"Psicocarga","THUNDER":"Trueno",
+})
