@@ -16,6 +16,7 @@ BOX = [  # caja actual (Chandelure aparece 2 veces)
  "TREVENANT","CHIMECHO","CRAWDAUNT","URSARING","MAGMORTAR",
  "DELPHOX",
  "FERROTHORN","MACHAMP","SUICUNE","ZAPDOS","NECROZMA","MISMAGIUS","SHARPEDO","CARBINK",
+ "HYDREIGON","TENTACRUEL",
 ]
 EXTRA = ["MINIOR_C"]  # forma Núcleo (Escudo Limitado)
 
