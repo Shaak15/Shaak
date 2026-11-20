@@ -19,6 +19,7 @@ BOX = [  # caja actual (Chandelure aparece 2 veces)
  "HYDREIGON","TENTACRUEL",
  # Stufful -> Bewear (nivel 27), Aipom -> Ambipom (sabiendo Doble Golpe), Snorunt -> Glalie (nivel 42)
  "LANTURN","BEWEAR","PERSIAN","ARIADOS","SEAKING","SEVIPER","AMBIPOM","ALTARIA","GLALIE","FLYGON",
+ "ARTICUNO",
 ]
 EXTRA = ["MINIOR_C"]  # forma Núcleo (Escudo Limitado)
 

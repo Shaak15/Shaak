@@ -52,7 +52,8 @@
   "AMBIPOM",
   "ALTARIA",
   "GLALIE",
-  "FLYGON"
+  "FLYGON",
+  "ARTICUNO"
  ],
  "species": {
   "FEAROW": {
@@ -4721,6 +4722,86 @@
     "UTURN"
    ]
   },
+  "ARTICUNO": {
+   "id": "ARTICUNO",
+   "dex": 144,
+   "name": "Articuno",
+   "type1": "ICE",
+   "type2": "FLYING",
+   "stats": [
+    90,
+    85,
+    100,
+    95,
+    125,
+    85
+   ],
+   "abilities": [
+    "PRESSURE"
+   ],
+   "hidden": [
+    "SNOWCLOAK"
+   ],
+   "moves": [
+    "AERIALACE",
+    "AGILITY",
+    "AIRCUTTER",
+    "ANCIENTPOWER",
+    "AURORAVEIL",
+    "BLIZZARD",
+    "CONFIDE",
+    "DEFOG",
+    "DOUBLETEAM",
+    "FACADE",
+    "FLY",
+    "FREEZEDRY",
+    "FROSTBREATH",
+    "FRUSTRATION",
+    "GIGAIMPACT",
+    "GUST",
+    "HAIL",
+    "HIDDENPOWER",
+    "HURRICANE",
+    "HYPERBEAM",
+    "ICEBEAM",
+    "ICESHARD",
+    "ICYWIND",
+    "LASERFOCUS",
+    "MINDREADER",
+    "MIST",
+    "MUDSLAP",
+    "OMINOUSWIND",
+    "PLUCK",
+    "POWDERSNOW",
+    "PROTECT",
+    "RAINDANCE",
+    "REFLECT",
+    "REST",
+    "RETURN",
+    "ROAR",
+    "ROCKSMASH",
+    "ROOST",
+    "ROUND",
+    "SANDSTORM",
+    "SECRETPOWER",
+    "SHEERCOLD",
+    "SIGNALBEAM",
+    "SKYATTACK",
+    "SKYDROP",
+    "SLEEPTALK",
+    "SNORE",
+    "STEELWING",
+    "SUBSTITUTE",
+    "SUNNYDAY",
+    "SWAGGER",
+    "SWIFT",
+    "TAILWIND",
+    "TOXIC",
+    "TWISTER",
+    "UTURN",
+    "WATERPULSE"
+   ]
+  },
   "MINIOR_C": {
    "id": "MINIOR_C",
    "dex": 499,
@@ -5142,6 +5223,10 @@
   "MOODY": {
    "name": "Moody",
    "desc": "Raises one stat and lowers another."
+  },
+  "SNOWCLOAK": {
+   "name": "Snow Cloak",
+   "desc": "Raises evasion in a hailstorm."
   }
  },
  "moves": {
@@ -11124,6 +11209,32 @@
    "flags": "bef",
    "fn": "0CF",
    "desc": "The user traps the target inside a harshly raging sandstorm for four to five turns."
+  },
+  "AURORAVEIL": {
+   "name": "Aurora Veil",
+   "type": "ICE",
+   "power": 0,
+   "cat": 2,
+   "acc": 0,
+   "pp": 20,
+   "chance": 0,
+   "prio": 0,
+   "flags": "d",
+   "fn": "167",
+   "desc": "This move reduces damage from attacks for five turns. This can be used only in a hailstorm."
+  },
+  "MINDREADER": {
+   "name": "Mind Reader",
+   "type": "NORMAL",
+   "power": 0,
+   "cat": 2,
+   "acc": 0,
+   "pp": 5,
+   "chance": 0,
+   "prio": 0,
+   "flags": "be",
+   "fn": "0A6",
+   "desc": "The user senses the foe's movements with its mind to ensure its next attack does not miss the foe."
   }
  }
 }
