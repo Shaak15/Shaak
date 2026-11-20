@@ -93,6 +93,7 @@ def attack_vector(mid, m, ab, atk, spa, types, speed, parents):
     p = FIXED_POWER.get(mid, m["power"])
     if p <= 1:
         return None
+    hit_power = p
     p *= MULTI.get(mid, 1)
     acc = 1.0 if (m["acc"] == 0 or ab == "NOGUARD") else m["acc"] / 100
     t = m["type"]
@@ -104,6 +105,8 @@ def attack_vector(mid, m, ab, atk, spa, types, speed, parents):
     fl = m.get("flags", "")
     if ab == "HUSTLE" and phys: mod *= 1.5; acc *= 0.8
     if ab == "IRONFIST" and "j" in fl: mod *= 1.2
+    if ab == "TECHNICIAN" and hit_power <= 60: mod *= 1.5
+    if ab == "SKILLLINK" and MULTI.get(mid) == 3: mod *= 5 / 3   # 5 golpes siempre en vez de ~3
     if ab == "STRONGJAW" and "i" in fl: mod *= 1.5
     if ab == "GUTS" and phys: mod *= 1.3
     if ab == "GUTS" and mid == "FACADE": p = 140

@@ -14,9 +14,11 @@ AB_ES = {
  "STURDY":"Robustez","SUPERLUCK":"Afortunado","SWARM":"Enjambre","SWIFTSWIM":"Nado Rápido",
  "SYNCHRONIZE":"Sincronía","TANGLEDFEET":"Tumbos","TELEPATHY":"Telepatía","TRACE":"Rastro","TRUANT":"Ausente",
  "WEAKARMOR":"Armadura Frágil","WHITESMOKE":"Humo Blanco",
- "SNIPER":"Francotirador","LIQUIDOOZE":"Lodo Líquido","RAINDISH":"Cura Lluvia","PRISMARMOR":"Armadura Prisma","ROUGHSKIN":"Piel Tosca","CLEARBODY":"Cuerpo Puro","IRONBARBS":"Punta Acero","EMERGENCYEXIT":"Retirada","WATERABSORB":"Absorbe Agua",
+ "SNIPER":"Francotirador","ILLUMINATE":"Iluminación","FLUFFY":"Peluche","TECHNICIAN":"Experto","INSOMNIA":"Insomnio",
+ "WATERVEIL":"Velo Agua","SHEDSKIN":"Mudar","PICKUP":"Recogida","SKILLLINK":"Encadenado","CLOUDNINE":"Aclimatación",
+ "MOODY":"Veleta","CURSEDBODY":"Cuerpo Maldito","LIQUIDOOZE":"Lodo Líquido","RAINDISH":"Cura Lluvia","PRISMARMOR":"Armadura Prisma","ROUGHSKIN":"Piel Tosca","CLEARBODY":"Cuerpo Puro","IRONBARBS":"Punta Acero","EMERGENCYEXIT":"Retirada","WATERABSORB":"Absorbe Agua",
  "VOLTABSORB":"Absorbe Electricidad","MAGICBOUNCE":"Espejo Mágico","PIXILATE":"Piel Feérica","CHLOROPHYLL":"Clorofila",
  "SNOWCLOAK":"Manto Níveo","ICEBODY":"Gélido","STEADFAST":"Impasible","ANTICIPATION":"Anticipación","RUNAWAY":"Fuga",
- "CUTECHARM":"Gran Encanto","WIMPOUT":"Huida","BLAZE":"Mar Llamas","MAGICIAN":"Prestidigitador","NATURALCURE":"Cura Natural","HARVEST":"Recogida","LEVITATE":"Levitación",
+ "CUTECHARM":"Gran Encanto","WIMPOUT":"Huida","BLAZE":"Mar Llamas","MAGICIAN":"Prestidigitador","NATURALCURE":"Cura Natural","HARVEST":"Cosecha","LEVITATE":"Levitación",
  "HYPERCUTTER":"Corte Fuerte","ADAPTABILITY":"Adaptable","GUTS":"Agallas","UNNERVE":"Nerviosismo","VITALSPIRIT":"Espíritu Vital","DANCER":"Pareja de Baile","SOLIDROCK":"Roca Sólida","ANGERPOINT":"Irascible",
 }

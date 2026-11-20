@@ -37,5 +37,6 @@ MOVES_ES.update({
  "DEFOG":"Despejar","RAPIDSPIN":"Giro Rápido","ENCORE":"Otra Vez","HAZE":"Niebla","TRICK":"Truco","AROMATHERAPY":"Aromaterapia",
  "WISH":"Deseo","TELEPORT":"Teletransporte","FIRSTIMPRESSION":"Escaramuza","FLAREBLITZ":"Envite Ígneo","DYNAMICPUNCH":"Puño Dinámico",
  "GLARE":"Deslumbrar","YAWN":"Bostezo","NUZZLE":"Moflete Estático","CLEARSMOG":"Niebla Clara","BLIZZARD":"Ventisca",
- "DISCHARGE":"Chispazo","PSYSHOCK":"Psicocarga","THUNDER":"Trueno","GIGADRAIN":"Gigadrenado","HEX":"Infortunio",
+ "DISCHARGE":"Chispazo","PSYSHOCK":"Psicocarga","THUNDER":"Trueno","ICEFANG":"Colmillo Hielo","LOWKICK":"Patada Baja",
+ "PINMISSILE":"Pin Misil","ROCKBLAST":"Pedrada","ROCKTOMB":"Tumba Rocas","STICKYWEB":"Red Viscosa","WATERPULSE":"Hidropulso","GIGADRAIN":"Gigadrenado","HEX":"Infortunio",
 })

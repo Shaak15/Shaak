@@ -159,6 +159,8 @@ def ability_value(a, ctx):
         "PIXILATE": 60, "CHLOROPHYLL": 25, "SNOWCLOAK": 10, "ICEBODY": 10, "STEADFAST": 10, "ANTICIPATION": 10,
         "RUNAWAY": 0, "CUTECHARM": 12, "WIMPOUT": 0,
         "PRISMARMOR": 45, "ROUGHSKIN": 25, "CLEARBODY": 22, "LIQUIDOOZE": 15, "RAINDISH": 5,
+        "ILLUMINATE": 0, "FLUFFY": 50, "INSOMNIA": 15, "WATERVEIL": 15, "SHEDSKIN": 30, "PICKUP": 0,
+        "CLOUDNINE": 10, "MOODY": 55, "CURSEDBODY": 20,
     }.get(a)
     if v is not None:
         if a == "REGENERATOR" and role in ("tanque", "support"): v += 12
@@ -189,6 +191,10 @@ def ability_value(a, ctx):
         return 55 if (len(has(mv, PUNCH)) >= 2 and phys) else 12
     if a == "ANALYTIC":
         return 42 if st[5] < 70 else 20
+    if a == "TECHNICIAN":
+        return 55 if (phys and len(has(mv, ["FAKEOUT", "BULLETSEED", "ROCKBLAST", "ICICLESPEAR", "TAILSLAP", "DOUBLEHIT", "AERIALACE", "BITE", "MACHPUNCH", "BULLETPUNCH", "AQUAJET", "SHADOWSNEAK", "LOWKICK", "UTURN", "KNOCKOFF", "DUALCHOP", "PAYBACK"])) >= 2) else 25
+    if a == "SKILLLINK":
+        return 60 if (phys and has(mv, ["BULLETSEED", "ROCKBLAST", "ICICLESPEAR", "TAILSLAP", "PINMISSILE", "ARMTHRUST", "FURYSWIPES"])) else 10
     if a == "ROCKHEAD":
         return 50 if (has(mv, RECOIL) and phys) else 10
     return 15
