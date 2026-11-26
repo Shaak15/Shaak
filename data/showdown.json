@@ -1,66 +1,66 @@
 {
  "pop": {
-  "SLEEPPOWDER": 98,
   "LEECHSEED": 100,
-  "POWERWHIP": 63,
-  "SLUDGEBOMB": 141,
   "SUBSTITUTE": 312,
-  "LEAFSTORM": 89,
+  "SLUDGEBOMB": 141,
+  "POWERWHIP": 63,
+  "SLEEPPOWDER": 98,
   "EARTHQUAKE": 962,
+  "LEAFSTORM": 89,
   "SYNTHESIS": 99,
-  "AIRSLASH": 115,
-  "ROOST": 403,
-  "FOCUSBLAST": 274,
   "FIREBLAST": 323,
   "HIDDENPOWERGRASS": 45,
+  "FOCUSBLAST": 274,
+  "AIRSLASH": 115,
+  "ROOST": 403,
   "WILLOWISP": 246,
+  "ICEBEAM": 484,
+  "SURF": 124,
   "TOXIC": 809,
   "ROAR": 44,
-  "ICEBEAM": 484,
   "RAPIDSPIN": 142,
-  "SURF": 124,
-  "HAZE": 53,
   "PROTECT": 294,
-  "REST": 180,
+  "HAZE": 53,
   "SLEEPTALK": 105,
-  "STUNSPORE": 25,
+  "REST": 180,
   "UTURN": 529,
   "BUGBUZZ": 94,
-  "TOXICSPIKES": 101,
+  "STUNSPORE": 25,
   "POISONJAB": 91,
   "BRICKBREAK": 32,
-  "SWORDSDANCE": 501,
+  "TOXICSPIKES": 101,
   "XSCISSOR": 65,
+  "SWORDSDANCE": 501,
+  "BRAVEBIRD": 122,
   "HEATWAVE": 75,
   "RETURN": 179,
-  "BRAVEBIRD": 122,
-  "PURSUIT": 58,
   "DOUBLEEDGE": 112,
+  "PURSUIT": 58,
   "QUICKATTACK": 52,
   "FACADE": 75,
   "SUCKERPUNCH": 227,
   "CRUNCH": 131,
   "DRILLPECK": 7,
-  "GLARE": 31,
-  "SWITCHEROO": 19,
   "SEEDBOMB": 37,
   "GUNKSHOT": 107,
+  "SWITCHEROO": 19,
+  "GLARE": 31,
   "GRASSKNOT": 75,
+  "HIDDENPOWERICE": 134,
   "VOLTTACKLE": 6,
   "THUNDERBOLT": 356,
-  "HIDDENPOWERICE": 134,
   "FAKEOUT": 54,
   "ENCORE": 165,
   "NASTYPLOT": 235,
-  "NIGHTSLASH": 42,
   "STONEEDGE": 453,
+  "NIGHTSLASH": 42,
   "MEGAHORN": 70,
+  "AROMATHERAPY": 38,
   "THUNDERWAVE": 310,
   "SOFTBOILED": 25,
-  "AROMATHERAPY": 38,
   "CALMMIND": 390,
-  "ENERGYBALL": 96,
   "HYPNOSIS": 28,
+  "ENERGYBALL": 96,
   "HIDDENPOWERROCK": 44,
   "WISH": 105,
   "BODYSLAM": 85,
@@ -71,24 +71,24 @@
   "HIDDENPOWERFIRE": 58,
   "SUNNYDAY": 15,
   "SPORE": 35,
-  "TAUNT": 154,
   "BITE": 4,
-  "HYDROPUMP": 170,
+  "TAUNT": 154,
   "PSYCHIC": 276,
-  "CLOSECOMBAT": 299,
+  "HYDROPUMP": 170,
   "BULKUP": 113,
-  "FLAREBLITZ": 92,
+  "CLOSECOMBAT": 299,
   "THUNDERFANG": 3,
+  "FLAREBLITZ": 92,
   "MORNINGSUN": 52,
   "EXTREMESPEED": 103,
   "IRONHEAD": 162,
   "WATERFALL": 108,
   "ICEPUNCH": 109,
   "FOCUSPUNCH": 8,
-  "TRICK": 134,
   "SHADOWBALL": 191,
-  "PAYBACK": 18,
+  "TRICK": 134,
   "DYNAMICPUNCH": 13,
+  "PAYBACK": 18,
   "BULLETPUNCH": 59,
   "LEAFBLADE": 47,
   "WEATHERBALL": 8,
@@ -99,11 +99,11 @@
   "SHADOWSNEAK": 83,
   "CURSE": 56,
   "ICESHARD": 39,
-  "ROCKBLAST": 17,
   "SPIKES": 138,
+  "ROCKBLAST": 17,
   "PAINSPLIT": 79,
-  "CRABHAMMER": 12,
   "SUPERPOWER": 238,
+  "CRABHAMMER": 12,
   "AGILITY": 35,
   "SIGNALBEAM": 51,
   "FIREPUNCH": 41,
@@ -126,8 +126,8 @@
   "SHADOWCLAW": 41,
   "WHIRLWIND": 31,
   "NIGHTSHADE": 3,
-  "KNOCKOFF": 646,
   "HIDDENPOWERFLYING": 16,
+  "KNOCKOFF": 646,
   "SUPERFANG": 33,
   "DISCHARGE": 38,
   "HIDDENPOWERFIGHTING": 53,
@@ -136,9 +136,9 @@
   "EARTHPOWER": 215,
   "MOONLIGHT": 45,
   "TRICKROOM": 20,
-  "COUNTER": 12,
   "MIRRORCOAT": 10,
   "DESTINYBOND": 32,
+  "COUNTER": 12,
   "HEADBUTT": 7,
   "POWERGEM": 24,
   "DARKPULSE": 102,
@@ -154,8 +154,8 @@
   "GIGAIMPACT": 8,
   "HEADSMASH": 39,
   "HIGHJUMPKICK": 42,
-  "FLAMETHROWER": 83,
   "OVERHEAT": 41,
+  "FLAMETHROWER": 83,
   "YAWN": 28,
   "WATERSPOUT": 11,
   "PSYCHOCUT": 9,
@@ -168,8 +168,8 @@
   "FLASHCANNON": 64,
   "SKYUPPERCUT": 2,
   "IRONTAIL": 13,
-  "HYPERVOICE": 56,
   "CHATTER": 8,
+  "HYPERVOICE": 56,
   "FIREFANG": 13,
   "CROSSCHOP": 7,
   "HIDDENPOWERELECTRIC": 4,
@@ -221,14 +221,14 @@
   "PLUCK": 3,
   "STOREDPOWER": 23,
   "PETALDANCE": 5,
-  "PSYCHOSHIFT": 2,
   "COSMICPOWER": 7,
+  "PSYCHOSHIFT": 2,
   "TAILSLAP": 8,
   "AUTOTOMIZE": 10,
   "HORNLEECH": 23,
   "GYROBALL": 10,
-  "SHIFTGEAR": 16,
   "GEARGRIND": 5,
+  "SHIFTGEAR": 16,
   "HEADCHARGE": 4,
   "FIERYDANCE": 6,
   "BLUEFLARE": 6,
@@ -266,8 +266,8 @@
   "ICYWIND": 2,
   "LIGHTOFRUIN": 2,
   "COTTONGUARD": 3,
-  "LIGHTSCREEN": 9,
   "REFLECT": 9,
+  "LIGHTSCREEN": 9,
   "SACREDSWORD": 16,
   "KINGSSHIELD": 6,
   "RAZORSHELL": 2,
@@ -341,8 +341,8 @@
   "BURNINGJEALOUSY": 3,
   "FLIPTURN": 40,
   "FUTURESIGHT": 5,
-  "BODYPRESS": 69,
   "IRONDEFENSE": 32,
+  "BODYPRESS": 69,
   "SHELLSIDEARM": 6,
   "POLTERGEIST": 38,
   "STRANGESTEAM": 2,
@@ -359,8 +359,8 @@
   "DOUBLEIRONBASH": 3,
   "ACIDARMOR": 1,
   "GRASSYGLIDE": 4,
-  "PYROBALL": 5,
   "COURTCHANGE": 3,
+  "PYROBALL": 5,
   "GRAVAPPLE": 3,
   "APPLEACID": 3,
   "OVERDRIVE": 3,
@@ -374,8 +374,8 @@
   "DRAGONDARTS": 4,
   "PHANTOMFORCE": 1,
   "BEHEMOTHBLADE": 2,
-  "HOWL": 1,
   "BEHEMOTHBASH": 1,
+  "HOWL": 1,
   "DYNAMAXCANNON": 5,
   "SURGINGSTRIKES": 5,
   "WICKEDBLOW": 3,
@@ -460,10 +460,10 @@
     "Setup Sweeper": 1
    },
    "moves": {
-    "DRILLPECK": 7,
     "DOUBLEEDGE": 6,
-    "UTURN": 5,
     "RETURN": 7,
+    "DRILLPECK": 7,
+    "UTURN": 5,
     "QUICKATTACK": 1,
     "PURSUIT": 1,
     "DRILLRUN": 5,
@@ -478,11 +478,11 @@
     "Fast Support": 2
    },
    "moves": {
+    "EARTHQUAKE": 7,
     "ROCKSLIDE": 2,
     "TOXICSPIKES": 4,
-    "EARTHQUAKE": 7,
-    "MEGAHORN": 7,
     "SPIKES": 4,
+    "MEGAHORN": 7,
     "SWORDSDANCE": 4,
     "POISONJAB": 5,
     "PROTECT": 1
@@ -496,10 +496,10 @@
     "Bulky Setup": 2
    },
    "moves": {
-    "SPIKES": 12,
-    "WHIRLWIND": 6,
     "BRAVEBIRD": 14,
+    "WHIRLWIND": 6,
     "ROOST": 14,
+    "SPIKES": 12,
     "TOXIC": 5,
     "STEALTHROCK": 8,
     "BODYPRESS": 4,
@@ -513,20 +513,20 @@
     "Staller": 1
    },
    "moves": {
-    "TOXIC": 4,
-    "LAVAPLUME": 4,
+    "YAWN": 1,
     "EARTHQUAKE": 9,
     "EXPLOSION": 2,
-    "YAWN": 1,
-    "FIREBLAST": 4,
+    "TOXIC": 4,
+    "LAVAPLUME": 4,
     "ROCKPOLISH": 4,
+    "FIREBLAST": 4,
     "PROTECT": 1,
     "STONEEDGE": 3,
     "HIDDENPOWERGRASS": 1,
-    "ROAR": 3,
     "STEALTHROCK": 3,
-    "WILLOWISP": 1,
-    "OVERHEAT": 1
+    "ROAR": 3,
+    "OVERHEAT": 1,
+    "WILLOWISP": 1
    }
   },
   "CHANDELURE": {
@@ -537,12 +537,12 @@
    },
    "moves": {
     "ENERGYBALL": 10,
-    "TRICK": 5,
-    "HIDDENPOWERFIGHTING": 1,
-    "SHADOWBALL": 10,
     "FIREBLAST": 10,
-    "CALMMIND": 5,
+    "SHADOWBALL": 10,
+    "HIDDENPOWERFIGHTING": 1,
+    "TRICK": 5,
     "SUBSTITUTE": 5,
+    "CALMMIND": 5,
     "WILLOWISP": 2,
     "FLAMECHARGE": 1,
     "PAINSPLIT": 1
@@ -555,16 +555,16 @@
     "Bulky Attacker": 2
    },
    "moves": {
-    "TOXIC": 4,
-    "THUNDERWAVE": 4,
-    "SEISMICTOSS": 2,
     "RECOVER": 6,
     "SHADOWCLAW": 1,
+    "THUNDERWAVE": 4,
+    "SEISMICTOSS": 2,
+    "TOXIC": 4,
     "FOULPLAY": 1,
     "SHADOWSNEAK": 2,
-    "STEALTHROCK": 4,
     "SUCKERPUNCH": 2,
     "KNOCKOFF": 4,
+    "STEALTHROCK": 4,
     "DRAINPUNCH": 4,
     "FAKEOUT": 2
    }
@@ -574,15 +574,15 @@
     "AV Pivot": 4
    },
    "moves": {
-    "POWERWHIP": 4,
-    "DRACOMETEOR": 4,
-    "SLUDGEBOMB": 4,
     "EARTHQUAKE": 4,
-    "DRAGONTAIL": 3,
+    "DRACOMETEOR": 4,
     "FIREBLAST": 4,
+    "SLUDGEBOMB": 4,
+    "DRAGONTAIL": 3,
+    "POWERWHIP": 4,
     "HYDROPUMP": 1,
-    "KNOCKOFF": 1,
-    "SCALD": 1
+    "SCALD": 1,
+    "KNOCKOFF": 1
    }
   },
   "DUSCLOPS": {
@@ -590,10 +590,10 @@
     "Bulky Support": 1
    },
    "moves": {
-    "WILLOWISP": 1,
+    "SLEEPTALK": 1,
     "SEISMICTOSS": 1,
-    "REST": 1,
-    "SLEEPTALK": 1
+    "WILLOWISP": 1,
+    "REST": 1
    }
   },
   "GOLURK": {
@@ -602,10 +602,10 @@
     "Setup Sweeper": 1
    },
    "moves": {
-    "ICEPUNCH": 4,
-    "EARTHQUAKE": 6,
-    "DYNAMICPUNCH": 5,
     "STONEEDGE": 5,
+    "DYNAMICPUNCH": 5,
+    "EARTHQUAKE": 6,
+    "ICEPUNCH": 4,
     "ROCKPOLISH": 5,
     "STEALTHROCK": 4,
     "SHADOWPUNCH": 1,
@@ -618,12 +618,12 @@
     "Staller": 2
    },
    "moves": {
-    "HAZE": 3,
-    "TOXIC": 5,
-    "TOXICSPIKES": 3,
-    "RECOVER": 5,
-    "KNOCKOFF": 1,
     "SCALD": 4,
+    "RECOVER": 5,
+    "TOXICSPIKES": 3,
+    "HAZE": 3,
+    "KNOCKOFF": 1,
+    "TOXIC": 5,
     "BANEFULBUNKER": 2,
     "LIQUIDATION": 1
    }
@@ -634,15 +634,15 @@
     "Setup Sweeper": 4
    },
    "moves": {
+    "PSYCHIC": 9,
+    "SUBSTITUTE": 4,
     "ENCORE": 4,
-    "TRICK": 1,
-    "CALMMIND": 4,
     "SHADOWBALL": 9,
     "FOCUSBLAST": 9,
-    "SUBSTITUTE": 4,
-    "PSYCHIC": 9,
-    "PSYSHOCK": 8,
+    "CALMMIND": 4,
+    "TRICK": 1,
     "COUNTER": 4,
+    "PSYSHOCK": 8,
     "NASTYPLOT": 1
    }
   },
@@ -651,9 +651,9 @@
     "Setup Sweeper": 2
    },
    "moves": {
+    "POWERGEM": 2,
     "SHELLSMASH": 2,
     "EARTHQUAKE": 2,
-    "POWERGEM": 2,
     "ACROBATICS": 2
    }
   },
@@ -662,12 +662,12 @@
     "Bulky Attacker": 3
    },
    "moves": {
-    "HAZE": 3,
-    "TOXICSPIKES": 3,
     "GUNKSHOT": 3,
-    "DRAINPUNCH": 2,
-    "SPIKES": 3,
     "PAINSPLIT": 3,
+    "TOXICSPIKES": 3,
+    "HAZE": 3,
+    "SPIKES": 3,
+    "DRAINPUNCH": 2,
     "TOXIC": 2,
     "STOMPINGTANTRUM": 1
    }
@@ -678,18 +678,18 @@
     "Bulky Support": 2
    },
    "moves": {
-    "THUNDERWAVE": 7,
     "DESTINYBOND": 6,
-    "TOXICSPIKES": 7,
-    "EXPLOSION": 1,
     "WATERFALL": 6,
-    "SPIKES": 6,
+    "EXPLOSION": 1,
     "POISONJAB": 5,
+    "TOXICSPIKES": 7,
+    "THUNDERWAVE": 7,
+    "SPIKES": 6,
     "TAUNT": 5,
     "GUNKSHOT": 2,
-    "TOXIC": 1,
+    "PAINSPLIT": 1,
     "FLIPTURN": 1,
-    "PAINSPLIT": 1
+    "TOXIC": 1
    }
   },
   "TYRANTRUM": {
@@ -698,10 +698,10 @@
     "Z-Move user": 1
    },
    "moves": {
-    "OUTRAGE": 4,
     "EARTHQUAKE": 4,
-    "DRAGONDANCE": 4,
     "SUPERPOWER": 2,
+    "OUTRAGE": 4,
+    "DRAGONDANCE": 4,
     "HEADSMASH": 4,
     "CLOSECOMBAT": 1
    }
@@ -716,8 +716,8 @@
     "LEAFSTORM": 5,
     "HIDDENPOWERICE": 2,
     "SUPERPOWER": 5,
-    "KNOCKOFF": 5,
     "SYNTHESIS": 3,
+    "KNOCKOFF": 5,
     "HIDDENPOWERROCK": 1,
     "LEECHLIFE": 1
    }
@@ -730,17 +730,17 @@
     "Bulky Support": 1
    },
    "moves": {
-    "TOXIC": 4,
     "EARTHPOWER": 4,
-    "LAVAPLUME": 5,
     "RECOVER": 5,
+    "TOXIC": 4,
+    "LAVAPLUME": 5,
     "HIDDENPOWERROCK": 2,
     "SHELLSMASH": 3,
-    "STONEEDGE": 1,
-    "FIREBLAST": 3,
     "HIDDENPOWERGRASS": 1,
-    "ANCIENTPOWER": 3,
+    "FIREBLAST": 3,
+    "STONEEDGE": 1,
     "STEALTHROCK": 3,
+    "ANCIENTPOWER": 3,
     "POWERGEM": 2,
     "YAWN": 1
    }
@@ -752,18 +752,18 @@
     "Bulky Setup": 1
    },
    "moves": {
-    "ENERGYBALL": 4,
-    "TOXIC": 4,
+    "AROMATHERAPY": 4,
     "LEECHSEED": 5,
     "EARTHQUAKE": 5,
-    "AROMATHERAPY": 4,
+    "ENERGYBALL": 4,
     "SYNTHESIS": 5,
-    "DRAGONTAIL": 4,
+    "TOXIC": 4,
     "GIGADRAIN": 1,
+    "DRAGONTAIL": 4,
     "ENCORE": 1,
     "KNOCKOFF": 2,
-    "SWORDSDANCE": 1,
-    "PETALBLIZZARD": 1
+    "PETALBLIZZARD": 1,
+    "SWORDSDANCE": 1
    }
   },
   "RAICHU": {
@@ -774,35 +774,35 @@
     "Tera Blast user": 1
    },
    "moves": {
-    "ENCORE": 6,
     "GRASSKNOT": 5,
-    "NASTYPLOT": 9,
-    "THUNDERBOLT": 9,
-    "HIDDENPOWERICE": 4,
-    "FOCUSBLAST": 7,
+    "ENCORE": 6,
     "SURF": 6,
+    "HIDDENPOWERICE": 4,
+    "THUNDERBOLT": 9,
+    "FOCUSBLAST": 7,
+    "NASTYPLOT": 9,
     "VOLTSWITCH": 7,
-    "KNOCKOFF": 3,
     "NUZZLE": 3,
+    "KNOCKOFF": 3,
     "ALLURINGVOICE": 1,
     "TERABLAST": 1
    }
   },
-  "TOGETIC": {
+  "TOGEKISS": {
    "roles": {
     "Bulky Setup": 5,
     "Bulky Attacker": 4,
     "Fast Attacker": 4
    },
    "moves": {
-    "NASTYPLOT": 5,
-    "AIRSLASH": 13,
-    "THUNDERWAVE": 9,
     "AURASPHERE": 9,
+    "THUNDERWAVE": 9,
+    "AIRSLASH": 13,
+    "NASTYPLOT": 5,
     "ROOST": 9,
     "HEALBELL": 4,
-    "FIREBLAST": 2,
     "TRICK": 4,
+    "FIREBLAST": 2,
     "DEFOG": 2,
     "DAZZLINGGLEAM": 2
    }
@@ -814,13 +814,13 @@
     "Wallbreaker": 1
    },
    "moves": {
-    "HURRICANE": 7,
-    "FLAMETHROWER": 7,
     "DRACOMETEOR": 7,
-    "ROOST": 5,
-    "UTURN": 4,
     "SWITCHEROO": 2,
+    "UTURN": 4,
     "BOOMBURST": 4,
+    "HURRICANE": 7,
+    "ROOST": 5,
+    "FLAMETHROWER": 7,
     "DEFOG": 3
    }
   },
@@ -832,12 +832,12 @@
     "AV Pivot": 1
    },
    "moves": {
-    "THUNDERBOLT": 14,
     "FLASHCANNON": 12,
-    "HIDDENPOWERGROUND": 4,
-    "EXPLOSION": 1,
-    "HIDDENPOWERICE": 4,
     "HIDDENPOWERFIRE": 2,
+    "HIDDENPOWERICE": 4,
+    "EXPLOSION": 1,
+    "HIDDENPOWERGROUND": 4,
+    "THUNDERBOLT": 14,
     "PROTECT": 5,
     "TOXIC": 5,
     "VOLTSWITCH": 6,
@@ -854,10 +854,10 @@
     "Tera Blast user": 1
    },
    "moves": {
-    "TOXIC": 5,
     "ICEBEAM": 6,
-    "TRIATTACK": 7,
     "RECOVER": 8,
+    "TRIATTACK": 7,
+    "TOXIC": 5,
     "DISCHARGE": 6,
     "TELEPORT": 1,
     "SHADOWBALL": 2,
@@ -871,15 +871,15 @@
     "Setup Sweeper": 3
    },
    "moves": {
-    "TOXIC": 3,
+    "SUBSTITUTE": 3,
     "IRONHEAD": 6,
     "SHADOWBALL": 3,
+    "TOXIC": 3,
     "KINGSSHIELD": 6,
-    "SUBSTITUTE": 3,
-    "SHADOWSNEAK": 3,
-    "SWORDSDANCE": 3,
     "SACREDSWORD": 2,
+    "SHADOWSNEAK": 3,
     "SHADOWCLAW": 3,
+    "SWORDSDANCE": 3,
     "CLOSECOMBAT": 1
    }
   },
@@ -889,10 +889,10 @@
     "Wallbreaker": 3
    },
    "moves": {
-    "NIGHTSLASH": 4,
     "DOUBLEEDGE": 5,
-    "EARTHQUAKE": 8,
     "RETURN": 1,
+    "EARTHQUAKE": 8,
+    "NIGHTSLASH": 4,
     "GIGAIMPACT": 8,
     "RETALIATE": 3,
     "PURSUIT": 2,
@@ -905,12 +905,12 @@
     "Setup Sweeper": 1
    },
    "moves": {
-    "TOXIC": 1,
     "DEFOG": 1,
+    "REVELATIONDANCE": 2,
     "HURRICANE": 2,
+    "TOXIC": 1,
     "ROOST": 2,
     "CALMMIND": 1,
-    "REVELATIONDANCE": 2,
     "QUIVERDANCE": 1
    }
   },
@@ -921,18 +921,18 @@
     "Bulky Support": 1
    },
    "moves": {
-    "ROCKSLIDE": 3,
-    "TRICKROOM": 3,
     "EARTHQUAKE": 5,
-    "HORNLEECH": 7,
-    "WOODHAMMER": 4,
     "SHADOWCLAW": 2,
+    "ROCKSLIDE": 3,
+    "WOODHAMMER": 4,
     "DRAINPUNCH": 5,
-    "TOXIC": 4,
+    "TRICKROOM": 3,
+    "HORNLEECH": 7,
     "PROTECT": 4,
+    "TOXIC": 4,
     "POLTERGEIST": 4,
-    "REST": 1,
-    "WILLOWISP": 1
+    "WILLOWISP": 1,
+    "REST": 1
    }
   },
   "CHIMECHO": {
@@ -943,22 +943,22 @@
     "Bulky Attacker": 1
    },
    "moves": {
-    "TOXIC": 4,
-    "THUNDERWAVE": 3,
-    "HIDDENPOWERFIGHTING": 4,
+    "PSYCHIC": 8,
     "RECOVER": 11,
     "HEALBELL": 5,
-    "PSYCHIC": 8,
-    "CALMMIND": 5,
+    "THUNDERWAVE": 3,
+    "TOXIC": 4,
+    "HIDDENPOWERFIGHTING": 4,
     "SIGNALBEAM": 4,
+    "CALMMIND": 5,
     "PSYSHOCK": 4,
     "KNOCKOFF": 3,
     "DEFOG": 1,
     "ENCORE": 1,
     "PSYCHICNOISE": 2,
     "DAZZLINGGLEAM": 2,
-    "STOREDPOWER": 1,
-    "COSMICPOWER": 1
+    "COSMICPOWER": 1,
+    "STOREDPOWER": 1
    }
   },
   "CRAWDAUNT": {
@@ -969,12 +969,12 @@
    "moves": {
     "XSCISSOR": 1,
     "WATERFALL": 2,
-    "DRAGONDANCE": 7,
-    "SUPERPOWER": 4,
     "CRUNCH": 2,
-    "CRABHAMMER": 5,
-    "KNOCKOFF": 5,
+    "SUPERPOWER": 4,
+    "DRAGONDANCE": 7,
     "AQUAJET": 5,
+    "KNOCKOFF": 5,
+    "CRABHAMMER": 5,
     "CLOSECOMBAT": 2
    }
   },
@@ -985,16 +985,16 @@
     "Bulky Attacker": 1
    },
    "moves": {
-    "FACADE": 9,
     "PROTECT": 4,
-    "CLOSECOMBAT": 9,
+    "FACADE": 9,
     "CRUNCH": 9,
+    "CLOSECOMBAT": 9,
     "SWORDSDANCE": 5,
-    "THROATCHOP": 2,
     "SLEEPTALK": 1,
-    "REST": 1,
+    "BODYSLAM": 1,
+    "THROATCHOP": 2,
     "EARTHQUAKE": 1,
-    "BODYSLAM": 1
+    "REST": 1
    }
   },
   "MAGMORTAR": {
@@ -1005,11 +1005,11 @@
    },
    "moves": {
     "TAUNT": 6,
-    "THUNDERBOLT": 8,
     "EARTHQUAKE": 6,
     "HIDDENPOWERICE": 4,
-    "FOCUSBLAST": 8,
     "FIREBLAST": 8,
+    "FOCUSBLAST": 8,
+    "THUNDERBOLT": 8,
     "SCORCHINGSANDS": 2,
     "WILLOWISP": 2,
     "KNOCKOFF": 2
@@ -1021,13 +1021,13 @@
    },
    "moves": {
     "GRASSKNOT": 3,
-    "DAZZLINGGLEAM": 2,
-    "PSYSHOCK": 3,
-    "CALMMIND": 2,
     "FIREBLAST": 3,
     "SWITCHEROO": 2,
-    "NASTYPLOT": 1,
-    "FOCUSBLAST": 1
+    "PSYSHOCK": 3,
+    "DAZZLINGGLEAM": 2,
+    "CALMMIND": 2,
+    "FOCUSBLAST": 1,
+    "NASTYPLOT": 1
    }
   },
   "FERROTHORN": {
@@ -1036,13 +1036,13 @@
     "Bulky Support": 4
    },
    "moves": {
-    "TOXIC": 4,
     "LEECHSEED": 4,
-    "POWERWHIP": 8,
     "GYROBALL": 4,
     "SPIKES": 8,
-    "IRONHEAD": 1,
+    "TOXIC": 4,
+    "POWERWHIP": 8,
     "THUNDERWAVE": 4,
+    "IRONHEAD": 1,
     "STEALTHROCK": 6,
     "KNOCKOFF": 3
    }
@@ -1054,14 +1054,14 @@
     "Wallbreaker": 2
    },
    "moves": {
-    "TOXIC": 2,
+    "STONEEDGE": 8,
+    "DYNAMICPUNCH": 8,
     "PAYBACK": 2,
     "EARTHQUAKE": 2,
-    "DYNAMICPUNCH": 8,
-    "STONEEDGE": 8,
     "BULLETPUNCH": 10,
-    "KNOCKOFF": 8,
+    "TOXIC": 2,
     "BULKUP": 3,
+    "KNOCKOFF": 8,
     "FACADE": 2,
     "CLOSECOMBAT": 2
    }
@@ -1075,13 +1075,13 @@
     "Fast Support": 1
    },
    "moves": {
-    "REST": 10,
-    "SURF": 2,
-    "CALMMIND": 17,
     "SLEEPTALK": 6,
-    "HYDROPUMP": 1,
-    "ICEBEAM": 6,
+    "CALMMIND": 17,
+    "SURF": 2,
+    "REST": 10,
     "SUBSTITUTE": 10,
+    "ICEBEAM": 6,
+    "HYDROPUMP": 1,
     "SCALD": 15,
     "PROTECT": 5,
     "AIRSLASH": 1
@@ -1094,13 +1094,13 @@
     "Bulky Attacker": 2
    },
    "moves": {
-    "HEATWAVE": 7,
+    "SUBSTITUTE": 2,
+    "HIDDENPOWERICE": 5,
+    "UTURN": 7,
     "TOXIC": 5,
     "THUNDERBOLT": 4,
     "ROOST": 7,
-    "HIDDENPOWERICE": 5,
-    "UTURN": 7,
-    "SUBSTITUTE": 2,
+    "HEATWAVE": 7,
     "DEFOG": 3,
     "DISCHARGE": 4,
     "HURRICANE": 2
@@ -1116,15 +1116,15 @@
    },
    "moves": {
     "PHOTONGEYSER": 8,
-    "HEATWAVE": 4,
-    "CALMMIND": 4,
-    "MOONLIGHT": 4,
     "STEALTHROCK": 1,
+    "CALMMIND": 4,
+    "HEATWAVE": 4,
+    "MOONLIGHT": 4,
     "KNOCKOFF": 4,
-    "EARTHQUAKE": 4,
     "SWORDSDANCE": 2,
-    "DRAGONDANCE": 3,
+    "EARTHQUAKE": 4,
     "BRICKBREAK": 1,
+    "DRAGONDANCE": 3,
     "EARTHPOWER": 2
    }
   },
@@ -1136,15 +1136,15 @@
     "Tera Blast user": 1
    },
    "moves": {
-    "TAUNT": 4,
-    "DESTINYBOND": 3,
-    "HIDDENPOWERFIGHTING": 6,
-    "SHADOWBALL": 13,
-    "WILLOWISP": 4,
-    "SUBSTITUTE": 6,
     "PAINSPLIT": 4,
-    "NASTYPLOT": 6,
+    "DESTINYBOND": 3,
+    "TAUNT": 4,
+    "SUBSTITUTE": 6,
+    "SHADOWBALL": 13,
+    "HIDDENPOWERFIGHTING": 6,
+    "WILLOWISP": 4,
     "THUNDERBOLT": 8,
+    "NASTYPLOT": 6,
     "TRICK": 5,
     "DAZZLINGGLEAM": 6,
     "MYSTICALFIRE": 3,
@@ -1159,11 +1159,11 @@
     "Staller": 3
    },
    "moves": {
-    "HYDROPUMP": 3,
-    "EARTHQUAKE": 5,
     "ICEBEAM": 5,
+    "EARTHQUAKE": 5,
     "CRUNCH": 7,
     "AQUAJET": 2,
+    "HYDROPUMP": 3,
     "WATERFALL": 3,
     "PROTECT": 5,
     "DESTINYBOND": 2,
@@ -1178,16 +1178,16 @@
     "Fast Bulky Setup": 1
    },
    "moves": {
-    "TOXIC": 2,
-    "LIGHTSCREEN": 2,
-    "POWERGEM": 2,
-    "STEALTHROCK": 2,
     "REFLECT": 2,
+    "POWERGEM": 2,
+    "LIGHTSCREEN": 2,
+    "STEALTHROCK": 2,
+    "TOXIC": 2,
     "MOONBLAST": 4,
-    "ROCKPOLISH": 2,
-    "REST": 2,
     "IRONDEFENSE": 2,
-    "BODYPRESS": 2
+    "BODYPRESS": 2,
+    "ROCKPOLISH": 2,
+    "REST": 2
    }
   },
   "HYDREIGON": {
@@ -1199,10 +1199,10 @@
    },
    "moves": {
     "DRACOMETEOR": 10,
-    "ROOST": 6,
+    "FIREBLAST": 8,
     "UTURN": 9,
     "FOCUSBLAST": 1,
-    "FIREBLAST": 8,
+    "ROOST": 6,
     "DARKPULSE": 10,
     "EARTHPOWER": 2,
     "FLASHCANNON": 7,
@@ -1218,17 +1218,17 @@
     "Bulky Support": 4
    },
    "moves": {
-    "HAZE": 6,
-    "HYDROPUMP": 1,
-    "SLUDGEBOMB": 6,
-    "TOXICSPIKES": 6,
     "ICEBEAM": 2,
-    "RAPIDSPIN": 6,
     "SURF": 2,
+    "SLUDGEBOMB": 6,
+    "HAZE": 6,
+    "TOXICSPIKES": 6,
+    "HYDROPUMP": 1,
+    "RAPIDSPIN": 6,
     "SCALD": 4,
     "KNOCKOFF": 4,
-    "TOXIC": 1,
-    "FLIPTURN": 1
+    "FLIPTURN": 1,
+    "TOXIC": 1
    }
   },
   "LANTURN": {
@@ -1238,16 +1238,16 @@
     "Bulky Support": 1
    },
    "moves": {
-    "TOXIC": 7,
-    "DISCHARGE": 1,
-    "THUNDERWAVE": 7,
-    "THUNDERBOLT": 9,
-    "HYDROPUMP": 1,
     "ICEBEAM": 6,
-    "SURF": 1,
     "HEALBELL": 6,
-    "VOLTSWITCH": 6,
-    "SCALD": 8
+    "SURF": 1,
+    "THUNDERBOLT": 9,
+    "THUNDERWAVE": 7,
+    "TOXIC": 7,
+    "HYDROPUMP": 1,
+    "DISCHARGE": 1,
+    "SCALD": 8,
+    "VOLTSWITCH": 6
    }
   },
   "BEWEAR": {
@@ -1257,11 +1257,11 @@
     "Bulky Setup": 2
    },
    "moves": {
-    "SWORDSDANCE": 2,
     "DOUBLEEDGE": 6,
     "RETURN": 2,
-    "SUPERPOWER": 2,
     "SHADOWCLAW": 3,
+    "SUPERPOWER": 2,
+    "SWORDSDANCE": 2,
     "DRAINPUNCH": 4,
     "BULKUP": 2,
     "DARKESTLARIAT": 3,
@@ -1275,19 +1275,19 @@
     "Setup Sweeper": 2
    },
    "moves": {
-    "TAUNT": 2,
+    "SEEDBOMB": 4,
     "DOUBLEEDGE": 10,
     "BITE": 2,
+    "HYPNOSIS": 2,
+    "TAUNT": 2,
     "RETURN": 6,
     "UTURN": 10,
-    "HYPNOSIS": 2,
-    "SEEDBOMB": 4,
     "FAKEOUT": 6,
     "KNOCKOFF": 8,
-    "HYPERVOICE": 2,
-    "HIDDENPOWERFIGHTING": 2,
     "NASTYPLOT": 2,
     "SHADOWBALL": 2,
+    "HYPERVOICE": 2,
+    "HIDDENPOWERFIGHTING": 2,
     "SWITCHEROO": 2
    }
   },
@@ -1297,10 +1297,10 @@
     "Fast Support": 1
    },
    "moves": {
-    "SUCKERPUNCH": 5,
+    "POISONJAB": 5,
     "TOXICSPIKES": 5,
     "BUGBITE": 1,
-    "POISONJAB": 5,
+    "SUCKERPUNCH": 5,
     "XSCISSOR": 1,
     "STICKYWEB": 3,
     "MEGAHORN": 3,
@@ -1314,10 +1314,10 @@
     "Wallbreaker": 1
    },
    "moves": {
-    "RAINDANCE": 4,
-    "ICEBEAM": 7,
     "WATERFALL": 9,
     "RETURN": 3,
+    "ICEBEAM": 7,
+    "RAINDANCE": 4,
     "MEGAHORN": 9,
     "DRILLRUN": 8,
     "KNOCKOFF": 6,
@@ -1332,19 +1332,19 @@
     "Bulky Setup": 1
    },
    "moves": {
-    "FLAMETHROWER": 5,
-    "SLUDGEBOMB": 2,
     "EARTHQUAKE": 7,
-    "AQUATAIL": 1,
     "SUCKERPUNCH": 5,
     "SWITCHEROO": 5,
+    "SLUDGEBOMB": 2,
+    "AQUATAIL": 1,
     "DARKPULSE": 1,
+    "FLAMETHROWER": 5,
     "GIGADRAIN": 4,
     "SLUDGEWAVE": 2,
     "KNOCKOFF": 3,
     "GLARE": 3,
-    "SWORDSDANCE": 2,
     "POISONJAB": 1,
+    "SWORDSDANCE": 2,
     "GUNKSHOT": 2,
     "TRAILBLAZE": 1
    }
@@ -1356,10 +1356,10 @@
    },
    "moves": {
     "PAYBACK": 2,
-    "LOWKICK": 6,
+    "RETURN": 4,
     "PURSUIT": 2,
     "UTURN": 6,
-    "RETURN": 4,
+    "LOWKICK": 6,
     "FAKEOUT": 5,
     "KNOCKOFF": 4,
     "DOUBLEEDGE": 2,
@@ -1373,15 +1373,15 @@
     "Bulky Support": 4
    },
    "moves": {
-    "EARTHQUAKE": 12,
+    "OUTRAGE": 4,
     "ROOST": 12,
     "DRAGONDANCE": 6,
-    "OUTRAGE": 4,
+    "EARTHQUAKE": 12,
+    "DRACOMETEOR": 5,
+    "HEALBELL": 4,
+    "FIREBLAST": 5,
     "HAZE": 3,
     "TOXIC": 5,
-    "DRACOMETEOR": 5,
-    "FIREBLAST": 5,
-    "HEALBELL": 4,
     "DEFOG": 3,
     "DUALWINGBEAT": 1,
     "BRAVEBIRD": 2,
@@ -1395,8 +1395,8 @@
    },
    "moves": {
     "TAUNT": 6,
-    "EARTHQUAKE": 6,
     "ICEBEAM": 2,
+    "EARTHQUAKE": 6,
     "EXPLOSION": 1,
     "SPIKES": 6,
     "SUPERFANG": 4,
@@ -1411,14 +1411,14 @@
     "Z-Move user": 1
    },
    "moves": {
-    "OUTRAGE": 9,
-    "ROOST": 7,
+    "STONEEDGE": 7,
     "EARTHQUAKE": 12,
     "UTURN": 9,
-    "STONEEDGE": 7,
-    "TOXIC": 2,
+    "OUTRAGE": 9,
+    "ROOST": 7,
     "DRACOMETEOR": 3,
     "FIREBLAST": 2,
+    "TOXIC": 2,
     "DEFOG": 3,
     "DRAGONDANCE": 6
    }
@@ -1430,11 +1430,11 @@
     "Bulky Attacker": 1
    },
    "moves": {
+    "SUBSTITUTE": 10,
+    "ICEBEAM": 3,
+    "HEALBELL": 1,
     "TOXIC": 9,
     "ROOST": 10,
-    "ICEBEAM": 3,
-    "SUBSTITUTE": 10,
-    "HEALBELL": 1,
     "HURRICANE": 3,
     "FREEZEDRY": 7,
     "DEFOG": 2,
@@ -1451,16 +1451,16 @@
     "Setup Sweeper": 1
    },
    "moves": {
-    "EARTHQUAKE": 8,
-    "WOODHAMMER": 8,
     "STONEEDGE": 8,
+    "WOODHAMMER": 8,
     "SYNTHESIS": 4,
+    "EARTHQUAKE": 8,
     "ROCKPOLISH": 4,
     "STEALTHROCK": 2,
-    "HEADLONGRUSH": 1,
+    "SHELLSMASH": 1,
     "ROCKBLAST": 1,
-    "BULLETSEED": 1,
-    "SHELLSMASH": 1
+    "HEADLONGRUSH": 1,
+    "BULLETSEED": 1
    }
   },
   "GOLISOPOD": {
@@ -1469,8 +1469,8 @@
     "Wallbreaker": 1
    },
    "moves": {
-    "LEECHLIFE": 2,
     "LIQUIDATION": 2,
+    "LEECHLIFE": 2,
     "FIRSTIMPRESSION": 2,
     "KNOCKOFF": 2,
     "SPIKES": 2
@@ -1482,14 +1482,14 @@
     "Bulky Attacker": 5
    },
    "moves": {
-    "EARTHQUAKE": 6,
-    "RETURN": 4,
     "THUNDERWAVE": 8,
     "HEALBELL": 4,
-    "CLOSECOMBAT": 2,
+    "RETURN": 4,
+    "EARTHQUAKE": 6,
     "CRUNCH": 2,
-    "PLAYROUGH": 4,
+    "CLOSECOMBAT": 2,
     "TOXIC": 2,
+    "PLAYROUGH": 4,
     "ENCORE": 1,
     "ROAR": 1
    }
@@ -1501,13 +1501,13 @@
     "Bulky Support": 2
    },
    "moves": {
-    "SLEEPPOWDER": 12,
     "LEECHSEED": 6,
-    "POWERWHIP": 1,
-    "SLUDGEBOMB": 12,
     "SUBSTITUTE": 6,
-    "LEAFSTORM": 2,
+    "SLUDGEBOMB": 12,
+    "POWERWHIP": 1,
+    "SLEEPPOWDER": 12,
     "EARTHQUAKE": 4,
+    "LEAFSTORM": 2,
     "SYNTHESIS": 6,
     "GIGADRAIN": 5,
     "ENERGYBALL": 4,
@@ -1523,12 +1523,12 @@
     "Bulky Attacker": 2
    },
    "moves": {
+    "PURSUIT": 3,
+    "NIGHTSLASH": 2,
     "SUCKERPUNCH": 6,
     "IRONHEAD": 6,
-    "NIGHTSLASH": 2,
-    "PURSUIT": 3,
-    "SWORDSDANCE": 5,
     "LOWKICK": 1,
+    "SWORDSDANCE": 5,
     "KNOCKOFF": 3,
     "STEALTHROCK": 2,
     "THROATCHOP": 1
@@ -1539,9 +1539,9 @@
     "Setup Sweeper": 2
    },
    "moves": {
+    "POWERGEM": 2,
     "SHELLSMASH": 2,
     "EARTHQUAKE": 2,
-    "POWERGEM": 2,
     "ACROBATICS": 2
    }
   }

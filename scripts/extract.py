@@ -9,7 +9,7 @@ BOX = [  # caja actual (Chandelure aparece 2 veces)
  "FEAROW","SCOLIPEDE","SKARMORY","CAMERUPT","CHANDELURE","KECLEON",
  "GOODRA","DUSCLOPS","GOLURK","TOXAPEX",
  "ALAKAZAM","MINIOR_M","GARBODOR","QWILFISH","TYRANTRUM","LURANTIS",
- "MAGCARGO","MEGANIUM","RAICHU","TOGETIC","NOIVERN","MAGNETON",
+ "MAGCARGO","MEGANIUM","RAICHU","TOGEKISS","NOIVERN","MAGNETON",
  "PORYGON","CHANDELURE","AEGISLASH","SLAKING",
  "ORICORIO_4",
  # nuevos: Corphish -> Crawdaunt (nivel 30), Magby -> Magmar (21) -> Magmortar (nivel 50 o Magmarizador)
