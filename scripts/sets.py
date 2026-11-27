@@ -106,6 +106,7 @@ def attack_vector(mid, m, ab, atk, spa, types, speed, parents):
     if ab == "HUSTLE" and phys: mod *= 1.5; acc *= 0.8
     if ab == "IRONFIST" and "j" in fl: mod *= 1.2
     if ab == "TECHNICIAN" and hit_power <= 60: mod *= 1.5
+    if ab == "COMPOUNDEYES": acc = min(1.0, acc * 1.3)
     if ab == "SKILLLINK" and MULTI.get(mid) == 3: mod *= 5 / 3   # 5 golpes siempre en vez de ~3
     if ab == "STRONGJAW" and "i" in fl: mod *= 1.5
     if ab == "GUTS" and phys: mod *= 1.3

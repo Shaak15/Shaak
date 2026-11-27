@@ -185,6 +185,7 @@ dialog::backdrop{background:rgba(8,12,24,.55)}
 <nav class="tabs" aria-label="Secciones">
   <div class="wrap">
     <a href="#ranking">Mejores fusiones</a>
+    <a href="#combos">Combos</a>
     <a href="#explorador">Explorador 1 a 1</a>
     <a href="#miequipo">Mi equipo</a>
     <a href="#equipo">Equipos desde cero</a>
@@ -216,6 +217,16 @@ dialog::backdrop{background:rgba(8,12,24,.55)}
       <div class="grid" id="rank-grid"></div>
       <button class="ghost more" id="more">Ver 30 más</button>
     </div>
+  </section>
+
+  <!-- COMBOS -->
+  <section class="view" id="v-combos" hidden>
+    <div>
+      <h2>Combos de la comunidad</h2>
+      <p class="muted" style="margin:.25rem 0 0">Trucos que usa la comunidad de Infinite Fusion y las fusiones de tu caja que los pueden hacer. Pulsa una fusión para ver su detalle.</p>
+    </div>
+    <div class="callout"><b>Mito:</b> Superguarda (Shedinja) no es tan rota como parece. En el código del juego cualquier Pokémon con Superguarda tiene <b>1 PS</b>, aunque sea una fusión: cae con cualquier daño de clima, estado o trampa.</div>
+    <div id="combo-list" style="display:grid;gap:22px"></div>
   </section>
 
   <!-- EXPLORADOR -->
@@ -541,6 +552,25 @@ function renderCallout(){
     ? `Calculado sin las habilidades ocultas de: <b>${off.map(nm).join(", ")}</b>. Cámbialo en <a href="#caja">Tu caja</a>.`
     : `Ahora mismo se cuenta con que <b>todos</b> tus Pokémon pueden llevar su habilidad oculta (Impulso, Mutatipo, Muro Mágico, Regeneración, Respondón…). Si alguno no la tiene, desmárcalo en <a href="#caja">Tu caja</a> y todo se recalcula.`;
 }
+
+// ---------- combos
+function renderCombos(){
+  const html = (M.combos||[]).map(c => {
+    const rows = [];
+    for (const h of c.hits){
+      const f = FMAP[h.k]; if (!f || !okF(f)) continue;
+      const e = f.abilities.find(a => a.id === h.ab); if (!e || !allowed(f, e)) continue;
+      rows.push({f, e, v: e.score, uses: h.uses});
+      if (rows.length >= 6) break;
+    }
+    const body = rows.length ? rows.map(r => row(r).replace('<div class="sub setline"', `<div class="sub setline" style="color:var(--good)">Combo: ${esc(r.uses.map(mvNameAny).join(" · "))}</div><div class="sub setline"`)).join("")
+      : `<p class="muted" style="margin:0">Ninguna fusión de tu caja puede hacerlo ahora mismo${c.id==="veleta"?" (hace falta Glalie con Veleta, su habilidad oculta)":""}.</p>`;
+    return `<div class="panel"><h3>${esc(c.title)}</h3><p class="muted" style="margin:0;font-size:14px">${esc(c.desc)}</p><div class="list">${body}</div></div>`;
+  }).join("");
+  $("#combo-list").innerHTML = html;
+}
+const MV_ES_EXTRA = {AIRSLASH:"Tajo Aéreo",THUNDERWAVE:"Onda Trueno",NUZZLE:"Moflete Estático",GLARE:"Deslumbrar",PROTECT:"Protección",SUBSTITUTE:"Sustituto",KINGSSHIELD:"Escudo Real",SUPERPOWER:"Fuerza Bruta",HAMMERARM:"Machada",OVERHEAT:"Sofoco",DRACOMETEOR:"Cometa Draco",LEAFSTORM:"Lluevehojas",CLOSECOMBAT:"A Bocajarro",SHELLSMASH:"Rompecoraza",FACADE:"Imagen",FAKEOUT:"Sorpresa",DOUBLEHIT:"Doble Golpe",BULLETPUNCH:"Puño Bala",AERIALACE:"Golpe Aéreo",ROCKBLAST:"Pedrada"};
+const mvNameAny = id => MV[id] ? MV[id].es : (MV_ES_EXTRA[id] || id);
 
 // ---------- explorador
 let sel = store.get("sel", "SLAKING"), role2 = "score";
@@ -925,7 +955,7 @@ $("#method").innerHTML = `
   </ul>`;
 
 // ---------- navegación
-const VIEWS = ["ranking","explorador","miequipo","equipo","caja","metodo"];
+const VIEWS = ["ranking","combos","explorador","miequipo","equipo","caja","metodo"];
 let teamsBuilt = false;
 function route(){
   const h = (location.hash || "#ranking").slice(1);
@@ -934,9 +964,10 @@ function route(){
   document.querySelectorAll("nav.tabs a").forEach(a => a.setAttribute("aria-current", a.getAttribute("href") === "#"+cur ? "page" : "false"));
   if (cur === "equipo" && !teamsBuilt){ teamsBuilt = true; renderTeams(); }
   if (cur === "explorador") renderExplorer();
+  if (cur === "combos") renderCombos();
   if (cur === "miequipo") renderMyTeam();
 }
-function refresh(){ if (!$("#v-miequipo").hidden) renderMyTeam(); renderCallout(); renderFeatured(); renderRanking(); if (!$("#v-explorador").hidden) renderExplorer(); if (teamsBuilt && !$("#v-equipo").hidden) renderTeams(); else teamsBuilt = false; }
+function refresh(){ if (!$("#v-combos").hidden) renderCombos(); if (!$("#v-miequipo").hidden) renderMyTeam(); renderCallout(); renderFeatured(); renderRanking(); if (!$("#v-explorador").hidden) renderExplorer(); if (teamsBuilt && !$("#v-equipo").hidden) renderTeams(); else teamsBuilt = false; }
 window.addEventListener("hashchange", route);
 renderBox(); refresh(); route();
 })();

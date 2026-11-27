@@ -85,7 +85,7 @@ def has(moves, lst):
     return [m for m in lst if m in moves]
 
 # ---------------------------------------------------------------- puntuación
-TYPE_PTS = {0: 3.0, 0.25: 2.0, 0.5: 1.0, 1: 0.0, 2: -2.0, 4: -5.0}
+TYPE_PTS = {0: 3.0, 0.125: 2.5, 0.25: 2.0, 0.5: 1.0, 1: 0.0, 2: -2.0, 4: -5.0}
 IMMUNITY_AB = {"FLASHFIRE": "FIRE", "SAPSIPPER": "GRASS", "LIGHTNINGROD": "ELECTRIC", "LEVITATE": "GROUND",
                "WATERABSORB": "WATER", "VOLTABSORB": "ELECTRIC"}
 
@@ -95,6 +95,8 @@ def defense_profile(types, ability):
         m = eff(t, types)
         if IMMUNITY_AB.get(ability) == t:
             m = 0
+        if ability == "THICKFAT" and t in ("FIRE", "ICE"):
+            m = m / 2           # Sebo: Fuego y Hielo hacen la mitad
         prof[t] = m
     return prof
 
@@ -159,7 +161,7 @@ def ability_value(a, ctx):
         "PIXILATE": 60, "CHLOROPHYLL": 25, "SNOWCLOAK": 10, "ICEBODY": 10, "STEADFAST": 10, "ANTICIPATION": 10,
         "RUNAWAY": 0, "CUTECHARM": 12, "WIMPOUT": 0,
         "PRISMARMOR": 45, "ROUGHSKIN": 25, "CLEARBODY": 22, "LIQUIDOOZE": 15, "RAINDISH": 5,
-        "DEFIANT": 30, "LIGHTMETAL": 5, "ILLUMINATE": 0, "FLUFFY": 50, "INSOMNIA": 15, "WATERVEIL": 15, "SHEDSKIN": 30, "PICKUP": 0,
+        "DEFIANT": 30, "OBLIVIOUS": 5, "THICKFAT": 45, "COMPOUNDEYES": 40, "POISONTOUCH": 20, "SOUNDPROOF": 15, "LIGHTMETAL": 5, "ILLUMINATE": 0, "FLUFFY": 50, "INSOMNIA": 15, "WATERVEIL": 15, "SHEDSKIN": 30, "PICKUP": 0,
         "CLOUDNINE": 10, "MOODY": 55, "CURSEDBODY": 20,
     }.get(a)
     if v is not None:
@@ -387,6 +389,8 @@ if __name__ == "__main__":
                   for m in sorted({m for f in fus for a in f["abilities"] for st in a["sets"].values() for m in st["moves"]})},
         "types_es": T_ES, "types": TYPES, "chart": [[eff(x, [y]) for y in TYPES] for x in TYPES],
     }
+    import combos as COMBOS
+    meta["combos"] = COMBOS.find(fus, SP)
     json.dump({"meta": meta, "fusions": fus}, open(os.path.join(HERE, "../data/fusions.json"), "w"), ensure_ascii=False)
     print(len(fus), "fusiones")
     for f in fus[:40]:

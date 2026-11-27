@@ -8,21 +8,23 @@ SRC = sys.argv[1]
 BOX = [  # caja actual (Chandelure aparece 2 veces)
  "FEAROW","SCOLIPEDE","SKARMORY","CAMERUPT","CHANDELURE","KECLEON",
  "GOODRA","DUSCLOPS","GOLURK","TOXAPEX",
- "ALAKAZAM","MINIOR_M","GARBODOR","QWILFISH","TYRANTRUM","LURANTIS",
+ "ALAKAZAM","MINIOR_M","GARBODOR","TYRANTRUM","LURANTIS",
  "MAGCARGO","MEGANIUM","RAICHU","TOGEKISS","NOIVERN","MAGNETON",
  "PORYGON","CHANDELURE","AEGISLASH","SLAKING",
  "ORICORIO_4",
  # nuevos: Corphish -> Crawdaunt (nivel 30), Magby -> Magmar (21) -> Magmortar (nivel 50 o Magmarizador)
- "TREVENANT","CHIMECHO","CRAWDAUNT","URSARING","MAGMORTAR",
+ "TREVENANT","CRAWDAUNT","URSARING","MAGMORTAR",
  "DELPHOX",
  "FERROTHORN","MACHAMP","SUICUNE","ZAPDOS","NECROZMA","MISMAGIUS","SHARPEDO","CARBINK",
  "HYDREIGON","TENTACRUEL",
  # Stufful -> Bewear (nivel 27), Aipom -> Ambipom (sabiendo Doble Golpe), Snorunt -> Glalie (nivel 42)
- "LANTURN","BEWEAR","PERSIAN","ARIADOS","SEAKING","SEVIPER","AMBIPOM","ALTARIA","GLALIE","FLYGON",
+ "LANTURN","BEWEAR","PERSIAN","AMBIPOM","ALTARIA","GLALIE","FLYGON",
  "ARTICUNO",
  "TORTERRA","GOLISOPOD","GRANBULL",
  "METAGROSS",
- "VENUSAUR","BISHARP",  # Bulbasaur -> Venusaur (Ivysaur nivel 16, Venusaur nivel 32); Pawniard -> Bisharp a nivel 52
+ "VENUSAUR","BISHARP",
+ # Piloswine -> Mamoswine (sabiendo Poder Pasado), Joltik -> Galvantula (36), Skrelp -> Dragalge (48)
+ "MAMOSWINE","GALVANTULA","DRAGALGE","ELECTRODE",  # Bulbasaur -> Venusaur (Ivysaur nivel 16, Venusaur nivel 32); Pawniard -> Bisharp a nivel 52
 ]
 EXTRA = ["MINIOR_C"]  # forma Núcleo (Escudo Limitado)
 
