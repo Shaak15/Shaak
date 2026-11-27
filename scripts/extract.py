@@ -21,6 +21,7 @@ BOX = [  # caja actual (Chandelure aparece 2 veces)
  "LANTURN","BEWEAR","PERSIAN","ARIADOS","SEAKING","SEVIPER","AMBIPOM","ALTARIA","GLALIE","FLYGON",
  "ARTICUNO",
  "TORTERRA","GOLISOPOD","GRANBULL",
+ "METAGROSS",
  "VENUSAUR","BISHARP",  # Bulbasaur -> Venusaur (Ivysaur nivel 16, Venusaur nivel 32); Pawniard -> Bisharp a nivel 52
 ]
 EXTRA = ["MINIOR_C"]  # forma Núcleo (Escudo Limitado)

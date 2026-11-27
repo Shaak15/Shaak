@@ -14,7 +14,7 @@ AB_ES = {
  "STURDY":"Robustez","SUPERLUCK":"Afortunado","SWARM":"Enjambre","SWIFTSWIM":"Nado Rápido",
  "SYNCHRONIZE":"Sincronía","TANGLEDFEET":"Tumbos","TELEPATHY":"Telepatía","TRACE":"Rastro","TRUANT":"Ausente",
  "WEAKARMOR":"Armadura Frágil","WHITESMOKE":"Humo Blanco",
- "SNIPER":"Francotirador","DEFIANT":"Competitivo","ILLUMINATE":"Iluminación","FLUFFY":"Peluche","TECHNICIAN":"Experto","INSOMNIA":"Insomnio",
+ "SNIPER":"Francotirador","LIGHTMETAL":"Metal Liviano","DEFIANT":"Competitivo","ILLUMINATE":"Iluminación","FLUFFY":"Peluche","TECHNICIAN":"Experto","INSOMNIA":"Insomnio",
  "WATERVEIL":"Velo Agua","SHEDSKIN":"Mudar","PICKUP":"Recogida","SKILLLINK":"Encadenado","CLOUDNINE":"Aclimatación",
  "MOODY":"Veleta","CURSEDBODY":"Cuerpo Maldito","LIQUIDOOZE":"Lodo Líquido","RAINDISH":"Cura Lluvia","PRISMARMOR":"Armadura Prisma","ROUGHSKIN":"Piel Tosca","CLEARBODY":"Cuerpo Puro","IRONBARBS":"Punta Acero","EMERGENCYEXIT":"Retirada","WATERABSORB":"Absorbe Agua",
  "VOLTABSORB":"Absorbe Electricidad","MAGICBOUNCE":"Espejo Mágico","PIXILATE":"Piel Feérica","CHLOROPHYLL":"Clorofila",
